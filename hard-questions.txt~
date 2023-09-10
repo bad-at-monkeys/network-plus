@@ -1,0 +1,279 @@
+HARD QUESTIONS - NETWORK+
+
+These are questions that I missed in MeasureUp or the book that I should work on.
+
+---
+
+
+3) What component performs signal amplification to extend the maximum
+   allowable distance for a media type?
+
+Repeater
+
+
+---
+
+
+11) How is the decimal value 171 expressed in hex?
+
+0xAB
+
+  -> Divide 171 by 16 until QUOTIENT is zero.
+     171 / 16 = 10%11
+     10 / 16 = 0%10
+  -> 10 = A
+     11 = B
+  -> 0xAB
+
+In binary - 10101011
+
+
+---
+
+
+13) Which grade or grades of fiber have a 62.5 micron core?
+
+MMF(OM1,OM2)
+
+
+---
+
+
+14) Which fiber Ethernet standard is best suited to implementing backbone
+    cabling that does not exceed 200 m (656 feet) and can achieve at least
+    4 Gbps throughput?
+
+10GBASE-SR MMF(OM1,OM2)
+
+
+---
+
+
+22) You have selected an SFP+ 1310 nm Tx and 1490 nm Rx transceiver to
+    implement a BiDi link between two switches. Should you provision a
+    second SFP+ 1310 nm Tx and 1490 nm Rx for the other switch?
+
+No, we need an SFP+ module with 1490nm Tx and 1310nm Rx.
+
+
+---
+
+
+18) A network technician needs a cost-effective solution that can multiplex
+    up to 16 wavelengths on an SFP/SFP+ interface. Which multiplexing
+    technique should the network technician use?
+
+CWDM supports up to 16 wavelengths and typically deploys 4 or 8 bidirectional
+channels over a single fiber strand.
+
+
+---
+
+
+1) You need to verify whether a switch port is misconfigured by checking
+the number of collisions being reported. What general command could
+you use at a CLI to report this information?
+
+# sh interface
+
+
+---
+
+
+4) A network engineer is setting up MTU sizes to follow most Ether products.
+In normal conditions, what is the maximum size of a standard Ethernet frame,
+excluding the preamble?
+
+1518bytes
+
+
+---
+
+
+8) A network architect is assessing network performance. Which of the following
+is part of the CSMA/CD protocol to identify collisions early?
+
+Preamble
+SFD
+
+
+---
+
+
+11) A network technician is setting up a connection between switches, but
+the switches cannot establish a connection. Which of the following would be
+the most likely cause of the switch's inability to establish a connection?
+
+Dual MDI-X ports
+
+
+---
+
+
+A network admin implements a change on a switch to fix a network issue.
+What should the admin do next?
+
+Implement preventative measures.
+
+
+---
+
+
+A company wants to implement authentication and authorization solution for
+network devices that also directly supports device management.
+
+TACACS+
+
+(RADIUS doesn't support device management)
+
+
+---
+
+
+An admin wants to deploy new wlan topology without running new wiring.
+Must support 5Ghz, MU-MIMO, speeds of 2100Mbps, PoE 25W+.
+What two components must be used?
+
+An AP supporting 802.11ax Wave 2 (5Ghz, MU-MIMO, 2Gbps+).
+A switch supporting 802.3at (PoE).
+
+
+---
+
+
+The connection between an access and distribution switch is over utilized.
+Which should a network engineer use to increase bandwidth between the switches?
+
+Link Aggregation Control Protocol(LACP)
+
+Can be used to increase bandwidth between switches. LACP aggregates two or more
+Ethernet interfaces, allowing the interfaces to operate on a single virtual
+interface. LACP must be configured on both switches and the same number of ports
+must be added to the LACP channel on both ends.
+
+
+---
+
+
+DHCP - Application
+SMTP - Application
+ICMP - Network
+TCP - Transport
+DNS - Application
+FTP - Application
+
+
+---
+
+
+A vulnerability is a flaw or weakness in security that could lead to a security
+breach.
+
+An exploit is an attack that takes advantage of a vulnerability.
+
+
+---
+
+
+VLAN hopping is an attack in which the attackers computer gains access to a
+port that would normally not be accessible to that computer. A way to carry
+out this attack is by double tagging frames with the attack switch and the
+target switch, making it look like the frame was intended for the target
+switch.
+
+
+---
+
+
+SNMP can collect performance and event information from network devices and
+configure SNMP agents on nodes allowing for device config modification.
+
+
+---
+
+
+An admin suspects a WAP antenna needs to be replaced. Which antenna type
+should be used to maximize gain?
+
+A parabolic dish antenna. Like a satellite dish, heavily focusing RF energy in
+a tight beam (i.e. maximizing gain).
+
+
+---
+
+
+If an AP has over 50 clients, a general rule of thumb is that more APs need to
+be added.
+
+
+---
+
+
+MFA must have one or more differing factors:
+  -> Something you know
+  -> Something you have
+  -> Something you are
+  -> Something you do
+  -> Somewhere you are
+
+
+---
+
+
+VNC is platform independent, RDP is Windows proprietary
+
+
+---
+
+
+A company wants to connect a remote office using a satellite internet service.
+What is the main concern for this deployment?
+
+Latency, which is described as the amount of delay that occurs during a data
+transmission.
+
+
+---
+
+
+An admin is concerned about the security of east-west traffic flows.
+Whhat is best to address these concerns?
+
+Place firewalls between datacenter segments. East-west traffic flow is the flow of
+traffic between endpoints within the same datacenter.
+
+
+---
+
+
+An ISP has installed a DWDM device. Why?
+
+To solve the fiber exhaust problem.
+
+
+---
+
+
+Network Masks
+A 32-bit network mask is what distinguishes the Network ID from the Host ID.
+
+The mask conceals the host ID portion and leaves the network portion revealed.
+Wherever there is a binary one in the netmask, it corresponds with the net ID.
+
+This is a process called ANDing. We are ANDing the mask to the IP address,
+because when two 1s are ANDed together the result is 1. Any other combo
+returns a 0.
+
+Let's determine the network ID:
+
+1) First AND the two addresses to binary
+198.51.100.1    =    11000110 00110011 01100100 00000001
+                                  AND
+255.255.255.0   =    11111111 11111111 11111111 00000000
+                                   =
+198.51.100.0    =    11000110 00110011 01100100 00000000
+
+
+---
+
+

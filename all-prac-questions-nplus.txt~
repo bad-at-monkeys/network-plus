@@ -1,0 +1,4521 @@
+LESSON 1 - REVIEW
+
+1) At which OSI layer is the concept of a port number introduced?
+
+Layer 4 - Transport
+
+
+
+2) At which layer of the OSI model is no header encapsulation applied?
+
+Layer 1 - Physical
+
+
+
+3) What component performs signal amplification to extend the maximum
+   allowable distance for a media type?
+
+Repeater
+
+
+
+4) Which OSI layer packages bits of data from the Physical layer into
+   frames?
+
+Layer 2 - Data-link
+
+
+
+5) True or False? The Session layer is responsible for passing data to the
+   Network layer at the lower bound and the Presentation layer at the
+   upper bound.
+
+False, the Session Layer(5) has the Transport(4) as the lower-bound
+and the Presentation(6) as the upper-bound.
+
+
+
+6) True or false? The WAN port on a SOHO router is connected to the LAN
+   ports by an internal switch.
+
+False. The LAN ports and WAP are connected by a switch.
+
+The WAN port is seperate, packets must be routed between the LAN and
+WAN segments.
+
+
+
+7) What type of address is used by the switch to forward transmissions to
+   the appropriate host?
+
+Physical Address. Typically MAC addresses in modern networks.
+
+
+
+8) True or false? The DHCP server in the SOHO router assigns an IP address
+   to the WAN interface automatically.
+
+False. The ISP assigns the WAN IP, the router uses DHCP to assign addresses
+locally to the host within its LAN.
+
+
+
+9) What function or service prevents an Internet host from accessing
+   servers on the LAN without authorization?
+
+Firewall.
+
+
+
+10) How is the decimal value 12 expressed in hex?
+
+0xC
+
+11) How is the decimal value 171 expressed in hex?
+
+0xAB
+
+  -> Divide 171 by 16 until QUOTIENT is zero.
+     171 / 16 = 10%11
+     10 / 16 = 0%10
+  -> 10 = A
+     11 = B
+  -> 0xAB
+
+In binary - 10101011
+
+LESSON 2 - DEPLOYING ETHERNET CABLING
+
+1) With CSMA/CD, what will happen if a host has data to transmit and there
+   is already data on the cable?
+
+A jam message is sent to all hosts on the network, the hosts then standoff
+transmission until the data is transmitted.
+
+
+
+2) Which Ethernet standard works at 100 Mbps over Cat 5 or better copper
+   cable?
+
+100BASE-TX
+
+
+
+3) Which copper Ethernet standard meets the bandwidth requirements for
+   clients in an office network while minimizing costs?
+
+1000BASE-T or Gigabit Ethernet
+
+
+
+4) A network designer wants to run a 10 gigabit backbone between two
+   switches in buildings that are 75 m (246 feet) apart. What is the main
+   consideration when selecting an appropriate copper cable?
+
+Distance. Some type of shielded or screened cat6A or better is required
+for the installation to be compliant with Ethernet standard 10GBASE-T.
+
+
+
+5) What is the measurement standard for wire thickness?
+
+AWG - American Wire Gauge
+
+
+
+6) What are the characteristics of S/FTP cable?
+
+S/FTP uses a braided outer-scree and has a foil shield for each pair.
+
+
+
+7) Which categories of U/UTP cable are certified to carry data transmission
+   faster than 100 Mbps?
+
+Cat5e, Cat6, Cat6A, Cat7(screened/shielded), Cat8(screened/shielded)
+
+
+
+8) T or F. Cat standards apply only to wiring.
+
+False. Cat standards also describe connectors and modules.
+
+
+
+9) 100BASE-T transmit pins are 1 and 2. What color code are the wires
+   terminated to these pins under T568A and T568B?
+
+T568A = Green/White and Green
+T568B = Oange/White and Orange
+
+
+
+10) Why is plenum-rated cable used when cable is run in an area where
+    building air is circulated?
+
+Plenum-rated cable is safe for areas prone to fire because it adheres
+to those safety standards.
+
+
+
+11) Which cable type consists of a single core made of solid copper
+    surrounded by insulation, a braided metal shielding, and an outer cover?
+
+Coaxial cable.
+
+
+
+12) What type of fiber optic cable is suited for long distance links?
+
+SMF
+
+
+
+13) Which grade or grades of fiber have a 62.5 micron core?
+
+OM1
+
+
+
+14) Which fiber Ethernet standard is best suited to implementing backbone
+    cabling that does not exceed 200 m (656 feet) and can achieve at least
+    4 Gbps throughput?
+
+10GBASE-SR
+
+
+
+15) What maximum distance is defined in standards documentation for
+    1000BASE-LX running over MMF?
+
+550m
+
+
+
+16) You need to provision a fiber patch panel to terminate incoming cabling
+    with green LC connectors. What type of ports should be provisioned on
+    the patch panel?
+
+SMF APC; the patch panel must be provisioned with Lucent Connector ports
+with APC finishing type.
+
+
+
+17) Which types of distribution frame are best suited to 100 MHz or better
+    operation?
+
+110-block, BIX, Krone.
+
+
+
+18) What type of distribution frame is best suited to cabling wall ports to
+    Ethernet switches in way that best supports futures changes?
+
+Patch panel
+
+
+
+19) What tool is used to terminate wiring at a 110 block?
+
+Punchdown tool
+
+
+
+20) At what layer of the OSI model does a fiber distribution panel work?
+
+All distribution frames operate at Layer1.
+
+
+
+21) You need to provision modular SFP+ transceivers to support a 10 gigabit
+    link between two switches using an existing fiber cable. What two
+    characteristics must you check when ordering the transceivers?
+
+The specific wavelength and Ethernet standard.
+The type of connecting interface.
+
+
+
+22) You have selected an SFP+ 1310 nm Tx and 1490 nm Rx transceiver to
+    implement a BiDi link between two switches. Should you provision a
+    second SFP+ 1310 nm Tx and 1490 nm Rx for the other switch?
+
+No, we need an SFP+ module with 1490nm Tx and 1310nm Rx.
+
+
+
+##########
+Online Practice Test
+
+
+1) A company is upgrading its current network infrastructure to Gigabit
+   Ethernet. Which of the following options concerning Gigabit Internet
+   is true? (Select all that apply.)
+
+Works over Cat 5e or newer.
+
+Max distance of 100 m for UTP cabling between node/switch port
+or between two ports.
+
+Supports rates up to 1000 Mbps.
+
+
+
+2) A network technician is researching standards for the physical and
+   data link layer. Which standard, developed to implement the
+   functions of the physical and data link layers of the OSI model,
+   is the most important?
+
+802.3 Ethernet Standards
+
+
+
+3) A technician who lays cabling is researching how the manufacturer
+   constructed fiber optic cabling. Which of the following reflects
+   signals back into the waveguide as efficiently as possible so that
+   the light signal travels along the waveguide by multiple internal
+   reflections?
+
+Cladding
+
+
+
+4) A project manager is ordering equipment to set up fiber cabling in
+   a new building. Which of the following tools will allow a more
+   permanent join with lower insertion loss?
+
+Fusion Splicer
+
+
+
+5) A network technician is laying out coax cables and needs to order
+   more termination connectors. What should the technician order?
+
+F-type
+
+
+
+6) A network administrator is setting up cabling between buildings
+   and needs to transmit the maximum distance possible. Which type
+   of cabling would be most suitable?
+
+SMF
+
+
+
+7) A network cabling engineer reviews different fiber optic connector
+   form factors. Which of the following features a duplex connector
+   that works in single or multimode?
+
+Subscriber Connector(SC)
+
+
+
+8) A new network engineer is deploying an architecture using Carrier
+   Sense Multiple Access with Collision Detection (CSMA/CD). How
+   does the CSMA/CD protocol work?
+
+Data -> Check Network -> Transmit Data -> Collision -> Wait -> Retransmit
+
+
+9) A project manager is preparing a team to set up cabling infrastructure
+   in a new building. Which of the following tools should they order to
+   be able to create patch cords?
+
+Crimper/Cable Stripper
+
+
+
+10) A network technician is looking over diagrams for special types of
+    equipment rooms that mark the point at which external cabling
+    (located outside the plant) joins to internal cabling
+    (located on the premises). What is this called?
+
+Demarc
+
+
+
+11) A network technician in Germany is setting up Cat 7 cabling in the
+    organization's environment. The technician should, to comply with
+    installation standards, terminate the cabling with what type
+    of connector? (Select all that apply.)
+
+TERA
+GG45
+
+
+
+12) A project manager is putting together supplies for a project using
+    fiber optic cabling. The manager is looking at the cabling core ferrule,
+    which has the tightest connection and best return loss performance.
+    Which of the following should the project manager use?
+
+Angled Physical Contacts (APC)
+
+
+
+13) A solutions architect is determining where to use fiber cabling and
+    wireless networks to efficiently and cost-effectively deploy an
+    infrastructure. Which of the following would most likely best suit
+    using wireless connectivity?
+
+IoT, because these devices do not require large bandwidth.
+
+
+
+14) A project manager is preparing for an upcoming work assignment and
+    is comparing available cable types for use within the project. What
+    is NOT a benefit of using fiber optic cabling?
+
+Cost
+
+
+
+15) A company calls a consultant to replace STP cabling and is looking at
+    the varying types. Which of the following is the most challenging
+    to install?
+
+Legacy Shielded Twisted Pair(STP)
+
+
+
+16) A cable operator is tasked with assessing the use of UTP cabling in
+    an office building. What is NOT a true statement regarding UTP?
+
+UTP is less susceptible to interference and crosstalk.
+
+
+
+17) A systems administrator is looking at technology in the organization's
+    environment and finds Fast Link Pulse. What does this technology do?
+
+Sends link integrity test signals.
+
+
+
+18) A network technician needs a cost-effective solution that can multiplex
+    up to 16 wavelengths on an SFP/SFP+ interface. Which multiplexing
+    technique should the network technician use?
+
+CWDM
+
+
+
+19) Which two termination schemes should a technician use to terminate
+    twisted pair cabling in accordance with the TIA/EIA-568 standard as
+    they set up a new office network for their company?
+
+T568A and T568B
+
+
+
+20) A solutions architect is designing a cable management solution.
+    Which of the following is the most common wiring distribution?
+
+Patch panel
+LESSON 3 TESTS
+
+
+##########
+BOOK TESTS
+
+---
+3A
+
+1) You need to run UTP cable between two switches at opposite ends of a
+warehouse that is 140 m (459 feet) long. What additional device (if any) is
+required for the installation to be compliant with 1000BASE-TX Ethernet
+standard?
+
+UTP cables can run a maximum of 100m so a repeater is necessary.
+
+
+
+2) T or F. All the nodes on a hub are on the same collision domain?
+
+True. All nodes on a hub are on the same bradcast and collision domains.
+
+
+
+3) True or False? A computer with a 10BASE-T Ethernet adapter cannot be
+joined to a 100BASE-T network.
+
+False. Fast Ethernet is backwards compatible with 10BASE-T.
+Gigabit internet is backwards compatible with Fast Ethernet.
+
+
+
+4) True or False? Devices can only transmit on an Ethernet network when
+the media is clear, and the opportunity to transmit becomes less
+frequent as more devices are added. Also, the probability of collisions
+increases. These problems can be overcome by installing a hub.
+
+False. We should implement a switch here.
+
+
+
+5) True or false? A bridge does not forward broadcast traffic.
+
+False. A bridge has separate collision domains for its segments, but
+has the same broadcst domains.
+
+
+
+
+
+---
+3B
+
+1) True or False? The CRC mechanism in Ethernet allows for the
+retransmission of damaged frames.
+
+False. CRC simply checks to see if the frame is corrupt.
+
+
+
+2) What is an I/G bit?
+
+The bit in a frame that determines whether the frame goes to an
+individual or group.
+
+
+3) What is an MTU?
+
+The Maximum Transmission unit is the maximum size of the frame payload
+that maxes out at 1500.
+
+
+
+4) On a switched network, what configuration changes must be made to
+allow a host to sniff unicast traffic from all hosts connected to a switch?
+
+The switch must be configured to mirror traffic on the sniffer's port.
+
+
+
+Write the command to use tcpdump to capture traffic from the IP address 172.16.16.254 on the
+interface eth0 and output the results to the file router.pcap.
+
+$ sudo tcpdump -i eth0 -w 'router.pcap' src host 172.16.16.254
+
+
+
+
+
+---
+3C
+
+1) You need to verify whether a switch port is misconfigured by checking
+the number of collisions being reported. What general command could
+you use at a CLI to report this information?
+
+# sh interface
+
+
+
+2) True or false? A managed switch should have auto MDI/MDI-X enabled by
+default.
+
+True.
+
+
+
+3) A technician configures a switch port with a list of approved MAC
+addresses. What type of feature has been enabled?
+
+Port security.
+
+
+
+4) A server has a four-port gigabit Ethernet card. If a switch supports port
+aggregation, what bandwidth link can be achieved?
+
+4x1 gigabit.
+
+
+
+5) What port configuration feature allows a server to smooth incoming
+traffic rates?
+
+IEEE 802.3x Flow control
+
+
+
+6) Can you safely connect a server to a PoE+ enabled port or should you
+disable PoE first?
+
+We can connect the server. PoE detects whether to supply power to the device.
+
+
+
+
+
+##########
+ONLINE
+
+1) A network technician wants to upgrade the company's hub to avoid collisions.
+Which solution would help the technician accomplish this to the fullest extent?
+
+Switch
+
+
+
+2) A help desk operator is trying to identify the vendor for a piece of
+equipment. What could the help desk operator check to determine the vendor?
+
+OUI
+
+
+
+3) A server administrator needs to allow a server to instruct the switch to
+pause traffic temporarily to avoid overwhelming its buffer and causing it to
+drop frames. What should the server administrator set up?
+
+Flow Control
+
+
+
+4) A network engineer is setting up MTU sizes to follow most Ether products.
+In normal conditions, what is the maximum size of a standard Ethernet frame,
+excluding the preamble?
+
+1518bytes
+
+
+
+5) Due to budgetary restraints, a systems administrator is setting up servers
+with standard network interface cards (NICs) using the most cost-effective
+methods. Which of the following do most standard NICs support?
+
+Fast Ethernet
+Gigabit Ethernet
+
+
+
+6) A network technician has set up a link where the cable length exceeds the
+distance limitation and may not achieve the required speed or be unreliable.
+What should the network technician use in this case?
+
+Repeater.
+
+
+
+7) A systems administrator is trying to troubleshoot frames moving over a 10
+gigabit network and wants to set up the most optimal solution. Which of the
+following should the sysadmin use?
+
+Active tap. This is most optimal, gigabit signaling is too complex for
+passive tap.
+
+
+
+8) A network architect is assessing network performance. Which of the following
+is part of the CSMA/CD protocol to identify collisions early?
+
+Preamble
+SFD
+
+
+
+9) A network technician wants to upgrade the company's hub to isolate collision
+domains from each other and allow for Gigabit Ethernet. Which solution would
+help the technician to accomplish this?
+
+Switch
+
+
+
+10) A networking administrator is trying to power off a Cisco switch, but it
+is not working. The administrator needs to be in which mode to perform this
+task?
+
+Privelaged EXEC Mode/Enable Mode. Both of these modes allow the user to
+power off the device.
+
+
+
+11) A network technician is setting up a connection between switches, but
+the switches cannot establish a connection. Which of the following would be
+the most likely cause of the switch's inability to establish a connection?
+
+Dual MDI-X ports
+
+
+
+12) A network administrator is setting up connection points for multiple
+devices to connect. Which of the following cannot be configured?
+
+Hub, they have no config options.
+
+
+
+13) A systems administrator needs to combine multiple 1 Gbps connections to
+be able to support 2 Gbps connections. What should the administrator set up?
+
+NIC Teaming
+
+
+
+14) A cable operator needs to transition from one cable type to another.
+Which of the following would best help?
+
+Media Converter
+
+
+
+15) A networking project manager needs switches that can connect together and
+operate as a group. Which of the following should the project manager use?
+
+Stackable
+
+
+
+LESSON 4 TEST - TROUBLESHOOTING ETHERNET NETWORKS
+
+##########
+BOOK
+
+---
+BOOK 4A
+
+1) Which step has been omitted from the following list of activities related
+to identifying the problem? Gather information • Duplicate the problem,
+if possible • Question users • Identify symptoms • Determine if anything
+has changed
+
+Approach multiple problems individually.
+
+
+
+2) Which three means of establishing a theory of probable cause refer to
+the OSI model?
+
+Top-to-bottom, Bottom-to-top, and divide-and-conquer approach.
+
+
+
+3) When should you escalate a problem?
+
+Whenever all available resources have been exhausted.
+
+
+
+4) Which step follows “Implement the solution or escalate as necessary” in
+the troubleshooting methodology?
+
+Verify system functionality and implement preventative measures.
+
+
+
+5) True or False? Documentation should be created only at the end of the
+troubleshooting process.
+
+False. Documentation can happen at anytime in the troubleshooting process.
+
+
+
+
+
+---
+BOOK 4B
+
+1) What cabling faults would a wire map tester detect?
+
+Open  circuits, shorts, transpositions.
+
+
+
+2) How would you test for excessive attenuation in a network link?
+
+Measure the insertion loss in dB with a cable tester.
+
+
+
+3) What is the reason for making power sum crosstalk measurements when
+testing a link?
+
+Power sum crosstalk measures cable performance when all four pairs are used,
+as in GbE and 10GbE.
+
+
+
+4) Your network uses UTP cable throughout the building. There are a few
+users who complain of intermittent network connectivity problems. You
+cannot determine a pattern for these problems that relates to network
+usage. You visit the users’ workstations and find that they are all located
+close to an elevator shaft. What is a likely cause of the intermittent
+connectivity problems? How might you correct the problem?
+
+The electricity from the elevator is causing interference. We can replace the
+cable with shielded pair.
+
+
+
+5) You have connected a computer to a network port and cannot get a link.
+You have tested the adapter and cable and can confirm that there are no
+problems. No other users are experiencing problems. The old computer
+also experienced no problems. What cause would you suspect, and what
+is a possible next step?
+
+Speed mismatch. Check the autonegotiate settings on the adapter and port.
+
+
+
+
+
+##########
+ONLINE
+
+1) A systems manager is preplanning for the event that critical servers will fail. Which of the following would be the most likely plan of action?
+
+Replace.
+
+
+
+2) A network technician is troubleshooting a connection from a client and decides to use the bottom to top troubleshooting methodology. Which step would the technician perform first?
+
+Determine if hardware related.
+
+
+
+3) A help desk operator is troubleshooting a site that is no longer responsive. Which of the following is the first step the operator should perform?
+
+Identify the problem.
+
+
+
+4) A help desk technician is troubleshooting communications between a client and print server. They are trying to perform the step to identify symptoms and duplicate the problem. Which of the following does NOT fall under this step?
+
+Question the obvious.
+
+
+
+5) A help desk technician is helping to troubleshoot a switch's connectivity issues. Users report that they are receiving a blinking amber light. This is indicative of what type of issue?
+
+Fault detected.
+
+
+
+6) A network operator is troubleshooting connectivity issues and suspects the transceiver. What should the network operator perform?
+
+Use a loopback tool
+
+
+
+7) A network technician is trying to troubleshoot attenuation and measure accordingly. What unit of measurement expresses attenuation?
+
+dB
+
+
+
+8) A help desk operator is troubleshooting a site that is no longer responsive. Which of the following is the last step the operator should perform?
+
+Document findings.
+
+
+
+9) A network operator is trying to troubleshoot kinks and imperfections in cabling that could affect performance. What should the network operator use to test the cabling?
+
+TDR
+
+
+
+10) A help desk technician is trying to troubleshoot the end of a cable but is uncertain where the other end is. What could the technician use to help find the other end of the cable?
+
+Fox and hound.
+
+
+
+LESSON 5 TEST - EXPLAINING IPV4 ADDRESSING
+
+---
+BOOK 5A
+
+1) Convert the binary value 11110010 to decimal.
+
+242
+
+
+
+2) Convert 72 into binary.
+
+01001000
+
+
+
+3) What is the dotted decimal representation of an 8-bit netmask?
+
+255.0.0.0
+
+
+
+4) What is the dotted decimal representation of an 18-bit netmask?
+
+255.255.192.0
+
+
+
+5) Given an 18-bit netmask, are the IP addresses 172.16.1.10 and
+172.16.54.10 on the same network?
+
+Yes. If we convert the IP to binary, we see that the first 18 binary digits in
+each address are the same
+
+101011000001111000
+
+
+
+6) If the network ID is 10.1.0.0/22, how many IP addresses are available for
+allocation to host interfaces?
+
+1022
+
+
+
+
+
+---
+BOOK 5B
+
+1) Given the subnet mask 255.255.255.128, are the IP addresses 192.168.0.1 and 192.168.1.1 on the
+same network?
+
+No. The third octet for each is within the network portion, but different for
+each IP address. The subnet mask contains 25 bits, but the 24thh bit is
+different for each address.
+
+
+
+2) If a packet is addressed to a remote network, what destination MAC
+address will the sending node use to encapsulate the IP packet in a
+frame?
+
+The default gateway's.
+
+
+
+3) Assuming unmanaged switches, how many broadcast domains are
+present in the following figure?
+
+4. A hub and 2 switches plus one for the routers.
+
+
+
+4) If a host is configured with the IP address 10.0.10.22 and mask
+255.255.255.192, what is the broadcast address of the subnet?
+
+10.0.10.63
+
+Convert the IP to binary:
+  -> 10.1.10.22 = 00001010 00000000 00001010 00010110
+
+Then work out the number of bits in the mask - 26.
+
+Change the remaining host host bits in the host IP to 1s and
+when you convert back to dotted decimal it should convert to 63.
+
+
+
+5) What type of addressing delivers a packet to a single host from a group
+without using unicast?
+
+Anycast
+
+
+
+
+
+---
+BOOK 5C
+
+1) True or False? The IP address 172.24.0.1 is routable over the Internet.
+
+False.
+
+
+
+2) What is a Class D address?
+
+Multicasting.
+
+
+
+3) What is the significance of 127.0.0.1?
+
+Loopback.
+
+
+
+4) A host is configured with the IP address 10.0.10.22 and subnet mask
+255.255.255.192. How many hosts per subnet would this addressing
+scheme support?
+
+/18 supports 16,382 hosts per subnet.
+
+
+
+5) If the IP address 10.0.10.22 were used with an /18 mask, how many
+subnets and hosts per subnet would be available?
+
+511 subnets
+16,382  hosts per subnet
+
+
+
+
+
+---
+Design an IP Subnet
+
+Ouur network ID is currently 198.51.100.0/24. We need to divide this in half
+to accomodate hosts on two different floors, which is served by managed
+switches. The whole network is served by a single router.
+
+1) To divide the network in half, what subnet mask do you need to use?
+
+A /25, 255.255.255.128.
+Adding a single bit to the mask creates two subnets. The mask and the prefix
+will be 255.255.255.128(/25).
+
+
+
+2) What are the subnet IDs for each network?
+
+198.51.100.0/25 and 198.51.100.128/25
+An easy way to find the first subnet ID is to deduct the least significant
+octet in the mask from 256, giving 128.
+
+
+
+3) What is the broadcast address for each subnet? 198.52.100.127 and
+198.51.100.255.
+
+198.52.100.126
+198.51.100.254
+
+
+
+4) What is the range of assignable IP addresses for each subnet?
+
+198.51.100.1-126
+198.51.100.129-254
+If we have each subnet ID and broadcast ID, the host ranges are simply the
+values in between.
+
+
+
+5) Your manager has considered his original plan and realized that it
+does not accommodate the need for a WAN link to the head office or a
+separate segment for a team that works with sensitive data. What mask
+will you need to accommodate this new requirement, and how many
+hosts per subnet will it allow?
+
+We need four subnets now. A 255.255.255.240(/28) prefix/mask.
+There will onlyy be 14 hosts per subnet though.
+
+
+
+LESSON 6 TEST - SUPPORTING IPV4 AND IPV6 NETWORKS
+
+---
+BOOK 6A
+
+1) How can you check the IP configuration of an interface on an end system
+host at the command line?
+
+> ipconfig /all
+$ ifconfig
+$ ip addr [interface]
+
+
+
+2) What output would you expect when running the command ip neigh?
+
+The local area network neighbors listed with their IP address, MAC address
+pairs.
+
+
+
+3) True or False? The arp utility will always show another hostʼs MAC
+address if that host is on the same subnet.
+
+False. Sometimes the MAC won't show because a broadcast hasn't been
+sent out for that device yet. We must ping the destination first to
+create an ARP entry.
+
+
+
+4) Output from a ping command reports some values in milliseconds. What
+does this measure?
+
+The round-trip request/reply process of the packet.
+
+
+
+5) True or False? Receiving an echo reply message indicates that the link
+between two hosts is operational.
+
+True. This means that there is a working route between the two hosts.
+
+
+
+
+
+---
+BOOK 6B
+
+1) Users on a floor served by a single switch cannot get a network
+connection. What is the best first step?
+
+Check that the switch is powered on, reset it.
+Check to see if the port module is fully seated.
+
+
+
+2) A workstation cannot connect to a server application on a remote
+network. What is the first test you could perform to establish whether
+the workstationʼs link is OK?
+
+Ping the default gateway.
+
+
+
+3) A technician is troubleshooting a network and has asked your advice. He
+is trying to ping 192.168.16.192. The network has been subnetted with
+the custom mask 255.255.255.224. Why might this return a “Destination
+host unreachable” message?
+
+The IP address resolves to the subnet network address, not a host address.
+
+
+
+4) Two client hosts have intermittent connectivity issues when accessing
+a server service on another subnet. No other client hosts exhibit this
+problem. What configuration problem might you suspect?
+
+Duplicate IP/MAC addresses.
+
+
+
+5) You have pinged the router for the local subnet and confirmed that there
+is a valid link. The local host cannot access remote hosts, however. No
+other users are experiencing problems. What do you think is the cause?
+
+The router isn't configured as the default gateway for the local host.
+We can ping it, but the host isn't using it for routing.
+
+
+
+6) A Windows client workstation cannot access a help desk application
+server by its name support.515support.com. The service can be accessed
+using its IP address. What two command line tools should you use to
+identify possible causes of this issue?
+
+$ cat /etc/resolv.conf
+ping and ipconfig /all
+we can also use nslookup and dig
+
+
+
+
+
+---
+BOOK 6C
+
+1) Which of the following IPv6 addresses is a valid unicast host address?
+
+fe80::218:8bff:fea7:bd37
+fe80::219:d2ff::7850
+ff02::219:d2ff:fea7:7850
+::/128
+
+fe80::218:8bff:fea7:bd37
+
+
+
+2) What is an EUI-64, and how might it be used by IPv6?
+
+It is MAC address and can be used as the IPv6 interface ID, though a
+randomly generated token better suits this purpose.
+
+
+
+3) In IPv6, how is the loopback address best expressed?
+
+::1
+
+
+
+4) In IPv6, how can a host obtain a routable IPv6 address without requiring
+manual configuration?
+
+SLAAC allows hosts to autoconfigure an interface by listening to router
+advertisements to obtain a network prefix.
+
+
+
+5) True or false? 6to4 is a dual stack method of transitioning from IPv4
+to IPv6.
+
+False. 6to4 is a tunneling method that encapsulates IPv6 packets in IPv4 UDP
+packets.
+
+
+
+
+
+---
+Online Test
+
+1) A security engineer is analyzing IPv6 packets. Which of the following
+header fields is for quality of service?
+
+Flow label. The flow label is for QoS management for real-time streams.
+The flow label is set to 0 for packets not part of any delivery sequence
+or structure.
+
+
+
+2) A network administrator is diagnosing a suspected problem with local
+addressing and packet delivery. Which of the following commands would
+the administrator use to add an entry to the ARP cache?
+
+$ arp -s [ip-add] [mac-add]
+This command adds an entry to the arp cache
+
+
+
+3) A consultant is visiting a new project and forgot to take the manual
+configurations off the computer from the last project. The client receives
+issues due to a disabled IP. What does the client most likely have?
+
+Duplicate IPs. Windows will disable the IP if it is a duplicate.
+Linux doesn't check for duplicate IPs by default.
+
+
+
+4) A helpdesk technician is troubleshooting issues on a Windows client.
+Which command does the technician use to clear the current IP address so
+that a new one may be obtained?
+
+>ipconfig /release
+
+
+
+5) A security technician is analyzing IPv6 traffic and looking at incomplete
+addresses. Which of the following is a correct IPv6 address?
+
+2001:db8:abc:def0::1234. Remember that the :: can only be used once.
+
+
+
+6) A network administrator is diagnosing a suspected problem with local
+addressing and packet delivery. Which of the following commands would
+the administrator use to flush the ARP cache?
+
+$ arp -d
+
+
+
+7) A network administrator is setting up router advertisements through
+Neighbor Discovery protocol on an IPv6 network. Which of the following is
+NOT one of the main functions?
+
+Error messaging. This is actually a feature of ICMPv6.
+
+
+
+8) A Linux systems administrator wants to interface correctly with modern
+network configuration manager packages. Which of the following would be best
+to accomplish this?
+
+iproute2. Net-tools was replaced with iproute2.
+
+
+
+9) A network technician is setting up IPv6 global addressing. Which of the
+following is NOT part of an IPv6 unicast address?
+
+Starts with fe80. This is for link local addresses.
+Global addresses start with 001.
+
+
+
+10) A security technician is analyzing packets on an IPv6 network. Which
+of the following headers would indicate a multicast packet?
+
+1111 1111 or ff
+The first 8-bits indicate that the address is within the multicast scope.
+
+
+
+11) A helpdesk technician is trying to troubleshoot a client who is having
+issues with its network adapter. What should the technician try first?
+
+Driver.
+
+
+
+12) A device is having issues communicating with the others. Which of the
+following will have issues?
+
+Host A: IP: 192.168.1.10, Mask: 255.255.255.0
+Host B: IP: 192.168.1.11, Mask: 255.255.255.0
+Host C: IP: 192.168.1.21, Mask: 255.255.0.0
+Host D: IP: 192.168.0.10, Mask: 255.255.255.0
+
+Host D will not be able to communicate with the others. Host C cannot contact
+Host D, as it thinks Host D is on the same local network. Host C needs to route
+messages for 192.168.0.0/24 via the default gateway.
+
+
+
+13) A helpdesk technician is setting up a new IP configuration for a new
+Ethernet adapter on a client using PowerShell. Which command should
+the technician use?
+
+New-NetIPAddress. Powershell uses cmdlets like these to carry out tasks.
+netsh is the way to do it on cmd.
+
+
+
+14) A network technician is trying to diagnose a network where something is
+consuming a lot of bandwidth and slowing down the network. Which of the
+following would point to this?
+
+Multicast transmissions. At layer2, if a switch isn't multicast aware it
+will treat multicast transmissions as broadcasts adnd flood all ports on
+the device.
+
+
+
+15) A project manager is visiting a new building and connects to the network.
+The manager performs all connectivity tests by IP address but cannot ping
+by host name. What is most likely the problem?
+
+DNS.
+
+LESSON 7 TESTS - CONFIGURING AND TROUBLESHOOTING ROUTERS
+
+---
+Book - 7A
+
+1) What is a directly connected route?
+
+Routers that are physcially connected to another at the port.
+
+
+
+2) Which of the parameters in the following routing table entry represents
+the gateway?
+
+R 192.168.1.0/24 [120/1] via 198.51.100.254, GigabitEthernet0/1
+
+198.51.100.254.
+The destination network is 192.168.1.0/24
+
+
+
+3) What type of routing table entry is shown?
+
+S* 0.0.0.0/0 [1/0] via 192.0.2.1
+
+Statically configured default route.
+
+
+
+4) True or False? A router will not forward a packet when the TTL field is 0.
+
+True. When the TTL field is 0, the packet is dropped off the network.
+
+
+
+
+
+---
+BOOK 7B
+
+1) Which factors are used by default in EIGRP to identify the least-cost path?
+
+Delay and bandwidth.
+
+
+
+2) What is an ASN and how does it assist route aggregation?
+
+A number issued by the IANA that represents an Autonomous System.
+It represents a complex private network as a simple number.
+It is used by BGP to identify networks accross the internet.
+
+
+
+3) Of the routing protocols listed in the CompTIA Network+ syllabus, which
+has the highest default value AD and does that make it more or less
+trusted than other protocols?
+
+Static routing has the lowest. RIP has the highest, making it less trusted
+than the other protocols.
+
+
+
+4) An IP network comprises hundreds of subnets deployed to offices in
+multiple geographical locations. Of the routing protocols listed in the
+CompTIA Network+ syllabus, which is best suited to this scale of network
+and why?
+
+OSPF. The hierarchical design means that the network can be divided into
+areas representing different sites, reduce the size of routing tables, and
+ensure fast convergence.
+
+EIGRP can also be used.
+
+
+
+5) A company has eight networks, using the subnet addresses 192.168.0.0/24,
+192.168.1.0/24 … 192.168.7.0/24. What network prefix and subnet mask can
+be used to summarize a supernet route to these networks?
+
+192.168.1.0/21
+
+It takes 3-bits to summaraze 8 networks (2^3=8). Subtracting 3-bits from the
+network mask makes the supernet network prefix /21. The third octet of the
+mask will use 5-bits, which is 248 in decimal - 255.255.248.0.
+
+
+
+6) True or false. VLSM means using more than one mask to subnet an IP
+network.
+
+True. Admins can precisely match subnet requirements by using different mask
+sizes within a network.
+
+
+
+
+
+---
+BOOK 7B - VLSM DESIGN
+
+See page 169 for chart.
+
+1) How large will each of the subnets that join the three routers together
+need to be?
+
+Large enough for just 2 IP addresses. Just 2 host bits, so a /30 mask.
+
+
+
+2) Which is the largest subnet in the topology? What is the minimum
+number of bits that will be needed for that number of hosts? How many
+IP addresses will that subnet provide? What would be the VLSM and
+address range for the largest subnet?
+
+Branch A at 16,000 hosts.
+14 bits are needed.
+Provides 16,382 IPs (16384-2).
+/18 will be the VLSM mask, giving an IP range of 172.30.0.1-172.30.63.254.
+
+
+
+3) What is the next largest subnet in the design? How many host bits will be
+needed for that subnet? How many IP addresses will that subnet provide
+and what is the VLSM?
+
+Branch B at 8,000 hosts.
+13-bits are needed.
+Provides 8,190 addresses.
+/19 is the VLSM mask with a IP range of 172.30.64.1-172.30.95.245.
+
+
+
+4) Work out the remaining subnets, remembering to ensure that subnet
+ranges do not overlap, but equally that you do not waste IP addresses.
+Complete the table.
+
+Office/Subnet          Req. # of IPs    VLSM Subnet ID    Actual # of IPs
+-------------------------------------------------------------------------
+Branch A               16,000           172.30.0.0/18     16,382
+Branch B                8,000           172.30.64.0/19    8,190
+Branch C                4,000           172.30.96.0/20    4,094
+Branch D                4,000           172.30.112.0/20   4,094
+Branch E                2,000           172.30.128.0/21   2,046
+Branch F                1,000           172.30.136.0/22   1,022
+R1 - R2                 2               172.30.140.0/30   2
+R2 - R3                 2               172.30.140.4/30   2
+R1 - R3                 2               172.30.140.8/30   2
+
+
+
+
+
+---
+BOOK 7C
+
+1) A router must forward traffic received over a single physical interface
+connected to a switch trunk port to the appropriate virtual LAN (VLAN).
+What feature must be configured on the router?
+
+Subinterfaces for each VLAN carried over the trunk. Each subinterface must be
+configured with an IP address and a mask for the subnet mapped to the VLAN.
+
+
+
+2) True or false? Layer 3 capable switches are interchangeable with routers.
+
+False. They are interchangeable with internal routers, as they do not have
+public interfaces and can only route between internal subnets.
+
+
+
+3) True or false? Any occurrence of an asterisk in traceroute output
+indicates that there is no connectivity the destination along that path.
+
+False. Asterisks just mean that a router may not be responding to probes.
+
+
+
+4) Your network monitor is recording high numbers of ICMP Time Exceeded
+notifications. What type of routing issue does this typically indicate?
+
+This is typical in a routing loop, where packets circulate between routers
+until the TTL is exceeded.
+
+
+
+5) A campus to datacenter fiber optic link has been laid over 15 km of single
+mode fiber with one fusion splice along this run. The termination at each
+end requires two connectors. You need to evaluate a proposal to use
+10GBASE-LR transceiver modules for the router. The module specification
+quotes Tx power of –8.2 dBm and Rx sensitivity of –14.4 dBm. Assuming
+attenuation of 0.4 dB/km, 0.75 dB loss per connector, and 0.3 dB loss per
+splice, do these modules work within the expected loss budget?
+
+1 splice = 0.3
+2 connectors = 1.5
+0.4 x 15 = 6
+total loss = 0.3 + 3.0 + 6 = 7.8dBm
+allowed loss = 14.4 - 8.2 = 6.2dBm
+
+No, the expected loss budget is 6.2dBm. The total loss is 7.8dBm.
+
+
+
+
+
+---
+7C - Design a Branch Office Internetwork
+
+1) Given the current scenario of the charity, how would the routers at each
+local office be configured?
+
+Since the link is only used for web browsing and online main, we can configure
+the local office routers with static routes/default gateway/gateway of last
+resort to forward all traffic to the main site, which would forward the web
+traffic on.
+
+
+
+2) With this new infrastructure in place, what changes would need to be
+made to the router’s configuration?
+
+Additional routing table entries are necessary. This can be configured through
+static routes or dynamic routing protocols. A dynamic protocol is better here
+for network scaleability.
+
+
+
+3) Which protocol would be best here?
+
+RIPv2 can be used because of the networks simplicity and it is within the
+16 hop count limit.
+
+
+
+4) Considering the potential changes a successful pilot in the East region
+might bring about in the whole organization, would your router
+configuration options change?
+
+Yes, we would probably need a more scaleable protocol. OSPF would work
+best here because of the IP numbering differences including VLSM.
+
+
+
+5) What might you do to manage the much larger number of IP subnets?
+
+We could use OSPF areas to manage the large topology and route summarization
+to reduce processing load.
+
+
+
+
+
+---
+ONLINE
+
+1) A network technician is attempting to prevent poorly addressed packets from
+permanently circulating the network. Which of the following will decrement when
+it passes through switches?
+
+Neither hop count or TTL. These are layer3 factors.
+
+
+
+2) A network architect is looking at the topology and metrics used to build and
+update a routing information base. Most routing information bases get classified
+as which of the following? (Select all that apply.)
+
+Distance vector and link state. This question is asking about the two routing
+algorithms.
+
+
+
+3) A network technician is looking at the route configurations for the
+organization's environment. What is it called when the IP network or subnet for
+each active router interface gets automatically added to the routing table?
+
+Directly connected routes.
+
+
+
+4) A network administrator is setting up an Exterior Gateway Protocol (EGP).
+Which of the following protocols is part of the EGP class?
+
+BGP. Border Gateway Protocol is the protocol that connects internetworks to
+the internet.
+
+
+
+5) A network operator is calculating the amount of loss suffered by all
+components along a fiber transmission path. What is this called?
+
+Loss budget. Attenuation, connectors, splices are part of the loss budget
+calculation.
+
+
+
+6) A network architect is comparing RIP vs. EIGRP. What is a key difference
+between the two?
+
+Full vs incremental routing updates. Both are distance vector types because
+EIGRP is a hybrid. Both are IGPs. Simple vs complex is almost an opinion.
+
+
+
+7) A network technician is looking at a router configuration. Which of the
+following is NOT a mechanism for preventing routing loops?
+
+Convergence. This is a method of aggregating routing information between
+routers.
+
+
+
+8) A network technician is looking at various protocols which support subnetting and supernetting. Which of the following protocols does NOT support subnetting and supernetting?
+
+IGRP. Interior Gateway Protocol...what's that? Exactly, subnetting and
+supernetting don't exist in IGRP because it's ancient.
+
+
+
+9) A Windows server administrator wants to view the routing table of end systems. Which command should the administrator use?
+
+> route print
+
+This is about Windows. For Linux:
+
+$ ip route show
+
+alternatively ---
+
+$ ip ro sh
+
+
+
+10) A network architect is researching distance vector protocols for use in the environment. Which of the following should the architect look into? (Select all that apply.)
+
+RIP and EIGRP. These are really the only two routing protocols that use
+distance vector type algorithms.
+
+
+
+11) A storage administrator notices that packets from their storage devices are often fragmented. Which of the following would be the cause of this?
+
+MTU. The Maximum Transmission Unit is being exceeded for the data link protocol
+frame.
+
+
+
+12) A network technician is looking at the interfaces on an edge router. The technician comes across a customer's router. What is this side of the interface called?
+
+CE. Thhe customer edge is the customer side of the router. The PE is the provider side.
+
+
+
+13) A security engineer is looking at IPv6 packets and observes packets for a default route. Which of the following represent a default route?
+
+::/0
+
+This is the default route for ipv6.
+
+001 - means that the address is global.
+1111 1111 means that the address is within the multicast scope.
+fe80's are link local.
+
+
+
+14) A network administrator is looking through routing tables to troubleshoot issues. Which of the following is NOT an entry in the routing table?
+
+Traffic class. Traffic class is what describes ann ipv6 packet's priority.
+
+
+
+15) A network administrator is troubleshooting the whole path between two Windows nodes with a view to isolating the node or link that is causing the problem. Which command should they use?
+
+> tracrt
+
+This is Windows. For Linux/Cisco:
+
+$ traceroute
+LESSON 8 TEST - EXPLAINING NETWORK TOPOLOGIES AND TYPES
+
+---
+BOOK 8A
+
+1) What network infrastructure implementation links multiple buildings
+within the same city?
+
+MAN; Metro Area Network.
+
+
+
+2) What term is used to describe a topology in which two nodes share a
+single link?
+
+Point-to-point
+
+
+
+3) You need operations to continue if one link fails. How many links does it
+take to connect three sites?
+
+n(n-1)/2 = 3*2/2 = 3
+
+
+
+4) What types of devices are connected in a PAN?
+
+Bluetooth devices typically. Phones, laptops, wearables, etc.
+
+
+
+
+
+---
+BOOK 8B
+
+1) Which two topologies are used in the three-tier hierarchical model?
+
+(Partial) Mesh and star.
+
+
+
+2) Spanning tree has been deployed without the administrator setting a
+priority value. Which of the following switches will be selected as the
+root?
+• Switch A with base MAC f062.81ff.0001 and a 10 Gbps uplink
+• Switch B with base MAC f062.81ff.0002 and a 40 Gbps uplink
+• Switch C with base MAC f062.81ff.0003 and a 40 Gbps uplink
+
+Switch A. It has the lowest value MAC.
+
+
+
+3) In what STP-configured state(s) are all ports when a network running STP
+is converged?
+
+Forwarding or blocking.
+
+
+
+4) True or false? A broadcast storm can only be resolved by investing
+interface configurations.
+
+False. Broadcast storms can only be caused by improper cabling.
+
+
+
+
+
+---
+Book 8C
+
+1) At which layer of the OSI model do VLANs establish network segments?
+
+Layer2. VLANs operate on Layer2.
+
+
+
+2) True or false? A VLAN is a single broadcast domain.
+
+True. Each LAN is on its own broadcast domain, so if they are virtually
+separated, the same rules apply.
+
+
+
+3) Which values can be used to assign a port to a specific VLAN?
+
+From 2-4094. Thhe default ID, VLAN ID 1 (0 and 4095)  is reserved and the
+default value for all uncofigured ports.
+
+
+
+4) What type of frames are carried over tagged ports?
+
+802.1q
+
+
+
+5) True or false? When configuring a voice VLAN, the voice VLAN ID must be
+lower than the access VLAN ID.
+
+False. The IDs only need to be distinct and sync'd with the IDs expected
+by the switch.
+
+
+
+
+
+---
+ONLINE
+
+1) A network architect is reviewing a network where application services and
+resources are centrally provisioned, managed, and secured. What is this called?
+
+Client-server.
+
+
+
+2) A network administrator is determining untagged port logic for a frame
+addressed to a port in the same VLAN on the same switch. What would happen?
+
+No tag is added. If the frame gets addressed to a port in the same VLAN
+on the same switch, no tag is necessary.
+
+If the frame is being forwarded over the trunk port then a tag must be added.
+
+
+
+3) A network technician is studying a network topology where each node
+wires to its neighbor in a closed loop. What is this called?
+
+Ring. This is exactly what a ring topology is.
+
+
+
+4) A network architect is researching VLAN IDs (VID) for each frame, to
+preserve them for the receiving switch to forward them correctly. The network
+architect should look at which standard?
+
+802.1q
+
+
+
+5) A network technician does not have enough ports on a single switch and has
+to connect multiple switches. What should the technician research for
+interconnections between switches?
+
+Trunks. Trunks are what interconnect switches. One port on each switch should
+be configured as trunk portts with the 802.1q protocol.
+
+
+
+6) A network operator is reviewing a network topology where all nodes share
+the bandwidth of the media. What is this called?
+
+Bus.
+
+
+
+7) A network engineer is looking at a local area network (LAN) which uses
+structured cabling, two 24-port switches and a router to provide connectivity.
+What type of LAN is this most likely?
+
+SME. Small and medium enterprise networks.
+
+
+
+8) A network administrator is setting up Virtual Local Area Networks (VLANs)
+for various segments, such as voice and data. Which of the following IDs is
+the default VLAN?
+
+VLAN 1.
+
+
+
+9) A network administrator is looking at a switch where the network is not
+converged. What does this mean?
+
+Regular communications are not taking place. No communications can take place
+if the network isn't converged.
+
+
+
+10) A security architect is looking over network topologies where each endpoint
+node connects to a central forwarding node. What is this called?
+
+Star.
+
+
+
+11) A network administrator is looking at a network where network utilization
+approaches maximum capacity, and the CPU utilization of the switches jumps to
+80 percent or more. What is this called?
+
+Broadcast Storm.
+
+
+
+12) A network administrator is trying to figure out which switch will be rooted
+in a spanning tree protocol set up. Which of the following would determine the
+root?
+
+Lowest ID. This comprises of a priority value and the MAC. The switch with
+the earliest manufacturing date in the MAC address is chosen by default.
+
+
+
+13) A network architect is reviewing the architecture for a large company.
+Which of the following tiers is NOT part of the traditional three-tiered
+network hierarchy?
+
+Bus. This is a topology design, not a part of the three-tier hierarchy.
+
+
+
+14) A network analyst is looking at traffic from switches to other switches,
+which determines the shortest path. What is this called?
+
+BDPU. Bridge Protocol Data Units are the multicast frames that communicate
+STP information, which includes thhe shortest path.
+
+
+
+15) A network administrator wants to set up a switch with a voice or auxiliary
+Virtual Local Area Network (VLAN) to distinguish the PC and VoIP traffic
+without having to set up a trunk port. Which of the following commands should
+the administrator perform first?
+
+interface GigabitEthernet0/0
+
+This is typically always amongst the first commands when configuring an
+interface on a switch. The other commands don't come until later.
+LESSON 9 TESTS - EXPLAINING TRANSPORT LAYER PROTOCOLS
+
+
+---
+BOOK 9A
+
+1) How many port numbers are required to establish a connection at the
+Transport layer?
+
+2. A server port and a client port.
+
+
+
+2) What is the purpose of the window field in a TCP segment?
+
+This is the amount of data a host can receive before sending an ACK. This is
+used for flow control.
+
+
+
+3) What are the sizes of TCP and UDP headers?
+
+TCP = 20+bytes
+UDP = 8bytes
+
+
+
+4) True or False? User Datagram Protocol (UDP), like TCP, uses flow control
+in the sending of data packets.
+
+False. UDP uses no flow control. The application implements these features.
+
+
+
+5) What port and protocol does TFTP use at the Transport layer?
+
+UDP/69
+
+
+
+
+
+---
+BOOK 9B
+
+1) What type of scanning tool outputs a “Host is up” status report.
+
+IP scanner.
+
+
+
+2) You are auditing the service configuration of a Linux server. Which
+command can you use to check the PID associated with a TCP port, even
+if there are no active connections?
+
+netstat -patn
+ss -patn
+
+
+
+3) A technician has identified an undocumented host using an IP address
+in a range set aside as unallocated. The technician is going to run a
+fingerprinting scan. What type of information could this yield about the
+host?
+
+Software versioning/naming, OS info, hardware.
+
+
+
+4) You need to analyze the information saved in a .pcap file. What type of
+command-line tool or other utility is best suited to this task?
+
+tcpdump or wireshark.
+
+
+
+
+
+---
+ONLINE 9
+
+1) A server administrator is analyzing a normal Transmission Control Protocol
+(TCP) Teardown connection to their servers. How many FIN-WAIT states does the
+client go through during this process?
+
+Two. The client sends a FIN segment to the server and enters the FIN-WAIT
+state.
+
+
+
+2) A security analyst is looking at traffic from older devices between ports
+2,000 - 3,000. What is this traffic most likely?
+
+Clent ports. 1024-5000 is typically client ports on legacy systems.
+Ports 0-1023 are IANA assigned.
+49152-65535 are for private/dynamic use.
+
+
+
+3) A penetration tester wants to perform remote port scanning. Which Nmap scan
+fast technique as the scanning host requests a connection without acknowledging
+it?
+
+-sS. This is a half-open scan that requests a connection without
+acknowledging it. The target's response to the scan's SYN packet identifies
+the port state.
+
+
+
+4) A security analyst is reviewing UDP traffic headers. Which of the following
+is NOT a field in a UDP traffic header?
+
+Window. This is a field in a TCP header.
+
+
+
+5) A network administrator is looking at packet captures from the network and
+trying to isolate email traffic. Which of the following should the network
+administrator include? (Select all that apply.)
+
+TCP/25 - SMTP
+TCP/143 - IMAP
+
+
+
+6) A security analyst wants to reconstruct the packet contents for a
+Transmission Control Protocol (TCP) session in Wireshark. Which function
+should the security analyst use?
+
+Follow TCP Stream. This option allows us to reconstruct the packet
+contents for a TCP session.
+
+
+
+7) A penetration tester has performed a quick service enumeration with
+Nmap and now wants to further enumerate the findings. Which parameter should
+the pen tester use in the command?
+
+-sV. This option helps us find the versioning of software at the port.
+
+
+
+8) A systems engineer is looking at running services on the company's
+Linux hosts and wants to include ports in the listening state in the output.
+Which netstat switch should the engineer use?
+
+-a. This includes ports in the listening state.
+
+
+
+9) A security engineer is looking at Transmission Control Protocol (TCP)
+traffic headers. Which of the following allows the receiver to rebuild the
+message correctly?
+
+Sequence number. This helps us rebuild and reorder packets.
+
+
+
+10) A systems administrator is trying to get a basic inventory of what is
+on the network. Which of the following is a tool which will allow the
+administrator to easily scan for IPs?
+
+PRTG is an IP scanner.
+LESSON 10 TESTS - EXPLAINING NETWORK SERVICES
+
+---
+BOOK 10A
+
+1) True or False? If a client accepts a DHCPOFFER, the DHCPREQUEST packet
+is broadcast on the network.
+
+True
+
+
+
+2) When configuring multiple DHCP servers for redundancy, what should
+you take care to do?
+
+Configure the servers with no overlapping address scopes.
+
+
+
+3) True or False? DHCP options can be configured on a per-scope basis.
+
+True.
+
+
+
+4) What address is used to contact a DHCPv6 server?
+
+Multicast. ff02::1:2
+
+
+
+5) In a stateless environment, what sort of information does DHCPv6
+provide?
+
+The host autoconfigures an address using a network prefix provided by the
+router. DHCPv6 is then used to provide the IPv6 addresses used to access
+network services like DNS or SIP gateways.
+
+
+
+
+
+---
+BOOK 10B
+
+1) What type of DNS record resolves a host name to an IPv6 address?
+
+AAAA record.
+
+
+
+2) What use is a PTR DNS record?
+
+PTR record, reverse lookup. Maps hostname to IP address.
+
+
+
+3) What types of DNS records have priority or preference values?
+
+MX and SRV.
+
+
+
+4) What type of DNS record is used to prove the valid origin of email?
+
+SPF and DKIM. These are configured as TXT records.
+
+
+
+
+
+---
+BOOK 10C
+
+1) When you configure name server addresses as part of a host’s IP settings,
+do you need to specify servers that perform iterative queries only or
+ones that accept recursive queries?
+
+Recursive queries. These types of DNS servers are designned to assist clients
+with queries and are usually separate from the DNS server infrastructure
+designed to host authoritative name records.
+
+
+
+2) What type of DNS service would you configure on the LAN to use a public
+DNS server to resolve queries for external domains?
+
+A forwarding service.
+
+
+
+3) What is the function of:
+
+$ nslookup - 8.8.8.8
+
+Sets the nameserver as 8.8.8.8 for the query and goe into interactive mode.
+
+
+
+4) What is the function of a dig subcommand such as +nostats?
+
+To modify the output of the dig query.
+
+
+
+
+
+---
+ONLINE 10
+
+1) ICANN is a non-profit organization that’s dedicated to keeping the Internet
+secure. What does ICANN manage? (Select all that apply.)
+
+Generic TLDs
+DNS
+
+
+
+2) A client is attempting to renew its lease with the DHCP server so that it
+can keep the same IP addressing information. How much of the lease duration
+has lapsed?
+
+At least 50%. Clients can renew a lease when atleast half the lease period
+has elapsed so that it may keep the same IP information.
+
+
+
+3) A user has typed www.network.com into a web browser. The domain name server
+cannot resolve the name, so it is querying other name servers to try to find
+it. What kind of lookup is the domain name server performing?
+
+Recursive. Recursive lookups mean that if the queried server is not
+authoritative, it takes on the task of querying other name servers until
+it finds the requested record or times out.
+
+
+
+4) An administrator configures a new mail server to meet the organization's
+goals. Which record lists the IP addresses or names of servers that can send
+email from a particular domain and combats the sending of spam?
+
+SPF. Sender Policy Framework records list the IP addresses or names of servers
+that can send email from a particular domain and combats the sendign of spam.
+
+
+
+5) An administrator is using DHCP and wants to retain centralized management
+of IP addressing but needs to ensure that specific devices that supply
+always-on functionality have static IP address assignments. What is the
+best solution?
+
+Create reservations. This is a mapping of a MAC to a specific IP within
+the DHCP server address pool.
+
+
+
+6) An administrator ran a command and determined that the FQDN of a client
+is forbes.sales.realty.com. What is the hostname of the client?
+
+forbes
+
+
+
+7) An organization is using IPv4 addresses. Which of the following records
+will resolve a hostname to the IP address?
+
+A. A records are for IPv4. AAAA records are for IPv6.
+
+
+
+8) An administrator is configuring the TCP/IP settings in workstations and
+wants to use the solution with the least amount of overhead. What setting
+will the administrator select?
+
+DHCP. This automatically assigns IPs to end systems, minimizing overhead.
+Static addressing increases the operating expense (overhead) of the network
+because the administrator needs to invest more time in configuration, which
+costs more money at the end of the day.
+
+
+
+9) An administrator is configuring a DHCP server. What configurations must
+the administrator apply to the server? (Select all that apply.)
+
+The server must receive a static IP.
+The admin must configure a scope.
+
+DHCP is an "always on" service. Static IPs should be assigned to these types.
+A scope must bbe configured. This is the pool of addresses and subnet masks
+that the DHCP server issues to clients.
+
+
+
+10) An organization has multiple subnets but is only using one DHCP server.
+How is this possible? (Select all that apply.)
+
+DHCP relay.
+UDP forwarding.
+
+DHCP relay agents provide forwarding of DHCP traffic between subnnets.
+UDP forwarding is more general but includes DHCP, NTP, and other
+broadcast based services.
+
+
+
+LESSON 11 TESTS - EXPLAINING NETWORK APPLICATIONS
+
+---
+BOOK 11A
+
+1) True or false? An HTML web page is sent as the response to a client in an
+HTTP header field.
+
+False. Ann HTML web page is in the payload.
+
+
+
+2) What must be installed on a server to use secure (HTTPS) connections?
+
+A digital certificate and the corresponding private key.
+
+
+
+3) What distinguishes TFTP from FTP?
+
+TFTP is insecure and not as featureful. It only supports GET and PUT methods.
+TFTP works over UDP, not TCP.
+
+
+
+4) You need to configure clients to be able to communicate with print
+devices in a remote subnet. Which port number must you allow on a
+network firewall to enable the standard TCP/IP port?
+
+TCP/9100 JetDirect
+
+
+
+5) You are configuring a firewall to allow a Linux web server to
+communicate with a database server over port TCP/3306. Assuming it
+has been left configured with the default port, what type of database is
+being used?
+
+MySQL.
+
+
+
+
+
+---
+BOOK 11B
+
+1) What happens if a message sent via SMTP cannot be delivered?
+
+An undeliverable message will be sent to the sender with an error message.
+
+
+
+2) What protocol would enable a client to manage mail subfolders on a
+remote mail server?
+
+IMAP
+
+
+
+3) True or False? SIP enables the location of user agents via a specially
+formatted URI.
+
+True. The URI is like the phone number on SIP.
+
+
+
+4) Which component in a VoIP network allows calls to be placed to and from
+the voice telephone or public switched telephone network (PSTN)?
+
+VoIP PBX
+
+
+
+
+
+---
+ONLINE LESSON 11
+
+1) A growing organization wants an elementary web presence for its business. They
+do not intend to perform any e-commerce with their website. Which of the following
+is the best option for the organization to move forward with?
+
+Shared hosting. This is the most elementary, cost-effective setup.
+
+
+
+2) An organization has secured its website with SSL/TLS
+(Secure Sockets Layer/Transport Layer Security). By default, what port will
+this encrypted traffic use?
+
+TCP/443
+
+
+
+3) A server is running Microsoft SQL Server and is replicating the data to other
+Microsoft SQL servers on the network. The application service is using which
+principal port?
+
+TCP/1433
+
+
+
+4) An organization needs to use shared mailboxes for managing customer inquiries.
+What mailbox access protocol should the clients utilize to retrieve the mail over
+secured connections?
+
+IMAPS
+
+
+
+5) An admin is using FTP and the PROT command. What type of FTP is this?
+
+Active FTP. Active FTP uses the PROT command to transfer data securely.
+Passive FTP uses the PASV command.
+
+
+
+6) A mail administrator configured the DNS server to allow connections on
+TCP port 53. Why would the administrator make this kind of configuration?
+
+The network is using IPv6. DNS is typically run over UDP/53, but IPv6 requires
+larger transfers of 512bytes+.
+
+
+
+7) An administrator updated an A (address) record, but it took the client
+computers approximately five minutes to recognize the change. What update can
+the administrator make on the resource record to allow changes to propagate
+through the network more quickly?
+
+Decrease the TTL. If the TTL is decreased, then the query in cache will be
+updated more frequently.
+
+
+
+8) An organization is converting from landline telephones to VoIP handsets.
+Some of the current landline locations do not have electrical outlets nearby.
+What can the organization use to power the replacement handsets in these cases?
+(Select all that apply.)
+
+PoE
+Batteries
+
+
+
+9) An organization is looking to secure email, what could they implement?
+
+SMTPS
+STARTTLS
+
+
+
+10) What tools can a Windows administrator use to troubleshoot DNS issues
+without installing additional software? (Select all that apply.)
+
+nslookup
+ipconfig /all
+
+dig isn't a standard tool.
+hostname --fqdn is a linux command.
+
+
+
+11) Which of the following remote print protocols allows secure connections to
+a print device and allows it to advertise service capabilities over the network,
+provide plug-and-play installation for Windows and iOS devices, and use
+bidirectional status messaging?
+
+Web Services for Devices (WSD)/AirPrint
+
+
+
+12) An organization is converting from landline telephones to VoIP handsets, but
+still needs to use fax machines in many of the offices. What can the organization
+use to allow the fax machines to operate on the new VoIP system?
+
+VoIP gateway
+
+
+
+13) An organization is using video conferencing to conduct meetings between
+different locations. Which of the following protocols provides information that
+allows the network stacks to adjust the quality of service parameters?
+
+RTCP. RTP Control Protocol is a session on each RTP stream that monitors the
+quality of the connection and provides metrics that the network stacks use
+to tune QoS params.
+
+
+
+14) During an office upgrade, a technician is tasked with configuring the DNS server. What ports can be used when configuring a DNS service? (Select all that Apply).
+
+TCP/53 or UDP/53. DNS is typically run over UDP/53, but can be run over TCP for
+larger transfers.
+
+
+
+LESSON 12 TESTS - ENSURING NETWORK AVAILABILITY
+
+---
+12A BOOK
+
+1) True or false? SSH must be configured with two key pairs to operate; one
+on the server and one on the client.
+
+False. The server only must be configured with a key pair, the client can
+optionally use a key pair to authenticate.
+
+
+
+2) What remote management service is associated with TCP port 23?
+
+Telnet.
+
+
+
+3) Which port is used by the Network Time Protocol (NTP)?
+
+UDP/123
+
+
+
+4) What is SNTP?
+
+Simple Network Time Protocol. A simpler NTP enabling clients workstations to
+obtain the correct time from time servers.
+
+
+
+
+
+---
+12B BOOK
+
+1) You have a plan for monitoring switches and routers that accommodates
+network metrics (bandwidth, latency, and jitter) plus chassis
+temperature and intrusion. What other performance metric should be
+monitored?
+
+CPU and memory resource utilization. We can also monitor storage...
+
+
+
+2) How does an SNMP agent report an event to the management system?
+
+TRAP methods with conditions defined by the admin. Once a condition is met
+the agent traps the alert and notifies the admin.
+
+
+
+3) What sort of log would you inspect if you wanted to track web server
+access attempts?
+
+Audit/Security/Access logs.
+
+
+
+4) A technician has recommended changing the syslog logging level from
+its current value of 3 to 6. Will this cause more or fewer events to be
+forwarded?
+
+More. Increasing to 6 will include alert levels 1-5 but disclude 7.
+
+
+
+5) What would be the purpose of configuring thresholds in network
+monitoring software?
+
+So that alerts can be triggered once a threshold has been reached.
+
+
+
+
+
+---
+12C BOOK
+
+1) How is jitter mitigated by a VoIP application?
+
+Buffering packets.
+
+
+
+2) How many different traffic classes can be defined by 802.1Q/p?
+
+8 classes can be derived from the 3-bit value.
+
+
+
+3) How does a traffic shaper benefit real-time data applications?
+
+Traffic shapers can reserve bandwidth so that QoS params (latency and jitter),
+for a real-time data application can be guaranteed.
+
+
+
+4) What is a top listener in terms of network monitoring?
+
+Top listeners are the interfaces that are receiving the most data packets.
+
+
+
+5) You suspect that a network application is generating faulty packets.
+What interface metric(s) might help you to diagnose the problem?
+
+Error rates, discards/drops, re-Tx.
+
+
+
+---
+12 ONLINE
+
+1) A server is using its host key to establish a secure channel for clients to
+authenticate to the secure shell (SSH) server. Which of the following methods
+can establish the channel? (Select all that apply.)
+
+Username/password
+Public key authentication
+Kerberos
+
+
+
+2) An organization is using the Simple Network Management Protocol (SNMP) for
+remote management and monitoring of servers and network appliances and must
+deploy an agent to each device. Where are the statistics relating to the
+activity of each device kept?
+
+MIB or Management Information Base, duh.
+
+
+
+3) A Windows administrator needs to perform administrative tasks on servers at
+a different location and prefers to use a graphical user interface. What is the
+best tool for the administrator to use?
+
+RDP. All the other choices have a CLI.
+
+
+
+4) A file server on the network is receiving synchronized time so that it can
+communicate properly, however it cannot provide synchronized time for other
+devices on the network. Why is this?
+
+SNTP is simple and designed for end nodes, not for providing nodes with time.
+
+
+
+5) An organization is designing a new data center. What types of environmental
+issues should the organization implement sensors for? (Select all that apply.)
+
+Temperature
+Humidity
+Electrical
+
+
+
+6) An administrator received a Syslog alert, code 2. What level does this
+indicate the issue is?
+
+This is a Critical alert. The scale is 1-7, the higher the code,
+the less severe.
+
+
+
+7) An organization has ten employees in the finance department that all use
+the accounting system for different purposes. An administrator is reviewing
+logs and has discovered that all of the finance employees are using the same
+login to access the accounting system. Which log was the administrator reviewing?
+
+Audit Log. This records authentication and authorization privelages.
+
+
+
+8) An administrator is monitoring the performance metrics for a server and
+notices that the system memory utilization is very high. What does this indicate?
+
+The syystem needs a memory upgrade.
+
+
+
+9) An administrator needs to access servers using a key pair. What command can
+the administrator use to create the key pair?
+
+ssh-keygen
+
+
+
+10) An administrator has blocked access to port 23 to prevent users from using
+an unsecure terminal emulation software and protocol. What is the administrator
+blocking the use of?
+
+telnet
+LESSON 13 TESTS - EXPALINING COMMON SECURITY CONCEPTS
+
+---
+13A BOOK
+
+1) What type of assessment is most likely to measure security policies and
+controls against a standard framework?
+
+Posture/Risk assessment
+
+
+
+2) True or false? An automated vulnerability scanner can be used to detect
+zero-days.
+
+False. Zero-days aren't officially known to the public, therefore they couldn't
+be in a CVE database.
+
+
+
+3) What type of assessment tool is configured with details of CVEs?
+
+An automated vulnerability scanner.
+
+
+
+4) 515web IT staff discovered an entry when reviewing their audit logs
+showing that a junior employee from the sales department had logged
+into the network at 3:00 a.m. Further review of the audit logs show that
+he had changed his timecard on the HR server. Which security factor
+was breached, and did the attack exploit a software vulnerability or a
+configuration vulnerability?
+
+This was an internal configuration vulnerability/exploitation that compromised
+the integrity of data stored in the network.
+
+
+
+5) What type of security audit performs active testing of security controls?
+
+Penetration testing.
+
+
+
+
+
+---
+BOOK 13B
+
+1) What element is missing from the following list, and what is its purpose?
+• Identification
+• Authentification
+• Accounting
+
+Authorization. This assigns privelages over the network object to the subject.
+
+
+
+2) What is the purpose of SSO?
+
+Allows an entity to verify their identity through certificates so that they only
+need to sign-in once.
+
+
+
+3) True or false? A subject’s private key is embedded in the digital
+certificate that represents its digital identity?
+
+False. The private key is always for the owner only and cannot be shared with
+anything.
+
+
+
+4) What is a RADIUS client, and how should it be configured?
+
+A thing that accepts user connections. The client must be configured with the
+RADIUS server IP and possess the same shared secret.
+
+
+
+5) Where would EAPoL be configured?
+
+On a switch interface/port.
+
+
+
+
+
+---
+ONLINE
+
+1) The amount of data traffic both sent and received or calculated as a
+percentage of the available bandwidth is known as which interface
+monitoring metric?
+
+Utilization. This is the amount of data traffic both sent and received. It can
+also be calculated as a percentage of the available bandwidth.
+
+
+
+2) Which of the following processes of an identity and access management (IAM)
+system proves that the user is who they say they are?Which of the following
+processes of an identity and access management (IAM) system proves that the
+user is who they say they are?
+
+Authentication
+
+
+
+3) An organization hired a security firm to hack into its systems in order to
+determine what type of exploitable weaknesses the organization was vulnerable
+to. What kind of testing is this?
+
+Penetration testing. This is the authorized use of exploitation techniques to
+discover weaknesses in a targets systems.
+
+
+
+4) An organization hires a new Marketing department head from outside the
+company. The new employee is surprised to learn that they cannot assign
+permissions to the Marketing folders to employees that work in other areas
+of the company. What kind of access management is the organization using?
+
+Role-based access. This defines a set of organizational roles, then assigns the
+appropriate users to them.
+
+
+
+5) A security professional is working to identify all the ways a threat agent
+can breach security. What security concept does the threat actor represent?
+
+Threat. It's in the question, this person is a threat.
+
+
+
+6) An employee logs into their computer when they arrive at work and, regardless
+of what network resources they access throughout the day, they do not have to
+log in to anything else. What type of authentication is this?
+
+Single Sign-On (SSO). This allows a user to authenticate once for the duration
+of some condition until they must sign-on again.
+
+
+
+7) An administrator needs to perform maintenance on routers and switches and is
+authenticating to them over TCP port 49. What protocol is the administrator
+using?
+
+TACACS+. Remember that this protocol is used to authenticate to routers and
+switches. If we remember that, then we don't need to remember the port number.
+
+
+
+8) An organization has identified that they must be able to continually process
+customer payments and pay employee salaries to keep the business running even
+in the event of a service disruption as mission essential functions. What kind
+of assessment did the organization use to make these determinations?
+
+Process Asessment. This question is asking about HOW a company is doing
+something, which is a process.
+
+
+
+9) An organization deployed components so that they could use NetFlow to measure
+network traffic statistics. Which of the deployed components needs a high
+bandwidth network link and substantial storage capacity?
+
+NetFlow collector. These need a high-bandwisth network link and substantial
+storage capacity. It aggregates flows from multiple exporters, so large networks
+can generate massive amounts of records.
+
+
+
+10) An organization is using Lightweight Directory Access Protocol (LDAP) to
+update the directory database. The administrator insists that steps to ensure
+access to the directory has already been completed and is secure. What
+authentication methods will the administrator disable? (Select all that apply.)
+
+DISABLE - simple bind, no authentication. These are insecure.
+ENABLE - SASL and LDAPS. These are secure.
+
+
+
+11) A security company is working with a new customer and is describing
+different kinds of attacks they have discovered through research. What form
+of threat research does this represent?
+
+Behavioral threat research. This is a narrative commentary describing examples
+of attacks and the TTPs gathered through primary research sources.
+
+
+
+12) A security administrator is studying the relationship between
+vulnerabilities, threats, and risks. Which of the following is a true statement
+regarding these categories?
+
+A threat is a potential for an entity to breach security.
+
+
+
+13) Network users are reporting issues with videos constantly buffering. What
+kinds of issues should the administrator test for? (Select all that apply.)
+
+Packet loss
+Latenncy
+Jitter
+
+
+
+14) A sysadmin is looking into bandwidth management. Which kind of bandwidth
+management technology uses a header field to indicate a priority value for a
+layer 3 (IP) packet?
+
+DiffServ. Differentiated Services classifies each packet passing through a
+layer 3 device and can use defined router policies to use packet classification
+to prioritize delivery.
+
+
+
+15) An organization that issues public keys should obtain a digital
+certificate. What does the digital certificate contain? (Select all that apply.)
+
+Information on the certificate's guarantor.
+Information about the subject.
+The subject's public key.
+
+
+LESSON 14 TESTS - SUPPORTING AND TROUBLESHOOTING SECURE NETWORKS
+
+---
+BOOK 14A
+
+1) What type of security configuration uses edge and choke firewalls?
+
+A screened subent. The edge or screening firewall if the public interface while
+the choke firewall is the LAN interface.
+
+
+
+2) What parameters in packet headers can a layer 3 firewall ruleset use?
+
+IP source and destination address, protocol, and port number.
+
+
+
+3) Why would you deploy a reverse proxy?
+
+To publish a web application without directly exposing the servers on the
+internal network to the internet.
+
+
+
+4) What type of security control uses an attestation report?
+
+NAC server configured to allow connections only to clients that meet a health
+policy, such as running the most up-to-date OS version/patches.
+
+
+
+5) How does placement of an IDS sensor assist with a defense in depth
+policy?
+
+IDSes are placed behind firewalls to detect anything the firewall may have
+missed.
+
+
+
+
+
+---
+BOOK 14B
+
+1) You are planning to reconfigure static and DHCP-assigned IP addresses
+across the network during scheduled downtime. What preliminary step
+should you take to minimize connectivity issues when the network is
+reopened?
+
+Ensure that clients obtain a new DHCP lease by shortening the lease period in
+advance or by using a script to force clients to renew the lease at strtup.
+
+
+
+2) If a network adapter is using the address 169.254.1.10 on a host
+connected to the LAN, what would you suspect?
+
+That the DHCP server is down, this is an APIPA address.
+
+
+
+3) Following maintenance on network switches, users in one department
+cannot access the companyʼs internal web and email servers. You can
+demonstrate basic connectivity between the hosts and the servers by IP
+address. What might the problem be?
+
+This is a name resolution problem. Because the admin can ping by IP but not
+otherwise indicates that users lost access to the DNS server from a VLAN
+configuration.
+
+
+
+4) You are troubleshooting a connectivity problem with a network
+application server. Certain clients cannot connect to the service port.
+How could you rule out a network or remote client host firewall as the
+cause of the problem?
+
+With no host firewall ruunning, scan or connect to the service port interface
+with netcat or nmap.
+
+
+
+SCENARIO (Page 337)
+
+You are staffing the network help desk and dealing with support requests as they
+arrive. Your network uses four access switches to support four subnets. One subnet
+contains network servers (authentication, directory services, DNS, and DHCP) and
+another contains Line of Business (LoB) application servers, for sales and order
+processing. There are two client subnets, serving different floors in the building.
+
+1) You receive a call from the user of host A who has always been able to
+connect to the LoB application servers, but today she is unable to connect.
+You verbally check with other users and discover that none of the hosts
+on subnet 20 can connect, but that users in subnet 10 report no problems.
+What tests should you perform to narrow down the cause of the problem?
+
+Either the link to thhe router from subnet 20 has failed, or hosts in subnet 20
+are no longer receiving a correct IP configuration from the network servers. To
+test, from any host in subnet 20 we should ping the loopback address and then ping
+that hosts address. If these fail, or the host is using APIPA, investigate
+communications with the network servers. If local IP config is good, ping the
+router. If all else fails, check the switcth or cabling.
+
+
+
+2) You send a junior technician to the equipment room to fix the problem.
+Sometime later, another user from subnet 20 calls complaining that he
+cannot connect to the Internet. What questions should you ask to begin
+troubleshooting?
+
+Ask if the user can connect to one of the LoB applications. If this fails, we can
+check whether other users are experiencing the issue and establish scope.
+
+
+
+3) You asked a junior technician to step in because your manager had
+asked you to deploy a wireless access point on the network to support
+a sales event due to start the next day. There will be lots of guests,
+and your manager wants them all to have Internet access. You did not
+have much time, so you simply added the access point to the switch
+supporting subnet 10. The next day arrives, and sometime after the
+sales event starts, multiple employees in subnet 10 report that when
+they attempt to connect to the network, they get a message that the
+Windows network has limited connectivity. What might be the cause and
+what test should you use to confirm the issue?
+
+The most likely cause is that guest devices have exhausted the DHCP address pool
+for that scope. The question mentions "Windows", so we can confirm that this is
+the issue if the clients within the subnet are receiving APIPA addresses. We
+can verify this with ipconfig.
+
+
+
+
+
+---
+ONLINE
+
+1) A user is attempting to access a government network, but the network will not
+allow the user’s device to connect until the user updates the operating system.
+What kind of defense mechanism is this?
+
+Network Access Control (NAC). NAC authenticates endpoints at the point they
+connect to the network, and can ensure clients are running an authorized OS and
+have up to date patch and security configurations.
+
+
+
+2) An administrator received an alert regarding suspicious activity on the
+network. The system is logging the activity and the administrator must determine
+how to handle the situation. What kind of system most likely sent the alert?
+
+Intrusion Detection System (IDS). IDSes perform real-time analysis of network
+traffic and application logs. It raises an alert and can log activity when it
+detects suspicious activity.
+
+
+
+3) An administrator is configuring a firewall at the Session layer of the OSI
+model. What kind of firewall is the administrator implementing?
+
+Stateful inspection firewall. This is a layer 5 firewall that checks incoming
+packets to confirm whether it belongs to an existing connection.
+
+
+
+4) An organization is using Dynamic Host Configuration Protocol (DHCP) to
+centrally manage IP addressing. All clients on the network are receiving IP
+address autoconfiguration except the clients on a new subnet. What is the most
+likely reason?
+
+The router on that subnet doesn't support BOOTP forwarding, so traffic cannot get
+to the clients.
+
+
+
+5) An administrator can ping a server by IP address but cannot ping the server by
+its name. What are some areas the administrator should check to find out why the
+name isn’t resolving to the IP address? (Select all that apply.)
+
+Check the local cache.
+Check the HOSTS file.
+Query the DNS server.
+
+
+
+6) An organization purchased a new router with built-in firewall features. The
+administrator configured the new appliance and it worked as expected. However,
+after 90 days the firewall stopped working. What is the most likely cause?
+
+The trial period ended.
+
+
+
+7) A Windows user is trying to remote desktop into an application server. Although
+the user can ping the FQDN, they are unable to establish a connection. What is
+most likely the cause?
+
+Firewall blocking TCP/3389. The key here is "remote desktop". RDP runs on TCP/3389.
+
+
+
+8) Which service maps ports and documents the mappings for new webserver
+connections and then substitutes the private IP address for a public IP address
+before sending the request to the public Internet? (Select all that apply.)
+
+Port Address Translation (PAT) or Network Address Port Translation (NAPT) allocate
+port mappings in the state table and then subtitute the private IP for the public
+IP and then forwards it to the internet.
+
+
+
+9) An administrator is configuring a new network from the ground up. Which servers
+would the administrator configure as bastion hosts? (Select all that apply.)
+
+Proxy servers
+Web servers
+
+Bastion hosts sit on the edge of a network, therefore we configure internet facing
+devices as bastion hosts.
+
+
+
+10) An administrator has plugged in a new security camera, but when accessing the
+camera’s web management interface, the administrator encounters a self-signed
+certificate error. What should the administrator do?
+
+Replace the default certificate. The key here is "self-signed", so the holder is
+the issuer of the cert, so thhe admin should replace his own cert.
+
+
+
+LESSON 15 TESTS - DEPLOYING AND TROUBLESHOOTING WIRELESS NETWORKS
+
+---
+BOOK 15A
+
+1) What mechanism does RTS/CTS support?
+
+CSMA/CA. Rather than try to detect collisions, a wireless station indicates its
+intent to transmit by broadcasting an Request to Send (RTS) and waits to receive a
+Clear to Send (CTS) before proceeding.
+
+
+
+2) Which IEEE WLAN standards specify a data transfer rate of up to
+54 Mbps?
+
+802.11a and 801.11g
+
+
+
+3) What options may be available for an 802.11n network that are not
+supported under 802.11g?
+
+Channel bonding
+Multiple Input Multiple Output
+Use of either 2.4GHz or 5GHz bands
+
+
+
+4) True or False? Stations with 802.11ac capable adapters must be assigned
+to the 5 GHz frequency band.
+
+True. 802.11ac is designed to work only with 5GHz and 2.4GHz for legacy clients.
+
+
+
+5) Which frequency band is less likely to suffer from co-channel
+interference?
+
+5GHz
+
+
+
+6) What standard(s) are intended to support 4G mobile wireless services?
+
+LTE, Long Term Evolution.
+
+
+
+
+
+---
+BOOK 15B
+
+1) What value is used as the BSSID?
+
+The MAC of the AP.
+
+
+2) True or False? Suppressing transmission of the WLAN beacon improves
+security.
+
+False. We can still find the ssid through other devices.
+
+
+
+3) What is a heat map?
+
+A reading of signal strength in an area.
+
+
+
+4) True or false? To support client roaming within an extended service
+area, each access point must be configured with the same SSID, security
+parameters, and Wi-Fi channel.
+
+True.
+
+
+
+5) What type of AP requires a wireless controller?
+
+Thin AP.
+
+
+
+6) What are the advantages of deploying a wireless mesh topology over an
+IBSS?
+
+Mesh topologies are more scaleable and do not require a controller. 802.11s
+devices can directly connect to one another.
+
+
+
+
+
+---
+BOOK 15C
+
+1) You are planning WLAN for an office building with an attached
+warehouse. Where would you recommend placing Wi-Fi antennas for the
+best coverage in an office full of cubicles as well as in the warehouse?
+
+Mounted on the ceiling with a vertical type antenna.
+
+
+
+2) The lobby area of your office building has undergone a renovation, the
+centerpiece of which is a large aquarium in the middle of the room,
+separating a visitor seating and greeting area from the reception desks,
+where the AP facilitating guest Internet access is located. Since the
+renovation, many guests have been unable to connect to Wi-Fi from the
+seating area. Could the aquarium really be the cause, and what solution
+could you recommend?
+
+Yes, glass, mirrors, and water refract, reflect, and absorb radio waves.
+We can place the AP above the aquarium or add another AP to the other side
+of it to act as a repeater.
+
+
+
+3) What is the difference between a Wi-Fi analyzer and a spectrum
+analyzer?
+
+WiFi analyzers filter out all signals but WiFi signals, spectrum analyzers
+read all sorts of signals.
+
+
+
+4) Users in the corner of an office building cannot get good Wi-Fi reception.
+Your office manager doesnʼt want to use his budget to purchase a new
+AP. Heʼs noticed that the power level control on the AP is set to 3 out of 5
+and wants to know why turning up the power isnʼt the best solution?
+
+Turning the power level up may cause compatibility issues with clients, which
+in turn would lead to packet sending errors and retransmission. The best idea
+hhere is to pay out for another AP or configure a wireless bridge with
+directional antennas.
+
+
+
+
+
+---
+BOOK 15D
+
+1) What is the main difference between WPA and WPA2?
+
+WPA2 uses AES.
+
+
+
+2) What configuration information is required on an access point to
+authenticate users joining the wireless network against a network
+authentication server?
+
+The authentication method must be set to enterprise and the AP must be
+configured with the IP address and shared secret of the RADIUS or
+TACACS+ server.
+
+
+
+3) Widget Corporation has provided wireless access for its employees using
+several APs located in different parts of the building. Employees connect
+to the network using 802.11g-compatible network cards. On Thursday
+afternoon, several users report that they cannot log on to the network.
+What troubleshooting step would you take first?
+
+Check device compatibility with authentication methods.
+
+
+
+4) Why might an attacker launch a disassociation attack against an access
+point?
+
+DoS attack to prevent network access, or an attempt to use an evil twin/rogue
+AP to intercept network traffic.
+
+
+
+5) Your company has a lobby area where guest access is provided so that
+visitors can get Internet access. The open guest WLAN is currently
+connected to the production network. The only protection against
+visitors and hackers getting into the organizationʼs data is file and
+directory rights. What steps should be taken to provide guest access and
+better protect the organizationʼs data?
+
+The guest WLAN should be separated on another network segment using VLANs
+and a firewall to separate traffic. Configuring a captive portal would be
+helpful as well.
+
+
+
+
+
+---
+ONLINE
+
+1) The IEEE 802.11 standards use two frequency bands. Which of the following
+statements regarding the frequency bands are true? (Select all that apply.)
+
+The 2.4 GHz band is ideal for providing the longest signal range.
+The 5 GHz band supports a high number of individual channels.
+
+
+
+2) What standards is WiFi based on?
+
+802.11
+
+
+
+3) A wireless installer is networking a conference room with 9’ ceilings. What
+is the best type of antenna for wireless devices?
+
+Vertical rod
+
+
+
+4) An administrator is investigating issues with users experiencing minimal
+connectivity to the wireless network. The administrator has verified that the
+access point configurations and uptime are correct. However, the administrator
+suspects that there may be other issues causing the problem. What are some
+areas the administrator should investigate? (Select all that apply.)
+
+Signal strength
+Interference
+
+
+
+5) An administrator responsible for implementing network coverage in a historical
+monument cannot install cabling in many areas of the building. What are some ways
+the administrator can take advantage of wireless distribution systems (WDS) to
+help? (Select all that apply.)
+
+To create an ESA
+To create a bridge
+
+
+
+6) Wi-Fi 6 uses complex modulation and signal encoding. Why did Wi-Fi 6 reinstate
+operation in the 2.4 GHz band?
+
+To support IoT
+
+
+
+7) A small organization is securing their wireless network with Wi-Fi Protected
+Access 3 (WPA3) personal. What are some of the issues with this method of
+authentication? (Select all that apply.)
+
+No accountability
+Group Authentication
+
+
+
+8) 802.11 relies on a shared physical bus running at half-duplex. How does this
+standard manage contention?
+
+CSMA/CA
+
+
+
+9) Which of the following are formats for 2G cellular communications?
+(Select all that apply.)
+
+GSM
+CDMA
+
+
+
+10) An administrator wants the ability to centrally configure and manage access
+points (APs). What are some solutions the administrator could use for this?
+(Select all that apply.)
+
+Hardware
+Software
+
+
+
+11) A library user connected their tablet to the library’s open access point.
+Which of the following items will NOT secure the open connection and protect
+the user’s communications?
+
+Using a screen protector
+
+
+
+12) Which of the following are reasons why a client would unexpectedly
+disassociate from an access point? (Select all that apply.)
+
+AP proximity
+MAC spoofing
+Interference
+
+
+
+13) An administrator is testing the signal strength in a concrete building and
+measures a 12 dB loss between the office where the access point is located and
+the office next door. What is the cause of the decibel loss?
+
+Absorbtion
+
+
+
+14) A wireless administrator is receiving reports that users cannot connect to
+the wireless network in certain areas of the building. What can the
+administrator use to locate dead zones?
+
+Heat map
+
+
+
+15) An administrator is implementing encryption on the wireless network. What
+standard should the administrator implement?
+
+WPA2
+
+
+
+16) A wireless administrator is troubleshooting dead zones in a building.
+Although the administrator used a heat map to determine the optimum position for
+access points (APs), some areas that should have coverage have very low signal
+strength which is unusable to clients. What should the administrator check?
+(Select all that apply.)
+
+Antenna placement
+Antenna cable attenuation
+EIRP
+
+
+
+17) An administrator is evaluating the wireless coverage in a conference hall.
+There are enough access points to provide for 25 clients per access point, but
+many users are finding the wireless network to be unresponsive and timing out
+requests. What could be causing this issue? (Select all that apply.)
+
+Co-Channel Interference (CCI)
+Adjacent Channnel Interference (ACI)
+Bandwidth saturation
+
+
+
+18) What protocol can an administrator configure in a wireless mesh network (WMN)
+to allow the stations to perform path discovery and forwarding between peers?
+
+HWMP
+
+
+
+19) An administrator is configuring a wireless LAN (WLAN) extended service area.
+Which of the following will the administrator need to configure the same on each
+access point? (Select all that apply.)
+
+ESSID
+Security Info
+
+
+
+20) An administrator is configuring wireless coverage for a public library. What
+type of authentication should the administrator implement?
+
+Open authentication
+
+
+LESSON 16 TESTS - COMPARING WAN LINKS AND REMOTE ACCESS METHODS
+
+---
+BOOK 16A
+
+1) What component of a structured cabling system protects the demarc
+against tampering?
+
+Physical access control
+
+
+
+2) What type of cable can be used to connect a CSU/DSU to a smartjack,
+assuming a maximum link distance of 1m (3 feet)?
+
+RJ-45 patch cable
+
+
+
+3) You are connecting a SOHO network to a VDSL service using a separate
+VDSL modem. What cables do you require and how should they be
+connected?
+
+Two-pair RJ-11 connectors = WAN/DSL -> Modem
+RJ-45 connectors = LAN/Ethernet -> SOHO router
+
+
+
+4) You need to cable a service that terminates at an optical network unit
+(ONU) to the customer router. What type of cable is required?
+
+Straight RJ-45 patch cord
+
+
+
+5) Assuming that sufficient bandwidth can be provided, what factor limits
+the usefulness of a microwave satellite Internet link?
+
+Distance
+
+
+
+
+
+---
+BOOOK 16B
+
+1) What step can you take to prevent unauthorized use of a remote access
+server?
+
+Define which user accounts have dial-in rights
+Consider restricting access by time of day
+Confifgure logging and auditing of remote access logins and attempts
+
+
+
+2) What type of client-to-site VPN ensures that any traffic from the remote
+node can be monitored from the corporate network while the machine is
+joined to the VPN?
+
+Full tunnel. 
+
+
+
+3) What replaces the VPN client in a clientless remote access solution?
+
+A web browser if you are running HTML5.
+
+
+
+4) What difference does DMVPN make to a hub and spoke VPN topology?
+
+A DMVPN allows a host to make a direct connection, rather that forward traffic
+through a central hub.
+
+
+
+5) What IPSec mode would you use for data confidentiality on a private
+network?
+
+Transport mode with ESP.
+
+
+
+6) What is a virtual terminal?
+
+Configuring a management IP address on the switch to connect to its CLI over the
+network rather than a serial cable.
+
+
+
+
+
+---
+ONLINE
+
+1) An organization tasks a network consultant with comparing costs for the
+business to acquire a technology that allows data to transfer over voice-grade
+telephone lines. What is this technology?
+
+Digital Subscriber Line (DSL)
+
+
+
+2) A network engineer wants to establish data communications over a greater
+distance than a Local Area Network (LAN). What can the engineer use to gain
+the desired distance?
+
+WAN
+
+
+
+3) A company tasks a network specialist to purchase an access solution that
+uses internet access infrastructure and a secure tunnel to connect private
+communications through the internet. What is this access solution?
+
+VPN
+
+
+
+4) A network engineer is assigned to locate and acquire a data communications
+network controlled by a single organization. What is the name for this type of
+network?
+
+Enterprise WAN
+
+
+
+5) A network architect creates a site-to-site VPN involving multiple remotes to
+a headquarters site by using static tunnels configured between the remote sites
+and the headquarters site. What is the name of this VPN configuration?
+
+Hub and Spoke
+
+
+
+6) A company tasks a network technician with installing a VPN router onto one
+of the company's larger machines capable of aggregating high traffic volumes.
+What is the name of this router?
+
+VPN headend
+
+
+
+7) An organization tasks a network engineer with purchasing an access/gateway
+that extends the local network access over an intermediate public network so
+a remote computer can join the local network. What access/gateway will the
+engineer acquire?
+
+Remote Access VPN
+
+
+
+8) An organization tasks a network consultant with comparing the costs and
+requirements for the various types of Carrier Ethernet. The consultant selects
+a carrier ethernet that uses digital subscriber line (DSL) variants such as
+single-pair high-speed DSL (SHDSL) and very high-speed DSL (VDSL) to overcome
+the usual distance limitations of copper Ethernet. What type of carrier ethernet was selected by the consultant?
+
+Ethernet over Copper
+
+
+
+9) A network engineer installs a new Virtual Private Network (VPN) set up
+dynamically according to traffic requirements and demand. What is the type of
+VPN installed?
+
+Dynamic Multipoint VPN
+
+
+
+10) A network technician is assigned to find the fastest solution, regarding
+bandwidth capabilities, closest to Local Area Network (LAN) speeds for an office
+building. What is the most expensive solution the network technician can
+consider?
+
+FTTP. Fiber to the Premises.
+
+
+
+LESSON 17 TESTS - EXPLAINING ORGANIZATIONAL AND PHYSICAL SECURITY CONCEPTS
+
+---
+BOOK 17A
+
+1) What types of baselines are useful when you are performing
+configuration management?
+
+Configuration and performance baselines.
+
+
+
+2) What type of security control provisions resources and procedures to
+cope with incidents that cause major service outages?
+
+Disaster Recovery Plan
+
+
+
+3) How is the person who first receives notification of a potential security
+incident designated?
+
+First responder
+
+
+
+4) What configuration request would be implemented by IT services during
+employee onboarding?
+
+Account creation, issuance of credentials, allocation of permissions/roles.
+
+
+
+
+
+---
+BOOK 17B
+
+1) Some of the businesses near 515support have recently had break-ins
+where some equipment was stolen. As news of these events spread,
+it generated some concern within the organization that their physical
+security measures should be reviewed and possibly enhanced. There
+is currently a security guard on duty during business hours, video
+monitoring of the front and back doors, and employees use plastic
+badges with their name and photo to enter the building. Access beyond
+the lobby area requires swiping a badge to enter the rest of the building.
+What, if anything, would you recommend adding or improving for their
+physical security?
+
+Motion detectors, video monitoring on entrance/exits, smart cards for entry.
+
+
+
+2) What technology could be used to provision security cameras without
+having to provide a separate circuit for electrical power?
+
+PoE
+
+
+
+3) Following a security incident, the lessons learned report recommends
+upgrading premises entry control to prevent tailgating. What type of
+prevention control will provide the most effective solution?
+
+A trap, vestibule, gate, etc.
+
+
+
+4) What is a PDS, and what type of security control does it provide?
+
+Protected Distribution Systems are hardened cable distributions. Cabling is cased
+in metal housing and an alarm is triggered if breached.
+
+
+
+5) What technology provides data security assurance during the asset
+disposal phase of system life cycle?
+
+Media sanitization
+
+
+
+
+
+---
+BOOK 17C
+
+1) What type of network topology is used by IoT technologies such as
+Z-Wave and Zigbee?
+
+Wireless mesh
+
+
+
+2) What is a principal requirement of IoT networking technologies?
+
+Low power consumption and low latency.
+
+
+
+3) A technician is configuring a PC with software to manage and monitor a
+network of field devices. What type of host is being configured and what
+factors should govern its connection to a corporate data network?
+
+SCADA. The SCADA host may be completely separate from the corporate data network.
+If connected, it should be segregated enforced with an ACL.
+
+
+
+
+
+---
+ONLINE
+
+1) A network manager needs to create a document that shows detailed information
+about the termination of twisted pairs in an RJ-45 or RJ-48C jack or Insulation
+Displacement Connector (IDC). What is the name of this document?
+
+Wiring Diagram
+
+
+
+2) An organization tasked its network analyst with reviewing the system that
+monitors the building's locks, intruder alarms, and video surveillance cameras.
+What is the name of this system?
+
+PACS. Physical Access Control System.
+
+
+
+3) A network specialist reviews the organization's cellular technology and
+discovers that the current contract uses a low-power system service but supports
+higher bandwidth up to 1Mbps. What baseband radio technology service is the
+organization using for cellular service?
+
+LTE-M
+
+
+
+4) A network engineer needs to decommission a server and wipe all custom
+configurations. The servers are decommissioned through a process which helps
+local schools receive IT equipment. What routine will the engineer use to wipe
+the server?
+
+Factory reset.
+
+
+
+5) A company tasks its network specialist with configuring a steel shelving
+system for patch panels, switches and routers, and server devices. What is the
+name of this system?
+
+Rack
+
+
+
+6) A network consultant considers using a wireless communications protocol
+mainly used in home automation but believes it could support the organization's
+mission. What is the name of this protocol?
+
+Z-Wave
+
+
+
+7) Due to an increase in foot traffic from outside groups throughout the
+building, the organization asks the security office to employ equipment that
+will allow visual monitoring across the organization. What equipment would best
+be suited to manage this request?
+
+Cameras
+
+
+
+8) A network consultant needs to create a documentation process that minimizes
+the risk of unscheduled downtime by implementing changes in a planned and
+controlled way. What is the name of this process?
+
+Change Management
+
+
+
+9) A network consultant needs to develop a plan that sets out the procedures,
+tools, methods of communication, and guidelines when mitigating a problem. What
+is the name of this plan?
+
+Incident Response Plan
+
+
+
+10) A network manager is asked to create a document that provides a detailed
+diagram of the wiring and port locations for the building. What is the name of
+this document?
+
+Floor plan
+
+
+
+11) A security consultant needs to add a security system to an office space that
+triggers an alarm while someone occupies the room. What type of equipment would
+the security install?
+
+Motion detection.
+
+
+
+12) Due to concerns of losing or misplacing equipment, the organization asks the
+network office to track all electrical equipment. What will the office use to
+track the organization's equipment?
+
+Asset Tags
+
+
+
+13) An organization tasked its network consultant with reviewing the system that
+provides workflow and process automation mechanisms. What is the name of this
+system?
+
+ICS
+
+
+
+14) A network specialist reviews the organization's cellular technology and
+discovers that the current contract uses a service that provides a low-power
+version of the Long Term Evolution (LTE) or 4g cellular standard and currently
+has a limited data rate between 20-100 kbps. What baseband radio technology
+service is the organization now using for cellular service?
+
+NB-LTE
+
+
+
+15) A security consultant needs to add a security system to the doors of a
+secured room. What system will the security consultant install that meets the
+requirement and protects against tampering?
+
+Closed circuit
+
+LESSON 18 TESTS - DISASTER RECOVERY AND HIGH AVAILABILITY CONCEPTS
+
+---
+BOOK 18A
+
+1) Which metric is used to determine frequency of data backups?
+
+Recovery Point Objective (RPO).
+
+
+
+2) A server group installed with storage devices from Vendor A experiences
+two failures across 20 devices over a period of 5 years. A server group
+using storage devices from Vendor B experiences one failure across
+12 devices over the same period. Which metric is being tracked and
+which vendor’s metric is superior?
+
+Mean Time to Failure (MTTF). Used for devices that cannot be repaired.
+
+
+
+3) 515web have experienced three web server outages in the last five years.
+These outages all occurred in separate years and caused one hour, three
+hour, and one hour downtime incidents. Assuming the company uses
+the same value for MTD and RTO, did the company meet the RTO of two
+hours specified in the SLA agreed annually with its customers?
+
+No. RTO is equal to the maximum amount of downntime. The single incident causing
+3hrs of downtime breaks the SLA. The SLA was yearly, not an average of all the
+years.
+
+
+
+4) What type of failover site generally requires only data to be restored
+before it can resume processing?
+
+Warm
+
+
+
+5) What rack-mountable device can provide line filtering and power
+monitoring features?
+
+PDU
+
+
+
+
+
+---
+BOOK 18B
+
+1) Why might contracting with multiple ISPs still fail to provide highly
+available Internet access infrastructure?
+
+They may use the same services which in turn, may be down.
+
+
+
+2) True or false? Link aggregation can only be configured between
+intermediate systems, such as switch-to-switch or switch-to-router.
+
+False, link aggregation can be used between end systems and intermediate systems.
+
+
+
+3) You are configuring a load balanced web application. Which IP
+address should be configured as a host record in DNS to advertise
+the application?
+
+The virtual IP.
+
+
+
+4) What is the purpose of HSRP and VRRP?
+
+Provides failover for a group of routers.
+
+
+
+
+
+---
+ONLINE
+
+1) While evaluating load balancers, a network engineer needs to acquire a switch
+that can handle complex logic. Which switch would the engineer use for this
+requirement?
+
+Layer 7 switch.
+
+
+
+2) A network contractor reviews key performance indicators regarding the time
+taken to correct a fault and restore the system to full operation. What is the
+name of this process?
+
+MTTR
+
+
+
+3) A network engineer decides that the organization needs to purchase a device
+that "cleans" the power signal, provides protection against spikes, surges, and
+brownouts, and can integrate with an uninterruptible power supply (UPS). What is
+the name of this device?
+
+PDU
+
+
+
+4) A network technician needs to install a load balancer onto the network as the
+department has experienced issues with streaming media servers. What switches
+could the technician use to support this request? (Select all that apply.)
+
+Layyer 4 switch
+Layer 7 switch
+
+
+
+5) A network consultant is looking for a device that will serve as a temporary
+power source in the event of a blackout. What is the name of this device?
+
+UPS
+
+
+
+6) A network specialist wants to provision two load balancer appliances so that if one fails, the other can still handle client connections. What type of load balancer distribution method should the network specialist use?
+
+Virtual IP
+
+
+
+7) A network technician confirms that the server room has adequate environmental
+controls to mitigate the loss of availability through mechanical issues with
+equipment, such as overheating. What service provides environmental control in
+the room?
+
+HVAC
+
+
+
+8) A network contractor evaluates a protocol that allows multiple physical
+routers to serve as a single default gateway for a subnet. What is the name of
+this protocol?
+
+HSRP
+
+
+
+9) A network specialist analyzes the key performance indicators associated with
+the component reliability regarding the expected lifetime of repairable
+products. What reliability analysis is the network specialist conducting?
+
+Mean Time Between Failures (MTTB)
+
+
+
+10) A network engineer deploys a hardware appliance to distribute client
+requests across server nodes in a farm or pool. What is the name of this
+appliance?
+
+Load balancer
+
+LESSON 19 TESTS - APPLYING NETWORK HARDENING TECHNIQUES
+
+---
+BOOK 19A
+
+1) Response time on the website that hosts the online version of your
+product catalog is getting slower and slower. Customers are complaining
+that they cannot browse the catalog items or search for products. What
+type of attack do you suspect?
+
+DoS
+
+
+
+2) The network administrator at your organization analyzes a network
+trace capture file and discovers that packets have been intercepted and
+retransmitted to both a sender and a receiver during an active session.
+What class of attack has been detected?
+
+On path
+
+
+
+3) True or false? To perpetrate an ARP spoofing attack, the threat actor
+spoofs the IP address of a legitimate host, typically the subnet’s default
+gateway.
+
+True.
+
+
+
+4) A threat actor forces clients to disconnect from a legitimate access point
+to try to force them to reconnect to an access point controlled by the
+attacker using the same network name. What two attack types are being
+used?
+
+Deauthentication. Rogue AP.
+
+
+
+5) Analysis of outgoing traffic shows connections by IP cameras to
+unidentifiable domain names. What type of traffic has been detected?
+
+This is command and control traffic between a handler and botnet of compromised
+IP camera devices, often called an IoT botnet.
+
+
+
+6) Employees have received emails prompting them to register for a new
+benefit package. The link in the mail resolves to a malicious IP address.
+What type of attack is being performed?
+
+Phishing.
+
+
+
+
+
+---
+BOOK 19B
+
+1) The network administrator configures a switch with custom privilege
+levels and assigns commands to each. What type of best practice
+network hardening will this configuration support?
+
+Role-based access
+
+
+
+2) A technician configures a switch with an IP address and shared secret
+of a network authentication server. What type of best practice network
+hardening is being performed?
+
+Port-Based Network Access Control (PNAC) IEEE 801.1x
+
+
+
+3) What switch configuration feature could you use to prevent web servers
+in the same subnet from communicating with one another?
+
+We can do this by configuring a private VLAN. The servers are all placed in
+the same VLAN and communicate out of the VLAN/subnet via the promiscuous
+port. Each server port is configured as an isolated port. The isolated ports
+are not able to communicate directly.
+
+
+
+4) What is the default rule on a firewall?
+
+The implicit deny rule
+
+
+
+5) Network hosts are flooding a switch’s SSH port with malicious traffic.
+The switch applies a rate-limiting mechanism to drop the traffic. What best
+practice network hardening control is being used?
+
+Contol plane policing. The SSH port carries management traffic. Malicious
+management or control traffic can be used to perform a denial of service
+(DoS) attack against a network appliance by overloading its general purpose
+CPU. A control plane policing policy protects both control and management channels against this type of attack.
+
+
+
+6) How would a router appliance be patched to protect against a specific
+vulnerability described in a security advisory?
+
+Router OSes typically do not support patching of individual files. The whole
+OS must be replaced with a new version.
+
+
+
+
+
+---
+ONLINE
+
+1) A cyber consultant is brought into a department to create security procedures
+and technologies designed to restrict network access at an end user device
+level. What is the consultant focusing on?
+
+Endpoint Security
+
+
+
+2) An organization contacts the cyber security team and requests a feature to
+provide secure wireless network access. Select the appropriate answers that
+support this request. (Select all that apply.)
+
+Preshared Keys (PSKs)
+Captive Portal
+Geofencing
+
+
+
+3) A cyber security technician is requested to investigate a matter in which
+several customers have lodged complaints about computer issues after visiting
+the company site. Upon closer observation, the technician discovers that an
+unknown IP address replaced the valid IP address. What type of attack occurred
+in this incident?
+
+DNS Poisoning
+
+
+
+4) A department head contacts a cyber consultant declaring that the team is
+locked out and cannot conduct any activity. While working on the system, the
+consultant notices a demand for money, or the department will never get their
+data back. What is this type of attack called?
+
+Ransomware
+
+
+
+5) A cyber security technician speaks with a department that has voiced concern
+regarding tech issues. The technician discovered that the employee had received
+an email containing an attachment from an outside party. Curious about what the
+document contained, the employee clicked on the link. The next day, the employee
+noticed that some of the software was not working correctly, and some important
+documents were no longer accessible. What was likely the cause of this issue?
+
+Malware
+
+
+
+6) A cyber technician needs to draft a policy for the organization to mitigate
+the risk from route processor vulnerabilities. What is the name of this type of
+policy?
+
+Control Plane Policing
+
+
+
+7) A network technician needs to strengthen the security of the company network
+by minimizing the amount of traffic required for the operation of the valid
+network services, and no additional access to be permitted. What is the
+technician placing into the network?
+
+ACLs
+
+
+
+8) A cyber security technician responds to a department experiencing degraded
+network bandwidth, and customers call the department saying they cannot visit the
+company website. What is likely causing the issue?
+
+DDoS
+
+
+
+9) A cyber consultant needs to modify the company's access control lists to
+minimize network traffic. During configuration, the consultant can use a
+command-line utility provided by many Linux distributions that allow
+administrators to edit the rules enforced by the Linux kernel firewall. What is
+the command-line utility used?
+
+iptables
+
+
+
+10) During a routine investigation of the network, the cyber specialist
+identifies that an on-path attack has compromised the network. What is another
+name for this type of attack?
+
+MitM
+
+
+
+11) 
+CHAPTER 20 TESTS
+
+---
+BOOK 20A
+
+1) A cloud service provider is reviewing performance metrics. On a graph,
+increases and decreases in customer request volumes are closely
+tracked by CPU and RAM provisioning levels. What characteristic of cloud
+platforms does this demonstrate?
+
+Elasticity
+
+
+
+2) 515accounting uses colocation to host its servers in datacenters
+across multiple geographic regions. It configures the servers to run a
+software as a service (SaaS) app for use by its employees. What type of
+deployment model is this?
+
+Private deployment. The cloud service is wholly operated by 515 (apparently).
+
+
+
+3) What type of cloud solution would be used to implement a SAN?
+
+IaaS
+
+
+
+4) What are the main options for implementing connections to a cloud
+service provider?
+
+Internet/VPN or Direct-connection/Colocation
+
+
+
+5) A technician writes a configuration file that specifies the creation of an
+Ubuntu Server VM with a 2 GHz CPU, 16 GB RAM, and a mass storage disk
+provisioned from a high-speed resource. What type of cloud concept or
+model is being used?
+
+Declarative automation
+
+
+
+
+
+---
+BOOK 20B
+
+1) A technician boots a server from USB media and installs a virtualization
+product. What type of hypervisor is being used?
+
+Type I
+
+
+
+2) If a VM is connected to a bridged virtual switch, what sort of network
+access does it have?
+
+The VM is connected to the physical network via the host's NIC.
+
+
+
+3) A technician deploys a standard Linux virtual machine and then installs
+and configures an open switching OS to run on it. Which virtual network
+concept is being deployed?
+
+Network Function Virtualization
+
+
+
+4) What role does an initiator play in a SAN and what hardware must be
+installed on it?
+
+A file or database server installed with a fibre channel host bus adapter (HBA).
+
+
+
+5) What protocol can be used to implement a SAN without provisioning
+dedicated storage networking adapters and switches?
+
+iSCSI
+
+
+
+
+
+---
+BOOK 20C
+
+1) A technician is configuring a firewall appliance to work with an SDN
+controller. What functionality on the firewall must be enabled?
+
+A southbound API must be configured.
+
+
+
+2) A technician is cabling a top-of-rack switch in a spine and leaf
+architecture. Each server has been cabled to the switch. What cabling
+must the technician add to complete the design?
+
+Fibre Channel
+
+
+
+3) True or false? An enterprise WAN can be configured using either MPLS or
+SD-WAN, but the two cannot work together.
+
+False. SD-WAN can overlay an existing MPLS VPN.
+
+
+
+
+
+---
+ONLINE
+
+1) While looking for a cloud deployment model for business operations, the
+network specialist looks for a model that a third party hosts for the
+organization's exclusive use. Which cloud deployment model meets the network
+specialist's and businesses' needs?
+
+Hosted private.
+
+
+
+2) A cyber architect is reviewing the topologies that support the east-west
+activity for the software-defined networking model. Which topology comprises a
+backbone of top-tier switches?
+
+Spine
+
+
+
+3) A network architect analyzes the software-defined networking model and reviews
+the layer that applies the business logic to decide how to prioritize traffic,
+secure data, and where to switch data. What is the appropriate layer for this
+description?
+
+Application layer.
+
+
+
+4) A network architect analyzes the software-designed networking model and
+reviews the layer that exposes an application programming interface (API) that
+can be automated by scripts that call functions in the layer above or below.
+What is the appropriate layer for this description?
+
+Control Layer
+
+
+
+5) While looking for a cloud deployment model for business operations, the
+network specialist looks for a model where several organizations share the costs
+of either a hosted private or fully private cloud. Which cloud deployment model
+meets the network specialist's and businesses' needs?
+
+Community
+
+
+
+6) While looking for a cloud deployment model for business operations, the
+network specialist looks for a completely private model owned by the
+organization. Which cloud deployment model meets the network specialist's and
+businesses' needs?
+
+Private. This is wholly owned by the company.
+
+
+
+7) While looking for a cloud deployment model for business operations, the
+network specialist looks for a model that offers pay-as-you-go financing. Which
+cloud deployment model meets the network specialist's and businesses' needs?
+
+Public
+
+
+
+8) When configuring connectivity with a virtual switch that bridges the virtual
+and physical networks via the host computer's physical NIC, a network engineer
+creates a virtual switch that binds to the host's NIC to allow the VM to
+communicate on the physical network. What switch did the network engineer create?
+
+External
+
+
+
+9) A network consultant is considering what technologies to use when adding a
+storage area network (SAN). What are the two most popular SAN connection types?
+(Select all that apply.)
+
+Fibre Channel
+Fibre Channel over Ethernet
+
+
+
+10) While looking for a cloud service model for business, the network specialist
+looks for a model that allows the organization to rent components and internet
+links on an as-needed basis from the service provider's datacenter. Which cloud
+service model meets the network specialist's and businesses' needs?
+
+IaaS
+
+
+
+11) A network architect analyzes the software-designed networking model and
+reviews the layer that handles the actual forwarding (switching and routing) of
+traffic and imposition of ACLs and other policy configurations for security. What
+is the appropriate layer for this description?
+
+Infrastructure Layer
+
+
+
+12) A network engineer is configuring a switch to make it only usable to the VMs.
+The engineer confirms that they cannot use the switch to communicate with the
+host. What type of switch is the engineer configuring?
+
+Private.
+
+
+
+13) When configuring connectivity with a virtual switch that bridges the virtual
+and physical networks via the host computer's physical NIC, a network consultant
+creates a virtual switch that creates a bridge that is usable only by VMs on the
+host and the host itself. What switch did the network engineer create?
+
+Internal
+
+
+
+14) During work, a network specialist uses an IP tunneling protocol to transfer
+SCSI data over an IP-based network. iSCSI can be used to link SANs but also is an
+alternative to which of the following?
+

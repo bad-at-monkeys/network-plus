@@ -1,0 +1,293 @@
+################################################################################
+These are the questions that I missed following my first attempt of the CompTIA
+Network+ Final Assessment - Practice.
+
+My first attempt --- I barely completed in time, I actually ran out on the last
+question. I got a 61% and even cheated and guessed on quite a few questions.
+
+This is a pretty awful score given that I need an 80% to pass. Let's try harder.
+################################################################################
+
+
+*****
+2nd Attempt 76% with 19min remaining.
+
+We missed the compound situational problems which accounted for the majority of
+missed points.
+
+--------------------------------------------------------------------------------
+
+MTD = longest period of time that a business function outage may occur without
+      causing irrecoverable business failure.
+
+      12hrs in this case.
+
+
+
+MTTR = (total repair time / number of incidents)
+
+There were 2 incidents.
+
+total repair time = 18 + 19 + 3
+
+MTTR = (18 + 19 + 3) / 2 = 40 / 2 = 20hrs
+
+
+
+MTBF = (devices * hrs) / (number of failures)
+
+There were 3 servers.
+There were 2 failures.
+They ran for 250hrs each for 750hrs.
+
+( 3 * 250 ) / 2 = 750 / 2 = 375
+
+
+
+MTTF = (devices * hrs) / (number of devices)
+
+6 devices.
+Running for 250hrs each for 1500hrs.
+
+( 6 * 250 ) / 6 = 1500 / 6 = 250
+
+
+
+RPO = the amount of data loss that a systemm can sustain, measured in time.
+
+They said a data loss of more than 9hrs is damaging to the business, so the RPO
+is 9hrs. The last backup was 12hrs ago, leaving 3hrs of missing data.
+--------------------------------------------------------------------------------
+
+T56A = 2nd wire is green
+T56B = 2nd wire is blue
+
+--------------------------------------------------------------------------------
+
+When using a Wireless Distribution System, all repeaters must be on the same
+channel as the main AP. In this case it was 7.
+
+The roaming aggressiveness setting for clients in an isolated setting should be
+set to LOW AGGRESSIVENESS.
+
+The roaming aggressiveness for clients is a setting with many nearby APs should be
+set to MEDIUM.
+
+--------------------------------------------------------------------------------
+
+WAN Gateway Settings:
+  Enable DMZ: NO
+  Enable DHCP: YES
+  Inbound Port: WAN
+  Outbound Port: LAN1
+  VLAN & Port: ???(NOT VLAN2, LAN1)
+  Subnet: 192.168.1.x
+  Static IP: YES; x.x.x.0
+  Static Route: N/A (no static routes, DHCP is enabled)
+  Forward to: N/A
+
+Home AP Settings:
+  Enable DMZ: NO
+  Enable DHCP: YES
+  Inbound Port: ???WAN
+  Outbound Port: LAN4
+  VLAN & Port: ???(NOT VLAN2, LAN4)
+  Subnet: 192.168.1.x
+  Static IP: YES; x.x.1.1
+  Static Route: N/A (no static routes, DHCP enabled on this network)
+  Forward To: Office Server
+
+Office Router Settings:
+  Enable DMZ: NO
+  Enable DHCP: NO
+  Inbound Port: WAN
+  Outbound Port: ???(NOT NIC#1)
+  VLAN & Port: N/A
+  Subnet: 192.168.1.x (shared with Home AP)
+  Static IP: YES; x.x.x.2
+  Static Route: 192.168.1.0 (route to the WAN gateway)
+  Forward To: Home AP
+
+Office Server Settings:
+  Enable DMZ: YES
+  Enable DHCP: NO
+  Inbound Port: NIC#1
+  Outbound Port: NIC#2
+  VLAN & Port: N/A
+  Subnet: 192.168.2.x
+  Static IP: YES; x.x.x.1
+  Static Route: 192.168.1.2 (route to the office router)  
+  Forward To: ???N/A
+
+--------------------------------------------------------------------------------
+
+A network administrator is with a major company that cannot handle downtime and
+requires redundancy at every level possible. They need to set up multiple
+physical routers to serve as a single default gateway for a subnet, but do not
+want to use a proprietary protocol. Which of the following will help them
+accomplish this? (Select all that apply.)
+
+CARP; Common Address Redundancy Protocol enables multiple hosts to share an IP
+address on the same network segment so that they can act as a default gateway.
+
+VRRP; Virtual Router Redundancy Protocol allows the automatic assignment of IP
+routers to act as a default gateway on a single host.
+
+
+
+WHAT IT IS NOT:
+
+HSRP; this does combine a bunch of routers etc...but it's proprietary.
+
+LACP; this isn't even close. Link Aggregation Control Protocol detects
+configuration errors an recovers from the failure of one of the physical links.
+
+--------------------------------------------------------------------------------
+
+A Windows server manager is trying to calculate the amount of data loss that a
+system can sustain, measured in time units. What is this referred to as?
+
+RPO; Recovery Point Objective is the amount of data loss that a system can sustain
+measured in time units.
+
+--------------------------------------------------------------------------------
+
+A network engineer is configuring an Internet of Things (IoT) network that uses
+multicasting to allow devices to communicate over a VLAN-enabled managed switch.
+An issue is occurring where the multicast traffic is being flooded across the
+network as a broadcast, resulting in reduced network performance. Recommend a
+potential fix for this issue.
+
+Ensure IGMP snooping is enabled at the switch.
+
+To prevent multicast flooding, IGMP snooping can be enabled as a global option on
+a switch and as a per-VLAN option. IGMP snooping means the switch reads IGMP
+messages and can determine if the host on an access port or one or more hosts in
+a VLAN have joined a multicast group.
+
+
+
+WHAT IT ISN'T:
+
+Ensure DHCP server is correctly configured.
+
+DHCP is not related to multicast flooding issues.
+
+--------------------------------------------------------------------------------
+
+A network engineer is configuring a local intranet for a large manufacturing
+company that uses a DNS server on its network to resolve internal and external
+queries while keeping internal IP addresses private. The engineer sets both UDP
+port 53 and TCP port 53 on the primary name resolution server to allow larger DNS
+record transfers. Select the situations that would require larger DNS record
+transfers over TCP. (Select all that apply.)
+
+The DNS server is utilizing security protocols such as DNSSEC. Security protocols
+such as DNSSEC authenticate responses to domain name lookups in order to prevent
+attackers from manipulating or poisoning the responses to DNS requests.
+
+--------------------------------------------------------------------------------
+
+A network engineer is testing an application over the IPv6 protocol. Determine
+how the server can cast packets to an entire local subnet.
+
+Multicast to associated private topology.
+
+--------------------------------------------------------------------------------
+
+*****
+3rd Attempt
+
+91% with an hour to spare.
+
+I don't understand the compound problems still.
+
+--------------------------------------------------------------------------------
+
+A network engineer is testing an application over the IPv6 protocol. Determine
+how the server can cast packets to an entire local subnet.
+
+Multicast to associated private topology
+
+The Multicast Listener Discovery protocol allows nodes to join a multicast group
+and discover whether members of a group are present on a local subnet.
+
+--------------------------------------------------------------------------------
+
+A data center network administrator working for a cloud services company is
+configuring an SDN that is optimized for east-west traffic. The SDN must be
+loop-free so that spanning tree protocol is not required, instead utilizing a
+protocol called Equal Cost Multipathing (ECMP) to distribute traffic between
+the links to the top-tier switches. Most importantly, all server resources wil
+l be on-premises, so the solution should avoid the use of the public Internet and
+the use of Protocol-Independent Multicast (PIM) protocols, instead establishing
+private links with guaranteed service levels to operate as an overlay network and
+configure point-to-point or point-to-multipoint links between nodes without
+respect to the underlying physical and data link topologies (in other words,
+tunneling through the network layer). The SDN must also feature multipath
+redundancy to allow for load balancing and failover. Choose a multipath routing
+protocol that will best fulfill these requirements.
+
+(We knew this one)
+MPLS with SPB. Shortest Path Bridging and Multiprotocol Label Switching can be
+used together with private links, using SPB and IS-IS (spf algorithm) as a link-
+layer overlay and MPLS as a link-layer-independent "Layer 2.5" underlay.
+
+--------------------------------------------------------------------------------
+
+A manufacturing company utilizes multiple access points (APs) spread across its
+factory. The APs all share an SSID to allow client roaming. Since there are areas
+where it is difficult to run cabling, a wireless distribution system is used,
+where the main router is connected to the Internet and the rest are set in
+repeater mode. What is true about the channels used by the APs?
+
+APs should avoid using channels that overlap.
+
+--------------------------------------------------------------------------------
+
+WAN Gateway Settings:
+  Enable DMZ: NO
+  Enable DHCP: YES
+  Inbound Port: WAN
+  Outbound Port: LAN1
+  VLAN & Port: ???(NOT VLAN2, LAN1)
+  Subnet: 192.168.1.x
+  Static IP: YES; x.x.x.0
+  Static Route: N/A (no static routes, DHCP is enabled)
+  Forward to: N/A
+
+Home AP Settings:
+  Enable DMZ: NO
+  Enable DHCP: YES
+  Inbound Port: ???WAN
+  Outbound Port: LAN4
+  VLAN & Port: ???(NOT VLAN2, LAN4)
+  Subnet: 192.168.1.x
+  Static IP: YES; x.x.1.1
+  Static Route: N/A (no static routes, DHCP enabled on this network)
+  Forward To: Office Server
+
+Office Router Settings:
+  Enable DMZ: NO
+  Enable DHCP: NO
+  Inbound Port: WAN
+  Outbound Port: ???(NOT NIC#1)
+  VLAN & Port: N/A
+  Subnet: 192.168.1.x (shared with Home AP)
+  Static IP: YES; x.x.x.2
+  Static Route: 192.168.1.0 (route to the WAN gateway)
+  Forward To: Home AP
+
+Office Server Settings:
+  Enable DMZ: YES
+  Enable DHCP: NO
+  Inbound Port: NIC#1
+  Outbound Port: NIC#2
+  VLAN & Port: N/A
+  Subnet: 192.168.2.x
+  Static IP: YES; x.x.x.1
+  Static Route: 192.168.1.2 (route to the office router)  
+  Forward To: ???N/A
+
+--------------------------------------------------------------------------------
+

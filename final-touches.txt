@@ -1,0 +1,231 @@
+################################################################################
+################################################################################
+
+Practice Test 4, Attempt 3 - 93% 84/90
+
+################################################################################
+
+--------------------------------------------------------------------------------
+
+The "I agree" button on captive portals is a AUP.
+
+--------------------------------------------------------------------------------
+
+POP3SSL - 995
+
+--------------------------------------------------------------------------------
+
+################################################################################
+################################################################################
+
+Practice Test 5, Attempt 3 - 98% 89/90
+
+################################################################################
+
+--------------------------------------------------------------------------------
+
+Stupid mistake. Read the questions and answers entirely. ENTIRELY.
+
+--------------------------------------------------------------------------------
+
+################################################################################
+################################################################################
+
+Practice Test 6, Attempt 3 - 98% 89/90
+
+################################################################################
+
+--------------------------------------------------------------------------------
+
+Allow HTTP traffic through a stateless firewall on the 192.168.0.0/24 network.
+
+PERMIT SRCIP:192.168.0.0/24 SPORT:ANY DESTIP:ANY DPORT:80
+
+This permits traffic from the internal network (198.168.0.0/24) from any port
+to access the external network (ANY) to port 80 (HTTP).
+
+Since this is a stateless firewall, we must include ANY to allow outbound
+connection through the firewall.
+
+THE SRCPORT IS ALWAYS ANY ON A STATELESS FIREWALL.
+
+--------------------------------------------------------------------------------
+
+VLAN hopping is when an attacker has configured their machine to report itself
+as a switch when connected to a wired network or conducts VLAN tagging.
+
+--------------------------------------------------------------------------------
+
+Asymmetrical routing can happen with HSRP.
+
+################################################################################
+################################################################################
+
+CompTIA Online Network+ - 75% didn't complete, got distracted.
+
+################################################################################
+
+--------------------------------------------------------------------------------
+
+In an IPv6 network, we can cast packets to an entire local subnet by multicasting
+to the associated private topology.
+
+IPv6 doesn't broadcast.
+
+--------------------------------------------------------------------------------
+
+To resolve the MAC address of a target IP on a remote network, the TCP/IP protocol
+suite determines the MAC of the default gateway using the ARP cache.
+
+--------------------------------------------------------------------------------
+
+Cat6a can support 10GBase-T at 100m.
+
+Cat6 can support 10Gbps up to 55m.
+
+--------------------------------------------------------------------------------
+
+Active TAPs perform signal regenneration and can capture all packets.
+
+Passive TAPs are unpowered and physically copy a signal from cabling to a monitor
+port. The monitor port receives every frame, but signal regeneration isn't
+preformed.
+
+--------------------------------------------------------------------------------
+
+Only choose 5Ghz (DFS) for radar systems. Don't use it for lobbys.
+
+--------------------------------------------------------------------------------
+
+WPA3 uses SAE.
+
+SAE replaces the 4-way handshake previously vulnerable to attacks.
+
+--------------------------------------------------------------------------------
+
+Risk is the likelihood and consequence of a threat actor exercising a
+vulnerability.
+
+--------------------------------------------------------------------------------
+
+RPO is the amount of data loss that a system can sustain, measured in time units.
+
+--------------------------------------------------------------------------------
+
+WAN Gateway Settings:
+  Enable DMZ: NO
+  Enable DHCP: YES
+  Inbound Port: WAN
+  Outbound Port: LAN1
+  VLAN & Port: ???(NOT VLAN2, LAN1)
+  Subnet: 192.168.1.x
+  Static IP: YES; x.x.x.0
+  Static Route: N/A (no static routes, DHCP is enabled)
+  Forward to: N/A
+
+Home AP Settings:
+  Enable DMZ: NO
+  Enable DHCP: YES
+  Inbound Port: ???WAN
+  Outbound Port: LAN4
+  VLAN & Port: ???(NOT VLAN2, LAN4) (NOT VLAN2, LAN1)
+  Subnet: 192.168.1.x
+  Static IP: YES; x.x.1.1
+  Static Route: N/A (no static routes, DHCP enabled on this network)
+  Forward To: Office Server
+
+Office Router Settings:
+  Enable DMZ: NO
+  Enable DHCP: NO
+  Inbound Port: WAN
+  Outbound Port: ???(NOT NIC#1)
+  VLAN & Port: N/A
+  Subnet: 192.168.1.x (shared with Home AP)
+  Static IP: YES; x.x.x.2
+  Static Route: 192.168.1.0 (route to the WAN gateway)
+  Forward To: Home AP
+
+Office Server Settings:
+  Enable DMZ: YES
+  Enable DHCP: NO
+  Inbound Port: NIC#1
+  Outbound Port: NIC#2
+  VLAN & Port: N/A
+  Subnet: 192.168.2.x
+  Static IP: YES; x.x.x.1
+  Static Route: 192.168.1.2 (route to the office router)  
+  Forward To: N/A
+
+--------------------------------------------------------------------------------
+
+Whenever we talk about providers and customers terminating a connection, we are
+talking about CSUs/DSUs.
+
+--------------------------------------------------------------------------------
+
+Risk is the consequence, likelihood or impact.
+
+Threat is the potential.
+
+--------------------------------------------------------------------------------
+
+MTD = longest period of time that a business function outage may occur without
+      causing irrecoverable business failure.
+
+      12hrs in this case.
+
+
+
+MTTR = (total repair time / number of incidents)
+
+There were 2 incidents.
+
+total repair time = 18 + 19 + 3
+
+MTTR = (18 + 19 + 3) / 2 = 40 / 2 = 20hrs
+
+
+
+MTBF = (devices * hrs) / (number of failures)
+
+There were 3 servers.
+There were 2 failures.
+They ran for 250hrs each for 750hrs.
+
+( 3 * 250 ) / 2 = 750 / 2 = 375
+
+
+
+MTTF = (devices * hrs) / (number of devices)
+
+6 devices.
+Running for 250hrs each for 1500hrs.
+
+( 6 * 250 ) / 6 = 1500 / 6 = 250
+
+
+
+RPO = the amount of data loss that a systemm can sustain, measured in time.
+
+They said a data loss of more than 9hrs is damaging to the business, so the RPO
+is 9hrs. The last backup was 12hrs ago, leaving 3hrs of missing data.
+
+--------------------------------------------------------------------------------
+
+To prevent multicast flooding, IGMP snooping can be enabled as a global option on
+a switch and as a per-VLAN option.
+
+IGMP snooping means the switch reads IGMP messages annd can determine if the host
+on an access port or one or more hosts in a VLAN have joined a multicast group.
+
+--------------------------------------------------------------------------------
+
+Neighbor Discovery is an IPv6 feature, IPv6 doesn't use ARP, but neighbor
+discovery is vulnerable to Layer 2 spoofing.
+
+--------------------------------------------------------------------------------
+
+802.11ac cannot be used with 2.4GHz
+
+--------------------------------------------------------------------------------
+
