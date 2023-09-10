@@ -1,0 +1,362 @@
+LESSON 16 - COMPARING WAN LINKS AND REMOTE ACCESS METHODS
+
+##########
+EXPLAIN WAN PROVIDER LINKS
+
+---
+Wide Area Networks and the OSI Model
+
+Enterprise WAN describes a WAN controlled by a single organization.
+
+Public networks are owned by telco and provide WAN services to businesses and
+households.
+
+Telco provider links are straight copper, so modems are used instead of switches.
+
+Telcos also have special access rights to easements, under roads, on gov property,
+etc.
+
+Modems modulate/demodulate signals into data, working only a the physical layer.
+
+Digital modems aredifferent though. Digital modems modulate Ethernet frames.
+Digital modem types include data service units (DSUs) for leased lines, DSL, cable
+modems, and satellite modems.
+
+
+
+
+
+---
+WAN Provider Links
+
+On site, the service related entry point at which the access provider's network
+terminates is called the demarcation point (demarc).
+
+
+
+
+
+---
+T-Carrier and Leased Line Provider Links
+
+T-carrier systems allow multiple calls to be placed on a single cable.
+
+T1 lines from the telco is terminated at the demarc on a smartjack or Network
+Interface Unit (NIU). The smartjack has an RJ-48c or RJ-48x interface on the
+customer side that is used to connect to the customer's Channel Service Unit/
+Data Service Unit (CSU/DSU). The cabling from the CSU/DSU can use oridinary
+RJ-45 patch cord up to 3m, two-pair 22awg with RJ-48 connectors is required for
+anything longer than that.
+
+At the data-link layer, T1 leased lines typically use High-Level Data Link
+Control (HDLC) or Point-to-Point Protocol (PPP).
+
+
+
+
+
+---
+Digital Subscriber Line Provider Links
+
+Digital Subscriber Line (DSL) is a technology for transferring data over voice-
+grade telephone lines, referred to as the local loop.
+
+
+
+DSL Modems
+
+DSL modems are installed as CPE, as a multi-function wireless router.
+
+DSL modems are connected to the phone line via RJ-11 and the local network's
+router viia RJ-45 Ethernet.
+
+The maximum range of a DSL modem is typically 5km.
+
+
+
+DSL Types
+
+The ITU Series G Standards describe the types of DSL:
+  -> Symmetrical DSL (SDSL); provides the same up/downlink bandwidth. Typically
+     provided with business packages.
+  -> Asymmetrical DSL (ADSL; consumer DSL providing fast downlink, but slow
+     uplink.
+
+
+
+
+
+---
+Fiber to the Curb
+
+Fiber to the X is to replace the last mile of copper wiring.
+
+Fiber to the Premises/Home (FTTP/FTTH) terminate fiber links at the demarc.
+
+
+
+
+
+---
+Cable Provider Links
+
+Cable internet connection is usually available with Cable Access TV (CATV). These
+networks are described as cable broadband.
+
+Cable modems are installed the same as DSL modems.
+
+Cabble modems are aggregated to Cable Modem Termination Systems (CMTS), which
+route traffic to the ISPs Point of Presence (PoP) and from there to the internet.
+All of this combined is called the Data Over Cable Service Interface
+Specification (DOCSIS).
+
+
+
+
+
+---
+Metro-optical Provider Links
+
+Metro-optical provider links (Carrier Ethernet) physical links:
+  -> Ethernet over Fiber; uses IEEE 802.3 10GBASE-LR and 10GBASE-ER.
+  -> Ethernet over Copper; uses DSL variants such as single-pair high-speed DSL
+     (SHDSL) and VDSL to overcome distance limitations of Ethernet.
+
+The two service categories of Carrier Ethernet are:
+  -> E-line; establishes a point-to-point link between sites. Multiple E-lines
+     can be configured on a single Metro Ethernet interface, with each E-line
+     representing a separate VLAN.
+  -> E-LAN; establishes a mesh topology between multiple sites.
+
+
+Passive Optical Networks are now being deployed, bringing fiber to residential
+and small business customers.
+
+
+
+
+
+---
+Microwave Satellite
+
+Satellite systems provide a wide range of coverage.
+
+Latency is terrible with satellites because of distance traveled.
+
+
+
+
+
+##########
+COMPARE AND CONTRAST REMOTE ACCESS METHODS
+
+---
+Remote Network Access Authentication and Authorization
+
+Remote access is typically implemented as a VPN running over the internet.
+
+Creating a Remote Access Server accompanied by documentation mitigates the risk
+of compromise. Typical policy restrictions include:
+  -> Restricting access to defined user groups
+  -> Restricting access to defined times of day or days of week
+  -> Restricting privelages to the local network only
+  -> Logging and auditing sessions
+
+
+
+
+
+---
+Tunneling and Encapsulation Protocols
+
+This is what VPNs are.
+
+
+
+Point-to-Point Protocol
+
+Point-to-Point Protocol (PPP) is an encapsulation protocol that works at the
+data-link layer. PPP encapsulates IP packets over serial digital lines. PPP has
+no security mechhanisms, so it must be used with other protocols to provision
+a secure tunnel.
+
+
+
+Generic Routing Encapsulation
+
+GRE works at layer 3. GRE packets can encapsulate other network layer protocol
+packets (like IP packets) as its payload. The GRE wrapper is assigned protocol
+number 47 and has its own IP source and header address fields.
+
+The GRE packet is itself packaged in a layer 2 frame for Tx to the next hop
+router. Each intermediate router inspects only the outer GRE header to determine
+the forwarding destination.
+
+
+
+IPSec
+
+Internet Protocol Security operates at layer 3, encrypting packets that pass over
+any network. Usually we combine IPSec with some other protocol, but it is gaining
+traction as a native VPN protocol.
+
+
+
+TLS
+
+TLS over TCP or Datagram TLS (DTLS) over UDP can be used to encapsulate IP
+packets or frames. Since TLS already operates at the session layer, the headers
+from the inner and outer packets add up considerably.
+
+
+
+
+
+---
+Client-to-Site VPNs
+
+In a client-to-site or remote-access topology, the VPN client connects over the
+public netwrk to a VPN gatewayy positioned at the edge of the local network
+(typically the VPN access server will be in a screened subnet).
+
+This is the model that allows for WFH.
+
+Client-to-site can be configured using a bunch of protocols.
+
+An SSL/TLS VPN uses certificates to establish a secure tunnel. Microsoft's SSTP
+and Cisco's L2TP are widely used in conjunction with IPSec.
+
+All these solutions require client software to operate.
+
+Most VPN solutions use EAP and TACACS+/RADIUS models to authenticate.
+
+Remote access VPNs handle client connections one of two ways:
+  -> Split tunnel; the client accesses the internet directly using native IP
+     config and DNS servers.
+  -> Full tunnel; internet access is mediated by the corporate network, which
+     will alter the client's IP address, DNS severs, and may even use a proxy.
+
+
+
+
+
+---
+Remote Host Access and Remote Desktop Gateways
+
+RDP and VNC
+
+Microsoft's RDP can be used to access a physical machine on a 1-on-1 basis.
+
+VNC is the same, but for everyone else.
+
+
+
+Clientless VPNs
+
+Client apps are typically required to establish a VPN connection.
+
+HTML5 introduced HTML5 VPN (clientless VPN), which allows us to connect to
+remote desktops through our browsers. HTML 5 VPN uses WebSockets, which enables
+bidirectional messages to be sent between the server and client without requiring
+the overhead of separate HTTP requests.
+
+
+
+Site-to-Site VPNs
+
+Site-to-Site VPNs are configured to work automatically. The two gateways exchange
+security information using whichever protocol the VPN is based on.
+
+The routing infrastructure at each site is what determines whether to deliver
+traffic locally or send it over the VPN tunnel.
+
+
+
+Hub and Spoke VPNs and VPN Headends
+
+A site-to-site VPN that involves more than two sites and those sites connect to
+and HQ site (hub) by using static tunnels to the hub is a hub-and-spoke VPN.
+
+The hub, or center of the hub-and-spoke topology is a powerful router called a
+VPN headend.
+
+A dynamic multipoint VPN (DMVPN) allows VPNs to be set up dynamically according
+to real-time traffic requirements and demand.
+
+DMVPN allows for the use ofa dynamic mesh topology between multiple remote sites,
+effectively setting up direct VPNs, rather than remote sites routing through the
+hub.
+
+
+
+
+
+---
+IPSec
+
+Each host that uses IPSec must be assigned a policy. IPSec policies set the
+authentication mechanism, protocols, and mode for the connection. Hosts must be
+able to match atleast one security method for a succesful connection. Two
+protocols cann be applied singly or together with IPSec:
+
+Authentication Header
+
+The AH protocol preforms a cryptographic hash on the whole packet, including the
+header, plus a shared secret key, and adds the secret to its header as an
+Integrity Check Value (ICV). The recipient preforms the same function and
+expects matching answers.
+
+The payload is not encrypted here, so the protocol does not provide privacy.
+
+AH isn't often used because it fails across NAT gateways.
+
+
+
+Encapsulating Security Payload
+
+ESP provides confidentiality and authentication integrity. It actually encrypts
+the packet rather than simply calculating a hash.
+
+ESP attaches a header, a trailer, and an ICV. ESP excludes the header when
+calculating the ICV.
+
+
+
+
+
+---
+IKE and IPSec Modes
+
+The Internet Key Exchange (IKE) handles authentication and key exchange for
+IPSec.
+
+IPSec can be used in two modes:
+  -> Transport mode; this mode is used to secure communications between hosts on
+     a private network. When ESP is applied, the IP header for each packet is
+     not encrypted, just the payload data.
+  -> Tunnel mode; used for comms between VPN gateways across an insecure network.
+     ESP here encrypts the whole IP packet and encapsulates as a datagram with
+     a new IP header.
+
+
+
+
+
+---
+Out-of-Band Management Methods
+
+Managed appliance interfaces may include:
+  -> Console port; connecting to the device via console cable and using a
+     terminal to issue commands.
+  -> AUX port; designed to connect to a analog modem and provide remote acces
+     over a dial-up link. RS-232 (serial), RJ-45, or DB9 cable can be used to
+     connect the modem.
+  -> Management port; configuring the virtual network interface and IP address
+     on the device to use it for management functions and connecting it to one
+     of the normal Ethernet ports.
+
+Management methods can be described as:
+  -> In-band; a link that shares traffic with other communications on the
+     production network.
+  -> Out-of-band; the link is limited to the attached device.
+

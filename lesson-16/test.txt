@@ -1,0 +1,180 @@
+LESSON 16 TESTS - COMPARING WAN LINKS AND REMOTE ACCESS METHODS
+
+---
+BOOK 16A
+
+1) What component of a structured cabling system protects the demarc
+against tampering?
+
+Physical access control
+
+
+
+2) What type of cable can be used to connect a CSU/DSU to a smartjack,
+assuming a maximum link distance of 1m (3 feet)?
+
+RJ-45 patch cable
+
+
+
+3) You are connecting a SOHO network to a VDSL service using a separate
+VDSL modem. What cables do you require and how should they be
+connected?
+
+Two-pair RJ-11 connectors = WAN/DSL -> Modem
+RJ-45 connectors = LAN/Ethernet -> SOHO router
+
+
+
+4) You need to cable a service that terminates at an optical network unit
+(ONU) to the customer router. What type of cable is required?
+
+Straight RJ-45 patch cord
+
+
+
+5) Assuming that sufficient bandwidth can be provided, what factor limits
+the usefulness of a microwave satellite Internet link?
+
+Distance
+
+
+
+
+
+---
+BOOOK 16B
+
+1) What step can you take to prevent unauthorized use of a remote access
+server?
+
+Define which user accounts have dial-in rights
+Consider restricting access by time of day
+Confifgure logging and auditing of remote access logins and attempts
+
+
+
+2) What type of client-to-site VPN ensures that any traffic from the remote
+node can be monitored from the corporate network while the machine is
+joined to the VPN?
+
+Full tunnel. 
+
+
+
+3) What replaces the VPN client in a clientless remote access solution?
+
+A web browser if you are running HTML5.
+
+
+
+4) What difference does DMVPN make to a hub and spoke VPN topology?
+
+A DMVPN allows a host to make a direct connection, rather that forward traffic
+through a central hub.
+
+
+
+5) What IPSec mode would you use for data confidentiality on a private
+network?
+
+Transport mode with ESP.
+
+
+
+6) What is a virtual terminal?
+
+Configuring a management IP address on the switch to connect to its CLI over the
+network rather than a serial cable.
+
+
+
+
+
+---
+ONLINE
+
+1) An organization tasks a network consultant with comparing costs for the
+business to acquire a technology that allows data to transfer over voice-grade
+telephone lines. What is this technology?
+
+Digital Subscriber Line (DSL)
+
+
+
+2) A network engineer wants to establish data communications over a greater
+distance than a Local Area Network (LAN). What can the engineer use to gain
+the desired distance?
+
+WAN
+
+
+
+3) A company tasks a network specialist to purchase an access solution that
+uses internet access infrastructure and a secure tunnel to connect private
+communications through the internet. What is this access solution?
+
+VPN
+
+
+
+4) A network engineer is assigned to locate and acquire a data communications
+network controlled by a single organization. What is the name for this type of
+network?
+
+Enterprise WAN
+
+
+
+5) A network architect creates a site-to-site VPN involving multiple remotes to
+a headquarters site by using static tunnels configured between the remote sites
+and the headquarters site. What is the name of this VPN configuration?
+
+Hub and Spoke
+
+
+
+6) A company tasks a network technician with installing a VPN router onto one
+of the company's larger machines capable of aggregating high traffic volumes.
+What is the name of this router?
+
+VPN headend
+
+
+
+7) An organization tasks a network engineer with purchasing an access/gateway
+that extends the local network access over an intermediate public network so
+a remote computer can join the local network. What access/gateway will the
+engineer acquire?
+
+Remote Access VPN
+
+
+
+8) An organization tasks a network consultant with comparing the costs and
+requirements for the various types of Carrier Ethernet. The consultant selects
+a carrier ethernet that uses digital subscriber line (DSL) variants such as
+single-pair high-speed DSL (SHDSL) and very high-speed DSL (VDSL) to overcome
+the usual distance limitations of copper Ethernet. What type of carrier ethernet was selected by the consultant?
+
+Ethernet over Copper
+
+
+
+9) A network engineer installs a new Virtual Private Network (VPN) set up
+dynamically according to traffic requirements and demand. What is the type of
+VPN installed?
+
+Dynamic Multipoint VPN
+
+
+
+10) A network technician is assigned to find the fastest solution, regarding
+bandwidth capabilities, closest to Local Area Network (LAN) speeds for an office
+building. What is the most expensive solution the network technician can
+consider?
+
+FTTP. Fiber to the Premises.
+
+
+

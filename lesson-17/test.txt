@@ -1,0 +1,237 @@
+LESSON 17 TESTS - EXPLAINING ORGANIZATIONAL AND PHYSICAL SECURITY CONCEPTS
+
+---
+BOOK 17A
+
+1) What types of baselines are useful when you are performing
+configuration management?
+
+Configuration and performance baselines.
+
+
+
+2) What type of security control provisions resources and procedures to
+cope with incidents that cause major service outages?
+
+Disaster Recovery Plan
+
+
+
+3) How is the person who first receives notification of a potential security
+incident designated?
+
+First responder
+
+
+
+4) What configuration request would be implemented by IT services during
+employee onboarding?
+
+Account creation, issuance of credentials, allocation of permissions/roles.
+
+
+
+
+
+---
+BOOK 17B
+
+1) Some of the businesses near 515support have recently had break-ins
+where some equipment was stolen. As news of these events spread,
+it generated some concern within the organization that their physical
+security measures should be reviewed and possibly enhanced. There
+is currently a security guard on duty during business hours, video
+monitoring of the front and back doors, and employees use plastic
+badges with their name and photo to enter the building. Access beyond
+the lobby area requires swiping a badge to enter the rest of the building.
+What, if anything, would you recommend adding or improving for their
+physical security?
+
+Motion detectors, video monitoring on entrance/exits, smart cards for entry.
+
+
+
+2) What technology could be used to provision security cameras without
+having to provide a separate circuit for electrical power?
+
+PoE
+
+
+
+3) Following a security incident, the lessons learned report recommends
+upgrading premises entry control to prevent tailgating. What type of
+prevention control will provide the most effective solution?
+
+A trap, vestibule, gate, etc.
+
+
+
+4) What is a PDS, and what type of security control does it provide?
+
+Protected Distribution Systems are hardened cable distributions. Cabling is cased
+in metal housing and an alarm is triggered if breached.
+
+
+
+5) What technology provides data security assurance during the asset
+disposal phase of system life cycle?
+
+Media sanitization
+
+
+
+
+
+---
+BOOK 17C
+
+1) What type of network topology is used by IoT technologies such as
+Z-Wave and Zigbee?
+
+Wireless mesh
+
+
+
+2) What is a principal requirement of IoT networking technologies?
+
+Low power consumption and low latency.
+
+
+
+3) A technician is configuring a PC with software to manage and monitor a
+network of field devices. What type of host is being configured and what
+factors should govern its connection to a corporate data network?
+
+SCADA. The SCADA host may be completely separate from the corporate data network.
+If connected, it should be segregated enforced with an ACL.
+
+
+
+
+
+---
+ONLINE
+
+1) A network manager needs to create a document that shows detailed information
+about the termination of twisted pairs in an RJ-45 or RJ-48C jack or Insulation
+Displacement Connector (IDC). What is the name of this document?
+
+Wiring Diagram
+
+
+
+2) An organization tasked its network analyst with reviewing the system that
+monitors the building's locks, intruder alarms, and video surveillance cameras.
+What is the name of this system?
+
+PACS. Physical Access Control System.
+
+
+
+3) A network specialist reviews the organization's cellular technology and
+discovers that the current contract uses a low-power system service but supports
+higher bandwidth up to 1Mbps. What baseband radio technology service is the
+organization using for cellular service?
+
+LTE-M
+
+
+
+4) A network engineer needs to decommission a server and wipe all custom
+configurations. The servers are decommissioned through a process which helps
+local schools receive IT equipment. What routine will the engineer use to wipe
+the server?
+
+Factory reset.
+
+
+
+5) A company tasks its network specialist with configuring a steel shelving
+system for patch panels, switches and routers, and server devices. What is the
+name of this system?
+
+Rack
+
+
+
+6) A network consultant considers using a wireless communications protocol
+mainly used in home automation but believes it could support the organization's
+mission. What is the name of this protocol?
+
+Z-Wave
+
+
+
+7) Due to an increase in foot traffic from outside groups throughout the
+building, the organization asks the security office to employ equipment that
+will allow visual monitoring across the organization. What equipment would best
+be suited to manage this request?
+
+Cameras
+
+
+
+8) A network consultant needs to create a documentation process that minimizes
+the risk of unscheduled downtime by implementing changes in a planned and
+controlled way. What is the name of this process?
+
+Change Management
+
+
+
+9) A network consultant needs to develop a plan that sets out the procedures,
+tools, methods of communication, and guidelines when mitigating a problem. What
+is the name of this plan?
+
+Incident Response Plan
+
+
+
+10) A network manager is asked to create a document that provides a detailed
+diagram of the wiring and port locations for the building. What is the name of
+this document?
+
+Floor plan
+
+
+
+11) A security consultant needs to add a security system to an office space that
+triggers an alarm while someone occupies the room. What type of equipment would
+the security install?
+
+Motion detection.
+
+
+
+12) Due to concerns of losing or misplacing equipment, the organization asks the
+network office to track all electrical equipment. What will the office use to
+track the organization's equipment?
+
+Asset Tags
+
+
+
+13) An organization tasked its network consultant with reviewing the system that
+provides workflow and process automation mechanisms. What is the name of this
+system?
+
+ICS
+
+
+
+14) A network specialist reviews the organization's cellular technology and
+discovers that the current contract uses a service that provides a low-power
+version of the Long Term Evolution (LTE) or 4g cellular standard and currently
+has a limited data rate between 20-100 kbps. What baseband radio technology
+service is the organization now using for cellular service?
+
+NB-LTE
+
+
+
+15) A security consultant needs to add a security system to the doors of a
+secured room. What system will the security consultant install that meets the
+requirement and protects against tampering?
+
+Closed circuit
+

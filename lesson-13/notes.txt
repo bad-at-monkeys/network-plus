@@ -1,0 +1,388 @@
+LESSON 13 - EXPLAINING COMMON SECURITY CONCEPTS
+
+##########
+EXPLAIN COMMON SECURITY CONCEPTS
+
+---
+Security Concepts
+
+The Confidentiality, Integrity, and Availability Triad
+
+  -> Confidentiality; certain information should only be known to certain people.
+  -> Integrity; data is stored and transferred as intended and any modifications
+     are authorized.
+  -> Availability; information is accessible to those authorized to view or
+     modify it.
+
+
+
+Vulnerability, Threat, Risk
+
+  -> Vulnerability; a weakness that could be accidentally triggered or
+     intentionally exploited to cause a security breach.
+  -> Threat; the potential to exploit a vulnerability and breach security.
+  -> Risk; linkelihood and impact of a threat actor exercising a vulnerability.
+
+
+
+
+
+---
+Security Risk Assessments
+
+Risk assessment is a subset of risk managment. This is where we evaluate our
+stuff for threats, vulnerabilities, and proper security posture.
+
+
+
+Posture Assessment
+
+To assess an organizations security posture, most of them use a framework of
+best practice guides.
+
+These frameworks shape policy and provide procedure checklists, activities
+and technologies that should actually be in place.
+
+These frameworks are the security control of the orgaanization.
+
+It is not possible to eliminate risk; rather, the aim is to mitigate risk
+factors to the point where the organization is exposed only to a level of
+risk that it can afford. The overall status of risk management is referred
+to as risk posture.
+
+
+
+Process Assessment
+
+Mission essential function (MEF); a critical process that cannot be deferred.
+
+Business impact analysis (BIA); process of assessing what losses might occur
+for a range of threat scenarios.
+
+BIA identifies the risks, which results in business continuity planning(BCP).
+
+
+
+
+
+---
+Vulnerability and Exploit Types
+
+Vulnerabilities exist because of misconfigurations and poor practice.
+
+Exploits are the actual methods of using a vulnerability to gain control of
+a system or damage it in some way.
+
+
+
+Zero-Day Vulnerabilities and Exploits
+
+Zero-Day; a vulnerability that is exploited before the developer knows or
+can patch it. These are rare events.
+
+
+
+Unpatched Legacy Systems
+
+For obvious reasons...
+
+
+
+Vulnerability Assessment
+
+An evaluation of a system's security and ability to meet compliance requirements
+based on the configuration state of the system. We compare findings with a
+established baseline.
+
+
+
+Common Vulnerabilities and Exposures
+
+CVE is a dictionary of vulnerabilities in published OSes and application
+software.
+
+
+
+
+
+---
+Threat Types and Assessment
+
+External vs Internal Threats
+
+External actors are ones with no original accounts or access to target systems.
+Internal actors are on the inside (employee, contractor, partner).
+
+
+
+Threat Research
+
+An alliance of organizations to discover and establish the tactics, techniques,
+and procedures(TPPs) of threat actors.
+
+  -> Behavioral threat research; narrative commentary describing examples of
+     attacks and TTPs gathered through primary research sources.
+  -> Reputational threat intelligence; lists of IP addresses and domains
+     associated with malicious behavior, plus signatures of known file-based
+     malware.
+  -> Threat data; data that can correlate events observed on a customer's own
+     network and logs with known TTP and threat actor indicators.
+
+
+
+
+
+---
+Security Information and Event Management
+
+SIEM is a security control designed to integrate vulnerability and threat
+assessment efforts through automated collection, aggregation, and analysis of
+log data.
+
+SIEMs second critical function is correlation. SIEMs can link individual events
+or data points into a meaningful indicator of risk (indicator of compromise).
+
+SIEM can also provide a long-term retention function and be used to determine
+regulatory compliance.
+
+
+
+
+
+---
+Penetration Testing
+
+Pen testing is the authorized use of exploitation techniques to discover
+exploitable weaknesses in the target's security systems.
+
+
+
+
+
+---
+Privelaged Access Management
+
+PAM refers to policies, procedures, and technical controls to prevent the
+malicious abuse of privelaged accounts by internal threat actors to mitigate
+risks from weak configuration control over privelages.
+
+General principles of PAM include:
+  -> Least privelage; a user is granted sufficient rights to preform his or her
+     job and no more.
+  -> Role-based access; a set of organizational roles are defined, and subjects
+     sllocated to these roles.
+  -> Zero trust; used to mitigate priivelage escalation and account compromise
+     by threat actors.
+
+
+
+
+
+---
+Vendor Assessment
+
+The process of selecting suppliers and evaluating the risks inherent in relying
+on a third party product or service.
+
+
+
+
+
+##########
+EXPLAIN AUTHENTICATION METHODS
+
+---
+Authentication Methods and Access Controls
+
+We use ACLs.
+
+We also use identity and access management(IAM) systems, which can be described
+in four processes:
+  -> Identification; account or ID that idenntifies the user, device, or
+     process on the network.
+  -> Authentication; proving the subject is what it is.
+  -> Authorization; determining what rights subjects should have and enforcing
+     those constraints.
+  -> Accounting; tracking usage of a resource whether authorized or not.
+
+
+
+
+
+---
+MFA and Two-Factor Authentication
+
+Credentials are authentication factors. Authentication factors fall into:
+  -> Knowledge factor; something you know (password)
+  -> Ownership factor; something you have (ID)
+  -> Human/Biometric factor; something you are (fingerprint)
+  -> Behavioral factor; something you do (signature)
+  -> Location factor; somewhere you are (location services)
+
+
+Combining more than one of these authentication factors results in MFA.
+
+
+
+
+
+---
+Local Authentication and SSO
+
+Local authentication is the software architecture and code that drives the
+mechanism by which a user is authenticated before starting a shell.
+
+This is the login/sign-in prompt on Linux and Windows. Which is a knowledge
+based authentication method.
+
+Knowledge based authentication relies on hashes, which convert strings to a
+unique fixed length code that cannot be converted back to plaintext.
+
+
+
+Single Sign-on allows the user to authenticate once to a local device, and be
+authoriized to access compatible application servers without having to enter
+credentials again.
+
+
+
+
+
+---
+Kerberos
+
+Kerberos provides SSO authentication to AD, as well as compatibility with other
+OSes.
+
+Kerberos consists of three parts (like the 3-headed dog Cerberus):
+  -> Clients; request services from some application server
+  -> Key Distribution Center (KDC); intermediary between client and application
+     server that vouchhes for eaches identity.
+  -> Application Server
+
+There are two services that make up a KDC:
+  -> Authentication Service
+  -> Ticket Granting Service
+
+
+
+
+
+---
+Digital Certificates and PKI
+
+Digital certificates are issued by an authenticating domain to validate identity
+of someone/thing and establish a secure transmission channel.
+
+Digital certificates depend on public key cryptogrophy, and it works like:
+  -> When we want others to send us confidential messages, we give them our
+     public key to use to encrypt the message. The message can only be decrypted
+     by our private key, which is only known to us. Even though the public key
+     was used to encrypt the message, it cannot be used to decrypt it.
+  -> When we want to authenticate to others, we create a signature and sign it
+     by encrypting the signature with our private key. We give others the public
+     key to decrypt the signature. Since only we know the private key, everyone
+     can be assured that only we could have created the signature.
+
+Public key cryptogrophy is vulnerable to on-path attacks, where a threat-actor
+substitutes our public key for their own.
+
+Public Key Infrastructure(PKI) aims to prove that owners of public keys are who
+they say they are.
+
+In PKI, anyone issuing public keys should obtain a digital certificate. The
+validity of the certificate is guaranteed by a CA. A digital certificate is a
+wrapper for something's public key. Digital certificates also contain metadata
+about the owning entity.
+
+
+
+
+
+---
+Extensible Authentication Protocol and IEEE 802.1X
+
+Extensible Authentication Protocol(EAP) provides a framework for deploying
+multiple types of authentication protocols and technologies.
+
+802.1x Port-based Network Access Control(NAC) provides means of using EAP when
+a device connects to an Ethernet switchport, WAP, or VPN gateway through an
+authentication, authorization, and accounting(AAA) architecture:
+  -> Supplicant; the device requesting access
+  -> NAS or NAP; edge network appliances such as switches, APs, or VPN gateways.
+  -> AAA server; the authentication server positioned within the LAN (RADIUS or
+     TACACS+)
+
+With AAA, all authentication is done through the authentication server. None of
+that data is stored on the end network devices.
+
+
+
+
+
+---
+RADIUS and TACACS+
+
+Remote Authentication Dial-in User Service (RADIUS) is widely used for client
+device access over switches, WAPs and VPNs.
+
+RADIUS uses UDP/1812 and UDP/1813.
+
+Each RADIUS client must be configured with the IP address of the RADIUS server
+and possess the same shared secret.
+
+
+
+
+
+---
+TACACS+
+
+Terminal Access Controller Access Control System is similar to RADIUS but on
+steroids.
+
+RADIUS is typically ised for end user access control.
+
+TACACS+ is typically used for access to routers and switches.
+
+TACACS+ uses TCP/49, so detecting when a server is down is reliable.
+
+TACACS+ supports per command authentication.
+
+
+
+
+
+---
+LDAP
+
+Lightweight Directory Access Protocol is a protocol used to query and update an
+X.500-like directory.
+
+LDAP is on TCP/389 and UDP/389.
+LDAP provides no security.
+
+
+
+
+
+---
+LDAP Secure
+
+Authentication can be implemented in the following ways:
+  -> No authentication; anon access granted to the directory.
+  -> Simple bind; client must supply a distinguished name and passwd, but are
+     passed as plaintext.
+  -> Simple Authentication and Security Layer(SASL); client-server negotiate the
+     use of a supported authentication mechanism (like Kerberos). The STARTTLS
+     command can be used to require encryption and message integrity. This is
+     Microsoft's AD implementation of LDAP.
+  -> LDAP Secure (LDAPS); server is installed with a digital certificate, which
+     it uses to set up a secure tunnel for the user credential exchange.
+
+LDAPS uses port TCP/636.
+
+The LDAP directory server should only be accessible from the private network.
+LDAP ports TCP/389 and UDP/389 should be blocked by a firewall from access over
+the public interface.
+

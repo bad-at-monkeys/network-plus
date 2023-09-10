@@ -1,0 +1,204 @@
+LESSON 9 - EXPLAINING TRANSPORT LAYER PROTOCOLS
+
+##########
+COMPARE AND CONTRAST TRANSPORT PROTOCOLS
+
+---
+Transport Layer Ports and Connections
+
+Port numbers 0-1023 are IANA assigned.
+Other server applications range 1024-49151.
+Private/Dynamic usage ranges 49152-65535.
+Client ports are referred to as "ephemeral ports" (short lasting).
+
+
+The port number and source IP are combined to define a socket that is bound to
+a software process, in which only one software process can operate one socket
+at any time:
+  -> A connection is formed when a client socket requests a service from a server
+     socket.
+  -> A connection is uniquely IDd by the combination of server port/ip and
+     client port/ip.
+  -> A server socket can then support multiple connections from a number of
+     client sockets.
+
+
+
+
+
+---
+Transmission Control Protocol
+
+TCP works at the transport layer providing stateful, connection-oriented,
+guaranteed communications using ACKs to ensure that delivery has occuured.
+
+If packets are missing or out of sequence, they can be retransmitted.
+
+TCP can only be used for unicast transmission.
+
+We can see this in Wireshark:
+At the application layer, tcp takes data as a stream of bytes and divides it
+into segments. Each segment gets a header. The TCP segments become the payloads
+of the underlying IP datagrams. Sequencing, acknowledgments, annd reTx's means
+that TCP requires numerous header fields to maintain state information:
+  -> ack number, data length, flags, window, checksum, urgent pointer, opts
+
+
+
+
+
+---
+TCP Handhshake and Teardown
+
+TCP connections typically transfer single files, so ann http request for some
+webpage may involve multiple connections being opened by the server.
+
+TCP flags are used to make handshake transactions.
+
+
+The Three Way Handshake, connection established:
+  -> The client sends SYN segment to the server with a randomly generated
+     sequence number. Client enters the SYN-SENT state.
+  -> The server is in the LISTEN state, responds with a SYN/ACK segment,
+     containing its own random sequence number. The server is now in the
+     SYN-RECEIVED state.
+  -> The client responds with ACK. The client assumes a connection has been
+     established.
+  -> The server opens a connection with the client and enters the ESTABLISHED
+     state.
+
+
+If regular acknowledgements stop occuring, the information is assumed
+undelivered and retransmitted.
+
+
+
+TCP Connnection Teardown, closing a connection:
+  -> Client send FIN to server, entering FIN-WAIT1 state.
+  -> The server responds with ACK, entering CLOSE-WAIT state.
+  -> Client receives ACK, entering FIN-WAIT2 state.
+     Server sends its own FIN to client, enters LAST-ACK state.
+  -> Client responds with ACK, enters TIME-WAIT state.
+     After the defined period, client closes connnection.
+  -> Server closes connection once client ACK iis received.
+
+RST segments sent by hosts are sort of anomolies and should be investigated.
+
+
+
+
+
+---
+User Datagram Protocol
+
+UDP works at the transport layer as a connectionless, stateless, unreliable
+means of communication with no ACK or flow control. Retransmission is not
+guaranteed.
+
+When an application uses UDP, it must use explicit reliability mechanisms in
+the application layer headers and software logic.
+
+We use UDP for small packets that do no require ACK in broad/multicast
+transmissions (voice/video).
+
+Out of order or broken packets appear as glitches in quality because of their
+tiny size.
+
+UDP Datagram:
+| Src  | Dest | Seq    | Msg    | Flags | Checksum |
+| Port | Port | Number | Length |       |          |
+
+
+
+
+
+---
+Common TCP/UDP Ports
+
+page 214
+
+
+
+
+
+##########
+TOOLS TO SCAN NETWORK PORTS
+
+---
+IP Scanners
+
+These are tools that preform host discovery and can establish an overall
+logical topology of the network in terms of subnets and routers.
+
+nmap, angry ip scanner, PRTG all provide IPAM.
+
+IPAM is IP Address Management.
+
+Suites that offer DNS, DHCP and IPAM are called DDIs.
+
+
+
+
+
+---
+nmap
+
+$ man nmap
+
+https://nmap.org/book/toc.html
+
+
+
+
+
+---
+netstat
+
+Allows us to check the state of sockets on a local host.
+
+We can check for service misconfigurations, such as unauthorized user
+installations or suspicious remote services.
+
+Options:
+-t = TCP
+-u = UDP
+-w = raw
+
+Show listening and established tcp/udp only connections:
+$ netstat -tua
+
+Show per protocol packet statistics:
+$ netstat -s
+$ netstat -i
+
+Display the routing table:
+$ netstat -r
+
+
+
+
+
+---
+Remote Port Scanners
+
+Performs probes on another machine.
+
+nmap probes:
+-sS (TCP SYN)
+-sT (TCP connect; not stealthy)
+-sU (UDP scans)
+-p (port range)
+-A, -sV (discover software version/name; fingerprinting)
+
+
+
+
+
+---
+Protocol Analyzers
+
+Works in conjunction with a packet sniffer.
+
+We can use the Statistics menu in wireshard to access the traffic
+analysis tools.
+

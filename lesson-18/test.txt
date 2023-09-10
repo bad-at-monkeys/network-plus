@@ -1,0 +1,163 @@
+LESSON 18 TESTS - DISASTER RECOVERY AND HIGH AVAILABILITY CONCEPTS
+
+---
+BOOK 18A
+
+1) Which metric is used to determine frequency of data backups?
+
+Recovery Point Objective (RPO).
+
+
+
+2) A server group installed with storage devices from Vendor A experiences
+two failures across 20 devices over a period of 5 years. A server group
+using storage devices from Vendor B experiences one failure across
+12 devices over the same period. Which metric is being tracked and
+which vendor’s metric is superior?
+
+Mean Time to Failure (MTTF). Used for devices that cannot be repaired.
+
+
+
+3) 515web have experienced three web server outages in the last five years.
+These outages all occurred in separate years and caused one hour, three
+hour, and one hour downtime incidents. Assuming the company uses
+the same value for MTD and RTO, did the company meet the RTO of two
+hours specified in the SLA agreed annually with its customers?
+
+No. RTO is equal to the maximum amount of downntime. The single incident causing
+3hrs of downtime breaks the SLA. The SLA was yearly, not an average of all the
+years.
+
+
+
+4) What type of failover site generally requires only data to be restored
+before it can resume processing?
+
+Warm
+
+
+
+5) What rack-mountable device can provide line filtering and power
+monitoring features?
+
+PDU
+
+
+
+
+
+---
+BOOK 18B
+
+1) Why might contracting with multiple ISPs still fail to provide highly
+available Internet access infrastructure?
+
+They may use the same services which in turn, may be down.
+
+
+
+2) True or false? Link aggregation can only be configured between
+intermediate systems, such as switch-to-switch or switch-to-router.
+
+False, link aggregation can be used between end systems and intermediate systems.
+
+
+
+3) You are configuring a load balanced web application. Which IP
+address should be configured as a host record in DNS to advertise
+the application?
+
+The virtual IP.
+
+
+
+4) What is the purpose of HSRP and VRRP?
+
+Provides failover for a group of routers.
+
+
+
+
+
+---
+ONLINE
+
+1) While evaluating load balancers, a network engineer needs to acquire a switch
+that can handle complex logic. Which switch would the engineer use for this
+requirement?
+
+Layer 7 switch.
+
+
+
+2) A network contractor reviews key performance indicators regarding the time
+taken to correct a fault and restore the system to full operation. What is the
+name of this process?
+
+MTTR
+
+
+
+3) A network engineer decides that the organization needs to purchase a device
+that "cleans" the power signal, provides protection against spikes, surges, and
+brownouts, and can integrate with an uninterruptible power supply (UPS). What is
+the name of this device?
+
+PDU
+
+
+
+4) A network technician needs to install a load balancer onto the network as the
+department has experienced issues with streaming media servers. What switches
+could the technician use to support this request? (Select all that apply.)
+
+Layyer 4 switch
+Layer 7 switch
+
+
+
+5) A network consultant is looking for a device that will serve as a temporary
+power source in the event of a blackout. What is the name of this device?
+
+UPS
+
+
+
+6) A network specialist wants to provision two load balancer appliances so that if one fails, the other can still handle client connections. What type of load balancer distribution method should the network specialist use?
+
+Virtual IP
+
+
+
+7) A network technician confirms that the server room has adequate environmental
+controls to mitigate the loss of availability through mechanical issues with
+equipment, such as overheating. What service provides environmental control in
+the room?
+
+HVAC
+
+
+
+8) A network contractor evaluates a protocol that allows multiple physical
+routers to serve as a single default gateway for a subnet. What is the name of
+this protocol?
+
+HSRP
+
+
+
+9) A network specialist analyzes the key performance indicators associated with
+the component reliability regarding the expected lifetime of repairable
+products. What reliability analysis is the network specialist conducting?
+
+Mean Time Between Failures (MTTB)
+
+
+
+10) A network engineer deploys a hardware appliance to distribute client
+requests across server nodes in a farm or pool. What is the name of this
+appliance?
+
+Load balancer
+

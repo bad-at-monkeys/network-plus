@@ -1,0 +1,241 @@
+CHAPTER 20 TESTS
+
+---
+BOOK 20A
+
+1) A cloud service provider is reviewing performance metrics. On a graph,
+increases and decreases in customer request volumes are closely
+tracked by CPU and RAM provisioning levels. What characteristic of cloud
+platforms does this demonstrate?
+
+Elasticity
+
+
+
+2) 515accounting uses colocation to host its servers in datacenters
+across multiple geographic regions. It configures the servers to run a
+software as a service (SaaS) app for use by its employees. What type of
+deployment model is this?
+
+Private deployment. The cloud service is wholly operated by 515 (apparently).
+
+
+
+3) What type of cloud solution would be used to implement a SAN?
+
+IaaS
+
+
+
+4) What are the main options for implementing connections to a cloud
+service provider?
+
+Internet/VPN or Direct-connection/Colocation
+
+
+
+5) A technician writes a configuration file that specifies the creation of an
+Ubuntu Server VM with a 2 GHz CPU, 16 GB RAM, and a mass storage disk
+provisioned from a high-speed resource. What type of cloud concept or
+model is being used?
+
+Declarative automation
+
+
+
+
+
+---
+BOOK 20B
+
+1) A technician boots a server from USB media and installs a virtualization
+product. What type of hypervisor is being used?
+
+Type I
+
+
+
+2) If a VM is connected to a bridged virtual switch, what sort of network
+access does it have?
+
+The VM is connected to the physical network via the host's NIC.
+
+
+
+3) A technician deploys a standard Linux virtual machine and then installs
+and configures an open switching OS to run on it. Which virtual network
+concept is being deployed?
+
+Network Function Virtualization
+
+
+
+4) What role does an initiator play in a SAN and what hardware must be
+installed on it?
+
+A file or database server installed with a fibre channel host bus adapter (HBA).
+
+
+
+5) What protocol can be used to implement a SAN without provisioning
+dedicated storage networking adapters and switches?
+
+iSCSI
+
+
+
+
+
+---
+BOOK 20C
+
+1) A technician is configuring a firewall appliance to work with an SDN
+controller. What functionality on the firewall must be enabled?
+
+A southbound API must be configured.
+
+
+
+2) A technician is cabling a top-of-rack switch in a spine and leaf
+architecture. Each server has been cabled to the switch. What cabling
+must the technician add to complete the design?
+
+Fibre Channel
+
+
+
+3) True or false? An enterprise WAN can be configured using either MPLS or
+SD-WAN, but the two cannot work together.
+
+False. SD-WAN can overlay an existing MPLS VPN.
+
+
+
+
+
+---
+ONLINE
+
+1) While looking for a cloud deployment model for business operations, the
+network specialist looks for a model that a third party hosts for the
+organization's exclusive use. Which cloud deployment model meets the network
+specialist's and businesses' needs?
+
+Hosted private.
+
+
+
+2) A cyber architect is reviewing the topologies that support the east-west
+activity for the software-defined networking model. Which topology comprises a
+backbone of top-tier switches?
+
+Spine
+
+
+
+3) A network architect analyzes the software-defined networking model and reviews
+the layer that applies the business logic to decide how to prioritize traffic,
+secure data, and where to switch data. What is the appropriate layer for this
+description?
+
+Application layer.
+
+
+
+4) A network architect analyzes the software-designed networking model and
+reviews the layer that exposes an application programming interface (API) that
+can be automated by scripts that call functions in the layer above or below.
+What is the appropriate layer for this description?
+
+Control Layer
+
+
+
+5) While looking for a cloud deployment model for business operations, the
+network specialist looks for a model where several organizations share the costs
+of either a hosted private or fully private cloud. Which cloud deployment model
+meets the network specialist's and businesses' needs?
+
+Community
+
+
+
+6) While looking for a cloud deployment model for business operations, the
+network specialist looks for a completely private model owned by the
+organization. Which cloud deployment model meets the network specialist's and
+businesses' needs?
+
+Private. This is wholly owned by the company.
+
+
+
+7) While looking for a cloud deployment model for business operations, the
+network specialist looks for a model that offers pay-as-you-go financing. Which
+cloud deployment model meets the network specialist's and businesses' needs?
+
+Public
+
+
+
+8) When configuring connectivity with a virtual switch that bridges the virtual
+and physical networks via the host computer's physical NIC, a network engineer
+creates a virtual switch that binds to the host's NIC to allow the VM to
+communicate on the physical network. What switch did the network engineer create?
+
+External
+
+
+
+9) A network consultant is considering what technologies to use when adding a
+storage area network (SAN). What are the two most popular SAN connection types?
+(Select all that apply.)
+
+Fibre Channel
+Fibre Channel over Ethernet
+
+
+
+10) While looking for a cloud service model for business, the network specialist
+looks for a model that allows the organization to rent components and internet
+links on an as-needed basis from the service provider's datacenter. Which cloud
+service model meets the network specialist's and businesses' needs?
+
+IaaS
+
+
+
+11) A network architect analyzes the software-designed networking model and
+reviews the layer that handles the actual forwarding (switching and routing) of
+traffic and imposition of ACLs and other policy configurations for security. What
+is the appropriate layer for this description?
+
+Infrastructure Layer
+
+
+
+12) A network engineer is configuring a switch to make it only usable to the VMs.
+The engineer confirms that they cannot use the switch to communicate with the
+host. What type of switch is the engineer configuring?
+
+Private.
+
+
+
+13) When configuring connectivity with a virtual switch that bridges the virtual
+and physical networks via the host computer's physical NIC, a network consultant
+creates a virtual switch that creates a bridge that is usable only by VMs on the
+host and the host itself. What switch did the network engineer create?
+
+Internal
+
+
+
+14) During work, a network specialist uses an IP tunneling protocol to transfer
+SCSI data over an IP-based network. iSCSI can be used to link SANs but also is an
+alternative to which of the following?
+
+Fibre Channel
+
+
+
+15) 

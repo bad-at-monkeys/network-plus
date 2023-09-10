@@ -1,0 +1,400 @@
+LESSON 19 - APPLYING NETWORK HARDENING TECHNIQUES
+
+##########
+COMPARE AND CONTRAST TYPES OF ATTACKS
+
+---
+General Attack Types
+
+Footprinting and Fingerprinting
+
+These are enumeration or information gathering attacks.
+
+Footprinting can be done by social engineering attacks and port scanning.
+
+We can use nmap to footrint and fingerprint.
+
+Fingerprinting is when we can find software typwes and versions to exploit.
+
+
+
+Spoofing Attacks
+
+When an attacker disguises their identity or the source of network info appears
+legitimate.
+
+ARP and DNS are typically exploited by these attacks.
+
+
+
+DoS
+
+Causes a service at a given host to fail or become unavailable to users.
+
+
+
+
+
+---
+On-path Attacks
+
+A specific type of spoofing attack where a threat actor compromises the
+connection between two hosts and transparently intercepts and relays all
+communications between them.
+
+
+
+ARP Spoofing
+
+ARP cache poisoning works by broadcasting unsolicited ARP reply packets, known
+as gratuitous ARP replies, with a source address that spoofs a legitimate host or
+router interface.
+
+ARP has no security and all devices are in the same BC domain, they will trust the
+rogue hosts comms and update their MAC:IP cache with the spoofed addresses. The
+usual target is the subnet's default gateway. If the attack is successful, all
+traffic destined for remote networks will be sent to the attacker.
+
+
+
+Rogue DHCP
+
+DHCP communications cannot be authenticated, so a host generally trusts the first
+packet that it sees. A threat actor can set their machine as the subnet's
+default gateway or DNS resolver.
+
+
+
+
+
+---
+DNS Poisoning Attacks
+
+Attacks that compromise the DNS process. Typically the attacker will replace the
+valis IP address for a trusted website with their own. The attacker then
+intercepts all outgoing packets and bounces them to the real IP. This leaves the
+victim unaware of the attack (pharming).
+
+DNS spoofing can also be used, which directs all traffic for a particular FQDN
+to an invalid IP (black hole).
+
+DNS cache poisoning is another redirection attack, but instread of trying to
+subvert the name service used by the client, it aims to corrupt the records held
+by the DNS server itself.
+
+
+
+
+
+---
+VLAN Hopping Attacks
+
+This is where traffic is sent to a VLAN other than the one the host system is in.
+
+VLAN hopping attacks happen by someone attaching a device to the network.
+
+
+
+
+
+---
+Wireless Networking Attacks
+
+Rogue APs
+
+These are APs that have been installed on the network without authorization.
+
+
+
+Evit Twins
+
+This is a rogue AP masqurading as a real one.
+
+
+
+Deauthentication Attacks
+
+These are coupled with Evil Twin attacks, sending a stream of spoofed management
+frames to cause a client to deauthenticate from an AP. This can provide a lot
+of openings for the attacker, like interpose the evil twin, sniff out
+authorization info, or preform a DoS attack against the network.
+
+These work against both WEP and WPA.
+
+
+
+
+
+Distributed DoD Attacks and Botnets
+
+DDoS attacks are launched simultaneously by multiple hosts. The aim here is to
+crash or lock up the host system entirely.
+
+
+
+Distributed Reflection DoS/Amplification Attacks
+
+This is a TCP SYN flood on steroids. The victim's IP is spoofed and open
+connections are attempted with multiple servers --- those servers direct their
+SYN/ACK responses to the victim server rapidly consuming the available bandwidth.
+
+
+
+Botnets
+
+A group of compromised hosts that can be used to launch DDoS and DRDoS attacks.
+A threat actor ahs two machines as handlers used to compromise a shit ton of
+zombie hosts with DoS tools.
+
+To compromise a host, malware must be installed on the host then a remote
+backdoor needs to be opened. Then the bots on the botnet can be triggered to
+flood that opening.
+
+The network established between the handlers and the bots is called a command
+and control network.
+
+
+
+
+
+---
+Malware and Ransomware Attacks
+
+Malware is simply software with bad intentions.
+
+Tyoes include:
+  -> Viruses and worms; malware concealed within the executable code of another
+     process.
+  -> Trojan; malware concealed within an installer package or software appearing
+     to be legitimate.
+  -> Potetnially Unwanted Programs (PUPs)/Potentially Unwanted Applications(PUA);
+     not necessarily malicious, but bundled withh a system and accidentally
+     installed.
+
+Ransomware is a type of malware that attempts to extort money from the victim.
+
+
+
+
+
+---
+Password Attacks
+
+Obtaining a password file, sniffing the network, social engineering, randomizers,
+dictonaries, brute force, etc...
+
+
+
+
+
+---
+Human Environmental Attacks
+
+Social engineering, phising, shoulder surfing, tailgating/piggybacking.
+
+
+
+
+
+##########
+APPLY NETWORK HARDENING TECHNIQUES
+
+---
+Device and Service Hardening
+
+Secur configurations involve:
+  -> Change default credentials
+  -> Enforce password complexity/length requirements
+  -> Role-based access
+  -> Disable unneeded services
+  -> Disable insecure protocols
+
+
+
+
+
+---
+Endpoint Security and Switchport Protection
+
+Disable Unused Switchports
+
+Using the switchport command.
+
+
+
+MAC Filtering and Dynamic ARP Inspection
+
+We can configure MAC filtering on a switch to prevent mac spoofing.
+
+
+
+DHCP Snooping
+
+DHCP snooping causes the switch to inspect DHCP traffic arriving on access ports
+to ensure that a host is not trying to spoof its mac address.
+
+Only DHCP offers from ports defined as trusted are allowed comms.
+
+
+
+Neighbor Discovery Inspection and Router Advertisement Guard
+
+ND inspection and RA Guard mitigate spoofing and on-path attacks over IPv6.
+
+
+
+Port Security/IEEE 802.1x PNAC
+
+Port security refers to the 802.1x standards' PNAC. In PNAC, the switch performs
+some type of authentication of the attached device before activating the port.
+
+The device requesting access is the supplicant.
+
+The switch (or authenticator) enables EAP over LAN (EAPoL) protocol only and
+waits for the device to supply authentication data. The authenticator passes the
+data to a RADIUS/TACACS+ server which verifies credentials, granting or denying
+access.
+
+
+
+
+
+---
+VLAN and PVLAN Best Practices
+
+PVLANs extend segmentation by restricting hosts within a VLAN the ability to
+directly communicate to another. This is used by web hosting or cloud companies
+to segregate customers. ISPs use PVLANS to isolate customer traffic.
+
+There are three types of PVLAN ports that can be configured within a primary
+VLAN:
+  -> Promiscuous port; can comm with all ports in all domains within the PVLAN.
+     Usually where routed and DHCP traffic gos through.
+  -> Isolated port; can communicate with the promiscuous port only creating a
+     subdomain of a single host only. The PVLAN can contain multiple isolated
+     ports, but eachh within its own subdomain.
+  -> Community port; can communicate with the promiscuous port and withh other
+     ports in the same community. This creates a subdomain that can contain
+     multiple hosts.
+
+
+
+Default VLAN and Native VLAN
+
+VLAN 1 is the default VLAN ofcourse. Never send traffic over the default VLAN.
+Make sure unused ports are not assigned to VLAN 1.
+
+Native VLANS are ones where any untagged traffic is put when receiving frames
+over a trunk port.
+
+The native VLAN is usually set to the default VLAN and should be changed.
+
+
+
+
+
+---
+Firewall Rules and ACL Configuration
+
+ACLs are configured on the principle of least privelage/access.
+
+Firewall rules are processed from top to bottom, specific rules at the top with
+the more abstract rules towards the bottom.
+
+DENY ALL goes at the bottom. This is te implicit deny.
+The DENY ALL rule can be added explicitly.
+
+The three main iptables chains are:
+  -> INPUT; affects incoming connections.
+  -> OUTPUT; for outgoing connections.
+  -> FORWARD; for connections passing through the host.
+
+To view the current status and how these chains are used:
+$ sudo iptables -L -v
+
+
+
+
+
+---
+Control Plane Policing
+
+The QoS stack distinguishes three operational layers:
+  -> control
+  -> data
+  -> management
+
+The control plane comprises traffic that keeps the network itself
+operational which includes routing updates, ARP traffic, STP notifications,
+NTP updates, QoS classification/link reservation requests, etc.
+
+
+The management plane comprises traffic that allows remote administration
+and monitoring of network appliances such as, ssh, snmp, NetFlow, and
+syslog. Management traffic is typically directed to the appliances loop-
+back address.
+
+
+Contol plane policing policy is designed to mitigate the risk from route
+processor vulnerabilities. Such policies use ACLs to allow or deny control
+traffic from certain sources and apply rate limiting if a source threatens
+to overwhelm the processor.
+
+
+
+
+
+-----
+Wireless Security
+
+These features can be enabled to provision and secure a wireless network:
+  -> PSKs; group auuthentication allows stations to connect to the network
+     using a shared passphrase, which is used to generate a PSK.
+  -> EAP; APs can implement a similar port security mechanism to switches.
+     On the AP, enterprise authentication can be enabled. Users can
+     authenticate to the wireless network against a RADIUS server using
+     their regular network credential. EAP also allows for device
+     authentication through certs.
+  -> Captive portal; redirecting clients to a secure web page and
+     accepting a use policy before connecting to the network.
+  -> MAC filtering; APs can be configured with an accept or deny list of
+     known MACs.
+  -> Geofencing; ensures that a station is kept within a geographic area
+     to access the network.
+  -> Antenna placement and power levels; ensure that AP placement is
+     sufficient. Note that the prescence of an unusually strong transmitter
+     (30dBm+) might indicate the prescence of an evit twin rogue AP.
+  -> Wireless client isolation; clients connected on the WLAN are typically
+     within the same broadcast domain and can communicate with another. An
+     AP can be configured to prevent this so that stations can only
+     communicate via their gateway. Peer-to-peer traffic is dropped by the
+     AP.
+  -> Guest network isolation; guest networks are typically permitted to
+     access the internet, but not the local servers on the site LAN. For
+     a place like amazon, a serparate VLAN must be configured.
+
+
+
+
+
+IoT Access Considerations
+
+There must be measures in place to detect whether an unauthorized IoT
+device has connected to the network:
+  -> Perform regular audits to prevent uncontrolled deployment of smart
+     devices and appliances.
+  -> Ensure the admin interfaces are secured and role-based access is being
+     enforced.
+  -> Include all IoT devices in patch and vulnerability management audits.
+  -> Isolate management and monitoring traffic for embedded systems to
+     minimize access to and from the corporate data network.
+  -> Audit supplier security policies and procedures.
+
+
+
+
+
+---
+Patch and Firmware Management
+
+Be sure to backup the system configuration befor upgrading/updating.

@@ -1,0 +1,101 @@
+LESSON 8 TEST - EXPLAINING NETWORK TOPOLOGIES AND TYPES
+
+---
+BOOK 8A
+
+1) What network infrastructure implementation links multiple buildings
+within the same city?
+
+MAN; Metro Area Network.
+
+
+
+2) What term is used to describe a topology in which two nodes share a
+single link?
+
+Point-to-point
+
+
+
+3) You need operations to continue if one link fails. How many links does it
+take to connect three sites?
+
+n(n-1)/2 = 3*2/2 = 3
+
+
+
+4) What types of devices are connected in a PAN?
+
+Bluetooth devices typically. Phones, laptops, wearables, etc.
+
+
+
+
+
+---
+BOOK 8B
+
+1) Which two topologies are used in the three-tier hierarchical model?
+
+(Partial) Mesh and star.
+
+
+
+2) Spanning tree has been deployed without the administrator setting a
+priority value. Which of the following switches will be selected as the
+root?
+• Switch A with base MAC f062.81ff.0001 and a 10 Gbps uplink
+• Switch B with base MAC f062.81ff.0002 and a 40 Gbps uplink
+• Switch C with base MAC f062.81ff.0003 and a 40 Gbps uplink
+
+Switch A. It has the lowest value MAC.
+
+
+
+3) In what STP-configured state(s) are all ports when a network running STP
+is converged?
+
+Forwarding or blocking.
+
+
+
+4) True or false? A broadcast storm can only be resolved by investing
+interface configurations.
+
+False. Broadcast storms can only be caused by improper cabling.
+
+
+
+
+
+##########
+Explain VLANs
+
+
+---
+VLAN IDs and Membership
+
+At the data link and network layers, a group of hosts in the same broadcast
+domain is a segment.
+
+At the network layer this is identified as an IP network or as a subnet within
+an IP network.
+
+
+VLANs are used to isolate ports on a switch by virtually separating them into
+different broadcast domains.
+
+Networks are typically designed as a 1:1 mapping between subnet and VLAN ID.
+
+The default ID is VLAN 1.
+We can configure ports on the switch from 2-4094.
+
+Communications between VLANs must be done through a router or layer3 switch.
+
+
+
+
+
+---
+Trunking and IEE 802.1Q
+

@@ -1,0 +1,233 @@
+LESSON 8 TEST - EXPLAINING NETWORK TOPOLOGIES AND TYPES
+
+---
+BOOK 8A
+
+1) What network infrastructure implementation links multiple buildings
+within the same city?
+
+MAN; Metro Area Network.
+
+
+
+2) What term is used to describe a topology in which two nodes share a
+single link?
+
+Point-to-point
+
+
+
+3) You need operations to continue if one link fails. How many links does it
+take to connect three sites?
+
+n(n-1)/2 = 3*2/2 = 3
+
+
+
+4) What types of devices are connected in a PAN?
+
+Bluetooth devices typically. Phones, laptops, wearables, etc.
+
+
+
+
+
+---
+BOOK 8B
+
+1) Which two topologies are used in the three-tier hierarchical model?
+
+(Partial) Mesh and star.
+
+
+
+2) Spanning tree has been deployed without the administrator setting a
+priority value. Which of the following switches will be selected as the
+root?
+• Switch A with base MAC f062.81ff.0001 and a 10 Gbps uplink
+• Switch B with base MAC f062.81ff.0002 and a 40 Gbps uplink
+• Switch C with base MAC f062.81ff.0003 and a 40 Gbps uplink
+
+Switch A. It has the lowest value MAC.
+
+
+
+3) In what STP-configured state(s) are all ports when a network running STP
+is converged?
+
+Forwarding or blocking.
+
+
+
+4) True or false? A broadcast storm can only be resolved by investing
+interface configurations.
+
+False. Broadcast storms can only be caused by improper cabling.
+
+
+
+
+
+---
+Book 8C
+
+1) At which layer of the OSI model do VLANs establish network segments?
+
+Layer2. VLANs operate on Layer2.
+
+
+
+2) True or false? A VLAN is a single broadcast domain.
+
+True. Each LAN is on its own broadcast domain, so if they are virtually
+separated, the same rules apply.
+
+
+
+3) Which values can be used to assign a port to a specific VLAN?
+
+From 2-4094. Thhe default ID, VLAN ID 1 (0 and 4095)  is reserved and the
+default value for all uncofigured ports.
+
+
+
+4) What type of frames are carried over tagged ports?
+
+802.1q
+
+
+
+5) True or false? When configuring a voice VLAN, the voice VLAN ID must be
+lower than the access VLAN ID.
+
+False. The IDs only need to be distinct and sync'd with the IDs expected
+by the switch.
+
+
+
+
+
+---
+ONLINE
+
+1) A network architect is reviewing a network where application services and
+resources are centrally provisioned, managed, and secured. What is this called?
+
+Client-server.
+
+
+
+2) A network administrator is determining untagged port logic for a frame
+addressed to a port in the same VLAN on the same switch. What would happen?
+
+No tag is added. If the frame gets addressed to a port in the same VLAN
+on the same switch, no tag is necessary.
+
+If the frame is being forwarded over the trunk port then a tag must be added.
+
+
+
+3) A network technician is studying a network topology where each node
+wires to its neighbor in a closed loop. What is this called?
+
+Ring. This is exactly what a ring topology is.
+
+
+
+4) A network architect is researching VLAN IDs (VID) for each frame, to
+preserve them for the receiving switch to forward them correctly. The network
+architect should look at which standard?
+
+802.1q
+
+
+
+5) A network technician does not have enough ports on a single switch and has
+to connect multiple switches. What should the technician research for
+interconnections between switches?
+
+Trunks. Trunks are what interconnect switches. One port on each switch should
+be configured as trunk portts with the 802.1q protocol.
+
+
+
+6) A network operator is reviewing a network topology where all nodes share
+the bandwidth of the media. What is this called?
+
+Bus.
+
+
+
+7) A network engineer is looking at a local area network (LAN) which uses
+structured cabling, two 24-port switches and a router to provide connectivity.
+What type of LAN is this most likely?
+
+SME. Small and medium enterprise networks.
+
+
+
+8) A network administrator is setting up Virtual Local Area Networks (VLANs)
+for various segments, such as voice and data. Which of the following IDs is
+the default VLAN?
+
+VLAN 1.
+
+
+
+9) A network administrator is looking at a switch where the network is not
+converged. What does this mean?
+
+Regular communications are not taking place. No communications can take place
+if the network isn't converged.
+
+
+
+10) A security architect is looking over network topologies where each endpoint
+node connects to a central forwarding node. What is this called?
+
+Star.
+
+
+
+11) A network administrator is looking at a network where network utilization
+approaches maximum capacity, and the CPU utilization of the switches jumps to
+80 percent or more. What is this called?
+
+Broadcast Storm.
+
+
+
+12) A network administrator is trying to figure out which switch will be rooted
+in a spanning tree protocol set up. Which of the following would determine the
+root?
+
+Lowest ID. This comprises of a priority value and the MAC. The switch with
+the earliest manufacturing date in the MAC address is chosen by default.
+
+
+
+13) A network architect is reviewing the architecture for a large company.
+Which of the following tiers is NOT part of the traditional three-tiered
+network hierarchy?
+
+Bus. This is a topology design, not a part of the three-tier hierarchy.
+
+
+
+14) A network analyst is looking at traffic from switches to other switches,
+which determines the shortest path. What is this called?
+
+BDPU. Bridge Protocol Data Units are the multicast frames that communicate
+STP information, which includes thhe shortest path.
+
+
+
+15) A network administrator wants to set up a switch with a voice or auxiliary
+Virtual Local Area Network (VLAN) to distinguish the PC and VoIP traffic
+without having to set up a trunk port. Which of the following commands should
+the administrator perform first?
+
+interface GigabitEthernet0/0
+
+This is typically always amongst the first commands when configuring an
+interface on a switch. The other commands don't come until later.

@@ -1,0 +1,163 @@
+LESSON 9 TESTS - EXPLAINING TRANSPORT LAYER PROTOCOLS
+
+
+---
+BOOK 9A
+
+1) How many port numbers are required to establish a connection at the
+Transport layer?
+
+2. A server port and a client port.
+
+
+
+2) What is the purpose of the window field in a TCP segment?
+
+This is the amount of data a host can receive before sending an ACK. This is
+used for flow control.
+
+
+
+3) What are the sizes of TCP and UDP headers?
+
+TCP = 20+bytes
+UDP = 8bytes
+
+
+
+4) True or False? User Datagram Protocol (UDP), like TCP, uses flow control
+in the sending of data packets.
+
+False. UDP uses no flow control. The application implements these features.
+
+
+
+5) What port and protocol does TFTP use at the Transport layer?
+
+UDP/69
+
+
+
+
+
+---
+BOOK 9B
+
+1) What type of scanning tool outputs a “Host is up” status report.
+
+IP scanner.
+
+
+
+2) You are auditing the service configuration of a Linux server. Which
+command can you use to check the PID associated with a TCP port, even
+if there are no active connections?
+
+netstat -patn
+ss -patn
+
+
+
+3) A technician has identified an undocumented host using an IP address
+in a range set aside as unallocated. The technician is going to run a
+fingerprinting scan. What type of information could this yield about the
+host?
+
+Software versioning/naming, OS info, hardware.
+
+
+
+4) You need to analyze the information saved in a .pcap file. What type of
+command-line tool or other utility is best suited to this task?
+
+tcpdump or wireshark.
+
+
+
+
+
+---
+ONLINE 9
+
+1) A server administrator is analyzing a normal Transmission Control Protocol
+(TCP) Teardown connection to their servers. How many FIN-WAIT states does the
+client go through during this process?
+
+Two. The client sends a FIN segment to the server and enters the FIN-WAIT
+state.
+
+
+
+2) A security analyst is looking at traffic from older devices between ports
+2,000 - 3,000. What is this traffic most likely?
+
+Clent ports. 1024-5000 is typically client ports on legacy systems.
+Ports 0-1023 are IANA assigned.
+49152-65535 are for private/dynamic use.
+
+
+
+3) A penetration tester wants to perform remote port scanning. Which Nmap scan
+fast technique as the scanning host requests a connection without acknowledging
+it?
+
+-sS. This is a half-open scan that requests a connection without
+acknowledging it. The target's response to the scan's SYN packet identifies
+the port state.
+
+
+
+4) A security analyst is reviewing UDP traffic headers. Which of the following
+is NOT a field in a UDP traffic header?
+
+Window. This is a field in a TCP header.
+
+
+
+5) A network administrator is looking at packet captures from the network and
+trying to isolate email traffic. Which of the following should the network
+administrator include? (Select all that apply.)
+
+TCP/25 - SMTP
+TCP/143 - IMAP
+
+
+
+6) A security analyst wants to reconstruct the packet contents for a
+Transmission Control Protocol (TCP) session in Wireshark. Which function
+should the security analyst use?
+
+Follow TCP Stream. This option allows us to reconstruct the packet
+contents for a TCP session.
+
+
+
+7) A penetration tester has performed a quick service enumeration with
+Nmap and now wants to further enumerate the findings. Which parameter should
+the pen tester use in the command?
+
+-sV. This option helps us find the versioning of software at the port.
+
+
+
+8) A systems engineer is looking at running services on the company's
+Linux hosts and wants to include ports in the listening state in the output.
+Which netstat switch should the engineer use?
+
+-a. This includes ports in the listening state.
+
+
+
+9) A security engineer is looking at Transmission Control Protocol (TCP)
+traffic headers. Which of the following allows the receiver to rebuild the
+message correctly?
+
+Sequence number. This helps us rebuild and reorder packets.
+
+
+
+10) A systems administrator is trying to get a basic inventory of what is
+on the network. Which of the following is a tool which will allow the
+administrator to easily scan for IPs?
+
+PRTG is an IP scanner.

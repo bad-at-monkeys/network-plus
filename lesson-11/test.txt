@@ -1,0 +1,198 @@
+LESSON 11 TESTS - EXPLAINING NETWORK APPLICATIONS
+
+---
+BOOK 11A
+
+1) True or false? An HTML web page is sent as the response to a client in an
+HTTP header field.
+
+False. Ann HTML web page is in the payload.
+
+
+
+2) What must be installed on a server to use secure (HTTPS) connections?
+
+A digital certificate and the corresponding private key.
+
+
+
+3) What distinguishes TFTP from FTP?
+
+TFTP is insecure and not as featureful. It only supports GET and PUT methods.
+TFTP works over UDP, not TCP.
+
+
+
+4) You need to configure clients to be able to communicate with print
+devices in a remote subnet. Which port number must you allow on a
+network firewall to enable the standard TCP/IP port?
+
+TCP/9100 JetDirect
+
+
+
+5) You are configuring a firewall to allow a Linux web server to
+communicate with a database server over port TCP/3306. Assuming it
+has been left configured with the default port, what type of database is
+being used?
+
+MySQL.
+
+
+
+
+
+---
+BOOK 11B
+
+1) What happens if a message sent via SMTP cannot be delivered?
+
+An undeliverable message will be sent to the sender with an error message.
+
+
+
+2) What protocol would enable a client to manage mail subfolders on a
+remote mail server?
+
+IMAP
+
+
+
+3) True or False? SIP enables the location of user agents via a specially
+formatted URI.
+
+True. The URI is like the phone number on SIP.
+
+
+
+4) Which component in a VoIP network allows calls to be placed to and from
+the voice telephone or public switched telephone network (PSTN)?
+
+VoIP PBX
+
+
+
+
+
+---
+ONLINE LESSON 11
+
+1) A growing organization wants an elementary web presence for its business. They
+do not intend to perform any e-commerce with their website. Which of the following
+is the best option for the organization to move forward with?
+
+Shared hosting. This is the most elementary, cost-effective setup.
+
+
+
+2) An organization has secured its website with SSL/TLS
+(Secure Sockets Layer/Transport Layer Security). By default, what port will
+this encrypted traffic use?
+
+TCP/443
+
+
+
+3) A server is running Microsoft SQL Server and is replicating the data to other
+Microsoft SQL servers on the network. The application service is using which
+principal port?
+
+TCP/1433
+
+
+
+4) An organization needs to use shared mailboxes for managing customer inquiries.
+What mailbox access protocol should the clients utilize to retrieve the mail over
+secured connections?
+
+IMAPS
+
+
+
+5) An admin is using FTP and the PROT command. What type of FTP is this?
+
+Active FTP. Active FTP uses the PROT command to transfer data securely.
+Passive FTP uses the PASV command.
+
+
+
+6) A mail administrator configured the DNS server to allow connections on
+TCP port 53. Why would the administrator make this kind of configuration?
+
+The network is using IPv6. DNS is typically run over UDP/53, but IPv6 requires
+larger transfers of 512bytes+.
+
+
+
+7) An administrator updated an A (address) record, but it took the client
+computers approximately five minutes to recognize the change. What update can
+the administrator make on the resource record to allow changes to propagate
+through the network more quickly?
+
+Decrease the TTL. If the TTL is decreased, then the query in cache will be
+updated more frequently.
+
+
+
+8) An organization is converting from landline telephones to VoIP handsets.
+Some of the current landline locations do not have electrical outlets nearby.
+What can the organization use to power the replacement handsets in these cases?
+(Select all that apply.)
+
+PoE
+Batteries
+
+
+
+9) An organization is looking to secure email, what could they implement?
+
+SMTPS
+STARTTLS
+
+
+
+10) What tools can a Windows administrator use to troubleshoot DNS issues
+without installing additional software? (Select all that apply.)
+
+nslookup
+ipconfig /all
+
+dig isn't a standard tool.
+hostname --fqdn is a linux command.
+
+
+
+11) Which of the following remote print protocols allows secure connections to
+a print device and allows it to advertise service capabilities over the network,
+provide plug-and-play installation for Windows and iOS devices, and use
+bidirectional status messaging?
+
+Web Services for Devices (WSD)/AirPrint
+
+
+
+12) An organization is converting from landline telephones to VoIP handsets, but
+still needs to use fax machines in many of the offices. What can the organization
+use to allow the fax machines to operate on the new VoIP system?
+
+VoIP gateway
+
+
+
+13) An organization is using video conferencing to conduct meetings between
+different locations. Which of the following protocols provides information that
+allows the network stacks to adjust the quality of service parameters?
+
+RTCP. RTP Control Protocol is a session on each RTP stream that monitors the
+quality of the connection and provides metrics that the network stacks use
+to tune QoS params.
+
+
+
+14) During an office upgrade, a technician is tasked with configuring the DNS server. What ports can be used when configuring a DNS service? (Select all that Apply).
+
+TCP/53 or UDP/53. DNS is typically run over UDP/53, but can be run over TCP for
+larger transfers.
+
+
+

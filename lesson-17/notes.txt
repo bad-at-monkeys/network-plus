@@ -1,0 +1,460 @@
+LESSON 17 - EXPLAINING ORGANIZATIONAL AND PHYSICAL SECURITY CONCEPTS
+
+##########
+EXPLAIN ORGANIZATIONAL DOCUMENTATION AND POLICIES
+
+---
+Operating Plans and Procedures
+
+Configuration Management
+
+Configuration management is identifying and dicumenting all the infra and
+devices installed at a site. Under ITIL guidelines, confirguration management
+is implemented using these elements:
+  -> Service assests are things, processes, or people that contribute to the
+     delivery of an IT service. Each asset should have an ID, label, or tag.
+  -> Configuration Items is an asset that requires specific management
+     procedures for it to be used to deliver the service. CIs are defined by
+     their attributes.
+  -> Baselines document the approved state of a configuration item. This way
+     unauthorized changes will be detected. There are configuration and
+     performance baselines.
+  -> Configuration Management Systems (CMS) are the tools and databases that
+     collect, store, manage, update, and present information about CIs.
+
+
+
+Change Management
+
+Change management is implementing changes in a planned and controlled way.
+
+
+
+SOPs
+
+Standard Operating Procedures are the sets of rules that govern standard work.
+
+
+
+
+
+---
+System Life Cycle Plans and Procedures
+
+Audit Reports
+
+Audit reports identify and record assets.
+
+
+
+Assessment Reports
+
+Assessment reports evaluate the configuration and deployment of assets, such as
+deviation from baseline and performance. Recommendations are typically included
+in these reports.
+
+
+
+System Life Cycle
+
+A function of auditing and assessment, which refers to the controlled aquisition,
+deployment, use, and decommissioning of assets.
+
+
+
+
+
+---
+Physical Network Diagrams
+
+Floor Plan
+
+The detailed mapping of wiring and port locations.
+
+
+
+Wiring Diagram
+
+Pin-outs show detailed information about the termination of twisted pairs in
+an RJ-45 or RJ48c jack or IDC.
+
+
+
+Distribution Frame
+
+out.
+
+Height is measured in U, where 1U = 1.75"
+
+
+
+
+
+---
+Logical vs Physical Network Diagrams
+
+We can create separate diagramms for physical, data-link, logical, and
+application layers:
+  -> PHY; Asset tags and cable links. Corlor coding helps here.
+  -> Data-link; showing interconnections between routers and switches, asset
+     IDs, management IPs, interface IDs, and link-layer protocol and bandwidth.
+  -> Logical (layer 3); IPs of router interfaces, static IP assignments, fire-
+     walls, plus links showing the IP network ID and netmask, VLAN ID, and
+     DHCP scopes.
+  -> Application; Server instances of TCP/UDP ports in use, configs, baselines.
+
+
+
+
+
+---
+Security Response Plans and Procedures
+
+Incident Response Plan
+
+Sets out the procedure, tools, methods of communication, and guidelines for
+dealing with security incidents. Incidents are where security is breached or
+there was an attempted breach:
+  -> The immediate aim is to protect confidential data or minimize impacts from
+     its loss and re-establish a secure working system.
+  -> Evidence preservation from the incident.
+  -> Lessons learned analysis.
+
+
+
+Disaster Recovery Plan
+
+DRPs address large-scale incidents threatening the performance of a whole site
+or region. DRPs should:
+  -> Identify scenarios for natural and unnatural disasters and opts for
+     protecting systems.
+  -> Identify tasks, resources, and responsibilities for responding to a
+     disaster.
+  -> Train staff on disaster planning/recovery procedures.
+
+
+
+Business Continuity Plan
+
+BXPs are a collection of processes and resources that enable an org to maintain
+normal business operations in the face of some adverse event. These plans
+include:
+  -> Business Impact Analysis (BIA); identifies mission essential and primary
+     business functions and the risks that would arise if the org cannot fulfill
+     them.
+  -> IT contingency planning ensures that these functions are supported by
+     resilient IT systems, identifying and mitigating all single points of
+     failure from a process or funciton.
+
+
+
+
+
+---
+Hardening and Security Policies
+
+Onboarding
+
+is the process of welcoming a new employee to the organization. Processes
+include:
+  -> Background check; this process essentially determines that a person is who
+     they say they are and are not concealing shitty behaviour.
+  -> ID and Access Management (IAM); create accounts, assign appropriate
+     privelages, and ensure the credentials are only known to the user.
+  -> Asset allocation; provision devices for the user or agree to the BYOD policy
+  -> Training; security awareness and role relevant training and certs.
+
+
+
+Offboarding
+
+the process of ensuring an employee leaves a company gracefully. Processes
+include:
+  -> IAM; disable the account and privelages.
+  -> Retrieve company assets.
+  -> Return their personal assets.
+
+
+
+
+
+---
+Usage Policies
+
+set out rules for how users should interact with network systems and data.
+
+
+
+Password Policy
+
+Enforce password best practices:
+  -> length; 12-16 chars
+  -> Complexity; chars, numbers, upper, lower.
+  -> Aging and History; enforce periodic password changes.
+
+
+
+Acceptable Use Policies
+
+AUPs set out the permitted use of a product or service.
+
+
+
+BYOD Policies
+
+There would have to be some sort of agreement between employee and company.
+
+
+
+
+
+Data Loss Prevention
+
+DLP products scan content in structured or unstructured data formats to ID
+non-conforming stuff.
+
+
+
+
+
+---
+Remote Access Policies
+
+WFH or VPN users must conform to policy, issues that must be mitigated are:
+  -> Malware protection
+  -> Security information
+  -> Data transfer
+  -> Local privelages
+  -> Weak authentication
+  -> Untrusted networks
+
+Training the user is the most important part of this.
+
+
+
+
+
+---
+Common Agreements
+
+SLA
+
+SLAs are contractual agreements setting out the detailed terms under which an
+ongoing service is provided.
+
+
+
+NDA
+
+NDAs are the legal basis for protecting information assets.
+
+
+
+MOU
+
+Memorandum of Understandings are preliminary or exploratory agreements to express
+an intent to work together.
+
+
+
+
+
+##########
+EXPLAIN PHYSICAL SECURITY METHODS
+
+---
+Badges and Site Secure Entry Systems
+
+Physical security.
+
+
+
+Access Control Hardware
+  -> Badge reader
+  -> Biometric
+
+
+
+Access Control Vestibule
+
+These are barriers that lead to choke points and lock when an unauthorized thing
+tries to pass through.
+
+
+
+
+
+Physical Security for Server Systems
+
+Locking Racks
+
+Having the racks inside locked cages.
+
+
+
+Locking Cabinets
+
+We can keep individual items safe in here.
+
+
+
+Smart Lockers
+
+Cabinets that support locking/unlocking with a smart card or badge.
+
+
+
+
+
+Detection Based Devices
+
+Cameras
+Asset tags
+RFID tracking
+
+
+
+
+
+Alarms and Tamper Detection
+
+  -> Circuit; sounds when the circuit is open or closed (like a door sensor)
+  -> Motion detection; sets off when shit moves and it shouldnt be.
+
+
+
+
+
+---
+Asset Disposal
+
+Factory resets and removal of data remnants.
+
+Sanitization by incineration, pulverization, and degaussing.
+
+SATA and Serial Attached SCSI (SAS) have a feature called Secure Erase, which is
+a single pass erasure.
+
+Self-encrypting drives now have a Instant Secure Erase (ISE) feature. This erases
+the media encryption key, rendering the data unrecoverable.
+
+
+
+
+
+---
+Employee Training
+
+Self explanatory.
+
+
+
+
+
+##########
+COMPARE AND CONTRAST INTERNET OF THINGS DEVICES
+
+---
+IoT
+
+IoT is the global network of personal devices with various sensors, software, and
+network connectivity.
+
+These devices have features that allow them to pass data to eachother and other
+more traditional systems like servers. This is Machine to Machine (M2M) comms.
+
+
+
+Consumer-grade Smart Devices
+
+An IoT smart device will generally use the following components:
+  -> Hub/control System
+  -> Smart devices; these are typically running a Linux kernel, so they are
+     vulnerable to the same types of things as computers.
+
+
+
+Physical Access Control Systems and Smart Buildings
+
+PACS is a network of monitored locks, alarms, and surveillance cameras. BAS
+encompasses PACS and HVAC. PLCs are what control and monitor these systems.
+
+
+
+
+
+Industrial Control Systems/upervisory Control and Data Acquisition
+
+Industrial processes favor availability and integrity over confidentiality. Which
+reverses the CIA triad to the AIC triad.
+
+
+
+Workflow and Process Automation Systems
+
+Industrial Control Systems (ICS) provide mechanisms for workflow and process
+automation.
+
+An ICS that manages process automation within a single site is usually referred
+to as a distributed control system (DCS).
+
+ICS logic is typically comprised of networked PLCs that operate machinery.
+
+
+
+Supervisory Control and Data Acquisition
+
+SCADA systems take the place of a control server in large-scale, multiple-site
+ICSs. SCADA aggregates data from all of the embedded field devices.
+
+
+
+
+
+---
+IooT Networks
+
+Operational Technology Networks
+
+OT networks are cabled networks of industrial applications using serial data
+protocols or Ethernet.
+
+
+
+Cellular Networks
+
+Also called baseband radio:
+  -> Narrowbannd-IoT (NB-IoT); low-power version of 4G LTE at 20-100Kbps.
+  -> LTE Machine Type Communication (LTE-M); same but 1Mbps.
+
+
+
+Z-Wave and Zigbee
+
+Z-wave is a wireless mesh protocol used for home automation.
+
+Zigbee is the open-source version of Z-wave.
+
+
+
+
+
+---
+Placement and Security
+
+Consumer Grade Smart Devices
+
+Smart home devices leave vulnerabilities.
+
+
+
+Smart Buildings
+
+BAS should be carried out over isolated network segments.
+
+
+
+ICS/SCADA
+
+Links between OT and IT networks must be monitors and ACLs enforced.
+

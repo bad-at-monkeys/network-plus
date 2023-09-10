@@ -1,0 +1,365 @@
+LESSON 15 TESTS - DEPLOYING AND TROUBLESHOOTING WIRELESS NETWORKS
+
+---
+BOOK 15A
+
+1) What mechanism does RTS/CTS support?
+
+CSMA/CA. Rather than try to detect collisions, a wireless station indicates its
+intent to transmit by broadcasting an Request to Send (RTS) and waits to receive a
+Clear to Send (CTS) before proceeding.
+
+
+
+2) Which IEEE WLAN standards specify a data transfer rate of up to
+54 Mbps?
+
+802.11a and 801.11g
+
+
+
+3) What options may be available for an 802.11n network that are not
+supported under 802.11g?
+
+Channel bonding
+Multiple Input Multiple Output
+Use of either 2.4GHz or 5GHz bands
+
+
+
+4) True or False? Stations with 802.11ac capable adapters must be assigned
+to the 5 GHz frequency band.
+
+True. 802.11ac is designed to work only with 5GHz and 2.4GHz for legacy clients.
+
+
+
+5) Which frequency band is less likely to suffer from co-channel
+interference?
+
+5GHz
+
+
+
+6) What standard(s) are intended to support 4G mobile wireless services?
+
+LTE, Long Term Evolution.
+
+
+
+
+
+---
+BOOK 15B
+
+1) What value is used as the BSSID?
+
+The MAC of the AP.
+
+
+2) True or False? Suppressing transmission of the WLAN beacon improves
+security.
+
+False. We can still find the ssid through other devices.
+
+
+
+3) What is a heat map?
+
+A reading of signal strength in an area.
+
+
+
+4) True or false? To support client roaming within an extended service
+area, each access point must be configured with the same SSID, security
+parameters, and Wi-Fi channel.
+
+True.
+
+
+
+5) What type of AP requires a wireless controller?
+
+Thin AP.
+
+
+
+6) What are the advantages of deploying a wireless mesh topology over an
+IBSS?
+
+Mesh topologies are more scaleable and do not require a controller. 802.11s
+devices can directly connect to one another.
+
+
+
+
+
+---
+BOOK 15C
+
+1) You are planning WLAN for an office building with an attached
+warehouse. Where would you recommend placing Wi-Fi antennas for the
+best coverage in an office full of cubicles as well as in the warehouse?
+
+Mounted on the ceiling with a vertical type antenna.
+
+
+
+2) The lobby area of your office building has undergone a renovation, the
+centerpiece of which is a large aquarium in the middle of the room,
+separating a visitor seating and greeting area from the reception desks,
+where the AP facilitating guest Internet access is located. Since the
+renovation, many guests have been unable to connect to Wi-Fi from the
+seating area. Could the aquarium really be the cause, and what solution
+could you recommend?
+
+Yes, glass, mirrors, and water refract, reflect, and absorb radio waves.
+We can place the AP above the aquarium or add another AP to the other side
+of it to act as a repeater.
+
+
+
+3) What is the difference between a Wi-Fi analyzer and a spectrum
+analyzer?
+
+WiFi analyzers filter out all signals but WiFi signals, spectrum analyzers
+read all sorts of signals.
+
+
+
+4) Users in the corner of an office building cannot get good Wi-Fi reception.
+Your office manager doesnʼt want to use his budget to purchase a new
+AP. Heʼs noticed that the power level control on the AP is set to 3 out of 5
+and wants to know why turning up the power isnʼt the best solution?
+
+Turning the power level up may cause compatibility issues with clients, which
+in turn would lead to packet sending errors and retransmission. The best idea
+hhere is to pay out for another AP or configure a wireless bridge with
+directional antennas.
+
+
+
+
+
+---
+BOOK 15D
+
+1) What is the main difference between WPA and WPA2?
+
+WPA2 uses AES.
+
+
+
+2) What configuration information is required on an access point to
+authenticate users joining the wireless network against a network
+authentication server?
+
+The authentication method must be set to enterprise and the AP must be
+configured with the IP address and shared secret of the RADIUS or
+TACACS+ server.
+
+
+
+3) Widget Corporation has provided wireless access for its employees using
+several APs located in different parts of the building. Employees connect
+to the network using 802.11g-compatible network cards. On Thursday
+afternoon, several users report that they cannot log on to the network.
+What troubleshooting step would you take first?
+
+Check device compatibility with authentication methods.
+
+
+
+4) Why might an attacker launch a disassociation attack against an access
+point?
+
+DoS attack to prevent network access, or an attempt to use an evil twin/rogue
+AP to intercept network traffic.
+
+
+
+5) Your company has a lobby area where guest access is provided so that
+visitors can get Internet access. The open guest WLAN is currently
+connected to the production network. The only protection against
+visitors and hackers getting into the organizationʼs data is file and
+directory rights. What steps should be taken to provide guest access and
+better protect the organizationʼs data?
+
+The guest WLAN should be separated on another network segment using VLANs
+and a firewall to separate traffic. Configuring a captive portal would be
+helpful as well.
+
+
+
+
+
+---
+ONLINE
+
+1) The IEEE 802.11 standards use two frequency bands. Which of the following
+statements regarding the frequency bands are true? (Select all that apply.)
+
+The 2.4 GHz band is ideal for providing the longest signal range.
+The 5 GHz band supports a high number of individual channels.
+
+
+
+2) What standards is WiFi based on?
+
+802.11
+
+
+
+3) A wireless installer is networking a conference room with 9’ ceilings. What
+is the best type of antenna for wireless devices?
+
+Vertical rod
+
+
+
+4) An administrator is investigating issues with users experiencing minimal
+connectivity to the wireless network. The administrator has verified that the
+access point configurations and uptime are correct. However, the administrator
+suspects that there may be other issues causing the problem. What are some
+areas the administrator should investigate? (Select all that apply.)
+
+Signal strength
+Interference
+
+
+
+5) An administrator responsible for implementing network coverage in a historical
+monument cannot install cabling in many areas of the building. What are some ways
+the administrator can take advantage of wireless distribution systems (WDS) to
+help? (Select all that apply.)
+
+To create an ESA
+To create a bridge
+
+
+
+6) Wi-Fi 6 uses complex modulation and signal encoding. Why did Wi-Fi 6 reinstate
+operation in the 2.4 GHz band?
+
+To support IoT
+
+
+
+7) A small organization is securing their wireless network with Wi-Fi Protected
+Access 3 (WPA3) personal. What are some of the issues with this method of
+authentication? (Select all that apply.)
+
+No accountability
+Group Authentication
+
+
+
+8) 802.11 relies on a shared physical bus running at half-duplex. How does this
+standard manage contention?
+
+CSMA/CA
+
+
+
+9) Which of the following are formats for 2G cellular communications?
+(Select all that apply.)
+
+GSM
+CDMA
+
+
+
+10) An administrator wants the ability to centrally configure and manage access
+points (APs). What are some solutions the administrator could use for this?
+(Select all that apply.)
+
+Hardware
+Software
+
+
+
+11) A library user connected their tablet to the library’s open access point.
+Which of the following items will NOT secure the open connection and protect
+the user’s communications?
+
+Using a screen protector
+
+
+
+12) Which of the following are reasons why a client would unexpectedly
+disassociate from an access point? (Select all that apply.)
+
+AP proximity
+MAC spoofing
+Interference
+
+
+
+13) An administrator is testing the signal strength in a concrete building and
+measures a 12 dB loss between the office where the access point is located and
+the office next door. What is the cause of the decibel loss?
+
+Absorbtion
+
+
+
+14) A wireless administrator is receiving reports that users cannot connect to
+the wireless network in certain areas of the building. What can the
+administrator use to locate dead zones?
+
+Heat map
+
+
+
+15) An administrator is implementing encryption on the wireless network. What
+standard should the administrator implement?
+
+WPA2
+
+
+
+16) A wireless administrator is troubleshooting dead zones in a building.
+Although the administrator used a heat map to determine the optimum position for
+access points (APs), some areas that should have coverage have very low signal
+strength which is unusable to clients. What should the administrator check?
+(Select all that apply.)
+
+Antenna placement
+Antenna cable attenuation
+EIRP
+
+
+
+17) An administrator is evaluating the wireless coverage in a conference hall.
+There are enough access points to provide for 25 clients per access point, but
+many users are finding the wireless network to be unresponsive and timing out
+requests. What could be causing this issue? (Select all that apply.)
+
+Co-Channel Interference (CCI)
+Adjacent Channnel Interference (ACI)
+Bandwidth saturation
+
+
+
+18) What protocol can an administrator configure in a wireless mesh network (WMN)
+to allow the stations to perform path discovery and forwarding between peers?
+
+HWMP
+
+
+
+19) An administrator is configuring a wireless LAN (WLAN) extended service area.
+Which of the following will the administrator need to configure the same on each
+access point? (Select all that apply.)
+
+ESSID
+Security Info
+
+
+
+20) An administrator is configuring wireless coverage for a public library. What
+type of authentication should the administrator implement?
+
+Open authentication
+
+

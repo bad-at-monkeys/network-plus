@@ -1,0 +1,79 @@
+LESSON 11 TESTS - EXPLAINING NETWORK APPLICATIONS
+
+---
+BOOK 11A
+
+1) True or false? An HTML web page is sent as the response to a client in an
+HTTP header field.
+
+False. Ann HTML web page is in the payload.
+
+
+
+2) What must be installed on a server to use secure (HTTPS) connections?
+
+A digital certificate and the corresponding private key.
+
+
+
+3) What distinguishes TFTP from FTP?
+
+TFTP is insecure and not as featureful. It only supports GET and PUT methods.
+TFTP works over UDP, not TCP.
+
+
+
+4) You need to configure clients to be able to communicate with print
+devices in a remote subnet. Which port number must you allow on a
+network firewall to enable the standard TCP/IP port?
+
+TCP/9100 JetDirect
+
+
+
+5) You are configuring a firewall to allow a Linux web server to
+communicate with a database server over port TCP/3306. Assuming it
+has been left configured with the default port, what type of database is
+being used?
+
+MySQL.
+
+
+
+
+
+---
+BOOK 11B
+
+1) What happens if a message sent via SMTP cannot be delivered?
+
+An undeliverable message will be sent to the sender with an error message.
+
+
+
+2) What protocol would enable a client to manage mail subfolders on a
+remote mail server?
+
+IMAP
+
+
+
+3) True or False? SIP enables the location of user agents via a specially
+formatted URI.
+
+True. The URI is like the phone number on SIP.
+
+
+
+4) Which component in a VoIP network allows calls to be placed to and from
+the voice telephone or public switched telephone network (PSTN)?
+
+VoIP PBX
+
+
+
+
+
+---
+ONLINE LESSON 11
+

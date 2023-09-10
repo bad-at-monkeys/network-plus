@@ -1,0 +1,616 @@
+LESSON 15 - DEPLOYING AND TROUBLESHOOTING WIRELESS NETWORKS
+
+##########
+SUMMARIZE WIRELESS STANDARDS
+
+---
+IEEE 802.11 Wireless Standards
+
+802.11 standards are what defines the physiical layer standards of WiFi. Data is
+encoded into a radio carrier signal by using a modulation scheme.
+
+Wireless radios transmitting and receiving within a particular range of frequencies
+with the same modulation scheme is a half-duplex shared access medium (a physical
+data bus).
+
+802.11 uses Carrier Sense Multiple Access with Collision Avoidance (CSMA/CA) to
+mitigate bandwitch contention. With CSMA/CA a station preforms error checking when
+it receives a frame -- if the frame is in tact, the station responds with an ACK.
+If the ACK is not received, the transmitting station resends the frame until timing
+out.
+
+Virtual Carrier Sense flow control also helps with collisions. A station broadcasts
+a Request to Send (RTS) with the source, dest, and time to transmit. The receiving
+station responds with a Clear to Send (CTS) and all other stations in range will
+not attempt to transmit within that period.
+
+
+
+
+
+---
+IEEE 802.11a and 5GHz Channel Bandwidth
+
+Every wireless device operates on a specific radio frequency range within an
+overall frequency band, the specific frequency band the device operates is its
+channel.
+
+There are two frequency bands used by IEEE 802.11 standards:
+  -> 2.4GHz; better at propagating through solid surfaces, it provides the longest
+     signal range. Does not support a high number of individual channels and is
+     often congested with other networks and other types of WiFi technology.
+     Maximum achievable data rates are lower and interference is higher than
+     5GHz.
+  -> 5GHz; less effective at penetrating solid surfaces, so has a shorter range
+     than 2.4GHz. 5GHz supports more individual channels and suffers less from
+     congestion and interference. 5GHz supports higher data rates at shorter
+     ranges.
+
+
+The 5GHz band is subdivided into 23 non-overlapping channels, each 20MHz wide.
+There are 23 channels on 5GHz under the modern 802.11h standard. 802.11h also
+supports Dynamic Frequency Selection (DFS) to prevent APs working in the 5GHz band
+from interfering with radar and satellite signals.
+
+
+
+
+
+---
+IEEE 802.11b/g and 2.4GHz Channel Bandwidth
+
+802.11b supports Direct Sequnce Spread Spectrum(DSSS) and Complimentary Code
+Keying(CCK) signal encoding.
+
+2.4GHz is subdivided into 14 channels, spaced at 5GHz intervals from 2412MHz to
+2484MHz.
+
+WiFi needs around 20MHz per channel, and 2.4GHz only supports 5MHz per channel.
+This means that there is large overlap between channels. Co-channel interference
+is an actual issue, so it is best to choose channels more widely spaced apart (i.e.
+1, 6, 11).
+
+Permitted channels by country:
+  -> USA; 1-11
+  -> Europe; 1-14
+  -> Japan; all 14
+
+
+The modern 802.11g standard offers OFDM, DSSS, and CCK with the same channel
+layout.
+
+802.11g has a nominal data rate of 54Mbps.
+
+
+
+
+
+---
+IEEE 802.11n, MIMO, and Channel Bonding
+
+802.11n uses Multiple Input Multiple Output (MIMO) to multiplex signals from 4
+antennas.
+
+802.11n radio chains are identified by AxB:C notation:
+  -> A = number of Tx antenna
+  -> B = number of Rx antenna
+  -> C = number of simultaneous Tx and Rx streams
+
+802.11n can use both 5GHz or 2.4GHz.
+
+802.11n can also combine two 20MHz channels into one, cobining into a single 40MHz
+channel. This is called channel bonding. Channel bonding is obviously only
+practical on the 5GHz band.
+
+The data rate for 802.11n is 72Mbps per stream. Nominal data rates can be as high
+as 600Mbps for a 40MHz bonded channel.
+
+802.11n can operate at the HT/greenfield mode for maximum performance, or HT mixed
+mode for compatibility with older standards.
+
+Mixed-mode reduces overall WLAN performance.
+
+Greenfield mode will likely cause substantial interference with neighboring legacy
+WiFi.
+
+802.11n is the same as WiFi 4.
+
+
+
+
+
+---
+WiFi 5 and WiFi 6
+
+WiFi 5 (802.11ac)
+
+WiFi 5 is only designed to work in the 5GHz band. The goal of WiFi 5 is to get the
+throughput like Gigabit Ethernet or better. Channel bonding up to 80 or 160 MHz
+channels, 8 spatial streams, and denser mosulation at closer ranges.
+
+WiFi 5 is designated as Very High Throughput on the spectrum.
+
+
+
+WiFi 6 (802.11ax)
+
+Improves the amount of data sent per packet by 40%.
+
+WiFi 6 is designated as High Efficiency (HE).
+
+The goal of WiFi 6 is to approximate 10G connection speeds. These data rates can
+only be achieved throught a new 6GHz frequency band.
+
+WiFi 6 reinstates operation in the 2.4GHz band to support IoT device connectivity.
+
+
+
+
+
+---
+Multiuser MIMO
+
+An AP can communicate with only one station at a time, so multiple station requests
+go into a queue.
+
+Multiuser MIMO or beamforming addresses the issue by allowing the AP to utilize its
+multiple antennas to process a spatial stream of signals in one direction
+separately to other streams.
+
+Groups of stations on a different alignment can connect simultaneously and also
+obtain more bandwidth.
+
+In DL MU-MIMO, only one AP can initiate beamforming, so it is only available on the
+downlink from AP to station.
+
+WiFi 6 supports uplink (UL) MU-MIMO allowing stations to initiate beamforming with
+the access point.
+
+
+
+
+
+---
+2G and 3G Cellular Technologies
+
+These are cellular frequencies generated by base stations or radio towers operated
+by telecommunications providers.
+
+Each base station has an effective range of 5mi.
+
+Cellular radio works in the 850-1900MHz frequency bands (America), 900-1900MHz for
+the rest of the world.
+
+2G experienced two competing formats:
+  -> Global System for Mobile Communication (GSM) - these phoens used TDMA. With
+     TDMA, each subscriber gets access to a radio channel being allocated by a time
+     slot. GSM allows a user to use a SIM cars to use an unlocked handset with
+     their chosen network provider. AT&T and TMobile.
+  -> Code Division Multiple Access (CDMA) - each user gets a code to key the
+     modulation of their signal and this key is used by the receiver to extract the
+     user's traffic from the radio channel. The provider manages the device with
+     CDMA, not the SIM. This is Sprint and Verizon.
+
+3G:
+  -> GPRS/EDGE was added; allowed for "always-on" data connections and increased
+     speeds.
+  -> HSPA+; on GSM networks, allowing for faster data rates. Coined 4G.
+  -> EV-DO; deployed by CDMA networks. Slower.
+
+
+
+
+
+---
+4G and 5G Cellular Technologies
+
+Long Term Evolution (LTE) is a converged standard supported by both GSM and CDMA.
+LTE devices must have a SIM card.
+
+
+
+5G
+
+We see speeds from 50Mbps-300Mbps.
+
+
+
+
+
+##########
+INSTALL WIRELESS NETWORKS
+
+---
+Infrastructure Topology and WAPs
+
+Wireless networking devices are referred to as sations (STA), similar to a node on
+a wired network. Most wireless networks are deployed in an infrastructure topology.
+
+With infrastructure topologies, each station is configured to connect to a base
+station or AP, forming a logical star topology.
+
+Along with facilitating comms between client devices, an AP can act as a bridge to
+a cabled network segment. This is referred to as a infrastructure Basic Service Set
+(BSSID) which is the MAC of the AP. The BSS can be grouped together in an Extended
+Service Set.
+
+
+
+
+
+---
+Wireless Site Design
+
+Clients are configured to join a WLAN through the network name, which is the
+Service Set Identifier (SSID). SSIDs can be up to 32bytes in length and should
+only be used with ASCII chars, including hyphen and underscore.
+
+When multiple APs are connected to the same distribution system, they are grouped
+into an ESSID. This means all APs are configured with the same SSID and security
+information.
+
+The area served by a single AP is referred to as a basic service area (BSA) or
+wireless cell.
+
+The area in which stations can roam between access points to stay connected to the
+same ESSID is referred to as an extended service area (ESA).
+
+
+
+SSID Broadcast and Beacon Frame
+
+WLANs advertise their prescence by broadcasting the SSID in frames called beacons.
+If the SSID broadcast is suppressed, the connection must be configured manually.
+
+The beacon frame contains the SSID, supported data rates/signalling, plus
+encryption/authentication requirements.
+
+The beacon broadcast interval can be modified, but is usually set at 100ms.
+Increasing the interval reduces the overhead of broadcasting the frame but delays
+joining the network and can hamper roaming between APs.
+
+
+
+Speed and Distance Requirements
+
+Devices supporting the WiFi standard should have an indoor range of at least 30m.
+Outdoor ranges can even be triple of indoor. Each station determines an appropriate
+data rate given the quality of the signal using Dynamic Rate Switching/Selection.
+The station will select the highest available data rate determined by the 802.11
+standard; if the sgnal is weak, the station will reduce the data rate.
+
+Conducting a site survey prior to installation can mitigate future distance
+limitation issues.
+
+
+
+
+
+---
+Site Surveys and Heat Maps
+
+Site surveys start with examining the blueprints/floor plan of the site. Visual
+inspection of the site can supplement this to identify Radio Frequency Interference
+(RFI) objects. 
+
+Then we can determine the placement of cells, APs, and antennas. When conducting
+device placement, the goal is to eliminate dead zones with as much interference
+as possible.
+
+We can test the strength of our placed devices with heat mapping software.
+
+
+
+
+
+---
+Wireless Roaming and Bridging
+
+Clients can roam within an Extended Service Area (ESA). ESAs are created by
+installing APs with the same SSID and security configuration connected by a wired
+network called a Distribution System (DS).
+
+The APs are configured to different channels so that there isn't any interference
+when BSAs overlap. When the clients signal begins to weaken, it searches the area
+for another AP with the same configuration on other channels or freq bands.
+
+We can also configure multiple access points to cover areas where it is not
+possible to run cabling. These are called Wireless Distribution Systems (WDS). On
+a WDS, the APs must be configured with the same channel, SSID and security params.
+
+The APs will be in WDS/repeater mode. One AP is the base station, the others are
+remote stations. The base station is connected by cable and the others wirelessly.
+The remote stations can accept connections from wireless stations and forward all
+traffic to the base station.
+
+WDS can be used to bridge two cabled segments, although wireless clients aren't
+supported in bridge mode. The APs only forward traffic between segments.
+
+
+
+
+
+---
+Wireless LAN Controllers
+
+Wireless LAN Controllers are dedicated hardware devices that centralizes the
+management of wireless APs and clients.
+
+Fat APs can manage their clients themselves, without a wireless controller,
+thin APs require a wireless controller.
+
+
+
+
+
+---
+Ad Hoc and Mesh Technologies
+
+Ad Hoc Technology
+
+This is where a wireless adapter allows connections from other devices. These are
+called Independent Basic Service Sets (IBSS).
+
+These topologies do not require APs. All of the conected stations must be within
+a certain range of another.
+
+
+
+Mesh Topology
+
+802.11s defines a Wireless Mesh Network (WMN).
+
+
+
+
+
+##########
+TROUBLESHOOT WIRELESS NETWORKS
+
+---
+Wireless Performance Assessment
+
+Wireless issues can broadly be divided into three issues -- signal strength,
+interference, or configuration issues.
+
+We must distinguish between speed and throughput:
+  -> Speed is the data rate that has been established at the physical and data-link
+     layers.
+  -> Throughput is the amount of data that can be transferred at the network
+     layer, discarding overhead from layers 1 and 2.
+
+
+
+
+
+---
+Signal Strength
+
+Received Signal Strength Indicator (RSSI) is the strength of the signal from the
+transmitter at the client end. When measuring RSSI, the dBm will be a negative
+value. Values closer to zero represent better performance.
+
+The comparative strength of the data signal to the background noise is called the
+signal-to-noise (SNR) ratio.
+
+We want values representing noise to be further from zero.
+
+RSSI and SNR can be measured with a WiFi analyzer.
+
+
+
+
+
+---
+Antenna Types
+
+Antenna types determine the propagation of an electromagnetic wave.
+
+APs with vertical rod-types antenna should be ceiling mounted for best coverage,
+unless the ceiling is particularly high.
+
+Unidirectional antenna concetrate a signal in a single direction and should be
+placed in areas best for point-to-point communications.
+
+Polarization refers to the orientation of the wave propagating from the antenna.
+
+
+
+
+
+---
+Insufficient Wireless Coverage Issues
+
+Extending the distribution system or bridging WiFi devices are the only two ways
+to cover areas. Placement must be well thought out.
+
+
+
+Antenna Placement
+
+Using a site survey and a heat map can help determine antenna placement and type.
+
+
+
+Antenna Cable Attenuation
+
+This happens when the antenna is placed some distance from an AP and connected by
+coax cabling.
+
+
+
+Effective Isotropic Radiated Power/Power Settings
+
+The power at which the AP transmits is configurable.
+
+Effective Isotropic Radiated Power (EIRP) is calculated as the sum of Tx power,
+antenna cable/connector loss, and antenna gain.
+
+Increaing Tx power typically doesn't help with coverage.
+
+APs should Tx at 2/3rds of the weakest client power.
+
+
+
+
+
+---
+Channel Utilization and Overlap Issues
+
+There are two main types of channel interference:
+  -> Co-channel interference (CCI); this is contention, when multiple APs use the
+     same channel. Wireless devices must use CSMA/CA to find opportunities to TX.
+  -> Adjacent Channel Interface (ACI); this occurs when routers are configured to
+     use different, but overlapping channels. ACI slows the CSMA/CA process and
+     raises noise levels.
+
+At least 25MHz spacing should be allowed to avoid channel overlap.
+
+With a bunchh of APs around using different channels, lowering the Tx power of
+some APs would help with overlap issues.
+
+The cells of each AP do theed to overlap to some extent to achieve seamless
+roaming for mobile devices.
+
+
+
+
+
+---
+Overcapacity Issues
+
+Overcapacity is when too many clients connect to the same AP.
+
+30 clients per AP is the rule of thumb here.
+
+
+
+
+
+---
+Interference Issues
+
+Sources of interference include:
+  -> Reflection/bounce (multipath interference); mirrors and shiny surfaces cause
+     signals to reflect.
+  -> Refraction; glass, water, or other transparent, clear surfaces cause radio
+     waves to bend.
+  -> Absorbtion; walls, windows, and other barriers absorb radio waves.
+  -> Electromagnetic Interference (EMI); interference from a powerful radio or
+     electromagnetic source working in the same frequency band.
+
+EMI can be detected with a spectrum analyzer, which read all sorts of signals.
+WiFi analyzers filter out everything but WiFi signals.
+
+
+
+
+
+##########
+CONFIGURE AND TROUBLESHOOT WIRELESS SECURITY
+
+---
+WiFi Encryption Standards
+
+WPA tried to fix WEP with TKIP to mitigate attacks against WEP.
+
+WPA(OG) and WEP are insecure because attackers can carry out replay attacks
+that can recover encryption keys.
+
+WPA2 uses AES with CCMP. AES replaced RC4 and CCMP replaces TKIP. But WPA2
+sucks as well.
+
+WPA3 is out now. Apparently we should be using that.
+
+
+
+
+
+---
+Personal Authentication
+
+WiFi authentication comes in three types:
+  -> Personal
+  -> Open
+  -> Enterprise
+
+PSK and SAE authentication fall into the personal authentication category.
+
+
+
+WPA2 Pre-Shared Key Authentication
+
+WPA2 PSK authentication uses a passphrase to generate the key that is used
+to encrypt comms.
+
+PSK sucks and is vulnerable to attack.
+
+
+
+WPA3 Personal Authentication
+
+WPA3 PAKE and SAE replace PMK and PSK.
+
+More on that in the coming years...
+
+
+
+
+
+---
+Enterprise/IEEE 802.1x Authentication
+
+WPAs enterprise authentication implements IEEE 802.1x to use EAP to authenticate
+against a network directory.
+
+Aunthentication is done through a RADIUS or TACACS+ server on the wired network.
+
+
+
+
+
+---
+WiFi Security Configuration Issues
+
+Wrong SSID and Incorrect Passphrase Issues
+
+We can enter the network information manually to connect to an AP if SSID
+broadcasts are suppressed. So we must check for typos.
+
+Also, make  sure the authhentication settings are the same on all devices.
+
+
+
+Encryption Protocol Mismatch Issues
+
+Check that the client can support the encryption and authhentication standards
+being enforced by the AP.
+
+
+
+
+
+---
+Client Disassociation Issues
+
+Clients can send disassociation frames to APs to notify of a closed session.
+
+An issue that can arise is flapping between APs.
+
+If there is no roaming, interference, or driver issues an attack should be
+suspected.
+
+
+
+
+
+---
+Open Authentication and Captive Portal Issues
+
+Open authentication means that the client isn't required to authenticate.
+Nothing is encrypted over open authentication.
+
+Captive portals are used to redirect unencrypted traffic to an encrypted HTTPS
+tunnel.
+
+

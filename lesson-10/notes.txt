@@ -1,0 +1,420 @@
+LESSON 10 - EXPLAINING NETWORK SERVICES
+
+##########
+EXPLAIN THE USE OF NETWORK ADDRESSING SERVICES
+
+---
+Dynamic Host Configuration Protocol
+
+DHCP automatically assigns IPs, subnet masks, and opt params like the
+default gateway and DNS server addresses when a host joins the network.
+
+The DHCP client and server go through the DORA process:
+  -> Discover
+     Broadcasts a discover packet to find the dhcp server.
+  -> Offer
+     The DHCP server gives an IP config offer.
+  -> Request
+     The client requests a configuration (typically the offer).
+  -> Ack
+     The server acks the request and the lease is set on the client config.
+
+
+
+
+
+---
+DHCP Server Configuration
+
+A DHCP server must be allocated a static IP and configured with a pool of
+IPs, subnets, and opts to allocate as configuration values for clients.
+
+To define the scope we must give the start and end of the IP range and
+a subnet mask. Scopes to subnets is a 1:1 mapping.
+
+The DHCP server must be placed within the same scope as its clients.
+Advanced DHCP servers can operate multiple scopes.
+
+
+
+
+
+---
+DHCP Options Configuration
+
+A client can renew a lease when atleast half the lease (87.5%) is up so that
+it may keep the same IP configuration.
+
+If the renew fails, the lease is released and the DORA process starts.
+
+
+Short lease periods are good for networks with low IP supply and frequent
+outside outside devices.
+
+
+
+DHCP Options
+
+Each opt is identified by a tag-byte or decimal value 0-255 (neither 1 or 255
+can be used). Some opts include:
+  -> The default gateway
+  -> The IP address(es) of DNS servers that can resolve name queries.
+  -> The DNS suffix (domain name) of thhe client.
+  -> Time sync(NTP), file transfer(TFTP), or VoIP proxy.
+
+
+
+
+
+---
+DHCP Reservations and Exclusions
+
+IP retainment isn't guaranteed.
+
+We can guarantee a device keeps its IP if it is defined statically outside
+of the DHCP scope.
+
+An alternative way to do this is to set a DHCP reservation on that address.
+The reservation is a mapping of MAC address(iface ID) to a specific IP
+within the DHCP pool.
+
+The DHCP server will always provide the same IP for that device in this way.
+
+
+
+
+
+---
+DHCP Relay and IP Helper
+
+Each broadcast domain must be served by its own dhcp server.
+This is because routers do not forward broadcast traffic.
+
+DHCP relay agents resolve this issue. The DHCP relay intercepts broadcast dhcp
+frames, applies a unicast address for the appropriate DHCP server, and forwards
+them over the interface for the subnet containing the server.
+
+Routers that provide dhcp relay services are RFC 1542 compliant.
+
+
+The DHCP relay also performs the reverse process of directing responses from
+the server to the appropriate client subnet, otherwise known as the IP
+helper functionality.
+
+IP helper can be configured to allow set types of broadcast traffic
+(including DHCP) to be forwarded to an interface.
+
+The IP helper function suppoorts the function of the DHCP relay.
+
+
+To enable forwarding of DHCP broadcasts on the interfaces serving the client
+subnets:
+
+# interface eth1
+# ip helper-address 10.1.0.200
+#
+# interface eth2
+# ip helper-address 10.1.0.200
+
+
+
+
+
+---
+DHCPv6 Server Configuration
+
+IPv6 SLAAC locates default gateways and generates a host address with a
+suitable network prefix automatically.
+
+DHCPv6 right now is more supplemental to IPv4 DHCP. We can use it to
+provide additional option settings, rather than for leases for host IP
+addresses.
+
+
+
+
+
+##########
+EXPLAIN THE USE OF NAME RESOLUTION SERVICES
+
+---
+Host Names and FQDNs
+
+Host name - assigned to a computer by an administrator typically when the
+system is being provisioned
+
+FQDN - provides a unique ID for the host on a particular network to avoid
+the possibility of duplicate host names. This is the hostname + domain suffix.
+
+
+tylerbrw@u39190a389f8a59:~/Documents$ hostname
+u39190a389f8a59.ant.amazon.com
+
+u39190a389f8a59 = host
+ant.amazon.com  = fqdn
+
+NOTE: When configuring dns records, we must append the . to our fqns.
+
+
+Numerous hosts may exist within a domain, but the FQDN must follow
+certain rules:
+  -> The host name must be unique within the domain.
+  -> Thhe total length of an FQDN cannot exceed 253 chars, with each
+     label no more than 63 chars.
+  -> A DNS label should use letter, digit, and hyphen chars only. Labels
+     should not start with hyphens. Punctuation chars like . or / should
+     not be used.
+  -> DNS labels are not case sensitive.
+
+
+
+
+
+---
+Domain Name System
+
+DNS is a global hierarchy of distributed name server databases that contain
+information on domains and hosts within them.
+
+At the top of the hierarchy is the root (.).
+
+There are 13 root level servers (A-M).
+
+The TLDs are below the root (.biz .com .net .org etc) and are operated by ICANN.
+
+
+
+
+
+---
+Name Resolution Using DNS
+
+-> CLIENT: queries www.amazon.com
+-> LOCAL NS: not authoritative for amazon.com, withh no cached record. It is
+   configured to preform recursive querying, so it contacts a root server using
+   a pre-configured list of IPs.
+-> ROOT NS: not authoritative for the record, but returns thhe server for the
+   .com TLD.
+-> .com TLD NS: .com TLD isn't authoritative but returns the name server for
+   amazon.com.
+-> AUTHORIITATIVE NS: is authoritative for the domain and returns the
+   www.amazon.com host record.
+-> LOCAL NS: the local name server caches the record and responds to the client.
+-> CLIENT: the client now has an IP mapping for www.amazon.com when it caches.
+
+
+Iterative lookups - meaning that the name server responds to a query with either
+the requested record or the address of a name server at a lower level in the
+hierarchy that is authoritative for the name space. There isn't any additional
+effort to make additional queries to locate information.
+
+Recursive lookups - means if the queried server is non-authoritative, then it
+takes on the task of querying other name servers until it finds the requested
+record or times out.
+
+
+
+
+
+---
+Resource Record Types
+
+Allow a DNS name sserver to resolve queries for names and services hosted in
+the domain into IP addresses.
+
+The Start of Authority (SOA) identifies the primary authoritative name server
+that maintains complete resource records for the zone.
+
+
+NS Records identify authoritative DNS name servers for the zone.
+
+
+
+
+
+---
+Host Address and Canonical Name Records
+
+A Record - resolves host to ipv4 address
+AAAA Record - resolves host to ipv6 address
+
+CNAME record - alias for an A or AAAA record. An alias can be redirected to
+a different host momentarily for maintenance.
+
+CNAMEs are good for load balancing by pointing multiple IPs to one record.
+
+
+
+
+
+---
+MX, SRV, and TXT Records
+
+MX Record - identifies the mail server for the domain. An MX record must not
+point to a CNAME record.
+
+
+SRV rcord - conatins the service name and port on which a particular application
+is hosted.
+
+SRV records can be used to locate VoIP oor media servers. In Microsoft SRV
+records are used to locate DCs.
+
+TXT record - stores any free-form text used to support other network services.
+
+
+
+
+
+---
+PTR Records
+
+PTR record - the reverse lookup record; returns the hostnname/ip mapping.
+
+
+
+
+
+##########
+CONFIGURE DNS SERVICES
+
+---
+DNS Server Configuration
+
+DNS Server Types
+
+DNS servers are typically configured to listen for queries on UDP port 53.
+Sometimes they can be configured to allow connections over TCP port 53
+because this allows for larger, 512+byte transfers.
+
+DNS nameservers maintain the DNS namespace in zones. A single host namespace
+may host records for multiple domains. A single name server may manage multiple
+zones.
+
+  -> Primary means that the zone records held on the server are editable.
+     A zone cann be hosted by multiple primary servers for redundancy. Since
+     the records are editable, channges must be carefully synchronized.
+  -> Secondary means that the server only holds a read-only copy of the zone.
+     Thhis is maintained and updated through a process known as a zone transfer.
+     The serial number is a critical part of the zone transfer process.
+
+A name server that holds complete records for a domain can be defined as
+authoritative. Both primary and secondary name servers are authoritative.
+
+
+
+DNS Caching
+
+Resource records can be configured with a TTL that determines how long a query
+result can be kept in cache and updated again.
+
+DNS caching is performed by both client and server. Clients may manage their own
+DNS caches.
+
+
+
+
+
+---
+Internal vs External DNS
+
+Internal DNS zones refer to the domains used on the private network only.
+
+
+
+
+
+---
+nslookup
+
+
+Enter the nslookup cli:
+
+$ nslookup
+> set type=mx 
+> amazonn.com
+;; communications error to 127.0.1.1#53: timed out
+Server:		127.0.1.1
+Address:	127.0.1.1#53
+
+Non-authoritative answer:
+*** Can't find amazonn.com: No answer
+
+Authoritative answers can be found from:
+amazonn.com
+	origin = dns-external-master.amazon.com
+	mail addr = root.amazon.com
+	serial = 2008040313
+	refresh = 600
+	retry = 900
+	expire = 604800
+	minimum = 900
+> set type=a
+> amazon.com
+;; communications error to 127.0.1.1#53: timed out
+Server:		127.0.1.1
+Address:	127.0.1.1#53
+
+Name:	amazon.com
+Address: 52.94.236.248
+Name:	amazon.com
+Address: 54.239.28.85
+Name:	amazon.com
+Address: 205.251.242.103
+
+
+
+$ hostname --fqdn
+$ nslookup -type=mx 515support.com 8.8.8.8
+
+
+
+
+
+---
+dig
+
+$ man dig
+$ dig
+
+
+Get all those records:
+
+$ dig +nocmd +noedns +noquestion amazon.com ANY
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 5800
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 16, AUTHORITY: 0, ADDITIONAL: 6
+
+;; ANSWER SECTION:
+amazon.com.		900	IN	SOA	dns-internal-master.amazon.com. root.amazon.com. 1161321570 5400 900 604800 900
+amazon.com.		900	IN	NS	dns-ns2.amazon.com.
+amazon.com.		900	IN	NS	dns-ns1.amazon.com.
+amazon.com.		900	IN	A	52.94.236.248
+amazon.com.		900	IN	A	205.251.242.103
+amazon.com.		900	IN	A	54.239.28.85
+amazon.com.		900	IN	MX	10 amazon-smtp.amazon.com.
+amazon.com.		900	IN	TXT	"sending_domain1014172=003846595520e80ec84e8cc47c07e3a71afb855fc743bb92cdec93f88c7a4029"
+amazon.com.		900	IN	TXT	"atlassian-domain-verification=U7xZWoEE2JfLln8i0wvgHwSqR7eeaFVl57idVywyPupp9SafYUfCqnahXzJyHA5N"
+amazon.com.		900	IN	TXT	"MS=4B600B22799EB2CAC0D8FF0A3A3CAECA5EE2BF3A"
+amazon.com.		900	IN	TXT	"spf2.0/pra include:spf1.amazon.com include:spf2.amazon.com include:amazonses.com -all"
+amazon.com.		900	IN	TXT	"v=spf1 include:spf1.amazon.com include:spf2.amazon.com include:amazonses.com -all"
+amazon.com.		900	IN	TXT	"wiz-domain-verification=42a77875560246a15e5d3dd6e52c40e469f78957fec1678dddeb3115a2878f5a"
+amazon.com.		900	IN	TXT	"wrike-verification=MzI3NzM2ODo2NDk5MjE4NjQ2MWJmOTEwMGMxM2MzNzJmNWJlY2U5ZDU4MmVlNzQ2NWU4MTY5OWJjMjlmYjQ4Mjc5M2JiMzky"
+amazon.com.		3600	IN	NAPTR	2 0 "s" "SIP+D2T" "" _sip._tcp.amazon.com.
+amazon.com.		3600	IN	NAPTR	1 0 "s" "SIP+D2U" "" _sip._udp.amazon.com.
+
+;; ADDITIONAL SECTION:
+dns-ns1.amazon.com.	900	IN	A	10.154.195.120
+dns-ns2.amazon.com.	900	IN	A	10.9.37.112
+amazon-smtp.amazon.com.	60	IN	A	10.12.129.71
+amazon-smtp.amazon.com.	60	IN	A	10.12.130.15
+_sip._udp.amazon.com.	3600	IN	SRV	10 0 5060 telecom-sip-sipx-na-sea-60002.pdx1.corp.amazon.com.
+_sip._tcp.amazon.com.	3600	IN	SRV	10 0 5060 telecom-sip-sipx-na-sea-60002.pdx1.corp.amazon.com.
+
+;; Query time: 108 msec
+;; SERVER: 127.0.1.1#53(127.0.1.1) (TCP)
+;; WHEN: Mon Jun 26 05:36:13 CDT 2023
+;; MSG SIZE  rcvd: 1194
+
+
+

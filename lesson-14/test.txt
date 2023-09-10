@@ -1,0 +1,233 @@
+LESSON 14 TESTS - SUPPORTING AND TROUBLESHOOTING SECURE NETWORKS
+
+---
+BOOK 14A
+
+1) What type of security configuration uses edge and choke firewalls?
+
+A screened subent. The edge or screening firewall if the public interface while
+the choke firewall is the LAN interface.
+
+
+
+2) What parameters in packet headers can a layer 3 firewall ruleset use?
+
+IP source and destination address, protocol, and port number.
+
+
+
+3) Why would you deploy a reverse proxy?
+
+To publish a web application without directly exposing the servers on the
+internal network to the internet.
+
+
+
+4) What type of security control uses an attestation report?
+
+NAC server configured to allow connections only to clients that meet a health
+policy, such as running the most up-to-date OS version/patches.
+
+
+
+5) How does placement of an IDS sensor assist with a defense in depth
+policy?
+
+IDSes are placed behind firewalls to detect anything the firewall may have
+missed.
+
+
+
+
+
+---
+BOOK 14B
+
+1) You are planning to reconfigure static and DHCP-assigned IP addresses
+across the network during scheduled downtime. What preliminary step
+should you take to minimize connectivity issues when the network is
+reopened?
+
+Ensure that clients obtain a new DHCP lease by shortening the lease period in
+advance or by using a script to force clients to renew the lease at strtup.
+
+
+
+2) If a network adapter is using the address 169.254.1.10 on a host
+connected to the LAN, what would you suspect?
+
+That the DHCP server is down, this is an APIPA address.
+
+
+
+3) Following maintenance on network switches, users in one department
+cannot access the companyʼs internal web and email servers. You can
+demonstrate basic connectivity between the hosts and the servers by IP
+address. What might the problem be?
+
+This is a name resolution problem. Because the admin can ping by IP but not
+otherwise indicates that users lost access to the DNS server from a VLAN
+configuration.
+
+
+
+4) You are troubleshooting a connectivity problem with a network
+application server. Certain clients cannot connect to the service port.
+How could you rule out a network or remote client host firewall as the
+cause of the problem?
+
+With no host firewall ruunning, scan or connect to the service port interface
+with netcat or nmap.
+
+
+
+SCENARIO (Page 337)
+
+You are staffing the network help desk and dealing with support requests as they
+arrive. Your network uses four access switches to support four subnets. One subnet
+contains network servers (authentication, directory services, DNS, and DHCP) and
+another contains Line of Business (LoB) application servers, for sales and order
+processing. There are two client subnets, serving different floors in the building.
+
+1) You receive a call from the user of host A who has always been able to
+connect to the LoB application servers, but today she is unable to connect.
+You verbally check with other users and discover that none of the hosts
+on subnet 20 can connect, but that users in subnet 10 report no problems.
+What tests should you perform to narrow down the cause of the problem?
+
+Either the link to thhe router from subnet 20 has failed, or hosts in subnet 20
+are no longer receiving a correct IP configuration from the network servers. To
+test, from any host in subnet 20 we should ping the loopback address and then ping
+that hosts address. If these fail, or the host is using APIPA, investigate
+communications with the network servers. If local IP config is good, ping the
+router. If all else fails, check the switcth or cabling.
+
+
+
+2) You send a junior technician to the equipment room to fix the problem.
+Sometime later, another user from subnet 20 calls complaining that he
+cannot connect to the Internet. What questions should you ask to begin
+troubleshooting?
+
+Ask if the user can connect to one of the LoB applications. If this fails, we can
+check whether other users are experiencing the issue and establish scope.
+
+
+
+3) You asked a junior technician to step in because your manager had
+asked you to deploy a wireless access point on the network to support
+a sales event due to start the next day. There will be lots of guests,
+and your manager wants them all to have Internet access. You did not
+have much time, so you simply added the access point to the switch
+supporting subnet 10. The next day arrives, and sometime after the
+sales event starts, multiple employees in subnet 10 report that when
+they attempt to connect to the network, they get a message that the
+Windows network has limited connectivity. What might be the cause and
+what test should you use to confirm the issue?
+
+The most likely cause is that guest devices have exhausted the DHCP address pool
+for that scope. The question mentions "Windows", so we can confirm that this is
+the issue if the clients within the subnet are receiving APIPA addresses. We
+can verify this with ipconfig.
+
+
+
+
+
+---
+ONLINE
+
+1) A user is attempting to access a government network, but the network will not
+allow the user’s device to connect until the user updates the operating system.
+What kind of defense mechanism is this?
+
+Network Access Control (NAC). NAC authenticates endpoints at the point they
+connect to the network, and can ensure clients are running an authorized OS and
+have up to date patch and security configurations.
+
+
+
+2) An administrator received an alert regarding suspicious activity on the
+network. The system is logging the activity and the administrator must determine
+how to handle the situation. What kind of system most likely sent the alert?
+
+Intrusion Detection System (IDS). IDSes perform real-time analysis of network
+traffic and application logs. It raises an alert and can log activity when it
+detects suspicious activity.
+
+
+
+3) An administrator is configuring a firewall at the Session layer of the OSI
+model. What kind of firewall is the administrator implementing?
+
+Stateful inspection firewall. This is a layer 5 firewall that checks incoming
+packets to confirm whether it belongs to an existing connection.
+
+
+
+4) An organization is using Dynamic Host Configuration Protocol (DHCP) to
+centrally manage IP addressing. All clients on the network are receiving IP
+address autoconfiguration except the clients on a new subnet. What is the most
+likely reason?
+
+The router on that subnet doesn't support BOOTP forwarding, so traffic cannot get
+to the clients.
+
+
+
+5) An administrator can ping a server by IP address but cannot ping the server by
+its name. What are some areas the administrator should check to find out why the
+name isn’t resolving to the IP address? (Select all that apply.)
+
+Check the local cache.
+Check the HOSTS file.
+Query the DNS server.
+
+
+
+6) An organization purchased a new router with built-in firewall features. The
+administrator configured the new appliance and it worked as expected. However,
+after 90 days the firewall stopped working. What is the most likely cause?
+
+The trial period ended.
+
+
+
+7) A Windows user is trying to remote desktop into an application server. Although
+the user can ping the FQDN, they are unable to establish a connection. What is
+most likely the cause?
+
+Firewall blocking TCP/3389. The key here is "remote desktop". RDP runs on TCP/3389.
+
+
+
+8) Which service maps ports and documents the mappings for new webserver
+connections and then substitutes the private IP address for a public IP address
+before sending the request to the public Internet? (Select all that apply.)
+
+Port Address Translation (PAT) or Network Address Port Translation (NAPT) allocate
+port mappings in the state table and then subtitute the private IP for the public
+IP and then forwards it to the internet.
+
+
+
+9) An administrator is configuring a new network from the ground up. Which servers
+would the administrator configure as bastion hosts? (Select all that apply.)
+
+Proxy servers
+Web servers
+
+Bastion hosts sit on the edge of a network, therefore we configure internet facing
+devices as bastion hosts.
+
+
+
+10) An administrator has plugged in a new security camera, but when accessing the
+camera’s web management interface, the administrator encounters a self-signed
+certificate error. What should the administrator do?
+
+Replace the default certificate. The key here is "self-signed", so the holder is
+the issuer of the cert, so thhe admin should replace his own cert.
+
+
+

@@ -1,0 +1,210 @@
+LESSON 8 - EXPLAINING NETWORK TOPOLOGIES AND TYPES
+
+
+---
+Client-Server vs Peer-to-Peer Networks
+
+Client-server networks is one in which servers provision, store and manage
+applications and services. Then those applications and services are served
+to clients over a network.
+
+
+Peer-to-Peer networks are ones in which end systems act as both server and
+client.The administration of these aapplications and services are distributed
+around the network.
+
+
+
+
+
+---
+Network Types
+
+LANs
+Local area networks are internal networks all directly connected in some way.
+They can act independent of the external internet through internal resources.
+
+
+WANs
+Wide Area Networks link remote networks. WANs are likely to use leased lines
+and equipment to connect these networks together.
+
+
+PANs
+Personal Area Networks are ones where an individual or system interconnects
+the devices within a certain proximity. Think of a bunch of bluetooth devices
+streaming data to a central server or a person wearing devices that monitor
+health data and send that data to a local server that forwards the data to the
+internet.
+
+
+
+
+
+---
+Network Topology
+
+Describes the physical or logical structure of the network in terms of nodes
+and links.
+
+
+
+Point-to-point - When only two devices isolate a resource or service to
+another, which guarantees a level of bandwidth between them.
+
+
+
+
+
+---
+Star Topology
+
+Each endpoint node is connected to a central forwarding node.
+
+Hub-and-spoke topologies are just star topologies that extend to remote sites
+through a WAN.
+
+
+
+
+
+---
+Mesh Topology
+
+Commonly used in WANs like the Internet.
+
+In theory most fully mesh networks are impossible because the number of nodes
+we need is n(n-1)/2:
+
+4 nodes = 6 links
+40 nodes = 680 links
+
+So partial mesh networks are used, where each node has redundant or more links
+to other devices but learn about the full topology through convergennce.
+
+
+
+
+
+---
+Ring Topology
+
+Each node is wired to its neighbor in a closed loop. Tokens are used by nodes
+to pass data into the loop. Each node int the loop forwards this token until
+it reaches the intended destination.
+
+This isn't implemented with LANs, but two-ring systems are implemented in WANs.
+
+
+
+
+
+---
+Bus Topology
+
+All nodes share the bandwitdth of the media. Only one node can be active at any
+one time. All nodes attach to a single cable segment via taps. The bus is
+terminated at both ends to absorb the signal once it has passed through all
+nodes.
+
+A fault anywhere in the cable means noone can communicate.
+
+
+
+
+
+---
+Hybrid Topology
+
+Anything that uses a mixture of topologies.
+
+Hierarchical Star - A tree structure where a devices is up top,
+                    and this branches out to seperate nodes that then
+		    branch out to more seperate nodes.
+
+Hierarchical Star-mesh - A tree, but at the top is a mesh of devices.
+
+Star of Stars - WANs may be like this. Hub-and-spoke.
+
+Star w/ Ring - A ring connecting sites that then implement a star structure.
+
+
+
+
+
+##########
+Explain Tiered Switching Architecture
+
+---
+Three Tiered Network Hierarchy
+
+Access, Distribution, Core
+
+The hierarchy:
+  -> WAN router/FWs sit in top
+  -> Layer 3 core switches here.
+  -> layer 3 distribution switches here. 10Gbps down/40Gbps up
+  -> workgroup switches. 1Gbps
+
+
+The workgroup switces form star topologies with clients,
+the core and distribution switches have reduundant links with another.
+
+
+
+
+
+---
+Spanning Tree Protocol
+
+Layer2 uses STP to create redundant links between switches while preventing
+loops.
+
+The switches form a hierarchy:
+  -> The root bridge sits at the top. This is the switch with the lowest ID,
+     which comprises of a priority value and the oldest mac address out of all
+     devices.
+  -> Using BDPUs the switches determine the lowest cost path to the root bridge.
+  -> Ports that forward up to the root bridge are root ports.
+  -> Ports that forward down the network are designated ports.
+  -> Ports that cause loops are blocking/non-designated.
+  -> Changes to the topology are communicated and the network state will adjust
+     accordingly.
+
+
+
+
+
+---
+STP Config
+
+STP is almost automatic. The admin should set priority on each switch.
+
+When all ports are in forwarding or blocking states, the network is converged.
+When the network is not converged, no communications can take place.
+
+
+
+
+
+---
+Switching Loop and Broadcast Storm Issues
+
+Flooded frames circulate the network endlessly. Because switches broadcast ARP
+or DHCP requests out of all ports, the frames will go down one link to the
+next switch. This switch sends the broadcast back down the redundant link to
+the originating switch. These switches start to see dource MACs associated with
+mulitple ports and so they clear the MAC address mapping, this causes them to
+start flooding unicast traffic as well.
+
+When nothing is done, this is called a broadecast storm.
+
+
+STP shuts down the port if this occurs.
+
+To resolve the issue, check the ports that STP blocked and see what they
+correspond to physically on the switch or patch panel.
+
+Check events related to MAC address flapping.
+
+

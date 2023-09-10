@@ -1,0 +1,209 @@
+LESSON 19 TESTS - APPLYING NETWORK HARDENING TECHNIQUES
+
+---
+BOOK 19A
+
+1) Response time on the website that hosts the online version of your
+product catalog is getting slower and slower. Customers are complaining
+that they cannot browse the catalog items or search for products. What
+type of attack do you suspect?
+
+DoS
+
+
+
+2) The network administrator at your organization analyzes a network
+trace capture file and discovers that packets have been intercepted and
+retransmitted to both a sender and a receiver during an active session.
+What class of attack has been detected?
+
+On path
+
+
+
+3) True or false? To perpetrate an ARP spoofing attack, the threat actor
+spoofs the IP address of a legitimate host, typically the subnet’s default
+gateway.
+
+True.
+
+
+
+4) A threat actor forces clients to disconnect from a legitimate access point
+to try to force them to reconnect to an access point controlled by the
+attacker using the same network name. What two attack types are being
+used?
+
+Deauthentication. Rogue AP.
+
+
+
+5) Analysis of outgoing traffic shows connections by IP cameras to
+unidentifiable domain names. What type of traffic has been detected?
+
+This is command and control traffic between a handler and botnet of compromised
+IP camera devices, often called an IoT botnet.
+
+
+
+6) Employees have received emails prompting them to register for a new
+benefit package. The link in the mail resolves to a malicious IP address.
+What type of attack is being performed?
+
+Phishing.
+
+
+
+
+
+---
+BOOK 19B
+
+1) The network administrator configures a switch with custom privilege
+levels and assigns commands to each. What type of best practice
+network hardening will this configuration support?
+
+Role-based access
+
+
+
+2) A technician configures a switch with an IP address and shared secret
+of a network authentication server. What type of best practice network
+hardening is being performed?
+
+Port-Based Network Access Control (PNAC) IEEE 801.1x
+
+
+
+3) What switch configuration feature could you use to prevent web servers
+in the same subnet from communicating with one another?
+
+We can do this by configuring a private VLAN. The servers are all placed in
+the same VLAN and communicate out of the VLAN/subnet via the promiscuous
+port. Each server port is configured as an isolated port. The isolated ports
+are not able to communicate directly.
+
+
+
+4) What is the default rule on a firewall?
+
+The implicit deny rule
+
+
+
+5) Network hosts are flooding a switch’s SSH port with malicious traffic.
+The switch applies a rate-limiting mechanism to drop the traffic. What best
+practice network hardening control is being used?
+
+Contol plane policing. The SSH port carries management traffic. Malicious
+management or control traffic can be used to perform a denial of service
+(DoS) attack against a network appliance by overloading its general purpose
+CPU. A control plane policing policy protects both control and management channels against this type of attack.
+
+
+
+6) How would a router appliance be patched to protect against a specific
+vulnerability described in a security advisory?
+
+Router OSes typically do not support patching of individual files. The whole
+OS must be replaced with a new version.
+
+
+
+
+
+---
+ONLINE
+
+1) A cyber consultant is brought into a department to create security procedures
+and technologies designed to restrict network access at an end user device
+level. What is the consultant focusing on?
+
+Endpoint Security
+
+
+
+2) An organization contacts the cyber security team and requests a feature to
+provide secure wireless network access. Select the appropriate answers that
+support this request. (Select all that apply.)
+
+Preshared Keys (PSKs)
+Captive Portal
+Geofencing
+
+
+
+3) A cyber security technician is requested to investigate a matter in which
+several customers have lodged complaints about computer issues after visiting
+the company site. Upon closer observation, the technician discovers that an
+unknown IP address replaced the valid IP address. What type of attack occurred
+in this incident?
+
+DNS Poisoning
+
+
+
+4) A department head contacts a cyber consultant declaring that the team is
+locked out and cannot conduct any activity. While working on the system, the
+consultant notices a demand for money, or the department will never get their
+data back. What is this type of attack called?
+
+Ransomware
+
+
+
+5) A cyber security technician speaks with a department that has voiced concern
+regarding tech issues. The technician discovered that the employee had received
+an email containing an attachment from an outside party. Curious about what the
+document contained, the employee clicked on the link. The next day, the employee
+noticed that some of the software was not working correctly, and some important
+documents were no longer accessible. What was likely the cause of this issue?
+
+Malware
+
+
+
+6) A cyber technician needs to draft a policy for the organization to mitigate
+the risk from route processor vulnerabilities. What is the name of this type of
+policy?
+
+Control Plane Policing
+
+
+
+7) A network technician needs to strengthen the security of the company network
+by minimizing the amount of traffic required for the operation of the valid
+network services, and no additional access to be permitted. What is the
+technician placing into the network?
+
+ACLs
+
+
+
+8) A cyber security technician responds to a department experiencing degraded
+network bandwidth, and customers call the department saying they cannot visit the
+company website. What is likely causing the issue?
+
+DDoS
+
+
+
+9) A cyber consultant needs to modify the company's access control lists to
+minimize network traffic. During configuration, the consultant can use a
+command-line utility provided by many Linux distributions that allow
+administrators to edit the rules enforced by the Linux kernel firewall. What is
+the command-line utility used?
+
+iptables
+
+
+
+10) During a routine investigation of the network, the cyber specialist
+identifies that an on-path attack has compromised the network. What is another
+name for this type of attack?
+
+MitM
+
+
+
+11) 

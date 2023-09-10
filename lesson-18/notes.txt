@@ -1,0 +1,229 @@
+LESSON 18 - EXPLAINING DISASTER RECOVERY AND HIGH AVAILABIILITY CONCEPTS
+
+##########
+EXPLAIN DISASTER RECOVERY CONCEPTS
+
+---
+High Availability
+
+HA is the characteristic of a system that can guarantee certain levels of
+availability.
+
+Maximum Tolerant Downtime (MDS) states the requirement for a business to funciton.
+
+Availability    Annual Downtime
+---             ---
+99.9999%  --->  00:00:32
+99.999%   --->  00:05:15
+99.99%    --->  00:52:34
+99.9%     --->  08:45:36
+99%       --->  87:36:00
+
+
+The MTD metric sets the upper limit on the amount of recovery time that system
+and asset owners have to resume operations. Other metrics can be used:
+  -> Recovery Objective Time (RTO); the period following a disaster that an
+     individual IT system may remain offline. Maximum amount of time allowed to
+     identify that there is a problem and then perform recovery.
+  -> Work Recovery Time (WRT); work reintegration from different systems following
+     recovery. RTO + WRT must not exceed MTD.
+  -> Recovery Point Objective (RPO); amount of data loss that a system can
+     sustain.
+
+
+
+
+
+---
+Fault Tolerance and Redundancy
+
+KPIs are used to determine the reliability of each asset and assess whether
+goals for MTO, RTO, and RPO can be met. Main KPIs relating to component
+reliability:
+  -> Mean Time Between Failures (MTBF); expected lifetime of a product.
+  -> Mean Time to Failure (MTTF); expected lifetime of a non-repairable system.
+  -> Mean Time to Repair (MTTR); measure of the time taken to bring a system to
+     full operation from a fault.
+
+Fault-tolerant systems are ones that can have individual components and sub-
+systems fail, but maintain acceptable service.
+
+Fault tolerant devices include:
+  -> Redundant spares; power supplies, network cards, storage, routers ..
+  -> Network links; we need backup links
+  -> UPSs, generators and other stand-by power supplies.
+  -> Backup strategies
+  -> Cluster services
+
+
+
+
+
+---
+Recovery Sites
+
+Various recovery site types:
+  -> Hot site; can failover almost instantly. Everything is ready to operate
+     right away.
+  -> Warm site; similar, but the latest data sets may not be present.
+  -> Cold site; everything needs to be set up.
+
+
+
+
+
+---
+Facilities and Infra Support
+
+HVAC
+
+
+
+Fire Suppression
+
+
+
+
+
+---
+Power Management
+
+PDUs
+
+Convert DC to AC, or even AC into cleaner AC.
+
+
+
+UPSs
+
+Temporary power source during outages.
+
+
+
+Generators
+
+
+
+
+
+---
+Network Device Backup Management
+
+Two backup modes are typically supported:
+  -> State/bare metal; snapshot of the system that can be deployed to any other
+     like system.
+  -> Configuration file; these are like ansible playbooks.
+
+
+
+
+
+##########
+EXPLAIN HIGH AVAILABILITY CONCEPTS
+
+---
+Multipathing
+
+Meaning a network node has more than one physical link to another.
+
+Common multipathing scenarios:
+  -> SAN multipathing; SAN servers share storage over a network link.
+  -> Multiple ISPs; having a single ISP operate a link represents a single point
+     of failure.
+
+Diverse paths refers to provisioning links over separate cable conduits that are
+physically distant from eachother.
+
+
+
+
+
+---
+Link Aggregating vs NIC Teaming
+
+Link aggregation is combining two or more separate cabled links between a host
+and a switch into a single logical channel.
+
+From the host end, this is called NIC teaming.
+
+At the switch end it is called port aggregation.
+
+Cisco calls this Etherchannel.
+
+Link aggregation is implemented using the IEEE 802.3ad/802.1ax standard.
+
+802.3ad bonded interfaces are described as a Link Aggregation Group (LAG) which
+implements Link Aggregation Control Protocol (LACP). LACP detects configuration
+errors and recovers from the failure of one of the physical links.
+
+
+
+
+
+---
+Load Balancers
+
+A hardware or software appliance that distributes client requests across
+server nodes in a pool.
+
+Load balancers are placed in front of the server network and distributes the
+requests from the client network or Internet to the application servers.
+
+The service address is advertised as a virtual server.
+
+The two main types of load balancers include:
+  -> Layer 4 switch; makes forwarding decisions based off IP address and TCP/UDP
+     header values, working at the transport layer.
+  -> Layer 7 switch (content switch); makes forwarding decisions based off of
+     application level data.
+
+
+
+
+
+---
+Redundant Hardware Clusters
+
+Clustering allows multiple redundant processing nodes that share data with
+eachother to accept connections.
+
+To clients, a cluster would seem as a single server.
+
+
+
+Virtual IP
+
+Virtual IPs are also called shared/floating addresses. This type of IP is shared
+between two instances in a cluster, so if one goes down the IP doesn't change
+between devices.
+
+CARP is typically used to acheive this.
+
+
+
+Active-Passive and Active-Active Clustering
+
+Active-passive = one node active, other passive
+Active-active = both nodes processing connections concurrently
+
+
+
+
+
+---
+Frst Hop Redundancy
+
+HSRP
+
+Developed by Cisco, allows multiple physical routers to serve as a single default
+gateway for a subnet. Each router must have an interface connected to the subnet.
+They also must be configured to share the same IP and MAC. This group is called
+the stanby group.
+
+
+
+Virtual Router Redundancy Protocol
+
+VRRP is similar to HSRP. The difference being in terminology and packet formats.
+It is possible to configure all of the routers with the same virtual IP in VRRP.
+

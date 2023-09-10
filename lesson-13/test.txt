@@ -1,0 +1,227 @@
+LESSON 13 TESTS - EXPALINING COMMON SECURITY CONCEPTS
+
+---
+13A BOOK
+
+1) What type of assessment is most likely to measure security policies and
+controls against a standard framework?
+
+Posture/Risk assessment
+
+
+
+2) True or false? An automated vulnerability scanner can be used to detect
+zero-days.
+
+False. Zero-days aren't officially known to the public, therefore they couldn't
+be in a CVE database.
+
+
+
+3) What type of assessment tool is configured with details of CVEs?
+
+An automated vulnerability scanner.
+
+
+
+4) 515web IT staff discovered an entry when reviewing their audit logs
+showing that a junior employee from the sales department had logged
+into the network at 3:00 a.m. Further review of the audit logs show that
+he had changed his timecard on the HR server. Which security factor
+was breached, and did the attack exploit a software vulnerability or a
+configuration vulnerability?
+
+This was an internal configuration vulnerability/exploitation that compromised
+the integrity of data stored in the network.
+
+
+
+5) What type of security audit performs active testing of security controls?
+
+Penetration testing.
+
+
+
+
+
+---
+BOOK 13B
+
+1) What element is missing from the following list, and what is its purpose?
+• Identification
+• Authentification
+• Accounting
+
+Authorization. This assigns privelages over the network object to the subject.
+
+
+
+2) What is the purpose of SSO?
+
+Allows an entity to verify their identity through certificates so that they only
+need to sign-in once.
+
+
+
+3) True or false? A subject’s private key is embedded in the digital
+certificate that represents its digital identity?
+
+False. The private key is always for the owner only and cannot be shared with
+anything.
+
+
+
+4) What is a RADIUS client, and how should it be configured?
+
+A thing that accepts user connections. The client must be configured with the
+RADIUS server IP and possess the same shared secret.
+
+
+
+5) Where would EAPoL be configured?
+
+On a switch interface/port.
+
+
+
+
+
+---
+ONLINE
+
+1) The amount of data traffic both sent and received or calculated as a
+percentage of the available bandwidth is known as which interface
+monitoring metric?
+
+Utilization. This is the amount of data traffic both sent and received. It can
+also be calculated as a percentage of the available bandwidth.
+
+
+
+2) Which of the following processes of an identity and access management (IAM)
+system proves that the user is who they say they are?Which of the following
+processes of an identity and access management (IAM) system proves that the
+user is who they say they are?
+
+Authentication
+
+
+
+3) An organization hired a security firm to hack into its systems in order to
+determine what type of exploitable weaknesses the organization was vulnerable
+to. What kind of testing is this?
+
+Penetration testing. This is the authorized use of exploitation techniques to
+discover weaknesses in a targets systems.
+
+
+
+4) An organization hires a new Marketing department head from outside the
+company. The new employee is surprised to learn that they cannot assign
+permissions to the Marketing folders to employees that work in other areas
+of the company. What kind of access management is the organization using?
+
+Role-based access. This defines a set of organizational roles, then assigns the
+appropriate users to them.
+
+
+
+5) A security professional is working to identify all the ways a threat agent
+can breach security. What security concept does the threat actor represent?
+
+Threat. It's in the question, this person is a threat.
+
+
+
+6) An employee logs into their computer when they arrive at work and, regardless
+of what network resources they access throughout the day, they do not have to
+log in to anything else. What type of authentication is this?
+
+Single Sign-On (SSO). This allows a user to authenticate once for the duration
+of some condition until they must sign-on again.
+
+
+
+7) An administrator needs to perform maintenance on routers and switches and is
+authenticating to them over TCP port 49. What protocol is the administrator
+using?
+
+TACACS+. Remember that this protocol is used to authenticate to routers and
+switches. If we remember that, then we don't need to remember the port number.
+
+
+
+8) An organization has identified that they must be able to continually process
+customer payments and pay employee salaries to keep the business running even
+in the event of a service disruption as mission essential functions. What kind
+of assessment did the organization use to make these determinations?
+
+Process Asessment. This question is asking about HOW a company is doing
+something, which is a process.
+
+
+
+9) An organization deployed components so that they could use NetFlow to measure
+network traffic statistics. Which of the deployed components needs a high
+bandwidth network link and substantial storage capacity?
+
+NetFlow collector. These need a high-bandwisth network link and substantial
+storage capacity. It aggregates flows from multiple exporters, so large networks
+can generate massive amounts of records.
+
+
+
+10) An organization is using Lightweight Directory Access Protocol (LDAP) to
+update the directory database. The administrator insists that steps to ensure
+access to the directory has already been completed and is secure. What
+authentication methods will the administrator disable? (Select all that apply.)
+
+DISABLE - simple bind, no authentication. These are insecure.
+ENABLE - SASL and LDAPS. These are secure.
+
+
+
+11) A security company is working with a new customer and is describing
+different kinds of attacks they have discovered through research. What form
+of threat research does this represent?
+
+Behavioral threat research. This is a narrative commentary describing examples
+of attacks and the TTPs gathered through primary research sources.
+
+
+
+12) A security administrator is studying the relationship between
+vulnerabilities, threats, and risks. Which of the following is a true statement
+regarding these categories?
+
+A threat is a potential for an entity to breach security.
+
+
+
+13) Network users are reporting issues with videos constantly buffering. What
+kinds of issues should the administrator test for? (Select all that apply.)
+
+Packet loss
+Latenncy
+Jitter
+
+
+
+14) A sysadmin is looking into bandwidth management. Which kind of bandwidth
+management technology uses a header field to indicate a priority value for a
+layer 3 (IP) packet?
+
+DiffServ. Differentiated Services classifies each packet passing through a
+layer 3 device and can use defined router policies to use packet classification
+to prioritize delivery.
+
+
+
+15) An organization that issues public keys should obtain a digital
+certificate. What does the digital certificate contain? (Select all that apply.)
+
+Information on the certificate's guarantor.
+Information about the subject.
+The subject's public key.
+
+

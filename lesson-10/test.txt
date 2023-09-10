@@ -1,0 +1,205 @@
+LESSON 10 TESTS - EXPLAINING NETWORK SERVICES
+
+---
+BOOK 10A
+
+1) True or False? If a client accepts a DHCPOFFER, the DHCPREQUEST packet
+is broadcast on the network.
+
+True
+
+
+
+2) When configuring multiple DHCP servers for redundancy, what should
+you take care to do?
+
+Configure the servers with no overlapping address scopes.
+
+
+
+3) True or False? DHCP options can be configured on a per-scope basis.
+
+True.
+
+
+
+4) What address is used to contact a DHCPv6 server?
+
+Multicast. ff02::1:2
+
+
+
+5) In a stateless environment, what sort of information does DHCPv6
+provide?
+
+The host autoconfigures an address using a network prefix provided by the
+router. DHCPv6 is then used to provide the IPv6 addresses used to access
+network services like DNS or SIP gateways.
+
+
+
+
+
+---
+BOOK 10B
+
+1) What type of DNS record resolves a host name to an IPv6 address?
+
+AAAA record.
+
+
+
+2) What use is a PTR DNS record?
+
+PTR record, reverse lookup. Maps hostname to IP address.
+
+
+
+3) What types of DNS records have priority or preference values?
+
+MX and SRV.
+
+
+
+4) What type of DNS record is used to prove the valid origin of email?
+
+SPF and DKIM. These are configured as TXT records.
+
+
+
+
+
+---
+BOOK 10C
+
+1) When you configure name server addresses as part of a host’s IP settings,
+do you need to specify servers that perform iterative queries only or
+ones that accept recursive queries?
+
+Recursive queries. These types of DNS servers are designned to assist clients
+with queries and are usually separate from the DNS server infrastructure
+designed to host authoritative name records.
+
+
+
+2) What type of DNS service would you configure on the LAN to use a public
+DNS server to resolve queries for external domains?
+
+A forwarding service.
+
+
+
+3) What is the function of:
+
+$ nslookup - 8.8.8.8
+
+Sets the nameserver as 8.8.8.8 for the query and goe into interactive mode.
+
+
+
+4) What is the function of a dig subcommand such as +nostats?
+
+To modify the output of the dig query.
+
+
+
+
+
+---
+ONLINE 10
+
+1) ICANN is a non-profit organization that’s dedicated to keeping the Internet
+secure. What does ICANN manage? (Select all that apply.)
+
+Generic TLDs
+DNS
+
+
+
+2) A client is attempting to renew its lease with the DHCP server so that it
+can keep the same IP addressing information. How much of the lease duration
+has lapsed?
+
+At least 50%. Clients can renew a lease when atleast half the lease period
+has elapsed so that it may keep the same IP information.
+
+
+
+3) A user has typed www.network.com into a web browser. The domain name server
+cannot resolve the name, so it is querying other name servers to try to find
+it. What kind of lookup is the domain name server performing?
+
+Recursive. Recursive lookups mean that if the queried server is not
+authoritative, it takes on the task of querying other name servers until
+it finds the requested record or times out.
+
+
+
+4) An administrator configures a new mail server to meet the organization's
+goals. Which record lists the IP addresses or names of servers that can send
+email from a particular domain and combats the sending of spam?
+
+SPF. Sender Policy Framework records list the IP addresses or names of servers
+that can send email from a particular domain and combats the sendign of spam.
+
+
+
+5) An administrator is using DHCP and wants to retain centralized management
+of IP addressing but needs to ensure that specific devices that supply
+always-on functionality have static IP address assignments. What is the
+best solution?
+
+Create reservations. This is a mapping of a MAC to a specific IP within
+the DHCP server address pool.
+
+
+
+6) An administrator ran a command and determined that the FQDN of a client
+is forbes.sales.realty.com. What is the hostname of the client?
+
+forbes
+
+
+
+7) An organization is using IPv4 addresses. Which of the following records
+will resolve a hostname to the IP address?
+
+A. A records are for IPv4. AAAA records are for IPv6.
+
+
+
+8) An administrator is configuring the TCP/IP settings in workstations and
+wants to use the solution with the least amount of overhead. What setting
+will the administrator select?
+
+DHCP. This automatically assigns IPs to end systems, minimizing overhead.
+Static addressing increases the operating expense (overhead) of the network
+because the administrator needs to invest more time in configuration, which
+costs more money at the end of the day.
+
+
+
+9) An administrator is configuring a DHCP server. What configurations must
+the administrator apply to the server? (Select all that apply.)
+
+The server must receive a static IP.
+The admin must configure a scope.
+
+DHCP is an "always on" service. Static IPs should be assigned to these types.
+A scope must bbe configured. This is the pool of addresses and subnet masks
+that the DHCP server issues to clients.
+
+
+
+10) An organization has multiple subnets but is only using one DHCP server.
+How is this possible? (Select all that apply.)
+
+DHCP relay.
+UDP forwarding.
+
+DHCP relay agents provide forwarding of DHCP traffic between subnnets.
+UDP forwarding is more general but includes DHCP, NTP, and other
+broadcast based services.
+
+
+

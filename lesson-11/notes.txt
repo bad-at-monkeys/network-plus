@@ -1,0 +1,359 @@
+LESSON 11 - EXPLAINING NETWORK APPLICATIONS
+
+##########
+Explain the Use of Web, File/Print, and Database Services
+
+
+---
+HyperText Transfer Protocol
+
+HTTP is the foundation of web technology. Clients (typically web browsers)
+request resources from an HTTP server using a URL at port TCP/80. The server
+will either return the data requested or an error message.
+
+
+
+HTTP Headers and Payload
+
+Response and request formats are defined in the HTTP header.
+
+Thhe payload is usually serving HTML files.
+
+The web browser then translates and formats all of this together to
+form a useful webpage/resource.
+
+POST is the HTTP forms mechanism that enables a user to submit data from the
+client to the server.
+
+
+HTTP is kindof a stateless protocol in that the server is not required to preserve
+information about the client during a session.
+
+
+
+Web Servers
+
+HTTP servers are what host the pages to be served to clients.
+
+The following server configurations are typical:
+  -> Dedicated: the ISP allocates our own private server; typically unmanaged.
+  -> Virtual Private Server: The ISP allocates a VM on a physical server;
+     isolated from other instances by a hypervisor.
+  -> Cloud hosting: Websites are hosted on a cloud across several servers;
+     allows for scaleability.
+  -> Shared hosting: Websites are hosted within a private directory on a
+     shared server. Performance can actually be affected by other clients.
+
+
+
+
+
+---
+Secure Sockets Layer/Transport Layer Security
+
+HTTP sends all data unencrypted. So SSL was made by Netscape. Then TLS was made.
+
+SSL/TLS works as a layer between application and transport layer protocols of
+the TCP/IP stack. This is the SESSION LAYER.
+
+When used to encrypt TCP connections for an HTTP application, we call it HTTPS.
+
+We can wrap most TCP/IP application protocols (FTP, POP3/IMAP, SMTP, LDAP, etc)
+in SSL/TLS.
+
+TLS can be used with UDP as well, called DTLS, used in VPNs.
+
+
+To implement HTTPS:
+  -> The web server must be installed with a digital certificate issued by some
+     trusted certificate authority.
+  -> The certificate uses encrypted data to prove the identity of the server,
+     assuming that the client trusts the certificate authority.
+  -> The certificate wraps a public/private encryption key pair.
+  -> The private key is kept secret, only known to the server.
+  -> The public key is given to clients via certificate.
+  -> The server and client use the key pair in the certificate and a cipher
+     suite within the SSL/TLS protocol to set up an encrypted tunnel.
+  -> The contents of the tunnel cannot be decrypted without obtaining the
+     server's private key through the cipher suite.
+  -> All traffic is sent over port TCP/443.
+
+
+
+
+
+---
+File Transfer Protocol
+
+FTP is used in some form when files are being transferred, although in present
+day FTP is being considered insecure and HTTPS-based services are providing
+file downloads to end users.
+
+FTP is TCP/21 on the server and the server selects a dynamic port on the client.
+TCP/21 is the control port used to transfer commands and status information,
+but not the data.
+
+Data transfer occurs in one of two modes: active and passive.
+
+In ACTIVE mode the client sends a PORT command specifying the chosen data port
+number, typically n+1. The server opens the data connection between the chosen
+client port and TCP/20 onn the server.
+
+In PASSIVE mode the client operates a data port, typically n+1, annd sends the
+PASV command to the server's control port. The server then opens a random high
+port number and sends it to the client using the PORT command. The client then
+initiates the connection between the two ports.
+
+
+Active FTP can cause issues with firewalls because the server is initiating an
+inbound connection and cannot predict the port number to be used. If we are
+using active FTP, we must check that firewalls between the two systems
+support active FTP (stateful inspection firewalls).
+
+
+
+Trivial File Transfer Protocol
+
+TFTP is a connectionless protocol on TCP/69.
+TFTP isn't guarunteed on delivery and is suited for small files.
+
+It only supports GET and PUT methods, no direct browsing, file deletion, or
+any other advanced features FTP offers.
+
+
+
+
+
+---
+Secure File Trannsfer Protocol
+
+SFTP uses a SSH session over TCP/22. Both devices must support SFTP.
+
+We can also use FTP over TLS, there are two ways:
+  -> ExplicitTLS (FTPES) - Uses AUTH TLS command to upgrade an unsecure
+     connection established over TCP/21 to a secure one. This protects
+     authentication credentials. The data connection for the actual file
+     transfers can be encrypted with PROT.
+  -> ImplicitTLS (FTPS) - Negotiate an SSL/TLS tunnel before the exchange of
+     any FTP commands. This mode uses secure port 990 for the control
+     connection.
+
+FTPS is diffuicult to configure with firewalls.
+
+FTPES is the preferred method when using FTP with TLS.
+
+
+
+
+
+---
+File and Print Services
+
+Server Message Block
+
+SMB provides the services for Windows file/print sharing.
+Samba is what makes UNIX compatible with SMB.
+
+SMB runs on TCP/445 and should be restricted for use on local networks.
+Any traffic on the NetBIOS 137-139 and SMB 445 should be blocked by a
+perimeter firewall.
+
+
+
+Remote Print Protocols
+
+Port 9100 - the standard JetDirect printer port
+
+Innternet Printing Protocol (IPP) - form of HTTP on TCP/631, can be implemented
+securely IPPS. It provides better support for status messaging thann 9100
+
+Web Services for Devices/AirPrint - PnP method for devices using bidirectional
+status messaging. Allows for secure connections to the printing device.
+
+Printer Sharing - A host connect to the printer using network connnection, then
+shares the printer object using SMB. Print jobs and messaging is then done
+through the host that connected the printer.
+
+
+
+
+
+---
+Database Services
+
+Databases provision information in a format that can be read and updated through
+some type of query language.
+
+
+Relational databases store information in tables with rows(records) and
+columns(fields) that uniquely ID each record.
+
+SQL operates in relational databases.
+
+By default RDBMS ports are insecure, but can be installed with a certificate
+and configured to enable TLS transport encryption.
+
+
+
+
+
+##########
+EXPLAIN THE USE IF EMAIL AND VOICE SERVICES
+
+---
+Simple Mail Transfer Protocol
+
+SMTP specifies how email is delivered from one system to another:
+  -> Client submits a message for delivery to the local SMTP server over
+     secure port 587. The message is copied to the Sent items folder on the
+     local IMAP server using the secure port 993.
+  -> The local SMTP server uses DNS to lookup the MX record listing of an IP
+     address for the remote recipient domain and establishes a session with
+     the remote SMTP server over unencrypted port 25.
+  -> If the remote message accepts the message, then it copies it to the inbox
+     folder of the user's mailbox hosted on an IMAP server.
+  -> The remote user's mail client connects to its IMAP server over secure port
+     993 to download the message.
+
+
+If there is a communication problem in SMTP, the server will send an NDR to the
+sender. The NDR contains an error code referencing the error.
+
+
+STARTTLS/SMTPS is the TLS version of SMTP which can be implemented in two ways:
+  -> STARTTLS - a command that upgrades an existing insecuure connection to use
+     TLS. Also known as explicit TLS.
+  -> SMTPS - establishhes a secure connection before any commands are issued.
+     Also known as implicit TLS.
+
+
+STARTTLS is implemented more widely than SMTPS. SMTP configurations typically
+use ports:
+  -> 25 - used for message relay between SMTP servers, or message transfer
+     agents. The STARTTLS command can be used to set up the secure connection
+     on demand.
+  -> 587 - used by mail clients or mail submission agents (MSAs) to submit
+     messages for delivery by an SMTP server. Servers configured to support
+     port 587 should use STARTTLS and require authentication before
+     message submission.
+
+
+
+
+
+---
+Mailbox Access Protocols
+
+SMTP is only useful to deliver mail to hosts that are permanately available.
+When a message is received by a SMTP server, it delivers the message to a
+mailbox server.
+
+A mailbox access protocol allows an email client to manage the mailbox.
+
+
+
+Post Office Protocol
+
+POP3 is the active version. A POP client like Outlook or Thunderbird establishes
+a connection to the POP server on TCP/110. The user is authenticated, and the
+contents of his or her mailbox are downloaded for processing on the local PC.
+In general, the messages are deleted from the mailbox server once they are
+downloaded onto the client.
+
+POP transfers data as cleartext. POP can be used with TLS over TCP/995.
+
+
+
+Internet Message Access Protocol
+
+IMAP is a mail retrieval protocol. IMAP supports permanent connnections to a
+server and connecting multiple clients to the same mailbox concurrenntly. It
+also supports client management on the server and multiple mailboxes.
+
+Clients connect to an IMAP server over TCP/143. TLS can be used on TCP/993.
+
+
+
+
+
+---
+Voice and Video Services
+
+
+Private Branch Exchange
+
+PBXs are automated switchboards that provide a single connection point for an
+organization's voice lines.
+
+
+
+VoIP-Enabled PBX
+
+VoIP PBXs establish connections between local VoIP endpoints with data
+transmitted over the local Ethernet network. VoIP PBXs can also route incoming
+and outgoing calls to and from external networks.
+
+VoIP PBXs are typically placed at the nnetwork edge, protected by a firewall.
+Ethernet, switching, and IP is used internally to forward data. The VoIP PBX
+uses the organizations Internet link to connect to a VoIP provider, who
+facilitates inward/outward dialing to voice-based telly networks.
+
+
+
+
+
+---
+VoIP Protocols
+
+Voice/Video data can be streamed one way (media streaming) or two ways
+(VoIP, VTC).
+
+VoIP protocols cover one or more of the following functions:
+  -> Session control: establish, manage, tear down sessions. Handles tasks like
+     user discovery, availability advertising, negotiating session params, and
+     aession management and termination.
+  -> Data transport: handles delivery of actual voice/data.
+  -> QoS: provides info to a QoS system, which ensures data quality.
+
+
+
+Session Initiation Protocol
+
+SIP is widely used.
+
+SIP end-points are the end-user devices, each device has a SIP URI.
+The SIP URI is like the phone number.
+
+SIP runs over UDP or TCP/5060 or TCP/5061 (secured)
+
+
+
+Real-Time Transport Protocol and RTP Control Protocol
+
+RTP is what provides the actual delivery of real-time data. RTP enables the
+delivery of a stream of media via UDP, with some TCP reliability features.
+
+Each RTP stream uses an RTCP session to monitor the quality of the connection
+and to provide reports to the endpoints.
+
+
+
+
+
+---
+VoIP Phones
+
+VoIP phones can be hardware or computer software.
+
+VoIP phones use VLAN tagging to differentiate from other traffic.
+
+SIPS is the SSL/TLS version of SIP.
+
+
+
+
+
+---
+Voice Gateways
+
+Voice gateways translate between VoIP systems and legacy voice equipment.

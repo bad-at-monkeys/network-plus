@@ -1,0 +1,195 @@
+LESSON 12 TESTS - ENSURING NETWORK AVAILABILITY
+
+---
+12A BOOK
+
+1) True or false? SSH must be configured with two key pairs to operate; one
+on the server and one on the client.
+
+False. The server only must be configured with a key pair, the client can
+optionally use a key pair to authenticate.
+
+
+
+2) What remote management service is associated with TCP port 23?
+
+Telnet.
+
+
+
+3) Which port is used by the Network Time Protocol (NTP)?
+
+UDP/123
+
+
+
+4) What is SNTP?
+
+Simple Network Time Protocol. A simpler NTP enabling clients workstations to
+obtain the correct time from time servers.
+
+
+
+
+
+---
+12B BOOK
+
+1) You have a plan for monitoring switches and routers that accommodates
+network metrics (bandwidth, latency, and jitter) plus chassis
+temperature and intrusion. What other performance metric should be
+monitored?
+
+CPU and memory resource utilization. We can also monitor storage...
+
+
+
+2) How does an SNMP agent report an event to the management system?
+
+TRAP methods with conditions defined by the admin. Once a condition is met
+the agent traps the alert and notifies the admin.
+
+
+
+3) What sort of log would you inspect if you wanted to track web server
+access attempts?
+
+Audit/Security/Access logs.
+
+
+
+4) A technician has recommended changing the syslog logging level from
+its current value of 3 to 6. Will this cause more or fewer events to be
+forwarded?
+
+More. Increasing to 6 will include alert levels 1-5 but disclude 7.
+
+
+
+5) What would be the purpose of configuring thresholds in network
+monitoring software?
+
+So that alerts can be triggered once a threshold has been reached.
+
+
+
+
+
+---
+12C BOOK
+
+1) How is jitter mitigated by a VoIP application?
+
+Buffering packets.
+
+
+
+2) How many different traffic classes can be defined by 802.1Q/p?
+
+8 classes can be derived from the 3-bit value.
+
+
+
+3) How does a traffic shaper benefit real-time data applications?
+
+Traffic shapers can reserve bandwidth so that QoS params (latency and jitter),
+for a real-time data application can be guaranteed.
+
+
+
+4) What is a top listener in terms of network monitoring?
+
+Top listeners are the interfaces that are receiving the most data packets.
+
+
+
+5) You suspect that a network application is generating faulty packets.
+What interface metric(s) might help you to diagnose the problem?
+
+Error rates, discards/drops, re-Tx.
+
+
+
+---
+12 ONLINE
+
+1) A server is using its host key to establish a secure channel for clients to
+authenticate to the secure shell (SSH) server. Which of the following methods
+can establish the channel? (Select all that apply.)
+
+Username/password
+Public key authentication
+Kerberos
+
+
+
+2) An organization is using the Simple Network Management Protocol (SNMP) for
+remote management and monitoring of servers and network appliances and must
+deploy an agent to each device. Where are the statistics relating to the
+activity of each device kept?
+
+MIB or Management Information Base, duh.
+
+
+
+3) A Windows administrator needs to perform administrative tasks on servers at
+a different location and prefers to use a graphical user interface. What is the
+best tool for the administrator to use?
+
+RDP. All the other choices have a CLI.
+
+
+
+4) A file server on the network is receiving synchronized time so that it can
+communicate properly, however it cannot provide synchronized time for other
+devices on the network. Why is this?
+
+SNTP is simple and designed for end nodes, not for providing nodes with time.
+
+
+
+5) An organization is designing a new data center. What types of environmental
+issues should the organization implement sensors for? (Select all that apply.)
+
+Temperature
+Humidity
+Electrical
+
+
+
+6) An administrator received a Syslog alert, code 2. What level does this
+indicate the issue is?
+
+This is a Critical alert. The scale is 1-7, the higher the code,
+the less severe.
+
+
+
+7) An organization has ten employees in the finance department that all use
+the accounting system for different purposes. An administrator is reviewing
+logs and has discovered that all of the finance employees are using the same
+login to access the accounting system. Which log was the administrator reviewing?
+
+Audit Log. This records authentication and authorization privelages.
+
+
+
+8) An administrator is monitoring the performance metrics for a server and
+notices that the system memory utilization is very high. What does this indicate?
+
+The syystem needs a memory upgrade.
+
+
+
+9) An administrator needs to access servers using a key pair. What command can
+the administrator use to create the key pair?
+
+ssh-keygen
+
+
+
+10) An administrator has blocked access to port 23 to prevent users from using
+an unsecure terminal emulation software and protocol. What is the administrator
+blocking the use of?
+
+telnet

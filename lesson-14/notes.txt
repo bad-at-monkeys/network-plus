@@ -1,0 +1,449 @@
+LESSON 14 - SUPPORTING AND TROUBLESHOOTING SECURE NETWORKS
+
+##########
+COMPARE AND CONTRAST SECURITY APPLIANCES
+
+---
+Network Segmentation Enforcement
+
+Network segmentation enforcement is applied using a combination of virtual LANs
+and subnets, where each segment is a separate broadcast domain. Any traffic
+between subnets must be routed.
+
+The main unit of a logically segmented network is a zone. A zone is an area of
+the network where the security configuration is the same for all hosts therein.
+
+
+Firewalls typically control traffic between zones.
+
+If a virus were to infect one VLAN, it shouldn't be able to infect other VLANs.
+I should be routed through a firewall that is protecting the zone.
+
+
+Internet-facing hosts accept inbound connections from the internet. Internet-
+facing hosts are placed in the perimeter network zone, so that way traffic
+cannot pass through the host directly.
+
+Perimeter networks enable external clients to access data on private systems,
+like web servers, without compromising security.
+
+When communication is required for either side of the perimeter network, a host
+within the zone can serve as a proxy. So the proxy will take the request from
+outside of the zone and process it, whhether it be ligitimate or not.
+
+Bastion hosts in the perimeter are not fully trusted by the internal network due
+to potential compromise from the internet.
+
+
+
+
+
+---
+Screened Subnets
+
+Perimeter networks require configuration on the external interface and internal.
+
+Screened subnets use two firewalls placed on either side of the perimeter
+network zone.
+
+The edge firewall screens traffic incoming from the external interface and
+allows the permitted traffic into the perimeter zone subnet.
+
+Internal firewalls filter communications between hosts in the perimeter and
+hosts on the LAN. This is the choke firewall, a purposefully narrow gateway
+that facilitates better access control and easier monitoring.
+
+The zone between the Screening Firewall and the Choke Firewall is the DMZ/Edge/
+Extranet.
+
+
+We can accomplish similar security with a single firewall with three network
+interfaces. This is a triple homed firewall.
+
+One interface is the public one.
+Another is the perimeter subnet.
+The third connects to the LAN.
+
+We use routing and filtering rules to determine what traffic is forwarded.
+
+
+
+
+
+---
+Firewall Uses and Types
+
+Firewalls are used to filter certain types of traffic.
+
+
+Packet Filtering Firewalls
+
+PF firewalls are configured by specifying an ACL. Each rule defines a specific
+type of data packet and what to do when certain types of packets pass through.
+
+Packet filtering firewalls operate at layer 3 and inspect IP packet headers.
+These IP packet headers include:
+  -> IP filtering; accepting or denying traffic based on its source and/or
+     destination IP address.
+  -> Protocol/ID type; TCP, UDP, ICMP, routing protocols and etc.
+  -> Port filtering/security; accepting or denying a packet based on source and
+     destination port numbers (TCP or UDP application type).
+
+
+ACLs may be designed to control only inbound, or both inbound and outbound.
+This is known as ingress and egress traffic fiktering.
+
+PF firewalls are stateless, so they dont preserve information about the
+connection between two hosts.
+
+Stateless firewalls have disadvantages:
+  -> Each packet is analyzed independently; attacks spread over a sequence of
+     packets can slip by.
+  -> Traffic flow problems; due to the above.
+
+
+
+Stateful Inspection Firewalls
+
+Stateful inspection firewalls address the issues of stateless firewalls by
+mainting information about the sessions established between hosts.
+
+State tables are what store this information.
+
+Stateful firewalls operate at layer 5 of the OSI model (Session).
+
+When a packet arrives, it confirms whhether it belongs to an existing
+conneciton. If it doesn't, it will apply the ordinary pf rules to determine
+whether to allow it. Once a connection has been allowed, the firewall allows
+traffic to pass throughh unmonitored to preserve processing effort.
+
+
+
+
+
+---
+Firewall Selection and Placement
+
+There are appliance firewalls dedicated to being firewalls, and then there are
+software firewalls protecting individual hosts. Thee are also firewalls at the
+layer 2virtual wire transparent firewall.
+
+There are routers with firewalls builtin.
+
+Some layer 3 switches support packket filtering.
+
+
+
+
+
+---
+Proxy Servers
+
+A proxy server forwards requests and responses on behalf of its clients.
+
+Proxies deconstruct each packet, preforms packet analysis, then rebuilds the
+packet and forwards it on if it passes conditons.
+
+We place proxies in a perimeter network.
+
+
+
+Forward Proxies
+
+A forwarding proxy server provides for protocol-specific outbound traffic.
+
+The main benefit of a proxy is that all clients on the network have to go
+through a single point, which allows for great traffic control but terrible
+failover.
+
+There are transparent and non-transparent proxy servers.
+
+Nontransparent means that the client must be configured with the proxy server
+address and port number to use it.
+
+8080 is the typical port to connect to.
+
+Transparent proxy intercepts client traffic without the client having to be
+reconfigured. These must be implemented on a switch or router.
+
+
+
+Reverse Proxies
+
+Reverse proxy servers provide for protocol specific inbound traffic.
+
+Application servers should not be placed in the perimeter network. Instead, we
+deploy a reverse proxy and configure it to listen to client requests from a
+public network and create the appropriate request to the internal server on the
+corporate network.
+
+
+
+
+
+---
+NAT
+
+NAT was devised as a way of freeing up IP addresses for hosts needing internet
+access.
+
+NAT is the service that provides translation between local addressing scheme
+used by hosts on the LAN and the public addressing scheme used by an internet
+facing device.
+
+NAT is configured on a border device like a proxy, router, or firewall.
+
+NAT is not a security mechanism; this function is provided by the router
+or firewall ACL.
+
+
+
+
+
+---
+Port Address Translation
+
+PAT is a means for multiple private IP addresses to be mapped onto a single
+public address.
+
+
+
+
+
+---
+Defense in Depth
+
+Defense in depth refers to placing security controls throughout the network, so
+that all access attempts are authenticates, authorized, and audited.
+
+Defense in depth may consist of additional network segmentation and screening,
+network access control, honeypots, separation of duties, and intrusion detection.
+
+
+
+Network Access Control
+
+NAC is a system for authenticating endpoints at the point they connect to the
+network using 802.1x port security, EAP, AAA model of supplicants, network
+access device AAA clients, and AAA servers.
+
+NAC enables devices to be authenticated when they connect to switch ports,
+wireless networks, or VPN remote access servers.
+
+NAC can authenticate a client based off of machine certificates and user
+passwords. NAC can even support health policies that prove whether a client
+is running an up to date system and meets certain standards.
+
+
+
+Honeypots
+
+A honeypot is a computer system used to attract attackers, with the intention of
+analyzing attack strategies and tools, to provide early warnings of attack
+attempts or to even divert attention from actual computer systems.
+
+Honeypots can also detect internal fraud, snooping, or malpractice.
+
+Honeypots are most likely placed in a protected, untrusted area between the
+internet and the private network or on a closely monitored and filtered segment
+within the private network itself.
+
+
+
+Separation of Duties
+
+This is establishing checks and balances against the possibility that critical
+systems or procedures can be compromised by insider threats.
+
+Dividing duties to their respective departments and individuals prevents ethical
+conflicts or abuse of powers.
+
+
+
+
+
+---
+Intrusion Detection and Prevention Systems
+
+IDSes preform real-time analysis of wither network traffic or system and
+application logs.
+
+IDSes are configured with signature patterns, not ACLs.
+
+Each pattern represents a known type of malicious activity.
+
+An IDS must be configured with a sniffer to read frames from a mirrored port
+or TAP.
+
+IDSes are typically positioned behind a firewall so that it can detect
+suspicious activity that the firewall didn't block.
+
+IDSes are passive, do not slow down traffic, and are invisible to the attacker
+because it doesn't even have an IP address on the monitored network segment.
+
+
+IPSes provide active response to any network threats that it matches.
+
+One thing they can do is end a session by sending a TCP reset packet to the
+attacking host. Another option is for the sensor to apply a temporary filter on
+the firewall to block the attacker's IP address (shunning).
+
+Advances measures include throttling bandwidth to attackers, applying complex
+firewall filters, and even modifying the suspect's packets rendering them
+harmless. The appliance can even run a script or 3rd party software to preform
+an action it otherwise cannot.
+
+IPS functionaility is builtin to most modern firewalls, appliances, and proxy
+servers. IPS enabled firewalls are in-line with the network, which means all
+traffic passes through it.
+
+
+
+
+
+##########
+TROUBLESHOOT SERVICE AND SECURITY ISSUES
+
+---
+DHCP Issues
+
+DHCP Server Scope Exhaustion Issues
+
+Possible reasons for a client to fail to obtain a lease:
+  -> The DHCP server is offline.
+  -> DHCP scope exhaustion.
+  -> The router between the client and DHCP server doesn't support BOOTP
+     forwarding.
+
+
+
+Rogue DHCP Server Issues
+
+If two DHCP servers are running on the same subnet, clients could end up with an
+incorrect IP configuration because they have obtained a lease from a rogue
+server.
+
+Attackers can use rogue DHCP servers to change the default gateway and/or DNS
+resolver addresses on the subnet and route communications through their machine.
+This is called an on-path attack.
+
+
+
+
+
+---
+Name Resolution Issues
+
+Name Resolution Methods
+
+  -> Check local cache.
+  -> Check the HOSTS file.
+       for windows - %SystemRoot%\system32\drivers\etc\
+       for linux - /etc/hosts
+  -> Query DNS.
+
+
+
+DNS Configuration Issues
+
+If a host is accessible by IP but not hostname, there is a resolution problem.
+To verify this, we must edit the host file and place the correct name and IP
+address record in the file for the test host. If we get a successful ping, then
+it suggests a nname resolution issue.
+
+If a single client is unable to resolve names, the issue is likely to lie within
+the client configuration:
+  -> The client has been configured with either no DNS server addrss or the
+     wrong DNS server address. We must reconfigure the DNS server address.
+  -> The client has the incorrect DNS suffix. Verify client and host domain
+     configuration matches.
+
+
+
+
+
+---
+VLAN Assignment Issues
+
+Each VLAN is a discreet broadcast domain, so we must ensure that the services
+using such technology (DNS and DHCP) are properly available to all VLANs.
+
+If devices on serparate VLANs are trying to communicate, we must ensure routing
+is properly configured between them.
+
+If a device is placed in a designated VLAN, its IP configuration must be
+appropriate in terms of IP address, subnet mask, default gateway, and DNS
+servers.
+
+We must also make sure the correct devices were placed in the correct VLANs.
+
+
+
+
+
+---
+Unresponsive Service and Network Performance Issues
+
+Causes to consider:
+  -> The application or OS hosting service has crashed.
+  -> The server hosting the service is overloaded. Throttle client connections
+     until hardware can be upgraded.
+  -> Congestion in the network. Use ping or traceroute to check the latency of
+     the link.
+  -> A broadcast storm is causing loss of bandwidth on the network. This is
+     caused by loops from switches not configured with STP.
+  -> Network congestion may suggest that the service is being DDoSed.
+
+
+
+
+
+---
+Misconfigured Firewall and ACL Issues
+
+Accidentally blocking services, ports, or addresses on the ACL will certainly
+cause issues. If we put a DENY ALL rule at the top of our iptables config,
+nothing will ever be able to connect to the device.
+
+Attempting to establish a connnection from systes in and outside the firewall
+can help determine causes.
+
+The alternatiive to this is that youur firewall may bbe letting packets through
+that we actually intend to block.
+
+
+
+
+
+---
+Untrusted Certificate Issues
+
+Clients will typically notify the user if a cert is bad. Thhis is usually because
+the cert issuer is not trusted.
+
+If we actually trust the issuer, we can add them to the trusted list in Windows
+cert.mgr. In Linux, certificates are stored in various directories.
+
+Other causes of untrusted certs:
+  -> Cert subject name does not match the URL. We can confirm the certs common
+     name by trying to access the page with that URL.
+  -> Thhe cert isn't being used for its stated purpose. A certificate described
+     for email is being used for a web server, this is an issue.
+  -> Time incorrectly synced between server and client.
+
+
+
+
+
+---
+Other Common Issues
+
+NTP Issues
+
+Authentication, authorization, and logging mechanisms depend on a synchronized
+time source. NTP is that time source on UDP/123. On Windows:
+  > w32tm /query/configuration
+
+On linux:
+  $ cat /etc/ntp.conf
+

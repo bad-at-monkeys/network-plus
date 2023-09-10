@@ -1,0 +1,510 @@
+LESSON 12 - ENSURING NETWORK AVAILABILITY
+
+##########
+EXPLAIN THE USE OF NETWORK MANAGMENT SERVICES
+
+
+---
+SSHs and TTYs
+
+TTYs are terminals, they are the endpoint for communication between computer
+and user.
+
+Terminal emulators are what emulates the TTY function.
+
+
+SSH is how we attain secure remote access to a system. SSH is on TCP port 22.
+
+
+
+SSH Host Key
+
+SSH servers are isentified by a public/private key pair. This is the host key.
+
+
+
+SSH Client Authentication
+
+The server's host key is used to set up a secure channel to use for the
+client to submit authentication credentials. This can be done a few ways:
+  -> Username/password; the client submits credentials that are verified
+     by the SSH server either against a local user database or using a
+     network authentication server.
+  -> Public key authentication; each remote user's public key is added to a
+     list of keys authorized for each local account on the SSH server.
+  -> Kerberos; the client submits the Kerberos credentials obtained when the
+     user logged in to the workstation to the server using Generic Security
+     Services Application(GSSAPI). The SSH server contacts the Ticket Granting
+     service to validate the credential.
+
+
+
+
+
+---
+SSH Commands
+
+sshd - start the ssh daemon
+
+ssh-keygen - create a key pair to access servers with. The private key gets
+             stored on the local system, while the public key is stored on the
+	     server using ssh-copy-id.
+
+ssh-agent - configure a service to store keys used to access multiple hosts.
+            This provides a single sign on method for multiple SSH servers.
+
+ssh [host] - connect to a specified host
+ssh [username]@[host] - connect to a host with that username
+
+scp [username]@[host]:[file] /path/to/file - file transfer client (rcp type)
+sftp - file transfer client (ftp type)
+
+
+
+
+
+---
+Telnet
+
+Telnet is an insecure protocol/terminal emulation software tool that
+transmits shell commands to remote hosts. It's on TCP/23.
+
+Nothing is encrypted over telnet.
+
+Uninstall telnet and block access to port 23.
+
+
+
+
+
+---
+NTP
+
+Network Time Protocol enables the synchronization of time-dependent
+applications. NTP is on UDP/123.
+
+Top-level NTP servers (stratum one) obtain the Coordinated Universal Time(UTC)
+via a direct physical connection to an accurate clock source. An NTP server
+that synchronizes its time within a stratum 1 server over a network is
+operating at stratum 2.
+
+Each stratum represents a step away from clock accuracy.
+
+In Windows we use win32tm to configure time.
+
+In Linux we use /etc/ntp.conf:
+
+tylerbrw@u39190a389f8a59:~$ cat /etc/ntp.conf 
+server ant.amazon.com
+server dc-iad2d-04.ant.amazon.com
+server dc-iad4a-04.ant.amazon.com
+server dc-iad4a-05.ant.amazon.com
+server dc-iad6b-04.ant.amazon.com
+server dc-iad6b-05.ant.amazon.com
+
+
+
+
+
+##########
+USE EVENT MANAGEMENT TO ENSURE NETWORK AVAILABILITY
+
+---
+Performance Metrics Bottlenecks and Baselines
+
+Performance Metrics
+
+  -> Bandwidth/throughput; this is the speed of all interfaces available
+     to the device, measured in Mbps or Gbps. For wired Ethernet links, this
+     will not typically vary. WAN and wireless links can change over time.
+
+  -> CPU/memory; if cpu or memory usage is high, consider upgrading or
+     reconfiguring an intensive process.
+
+  -> Storage;
+
+
+
+Bottlenecks
+
+Bottlenecks are points of poor performance that reduce the productivity of
+the entire network.
+
+
+
+Performance Baselines
+
+Baselines establish resource utilization at a point in time.
+
+We can use baselines to compare with later.
+
+
+
+
+
+---
+Environmental Monitoring
+
+Temperature
+Humidity
+Electrical voltage
+Flooding
+
+
+
+
+
+---
+SNMP
+
+SNMP is how we monitor and manage network connected devices.
+
+
+
+SNMP Agents
+
+The agent is a process running on an SNMP device. The agent maintains the
+MIB, which holds statistics of devices.
+
+Each param in a MIB is referred to by the OID.
+OIDs are stored in a tree structure.
+
+An agent is configured with the community name of the devices allowed to
+manage the agent and the IP address or hostname of the server running the
+management system.
+
+The community name is a sort of password. Agents can pass information only
+to management systems with the same community name.
+
+There are two community names --- one for read-only access, one for read-write
+access (privelaged mode).
+
+
+
+SNMP Monitor
+
+Monitors poll agents at regular intervals to update their MIBs and then
+display the information. Trap operations are also displayed as alerts. The
+monitor can retrieve information from a device two ways:
+  -> Get; the monitor queries the agent for a single OID. This command is
+     used to preform regular polling of agents at defined intervals.
+  -> Trap; the agents notifies the monitor of an event. Trap triggers
+     are configured by the admin.
+
+The Set command can be used to change values.
+
+A monitor can also walk an MIB subtree by using multiple Get and Get Next
+commands to discover the complete MIB layout.
+
+Device queries are over UDP/161.
+Traps are over UDP/162.
+
+
+
+
+
+---
+Network Device Logs
+
+System Logs
+Records startup events plus subsequent changes to the configuration at the
+OS level. Includes kernel processes, drivers, core services.
+
+
+
+Application Logs
+Records data for a single service.
+
+
+
+Audit logs
+Records the use of authentication and authorization privelages. Generally
+records success/fail type events. Can be performed at a system or
+application level.
+
+
+
+Performance/Traffic Logs
+
+
+
+
+
+---
+Log Collectors and Syslog
+
+Log collectors aggregate event messages from numerous devices to a single
+location.
+
+Syslog is a protocol and supporting software that facilitates log collection.
+Syslog collectors listen on port UDP/514.
+
+Syslog messages consist of a PRI code, a header (timestamp && hostaname), and
+a message part.
+
+
+
+
+
+---
+Event Management
+
+Syslog severity levels:
+  -> 0; Emergency. System unusable (kernel panic).
+  -> 1; Alert. Immediate remediation required.
+  -> 2; Critical. Immediate remediation likely, soon.
+  -> 3; Error. Nonurgent fault.
+  -> 4; Warning. Nonurgent fault likely developing.
+  -> 5; Notice. Potential errors.
+  -> 6; Informational. Normal, but reportable.
+  -> 7; Debug. Used during R&D.
+
+The logging level configured determines the maximum level at which events are
+recorded.
+
+If logging level for remote forwarding is set to 4, events 5+ are NOT
+forwarded.
+
+
+
+
+
+---
+Log Reviews
+
+Use a graphing software for this shit.
+
+
+
+
+
+##########
+USE PERFORMANCE METRICS TO ENSURE NETWORK AVAILABILITY
+
+---
+Network Metrics
+
+QoS protocols and systems are designed to support real-time services.
+
+
+Bandwidth
+Bandwidth is the amount of information that can be transmitted and measured
+in bits per second(bps).
+
+When monitoring bandwidth we must distinguish between the nominal data/Eth
+bit rate, the throughput of a link at layer3, and the goodput available to
+an application.
+
+Sufficient bandwidth for VoIP would allow for 100Kbps per call up/downstream.
+
+Bandwidth required for video is determined by image resolution, color depth,
+and frame rate in fps.
+
+
+
+Latency and Jitter
+
+Latency is the time it takes for a transmission to reach its recipient measures
+in milliseconds(ms).
+
+Jitter is a variation in delay through the inconsistent delivery of packets measured
+in milliseconds.
+
+Latency is what makes us buffer content so that our packets can catch up.
+
+ping, pathping, and mtr can measure latency.
+
+When assessing latency, we must consider Round Trip Time(RTT),
+VoIP is generally expected to require an RTT of 300ms.
+Jitter should be 30ms or less.
+The link should also have less than 1% packet loss.
+
+
+
+
+
+---
+Bandwidth Management
+
+Differentiated Services
+
+DiffServ is a Class of Service(CoS) mechanism. Not a QoS.
+
+DiffServ framework classifies each packet passing through a device. The packet
+classifications are used to prioritize delivery.
+
+DiffServ is on layer 3 acting as a service tagging mechanism. It uses the type of
+service field in the IPv4 header (Traffic Class in IPv6).
+
+The field is populated with a 6-byte DiffServ Code Point(DSCP) by either the sender
+or the router.
+
+Packets with the same DSCP and destination are referred to as Behavior Aggregates
+and allocated the same Per Hop Behavior(PHB) at each DiffServ compatible router.
+
+DiffServ packets are classified into three types:
+  -> Best Effort
+  -> Assured Forwarding; not broken into sublevels
+  -> Expedited Forwarding; has the highest priority
+
+
+
+IEE 802.1p
+
+802.1p works at layer 2 to classify and prioritize traffic passing through a switch
+or WAP. 802.1p is a tagging mechanism within the 802.1q VLAN field.
+
+The 3-bit priority value can be 0-7. Most vendors map DSCP vals to 801.1p ones.
+0 being the low priority, 7 being highest.
+
+
+
+
+
+---
+Traffic Shaping
+
+QoS is distinct from CoS.
+
+CoS mechanisms only group protocols of different service levels together and tag
+them.
+
+QoS offers fine grained control over traffic params.
+
+CoS cannot mitigate congestion, but QoS can. A protocol like MPLS with QoS
+functionality can reserve the required bandwidth and pre-determine statistics like
+acceptable packet loss, maximum latency, and jitter when setting up a link.
+
+In QoS, network functions are divided into 3 planes:
+  -> Control plane; makes decisions about how traffic is prioritized and where it
+     should be switched.
+  -> Data plane; handles the actual switching of traffic.
+  -> Management plane; monitors traffic conditions.
+
+Traffic shapers are protocols, appliances, or software that can apply these three
+functions. Based on traffic content, certain packets can be delayed behind other
+packets with higher priority.
+
+
+
+
+
+---
+Traffic Analysis Tools
+
+Throughput Testers
+
+Measuring thrughput can be done by transferring a file between hosts and
+monitoring.
+
+To determine network throughput:
+  -> file-size/time-to-tranfer
+
+Transferring a 1GB file in 30min:
+  -> 1GB = 8,589,934,592bits
+  -> 8,589,934,592bits in 1,800sec is 4,772,186bps(4.55Mbps)
+
+
+
+Top Talkers/Listeners
+
+Top talkers are the interfaces generating the most outgoin traffic in terms
+of bandwidth.
+
+Top listeners are the interfaces receiving the most traffic.
+
+The Endpoints report in wireshark can identify the top talkers and listeners.
+
+
+
+Bandwidth Speed Testers
+
+There are two classes:
+  -> Broadbannd speed checkers; test how fast the local broadband length to the
+     Internet is. Mostly designed for SOHO use.
+  -> Website performance checkers; queries a nominated website to work out how
+     quickly pages load.
+
+
+
+
+
+---
+NetFlow
+
+NetFlow gathers traffic metadata only and reports it to a structured database.
+This saves on processing overhead, recording each frame is resource intensive.
+
+
+
+
+
+---
+Interface Monitoring Metrics
+
+-> Link-state; measures whether an interface is up or down.
+-> Resets; numbber of times a interface has reset over the counter period.
+-> Speed; rated speed of the interface in Mbps or Gbps.
+-> Duplex; we need to be running in full duplex mode.
+-> Utilization; data transferred over a period.
+-> Per-protocol Utilization; packet or byte stats for a specific protocol.
+-> Error rate; number of packets per second causing errors.
+-> Discards/drops; from checksum errors, mismatched MTUs, packets too small or
+   large, high load, and even permissions.
+-> Retransmissions; the result of errors and discards/drops.
+
+
+
+
+
+---
+Troubleshooting Interface Errors
+
+Cyclic Redundancy Check Errors
+
+A CRC check is calculated by an interface when it sends a frame. From the
+frame's contents a 32-bit CRC value is generated and added to the header as the
+FCS.
+
+The receiving interface uses the same calculation, iif it gets a different value
+then the frame is rejected.
+
+CRC errors are typically caused by interference.
+
+
+
+Encapsulation Errors
+
+When we check the interface status and the physical link is up, but the line
+protocol will be listed as down, this happens because:
+  -> Ethernet frame type; most common Ethernet frame types are Ethernet II,
+     an interface may be configured to use a different frame type.
+  -> Ethernet trunks; the trunked switchhes must be configured for 802.1q.
+  -> WAN framing; provider router interfaces may use a variety of frame formats,
+     the CE and PE must be configured to the same Ethernet frame types.
+
+
+
+Runt Frame Errors
+
+Runts are frames that are smaller than the minimum frame size, which is 64bytes
+for Ethernet.
+
+Runt frames are typically caused by collisions, and in a switched environment
+collisions should only be experienced if connected to some legacy device where
+interfaces are on the same collision domain.
+
+Bad drivers can also cause runts.
+
+
+
+Giant Frame Errors
+
+These are larger than the maximum size, which is 1518bytes on Ethernet II.
+
+Giant frames are caused by:
+  -> Ethernet trunks; each switch being trunked needs to be configured for
+     802.1q.
+  -> Jumbo frames; a host may be configured to take jumbo frames while the
+     switch may not be configured that way. Typically occurs where SANs and
+     data networks meet.

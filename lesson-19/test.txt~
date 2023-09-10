@@ -1,0 +1,62 @@
+LESSON 19 TESTS - APPLYING NETWORK HARDENING TECHNIQUES
+
+---
+BOOK 19A
+
+1) Response time on the website that hosts the online version of your
+product catalog is getting slower and slower. Customers are complaining
+that they cannot browse the catalog items or search for products. What
+type of attack do you suspect?
+
+DoS
+
+
+
+2) The network administrator at your organization analyzes a network
+trace capture file and discovers that packets have been intercepted and
+retransmitted to both a sender and a receiver during an active session.
+What class of attack has been detected?
+
+On path
+
+
+
+3) True or false? To perpetrate an ARP spoofing attack, the threat actor
+spoofs the IP address of a legitimate host, typically the subnet’s default
+gateway.
+
+True.
+
+
+
+4) A threat actor forces clients to disconnect from a legitimate access point
+to try to force them to reconnect to an access point controlled by the
+attacker using the same network name. What two attack types are being
+used?
+
+Deauthentication. Rogue AP.
+
+
+
+5) Analysis of outgoing traffic shows connections by IP cameras to
+unidentifiable domain names. What type of traffic has been detected?
+
+This is command and control traffic between a handler and botnet of compromised
+IP camera devices, often called an IoT botnet.
+
+
+
+6) Employees have received emails prompting them to register for a new
+benefit package. The link in the mail resolves to a malicious IP address.
+What type of attack is being performed?
+
+Phishing.
+
+
+
+
+
+---
+BOOK 19B
+
+1) 

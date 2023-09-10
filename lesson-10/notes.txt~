@@ -1,0 +1,122 @@
+LESSON 10 - EXPLAINING NETWORK SERVICES
+
+##########
+EXPLAIN THE USE OF NETWORK ADDRESSING SERVICES
+
+---
+Dynamic Host Configuration Protocol
+
+DHCP automatically assigns IPs, subnet masks, and opt params like the
+default gateway and DNS server addresses when a host joins the network.
+
+The DHCP client and server go through the DORA process:
+  -> Discover
+     Broadcasts a discover packet to find the dhcp server.
+  -> Offer
+     The DHCP server gives an IP config offer.
+  -> Request
+     The client requests a configuration (typically the offer).
+  -> Ack
+     The server acks the request and the lease is set on the client config.
+
+
+
+
+
+---
+DHCP Server Configuration
+
+A DHCP server must be allocated a static IP and configured with a pool of
+IPs, subnets, and opts to allocate as configuration values for clients.
+
+To define the scope we must give the start and end of the IP range and
+a subnet mask. Scopes to subnets is a 1:1 mapping.
+
+The DHCP server must be placed within the same scope as its clients.
+Advanced DHCP servers can operate multiple scopes.
+
+
+
+
+
+---
+DHCP Options Configuration
+
+A client can renew a lease when atleast half the lease (87.5%) is up so that
+it may keep the same IP configuration.
+
+If the renew fails, the lease is released and the DORA process starts.
+
+
+Short lease periods are good for networks with low IP supply and frequent
+outside outside devices.
+
+
+
+DHCP Options
+
+Each opt is identified by a tag-byte or decimal value 0-255 (neither 1 or 255
+can be used). Some opts include:
+  -> The default gateway
+  -> The IP address(es) of DNS servers that can resolve name queries.
+  -> The DNS suffix (domain name) of thhe client.
+  -> Time sync(NTP), file transfer(TFTP), or VoIP proxy.
+
+
+
+
+
+---
+DHCP Reservations and Exclusions
+
+IP retainment isn't guaranteed.
+
+We can guarantee a device keeps its IP if it is defined statically outside
+of the DHCP scope.
+
+An alternative way to do this is to set a DHCP reservation on that address.
+The reservation is a mapping of MAC address(iface ID) to a specific IP
+within the DHCP pool.
+
+The DHCP server will always provide the same IP for that device in this way.
+
+
+
+
+
+---
+DHCP Relay and IP Helper
+
+Each broadcast domain must be served by its own dhcp server.
+This is because routers do not forward broadcast traffic.
+
+DHCP relay agents resolve this issue. The DHCP relay intercepts broadcast dhcp
+frames, applies a unicast address for the appropriate DHCP server, and forwards
+them over the interface for the subnet containing the server.
+
+Routers that provide dhcp relay services are RFC 1542 compliant.
+
+
+The DHCP relay also performs the reverse process of directing responses from
+the server to the appropriate client subnet, otherwise known as the IP
+helper functionality.
+
+IP helper can be configured to allow set types of broadcast traffic
+(including DHCP) to be forwarded to an interface.
+
+The IP helper function suppoorts the function of the DHCP relay.
+
+
+To enable forwarding of DHCP broadcasts on the interfaces serving the client
+subnets:
+
+# interface eth1
+# ip helper-address 10.1.0.200
+#
+# interface eth2
+# ip helper-address 10.1.0.200
+
+
+
+
+

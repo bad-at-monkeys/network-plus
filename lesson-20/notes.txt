@@ -1,0 +1,358 @@
+LESSON 20 NOTES - SUMMARIZING CLOUD AND DATACENTER ARCHITECTURE
+
+##########
+SUMMARIZE CLOUD CONCEPTS
+
+---
+Cloud Scalability and Elasticity
+
+Scaleability; the cost involved in supplying the service to more users is linear.
+If the number of users doubles in a scaleable system, the cost to maintain the
+same level of service will also double. If costs are more than double, the system
+is less scaleable. Scaleability can be achieved by adding nodes (horizontal) or by
+adding resources to each node (vertical).
+
+Elasticity; the system's ability to handle changes on demand in real time. A system
+with high elasticity will not experience loss of service or performance if demand
+suddenly doubles, triples, or quadruuples.
+
+
+
+
+
+---
+Cloud Deployment Models
+
+Public, Hosted Private, Private, Community, Hybrid
+
+
+
+
+
+---
+Cloud Service Models
+
+IaaS, SaaS, PaaS, DaaS
+
+
+
+
+
+---
+Cloud Connectivity Options
+
+Internet/VPN, Private-Direct Connect/Colocation
+
+
+
+
+
+---
+IaaS
+
+Where automation and orchestration fully replace manual configuration.
+
+Automation; blocks of code configure systems for us.
+
+Orchestration; automating a sequence of tasks.
+
+
+
+
+
+---
+Cloud Security Implications
+
+Having a 3rd party manage everything is risky, so the SLAs should be defined in
+a cloud responsibility matrix.
+
+
+
+
+
+##########
+EXPLAIN VIRTUALIZATION AND SAN TECHNOLOGIES
+
+---
+Hypervisor Types
+
+Hypervisors manage the virtual environment of a system and facilitates interaction
+with the computer hardware and network.
+
+In a guest OS system, the hypervisoe application is a type II. This is VirtualBox.
+
+Bare metal platforms means that a type I hypervisor is directly intalled on the
+computer and manages access to the host hardware without using a host OS.
+
+
+
+
+
+---
+Virtual NICs and Switches
+
+This is the same thing as physical hardware basically, except -
+
+in this networking model, the VMs and the virstual switch can all be contained
+within the same hardware platform. In this way, no actual network traffic is
+generated. Instead, data is moved from buffers in one VM to another.
+
+Thhree types of virtual switches can typically be created:
+  -> External; binds to the host's NIC to allow the VM to communicate on the
+     physical network.
+  -> Internal; creates a bridge that is usable only by VMs on the host and the
+     host itself. Does not permit access to the wider physical network.
+  -> Private; creates a switch that is usable only by the VMs. They cannot use the
+     switch to communicate with the hosts.
+
+
+
+
+
+---
+Network Function Virtualization
+
+None of the requirements of a virtual network are different than that of a
+physical network.
+
+We can model our virtual network after a standard like ETSIs Network Function
+and Virtualization (NFV), which divides provisioning into three domains:
+  -> Virtual Network Funciton (VNF); specifies and deploys instances of each
+     virtual appliance. Designed to run as VMs on standard cpu platforms.
+  -> NFV infrastructure; controls the allocation of compute plus storage and
+     networking resources to each VNF.
+  -> Managment and orchestration (MANO); positions VNFs within workflows to
+     preform the forwarding and filtering tasks they are designed for.
+
+
+
+
+
+---
+SANs
+
+SANs provision access to storage devices at block level. Each read or write
+operation addresses the actual location of data on the media.
+
+SANs are isolated from the main network, only accessed by servers, not client pc's
+or laptops.
+
+
+
+
+
+---
+SAN Connection Types
+
+Fibre Chhannel is defined in the T11 ANSI standard.
+
+An SAN based on a Fibre Channel Switched Fabric (FC-SW) involves three main types
+of components:
+  -> Initiator; client device of the SAN (file or database server) installed with
+     a fibre channel host bus adapter (HBA).
+  -> Target; the network port for a storage device. Devices include drives, RAID
+     arrays, tape drives, and tape libraries. Space on the storage devices is
+     divided into logical volumes, identified by a logical unit number (LUN). The
+     initiator will use certain commands to operate the storage devices.
+     Initiators and targets are identified by 64-bit Worldwide Names (WWN) similar
+     ro network adapter MAC addresses.
+  -> FC switch; provides the fabric connecting the initiators and targets. These
+     are referred to as directors on the SAN.
+
+Fibre Channel can use rates 1GFC(1Gbps)-128GFC.
+
+With SMF an FC fabric can be up to 10km.
+With MMF 500m.
+
+
+
+Fibre Channel over Ethernet
+
+FCoE is a means of delivering Fibre Channel packets over Ethernet cabling and
+switches. These require converged network adapters (CNAs).
+
+FCoE uses a paticular frme type identified by the value 0x8096. The protocol maps
+WWNs onto MAC addresses.
+
+
+
+
+
+---
+iSCSI
+
+Internet Small Computer System Interface (iSCSI) is an IP tunneling protocol that
+enables the transfer of SCSI data over an IP-based network. iSCSI works with
+ordinary Ethernet network adapters and switches.
+
+
+
+
+
+##########
+EXPLAIN DATACENTER NETWORK ARCHITECTURE
+
+---
+Datacenter Network Design
+
+Datacenters are sites dedicated to provisioning server resources. Datacenters
+host network services, application servers, and SANs.
+
+Datacenters contain no client PCs, except the hardened Secure Administrative
+Workstations (SAWs) used solely to manage the servers.
+
+
+
+Traffic Flows
+
+Traffic that goes to and from a data center is known as north-south traffic. This
+represents clients outside the datacenter making requests and receiving responses.
+
+Traffic between servers within a datacenter is referred to as east-west traffic.
+
+An East-west traffic request typically cascades into multiple service requests.
+
+
+
+Overlay Networks
+
+Overlay networks implement zero trust architectures. Zero trust architectures are
+highly segmented networks where each link between two servers must be
+authenticated and authorized.
+
+An overlay network uses encapsulation protocols and software defined networking to
+create a logical tunnel between two nodes or networks.
+
+When used inside of a datacenter, overlay networks are typically implemented using
+virtual extensible LANs (VXLANs).
+
+
+
+
+
+---
+Software Defined Networking
+
+This is a form of IaaC.
+
+SDN Architecture
+
+The IETF divides the SDN model into three layers:
+  -> Application layer; applies business logic to make decisions about how traffic
+     should be prioritized and secured and where it should be switched. This layer
+     defines policies such as segmentation, ACLs, and traffic prioritization and
+     policing/shaping.
+  -> Infrastructure layer; devices (physical or virtual) that handle the actual
+     forwarding of traffic and imposition of ACLs and other policy configurations
+     for security.
+  -> Control layer; in-between the Application and Infra layer. This layer is
+     implemented by a virtual device called the SDN controller. The application
+     side is called the northbound API, the infra side is called the southbound
+     API.
+
+
+
+Management Plane
+
+At the infra level there are separate forwarding and operational planes. The
+operational plane implements device state. A management plane sits with the
+control plane to interface with the operational plane.
+
+
+
+
+
+---
+Spine and Leaf Topology
+
+Spine and leaf topologies better support east-west traffic. This topology consists
+of two layers:
+  -> The spine layer comprises a backbone of top-tier switches not linked to one
+     another.
+  -> The leaf layer contains access switches. Each access switch is connected to
+     every spine switch in a full mesh topology. The access switches never have
+     direct connections with another.
+
+
+Advantages of the spine and leaf:
+  -> Each server is only a single hop from the backbone.
+  -> Multiple redundant links allow for loadbalancing and failover.
+  -> The network is loop free, there are no links connecting access switches with
+     another.
+  -> Multipath redundancy for the servers to the network.
+
+
+
+
+
+---
+Datacenter Access Types
+
+Branch Office Datacenter Access
+
+A hub-and-spoke type design, has limitations.
+
+GRE encapsulates data from layer 2 (Ethernet) or layer 3 (IP) for tunneling over
+any suitable transport network. Multipoint GRE is a version of the protocol that
+supports point-to-multipoint links.
+
+Typically used to connect branch offices to an on-premises datacenter located at
+the head office.
+
+
+
+Colocation
+
+Colocation means that a company's private servers and network appliances are
+installed to a datacenter that is shared by multiple tenants.
+
+
+
+
+
+---
+MPLS
+
+MPLS is a means of establishing private links with guaranteed service levels.
+
+MPLS labeled packets are routed by their labels by Label Switching Routers (LSR).
+LSRs determine the label switched path (LSP) of the MPLS packet based on network
+params. In MPLS, routing tables are avoided and the label is popped off of the
+packet once the destination is reached.
+
+
+A basic use of MPLS is to create site-to-site VPNs to interconnect LANs or a
+branch office to a data center.
+
+
+
+
+
+---
+Software-defined WAN
+
+SD-WAN replaces hub-and-spoke type designs with more efficient, but still secure,
+connectivity to corporate clouds with less of the expense associated with
+provisioning an MPLS service to each remote location.
+
+SD-WANs are overlay networks that provisions a corporate WAN across multiple
+locations and can facilitate secure access to the cloud directly from a branch
+office or other remote location.
+
+SD-WANs use IPSec.
+
+
+SD-WANs are managed by a controller and management software in a corporate data
+center or public cloud. Each site has an SD-WAN capable router, gateway, or VPN
+app.
+
+The controller orchestrates connections to networks and clouds enrolled in the
+SD-WAN.
+
+Any available underlying IP network can be used --- broadband, 4G/5G, or private
+MPLS VPNs to provision the fastest or most reliable transport to networks and
+clouds enrolled in the SD-WAN.
+
+The controller also enforces authentication and authorization.
+
+
