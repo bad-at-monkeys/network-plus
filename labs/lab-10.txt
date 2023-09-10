@@ -1,0 +1,40 @@
+APPLIED LAB 10A 10B - TROUBLESHOOT IP NETWORKS
+
+Which of the following represent the class A, B, and C reserved IP
+address ranges?
+
+192.168.0.0/16 - Class c
+172.16.0.0/12 - Class B
+10.0.0.0/8 - Class A
+
+
+
+---
+Configure a managed switch.
+
+$ net show interface all
+
+Add switch interfaces 1-6:
+$ net add interface swp1-6 mtu 1500
+$ net pending
+$ net commit
+
+$ net sh int all
+
+
+
+---
+Configure RIP
+
+$ sh ip rip
+$ conf
+# set protocols rip interface eth1
+# set protocols rip redistribute connected
+# commit && save && exit
+$ sh ip rip
+
+Verify:
+$ sh ip ro
+$ sh ip rip
+
+

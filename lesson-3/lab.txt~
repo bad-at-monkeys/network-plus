@@ -1,0 +1,29 @@
+LAB 03 - CONFIGURE INTERFACE SETTINGS
+
+
+We are going to train at layer1 and layer2 and configure
+hubs and switches in gns3.
+
+The gns3 project file is lab-03 in the lesson-3 directory.
+
+
+Open lab-03-start.
+
+1) Start the nodes.
+
+
+
+2) Go to PC1s console.
+
+
+
+3) Ping PC2.
+ping 10.0.0.2
+
+
+
+4) Try to ping PC3. We can't because it isnt connected.
+Add a link to PC3.
+
+
+

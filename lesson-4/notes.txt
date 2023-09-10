@@ -1,0 +1,276 @@
+LESSON 4 - TROUBLESHOOTING ETHERNET NETWORKS
+
+
+##########
+EXPLAIN NETWORK TROUBLESHOOTING METHODOLOGY
+
+
+---
+Network Troubleshooting Methodology
+
+*** MUST STUDY ***
+This is CompTIA's metodology.
+
+1) Identify the problem.
+     -> Gather information.
+     -> ID symptoms and duplicate.
+     -> Question users.
+     -> Determine changes occured.
+     -> Approach multiple problems individually.
+2) Establish a theory of probability.
+     -> Top-to-bottom, Bottom-to-top OSI Model approach.
+          + Decide whether hardware or software related.
+	  + Decide whether hardware or subsystem (NIC or cable)
+	  + Pinpoint the issue further
+	  + Test theory against working devices
+     -> Divide and Conquer.
+3) Test the theory.
+4) Establish a plan of action to resolvethe problem and identify
+   potential effects.
+5) Implement the solution or escalate as necessary.
+6) Verify system functionality, implement preventative measures.
+7) Document findings, actions, and outcomes.
+
+
+
+
+
+##########
+TROUBLESHOOT COMMON CABLE CONNECTIVITY ISSUES
+
+
+---
+Specification and Limitations
+
+
+Speed vs Throughput
+
+At the physical layer a signal transmitted over a comm channel consists of
+symbols. Symbols are any sort of events in series that transition the signal
+to the next state.
+
+The number of symbols that can be transmitted per second is the baud rate.
+Baud rate is measured in MHz or GHz.
+
+Baud rate = physical
+
+
+At the data-link layer, the bandwidth of a link is the amount of information
+that can be transmitted in bits per second. With the use of encoding methods,
+the bit rate will always exceed the baud rate.
+
+Bandwidth = data-link
+
+
+The speed at which packets are delivered in milliseconds as latency, which
+isn't typically an issue on local ethernet networks.
+
+Latency = speed
+
+
+
+Distance Limitations, Attenuation, and Noise
+
+Attenuation and noise are what set distance limitations.
+  -> Attenuation is the loss of signal strength in dB. dB represents the ratio
+     between two measurements; signal strength at origin and destination.
+  -> Noise is anything that gets transmitted within or close to the channel
+     that isn't the intended signal. This causes the signal to be difficult to
+     distinguish, generating errors and forcing retransmission. Noise is
+     expressed as signal-to-noise ratio(SNR).
+
+
+
+
+
+---
+Cable Issues
+
+Ethernet links typically consist of:
+  -> Network tranceiver (host/end system)
+  -> Patch cable from host to wall port
+  -> Structured cable between wall port and patch panel (permanent link)
+  -> Patch cable between the patch panel and the switch port
+  -> Network transceiver in the switch port (intermediate system)
+
+This entire cable path is the channel link.
+
+
+Patch cable should be checked first, then transceivers. We can use loopback
+tools for bad ports.
+
+If these steps fail, we must test the structured cabling(permanent link).
+
+
+
+
+
+---
+Loopback Plugs, Status Indicators, and Interference Configuration
+
+Looopback Adapter/Plug
+A loopback adapter is a RJ-45 plug with a 6" stub of cable. It has pin 1 (Tx)
+to pin 3 (Rx) and pin 2 (Tx) to pin 6 (Rx).
+
+With this connected to a NIC, the NIC sends a packet to itself. We can use this
+to test for bad ports.
+
+
+
+LED Status Indicators
+Typical LED states:
+  -> Solid green; connected, no traffic
+  -> Blinking green; connected, with traffic flow
+  -> No light; not working, disconnected
+  -> Blinking amber; fault detected
+  -> Solid amber; the port is disabled
+
+
+
+Interface Configuration
+If there are no other obvious hardware issuues with the NIC, the autonegotiation
+process may have failed, speeds may be mismatched, or the duplex settings aren't
+correct.
+
+This will be because either the adapter or the switchport has been manually
+configured. Configuring both as autonegotiate usually fixes the issue.
+
+
+
+
+
+---
+Cable Testers
+
+When troubleshooting a permanent link, we must determine that the cable type is
+appropriate for the application. Distance, bandwidth, shielded/unshielded, etc.
+are all considerations.
+
+Cable testers report detailed information on the physical and electrical
+properties of a cable. It can test condition, cross-talk, attenuation, noise,
+resistance, etc.
+
+Cable certifiers extensively test a cable run to see that it exceeds spec.
+
+
+A cable tester may implement the function of a time domain reflectometer(TDR).
+TDR is used to measure the length of a cable run, detect open and short
+circuits, kink/bends, and other imperfections.
+
+
+
+
+
+---
+Wire Map Testers and Tone Generators
+
+Wire map testers are multimeter type devices that can identify:
+  -> Continuity (open) - a conductor does not form a circuit because of cable
+     damage or because the connector is not properly wired.
+  -> Short - two conductors are joined at the same point.
+  -> Incorrect pin-out/termination/standard pair - the conductors are
+     incorrectly wired to the terminals at one or both ends of the cable:
+       -> Reversed pair - the conductors in a pair were wired to the wrong
+          terminal.
+       -> Crossed pair (Tx/Rx reverse) - as we see in a crossover cable.
+  -> Split pair - both ends of a single wire in one pair are wired to two
+     different terminals.
+
+
+A tone generator and probe are used to trace a cable from one end to the other.
+
+
+
+
+
+---
+Attenuation and Interference Issues
+
+If the cable link is too long:
+  -> Decibel loss, error rates, reTx
+  -> Reduced speeds
+  -> Loss of connectivity
+
+Insertion loss is measured in decibels and represents the ratio of the received
+voltage to the original voltage.
+
+Logarithmic scales are non-linear, so a small change in value represents a
+large change in performance:
+  -> +3 is doubling, -3 is halving
+  -> +6 is quadrupling, -6 relates to a quarter
+  -> +10 is multiplying by ten, -10 is a tenth
+
+
+While measuring insertion loss, smaller values are better. Cable certifiers
+can report the margin between actual loss and maximum loss allowed for the
+given standard.
+
+High margins are better. Cat5e allows up to 24dB, insertion loss rated at 22dB
+is better than 23dB because 23dB is too close to the maximum rate allowed.
+We would need a shorter cable run or install a repeater/switch.
+
+
+Electromagnetic Interference(EMI) iis interference from the environment and
+should be checked at intallation.
+
+
+
+
+
+---
+Crosstalk Issues
+
+Crosstalk indicates a problem with bad wiring, connectors, or improper
+termination.
+
+Crosstalk is measured in dB, but unlike insertion loss, higher values
+represent less noise. The various types of crosstalk that can be measured:
+ -> Near End(NEXT) - on the receiver pair at the transmitter end; typically
+    caused by untwisting of pairs or faulty shield elements.
+ -> Attenuation to Crosstalk Ratio, Near End(ACRN) - difference between the
+    insertion loss and NEXT. Equivalent to signal to noise ratio(SNR). A
+    high value represents strong signal, low values have high error rate.
+ -> Attenuation to Crosstalk Ratio, Far End(ACRF) - Far End Crosstalk (FEXT)
+    is measured on the receive pairs at the recipient end. The difference
+    between insertion loss and FEXT is ACRF; measuring cable performance
+    regardless of length.
+ -> Power sum - GbE and 10GbE use all four pairs. PSNEXT, PSACRN, PSACRF
+    confirm that a cable is suitable for this type of application
+
+
+
+
+
+---
+Cable Application Issues
+
+Straight Through and Crossover Cables
+  -> Straight through; both ends T56A or B; used to connect differing devices.
+  -> Crossover; opposing ends, used to connect like devices.
+
+Auto-MDI/MDI-X solve this issue on all modern GbE ports.
+
+
+
+Rollover Cable/Console Cable
+  -> Used to interface with the router/switch's console.
+     Pale blue, RJ-45 jack or mini-USB.
+
+
+
+PoE
+Cat3 or better is required for PoE.
+PoE+ must be Cat5e or better.
+
+
+
+
+
+---
+Fiber Optic Cable Testing Tools
+
+Optical Time Domain Reflectometer(OTDR) - pinpoints the location of a break
+in fiber.
+
+Optical Spectrum Analyzer(OSA) - used with wavelength division multiplexing
+to ennsure that eachh channel has sufficient power.

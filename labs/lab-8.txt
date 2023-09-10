@@ -1,0 +1,10 @@
+LAB 08 - CONFIGURE STATIC ROUTING
+
+We configure static routes in gns3.
+
+Before we can ping the pc2 from pc1, we need to configure the interfaces
+on the routers.
+
+When statically assigning routes, we need to remember to configure the
+loopback address 10.0.0.1/32.
+

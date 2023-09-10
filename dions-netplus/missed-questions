@@ -1,0 +1,1324 @@
+REVIEW
+
+NOTE: always check the question for multiple answers.
+
+################################################################################
+################################################################################
+
+FIRST ATTEMPT - 83%
+
+################################################################################
+
+--------------------------------------------------------------------------------
+
+802.1d is for STP
+802.1q defines VLANs
+802.3af describes PoE
+802.3ad describes LACP
+802.1x is EAP authentication over WiFi
+
+--------------------------------------------------------------------------------
+
+SQLnet port 1521
+Microsoft SQL port 1433
+MySQL port 3306
+
+--------------------------------------------------------------------------------
+
+SMTP 25
+DNS 53
+DHCP UDP/67
+TFTP 69
+POP3 110
+POP3SSL - 995
+SMB 445,139
+IMAP 143
+SNMP 161,162
+LDAPS 636
+LDAP UDP/389
+
+--------------------------------------------------------------------------------
+
+0 - emergenncy
+1 - alert
+2 - crit
+3 - error
+4 - warning
+5 - notice
+6 - info
+7 - debug
+
+--------------------------------------------------------------------------------
+
+DHCP servers must provide an IP, subnet mask, default gateway, and DNS server to
+each client to eefectively access the internet.
+
+--------------------------------------------------------------------------------
+
+SDN Model:
+
+Application layer - business logic/desired config
+{Northbound API}  - service interface,SDN controller
+Contol layer (SDN Controller) - Control plane,Management Plane
+{Southbound API}
+Infra - Appliances,Network functions; handles actual forwarding and switching
+
+The OPERATIONAL PLANE implements device state, such
+as CPU and memory utilization.
+
+A MANAGEMENT PLANE sits at the same level as the
+control plane to interface with the operational plane. This is used to implement
+monitoring of traffic conditions and network status.
+
+In other words:
+
+The application layer focuses on the communication resource requests or
+information about the network.
+
+The control layer uses the information from applications to decide how to route a
+data packet on the network and to make decisions about how traffic should be
+prioritized, how it should be secured, and where it should be forwarded to.
+
+The infrastructure layer contains the physical networking devices that receive
+information from the control layer about where to move the data and then perform
+those movements.
+
+The management plane is used to monitor traffic conditions, the status of the
+network, and allows network administrators to oversee the network and gain
+insight into its operations.
+
+--------------------------------------------------------------------------------
+
+NAC will automatically test any wireless device that connects to the network
+before allowing full access to the corporate network and its resources.
+
+ACME uses NAC when checking compliance.
+
+--------------------------------------------------------------------------------
+
+In an ATM network, layer 2 frames are called ATM cells.
+
+--------------------------------------------------------------------------------
+
+1 - identify the prob
+2 - establish a theory of probable cause
+3 - test theory to determin
+4 - establish plan of sction
+5 - implement a solution or escalate
+6 - verify functionality
+7 - document, lessons learned
+
+--------------------------------------------------------------------------------
+
+For 802.11b and 802.11g networks, we use channels 1 6 11 with a 20MHz width
+
+--------------------------------------------------------------------------------
+
+A customer is trying to configure an 802.11b wireless card in an old laptop to
+connect to an 802.11g wireless router. When the customer scans for the wireless
+network's SSID (Dion-Corp), it is not displayed within Windows. What is the MOST
+likely reason that the SSID is not being displayed?
+
+The broadcast is disabled on the wireless router.
+
+802.11b and g use 2.4GHz.
+
+--------------------------------------------------------------------------------
+
+A network technician needs to monitor the network to find a user who is browsing
+websites that go against the company's acceptable use policy. What should the
+technician use to view the website and find the user browsing it?
+
+Packet sniffer. This is what we use to capture and analyze network traffic.
+
+--------------------------------------------------------------------------------
+
+A network administrator recently set up a network computer lab and discovered
+some connectivity issues. The administrator can ping the fiber uplink interface,
+but none of the new workstations plugged into the switch are responding to the
+technician's ICMP requests. Which of the following actions should the technician
+perform next?
+
+Determine if the link lights are lit for the ports. This is the simplest thing
+to check first on a new install, the other options would be checked later.
+
+--------------------------------------------------------------------------------
+
+Out-of-band (OOB) management is a method of remotely controlling and managing
+critical IT assets and network equipment using a secure connection through a
+secondary interface that is physically separate from the primary network
+connection.
+
+--------------------------------------------------------------------------------
+
+Which of the following components is used by an agent to send a complete set of
+key-pair values about a significant event or condition that is occurring in
+real-time by providing a full list of variables and values for a given device to
+a manager?
+
+Verbose trap. This gives ALL the info.
+
+A granular trap is different, it cintains the OID and the number value of the OID.
+
+--------------------------------------------------------------------------------
+
+ICMP is a connectionless protocol.
+
+--------------------------------------------------------------------------------
+
+A user's smartphone is displaying text in other languages in their web browser
+when accessing the company's main website. Which of the following is the MOST
+likely cause of the issue?
+
+On-path attack.
+
+--------------------------------------------------------------------------------
+
+ You have installed and configured a new wireless router. The clients and hosts
+ can ping each other. The network uses a fiber optic WAN connection with 1 Gbps
+ throughput. The wired clients have fast connections, but the wireless clients
+ are displaying high latency when a ping is performed. The wireless clients are
+ also only receiving 300 Mbps when downloading files from the Internet. Which of
+ the following is MOST likely the cause of the slow speeds experienced by the
+ wireless clients?
+
+The WAP is experiencing RF interference.
+
+--------------------------------------------------------------------------------
+
+SIP uses ports 5060/5061
+
+--------------------------------------------------------------------------------
+
+What remediation strategies are the MOST effective in reducing the risk to an
+embedded ICS from a network-based compromise? (Select TWO)
+
+Segmentation and disabling usused services.
+
+--------------------------------------------------------------------------------
+
+A technician is troubleshooting a workstation connectivity issue. The technician
+believes a static ARP may be causing the problem. What should the technician do
+NEXT according to the network troubleshooting methodology?
+
+Remove the ARP entry from the end user's workstation.
+
+--------------------------------------------------------------------------------
+
+Which of the following layers within software-defined networking focuses on
+resource requests or information about the network?
+
+Application layer.
+
+--------------------------------------------------------------------------------
+
+A network administrator has determined that the ingress and egress traffic of a
+router’s interface are not correctly reported to the monitoring server. Which of
+the following can be used to determine if the router interface uses 64 bit versus
+32-bit counters?
+
+SNMP walk
+
+--------------------------------------------------------------------------------
+
+Split horizon is a method used by distance vector protocols to prevent network
+routing loops.
+
+If a router receives routing information from another router, the first router
+will not broadcast that information.
+
+--------------------------------------------------------------------------------
+
+Which of the following network performance metrics is used to represent variable
+delay experienced by a client when receiving packets from a sender?
+
+Jitter. Jitter is the measuure of time delay.
+
+Latency is the measure of time it takes to reach a destination.
+
+--------------------------------------------------------------------------------
+
+Today, your company's network started to experience network connectivity issues
+for various workstations around the company. As you begin troubleshooting, you
+identify that all the workstations receive their connectivity from a single
+switch on the 3rd floor of the office building. You start searching the 3rd floor
+for the cause of this issue and find a small wired router plugged into a network
+jack in the sales manager's office. From this small wired router, he has
+connected his workstation and a small Smart TV to watch Netflix while working.
+You question the sales manager about when he brought in the new router. He states
+that he just hooked it up this morning. What type of issue did the sales manager
+accidentally introduced into the network by installing the router?
+
+Rogue DHCP server. Introducing a new, unknown router directly to the network
+also introduces a new unknown DHCP server. Hence, rogue DHCP server.
+
+--------------------------------------------------------------------------------
+
+Which encryption type MOST likely is used for securing the key exchange during a
+client-to-server VPN connection?
+
+ISAKMP. This is used in IPsec, which is commonly used in securing the key exchange
+during the establishment of a client-to-server VPN connection.
+
+TKIP is for wireless networks, specified in the 802.11i standard.
+
+--------------------------------------------------------------------------------
+
+John is investigating a performance issue on a server and has begun by gathering
+its utilization statistics. John notices that the statistics are outside of the
+normal, acceptable ranges. What should John do next?
+
+Conduct a baseline review. If we do this, we can compare our results from a
+previous baseline review.
+
+--------------------------------------------------------------------------------
+
+Your physical security manager, Janice, wants to ensure she can detect any
+unauthorized access to the data center. Which technology should be used to meet
+her requirement?
+
+Video surveillance.
+
+--------------------------------------------------------------------------------
+
+IPv6 addresses:
+ff00::/8 - Multicast
+::0 - default
+::1 - loopback
+
+--------------------------------------------------------------------------------
+
+Jason wants to use his personal cell phone for work-related purposes. Because of
+his position, Jason has access to sensitive company data, which might be stored
+on his cell phone during its usage. The company is concerned about this but
+believes that it might be acceptable with the proper security controls in place.
+Which of the following should be done to protect both the company and Jason if
+they allow him to use his personal cell phone for work-related purposes?
+
+Conduct real-time monitoring of the phones activity and usage.
+
+--------------------------------------------------------------------------------
+
+Which of the following describes the ID of a specified native VLAN when traffic
+passes over a trunk?
+
+It becomes the default VLAN for untagged frames.
+
+--------------------------------------------------------------------------------
+
+Which of the following protocols must be implemented for two switches to share
+VLAN information?
+
+VTP. VLAN Trunking Protocol allows a VLAN created on one switch to be propogated
+to other switches on a group of switched within a VTP domain.
+
+--------------------------------------------------------------------------------
+
+A network administrator is tasked with building a wireless network in a new
+building located next door to your company's office building. The wireless
+clients should not be able to communicate with other wireless clients but should
+be able to communicate with any wired users on the network. The users must be
+able to seamlessly migrate between the buildings while maintaining a constant
+connection to the LAN. How should the administrator configure the new wireless
+network in this new building?
+
+Use the same SSIDs on different channels and AP isolation.
+
+--------------------------------------------------------------------------------
+
+A network technician has just installed a new point-to-point 200-meter
+single-mode fiber link between two local routers within the Dion Training
+offices. The fiber has been connected to each router, but the interface fails
+to come up. The network technician has double-checked the interface
+configuration on both routers, both SFPs have been hard looped to confirm they
+are functioning, connectors on both ends of the links have been cleaned, and
+there is sufficient power. What is the MOST likely cause of the problem?
+
+Wavelength mismatch. This occurs when two different tranceivers are used at each
+end of the cable.
+
+If it was a duplex mismatch the link would still show, only performance would be
+affected.
+
+--------------------------------------------------------------------------------
+
+You are working as part of a network installation team. Your team has been asked
+to install Cat 5e cabling to some new offices on the building's second floor.
+Currently, the office only has one network closet, which is located on the first
+floor. Your team spent the morning running 24 new CAT 5e cables from a patch
+panel in the networking closet on the first floor to a new networking closet you
+are outfitting on the second floor. Your team terminated these cables in a new
+patch panel in the 2nd-floor closet. You measured the distance from the switch in
+the 1st-floor closet to the new 2nd-floor patch panel and determined it was 80
+meters. The team then ran cables from this patch panel to each of the new
+offices. Some of the offices are working properly, but others are not. You
+suspect that some of the cable runs are exceeding the maximum length allowed by
+Cat 5e cabling. What is the BEST solution to this problem?
+
+Install a switch in the second-floor networking closet to increase the signal.
+
+--------------------------------------------------------------------------------
+
+Which of the following is a security concern with using a cloud service provider
+and could result in a data breach caused by data remnants?
+
+Rapid elasticity. When cloud resources are deprovisioned and reprovisioned for
+new uses or customers, data remnants can remain on the boards.
+
+--------------------------------------------------------------------------------
+
+Anycast can only be used with ipv6.
+
+--------------------------------------------------------------------------------
+
+LDAPS - 636
+LDAP - 389
+
+--------------------------------------------------------------------------------
+
+################################################################################
+################################################################################
+
+ATTEMPT 2 - 94%
+
+################################################################################
+
+--------------------------------------------------------------------------------
+
+What to use to connect  RJ-11 connector to connect a PC to an ISP using a POTS
+line?
+
+Analog modem.
+
+A DOCSIS modem uses an F-type connector.
+
+--------------------------------------------------------------------------------
+
+SMB - 139,445
+
+--------------------------------------------------------------------------------
+
+5GHz - 802.11a/n/ac/ax
+2.4GHz - 802.11b/g/n/ax
+
+802.11g - 54Mbps
+802.11b - 11Mbps
+802.11n - 108Mbps
+802.11ax - 9.6Gbps
+
+802.11a - 54Mbps
+802.11n - 600Mbps
+802.11ac - 5.5Gbps
+802.11ax - 9.6Gbps
+
+--------------------------------------------------------------------------------
+
+In SNMPv3, authPriv ensures that the comms are sent with authentication and
+privacy.
+
+--------------------------------------------------------------------------------
+
+Evil twin is the most common way to preform an on-path attack on a wireless
+network.
+
+--------------------------------------------------------------------------------
+
+Port security (persistent MAC learing or Sticky MAC) is a security feature that
+enables an interface to retain dynamically learned MAC addresses when the switch
+is restarted or if the interface goes down and is brought back online.
+
+--------------------------------------------------------------------------------
+
+Split DNS is an implementation in which separate DNS servers are provided for
+security and privacy management for internal and external networks.
+
+Split-horizon also prevents routing loops from occuring.
+
+--------------------------------------------------------------------------------
+
+NetID is always the first address.
+
+--------------------------------------------------------------------------------
+
+Which of the following policies or plans would describe the access requirements
+for connecting a user's laptop to the corporate network?
+
+BYOD policy. This question is vague, so we can only assume they meant the USER'S
+PERSONAL LAPTOP.
+
+--------------------------------------------------------------------------------
+
+If a switchport is configured for 802.1q trunking instead of as an access host
+port, the workstation will be unable to reach the DHCP server through the port
+and will fall back to using an APIPA address.
+
+--------------------------------------------------------------------------------
+
+In AAA using LDAP, we are using a RADIUS server. AAA through RADIUS uses a
+Server Secret Key. If the keys mismatch thhere could be login issues.
+
+--------------------------------------------------------------------------------
+
+OFDM QAM QPSK are all modulation implementations.
+
+--------------------------------------------------------------------------------
+
+To ensure that users logging into a network are physically in the same building
+as the network they are authenticating on we can use:
+
+GPS
+NAC
+
+################################################################################
+################################################################################
+
+ATTEMPT 3 - 93%
+
+################################################################################
+
+--------------------------------------------------------------------------------
+
+SIP - 5060,5061
+
+SIP is a signalling protocol used to initiate, maintain, and terminate real-time
+VoIP sessions.
+
+--------------------------------------------------------------------------------
+
+???Reflective DNS?
+
+--------------------------------------------------------------------------------
+
+Barbara has connected her personal wireless router to a network jack inside her
+office. The router cannot get a DHCP address even though her corporate laptop can
+get a DHCP address when connected to the same jack. Barbara checked the router's
+configuration to ensure it is set up to obtain a DHCP address. Which of the
+following is the MOST likely reason that the router is not getting a DHCP
+address?
+
+Only allow listed MAC addresses can connect to the network.
+
+--------------------------------------------------------------------------------
+
+QoS operates at layer 2 or 3
+
+--------------------------------------------------------------------------------
+
+Your company has several small branch offices around the country, but you work as
+a network administrator at the centralized headquarters building. You need the
+capability of being able to remotely access any of the remote site's routers to
+configure them without having to fly to each location in person. Your company's
+CIO is worried that allowing remote access could allow an attacker to gain
+administrative access to the company's network devices. Which of the following is
+the MOST secure way to prevent this from occurring while still allowing you to
+access the devices remotely?
+
+Create an out-of-band management network.
+
+OOB management is a method of remotely controlling and managing critical IT assets
+and network equipment using a secure connection through a secondary interface
+that is physically separate from the primary network connection.
+
+Using modems is bad security practice, they are succesptible to wardialing and
+provide slow connectivity speeds.
+
+--------------------------------------------------------------------------------
+
+A network administrator recently set up a network computer lab and discovered
+some connectivity issues. The administrator can ping the fiber uplink interface,
+but none of the new workstations plugged into the switch are responding to the
+technician's ICMP requests. Which of the following actions should the technician
+perform next?
+
+Determine if the link light LEDs are lit on the ports.
+
+If it hasn't been mentioned, typically choose the layer 1 answer.
+
+--------------------------------------------------------------------------------
+
+NetFlow analyzers are used to perform monitoring, troubleshooting, inspection,
+interpretation, and synthesis of network traffic flow data.
+
+--------------------------------------------------------------------------------
+
+MIB - translation file used to describe the structure of the management data of
+a device subsyystem using a hieraarchical namespace containing OIDs.
+
+OIDs - identifies a variable that can be read or set using the SNMP protocol
+
+Granular trap - contains a unique OID number and a value for that OID.
+
+Verbose trap - contains all of thhe data of a trap.
+
+--------------------------------------------------------------------------------
+
+An outside organization has completed a penetration test for a company. One of
+the report items states that an attacker may have the ability to read TLS traffic
+from the webserver due to a software bug. What is the MOST likely mitigation for
+this reported item?
+
+Ensure that patches are deployed.
+
+A patch is designed to correct a known bug or fix a known vulnerability. Since
+the server is allowing an attacker to read TLS traffic, which should be encrypted
+and unreadable, this is a software bug in the webserver's code that must be fixed
+using a patch.
+
+
+
+You have just received an email regarding a security issue detected on the
+company's standard web browser. Which of the following should you do to fix the
+issue?
+
+Vulnerability patch.
+
+Since there is a security issue with the current web browser, it most likely
+needs to be updated with a manufacturer's vulnerability patch.
+
+
+The key word here is BROWSER. Since the BROWSER is the issue it isn't a firmware,
+OS update, or driver update.
+
+It is a vulnerabilityy patchh on the browser.
+
+--------------------------------------------------------------------------------
+
+Which mitigation provides the best return on investment by mitigating the most
+vulnerable attack vector in an enterprise network?
+
+End user training
+
+--------------------------------------------------------------------------------
+
+TDRs are used to determine the charactertistics of electrical lines by observing
+reflected waveforms to characterize and locate faults in copper cables.
+
+--------------------------------------------------------------------------------
+
+A customer is trying to configure an 802.11b wireless card in an old laptop to
+connect to an 802.11g wireless router. When the customer scans for the wireless
+network's SSID (Dion-Corp), it is not displayed within Windows. What is the MOST
+likely reason that the SSID is not being displayed?
+
+The broadcast is disabled on the wireless router.
+
+Both of these standards use the same freq.
+The SSID would still show if DHCP was disabled.
+The SSID would still show if WPA2 encryption was on the router.
+
+--------------------------------------------------------------------------------
+
+Whenever we are talking about wireless networks, a site survey would typically
+supercede any other references.
+
+--------------------------------------------------------------------------------
+
+A network administrator, Tamera, follows the best practices to implement
+firewalls, patch management, and security policies on his network. Which of the
+following should be performed to verify that the security controls are in place?
+
+Penetration testing.
+
+Testing AAA could be part of a larger penetration test.
+
+--------------------------------------------------------------------------------
+
+Dion Training allows its visiting business partners from CompTIA to use an
+available Ethernet port in their conference room to establish a VPN connection
+back to the CompTIA internal network. The CompTIA employees should obtain
+internet access from the Ethernet port in the conference room, but nowhere else
+in the building. Additionally, if any of the Dion Training employees use the same
+Ethernet port in the conference room, they should access Dion Training's secure
+internal network. Which of the following technologies would allow you to
+configure this port and support both requirements?
+
+Implement NAC
+
+Network Access Control (NAC) uses a set of protocols to define and implement a
+policy that describes how to secure access to network nodes whenever a device
+initially attempts to access the network. NAC can utilize an automatic
+remediation process by fixing non-compliant hosts before allowing network access.
+Network Access Control can control access to a network with policies, including
+pre-admission endpoint security policy checks and post-admission controls over
+where users and devices can go on a network and what they can do. In this
+scenario, implementing NAC can identify which machines are known and trusted Dion
+Training assets and provide them with access to the secure internal network. NAC
+could also determine unknown machines (assumed to be those of CompTIA employees)
+and provide them with direct internet access only by placing them onto a guest
+network or VLAN. While MAC filtering could be used to allow or deny access to the
+network, it cannot by itself control which set of network resources could be
+utilized from a single ethernet port. A security information and event management
+(SIEM) system provides real-time analysis of security alerts generated by
+applications and network hardware. An access control list could define what
+ports, protocols, or IP addresses the ethernet port could be utilized. Still,
+it would be unable to distinguish between a Dion Training employee's laptop and a
+CompTIA employee's laptop like a NAC implementation could.
+
+--------------------------------------------------------------------------------
+
+What remediation strategies are the MOST effective in reducing the risk to an
+embedded ICS from a network-based compromise? (Select TWO)
+
+Segmentation
+Disabling unused services
+
+A NIDS would only detect, not prevent.
+
+--------------------------------------------------------------------------------
+
+A rollover cable has opposite pin assignments on each end of the cable, such as
+pin 1 going to pin 8, pin 2 going to pin 7, etc.
+
+A crossover cable would have pins crossing from one side to the other, such as
+pin 1 going to pin 6.
+
+A patch cable (also known as a straight-through cable) is indicated by the
+matching of the Tx and Rx pins (pins 1, 2, 3, and 6) on both sides of the cable.
+
+REMEMBER: patch cables are also called straight cables.
+
+--------------------------------------------------------------------------------
+
+ST - looks like a byonet
+SC - blockish
+LC(single) - only has a single connector
+LC(double) - has two connectors
+FC - looks like a stubby,lowpro ST
+
+--------------------------------------------------------------------------------
+
+DNS records:
+
+SOA - IDs the primary authoritative name server
+NS - ID the authoritative name servers of the zone
+A - ipv4
+AAAA - ipv6
+CNAME - alias for existing address
+MX - mail exchange (can't point ot a CNAME record)
+SRV - service records; used for AD, priority values, used against email spam
+PTR - reverse DNS, links hostname associated with IP
+
+--------------------------------------------------------------------------------
+
+DHCP Scope Requirements:
+
+Subnet mask
+IP Address
+Default gateway
+DNS servers
+
+--------------------------------------------------------------------------------
+
+DHCP reservations allow the DHCP server to pre-set an IP address to a specific
+client based on MAC address.
+
+--------------------------------------------------------------------------------
+
+If we can't ping something, ICMP may be blocked by the firewall.
+
+--------------------------------------------------------------------------------
+
+WAPs should be assigned channels 1,6,11 with a 20MHz width
+
+--------------------------------------------------------------------------------
+
+WEP (old,very indecure)
+WPA (although insecure) uses TKIP w/ RC4
+WPA2 uses CCMP and AES defined by the 802.11i standard
+
+--------------------------------------------------------------------------------
+
+We use multimeters to check impedance (ohms).
+
+--------------------------------------------------------------------------------
+
+A network technician needs to monitor the network to find a user who is browsing
+websites that go against the company's acceptable use policy. What should the
+technician use to view the website and find the user browsing it?
+
+Packet sniffer.
+
+Packet sniffers can capture and analyze network traffic. We can use this to view
+website addresses, contents, and password information.
+
+--------------------------------------------------------------------------------
+
+NAC checks devices for compliance before allowing on the network.
+
+--------------------------------------------------------------------------------
+
+A network administrator needs to install a centrally located firewall that needs
+to block specific incoming and outgoing IP addresses without denying legitimate
+return traffic. Which type of firewall should the administrator install?
+
+A stateful network-based firewall.
+
+Stateless firewall:
+A packet filtering firewall is stateless. This means that it doesn't preserve
+information about the connection between two hosts.
+
+Stateful firewall:
+Operates at layer 5 (session). Remembers information about existing connections
+and uses that to make decisions.
+
+--------------------------------------------------------------------------------
+
+An end-user receives a new computer and now is unable to connect to the MySQL
+database over the Dion Training local area network. Other users can successfully
+connect. The network technician can successfully ping the database server but
+still is unable to connect. Which of the following is the most likely reason for
+this issue?
+
+A host based firewall on the user's computer is blocking port 3306.
+
+--------------------------------------------------------------------------------
+
+Which of the following communication types are used in IPv6 to send a packet to
+the nearest interface that shares a common address in a routing table?
+
+Anycast
+
+--------------------------------------------------------------------------------
+
+An electrical short is when an unwanted ELECTRICAL CONNECTION occurs within a
+circuit.
+
+Crosstalk a wire causes interference in another due to PROXIMITY. Crosstalk never
+makes a physical connection.
+
+--------------------------------------------------------------------------------
+
+Spear-phishing attack:
+
+What should you do to prevent any other employees from accessing the link in the
+email above while still allowing them access to any other web pages at the domain
+freesmartphone.io?
+
+Add http://www.freesmartphone.io:8080/claim.php to the browser's group policy
+list.
+
+All of the other answers either completely block the port or block the entire
+site.
+
+--------------------------------------------------------------------------------
+
+/30 subnets are used for point-to-point links.
+
+/31s can be used for point-to-point links between two end devices, but isn't
+widely practiced.
+
+--------------------------------------------------------------------------------
+
+Router Adverstisement Guard (RA Guard) is a switchport security feature to block
+router advertisement packets from unauthorized sources.
+
+--------------------------------------------------------------------------------
+
+Implicit deny - if the firewall goes through the list of rules and at the very
+bottom of the list it hasn't hit any other the above rules --- deny everything.
+
+Explicit deny - the admin actually creates a rule at the bottom of the list
+denying all traffic. DENY ALL goes at the bottom.
+
+1    all    any    22    allow
+2    all    any    80    allow
+3    all    any    any   deny
+
+--------------------------------------------------------------------------------
+
+When convergence on a routed network occurs, all routers have learned the routes
+to all other connected routers.
+
+When convergence hasn't occured, there won't be any network connectivity.
+
+--------------------------------------------------------------------------------
+
+When we see AS numbers, we are talking about BGP all day.
+
+--------------------------------------------------------------------------------
+
+Raised floor - out of sight, cost isn't an issue
+
+--------------------------------------------------------------------------------
+
+A user was moved from one cubicle in the office to a new one a few desks over.
+Now, they are reporting that their VoIP phone is randomly rebooting. When the
+network technician takes the VoIP phone and reconnects it in the old cubicle, it
+works without any issues. Which of the following is MOST likely the cause of the
+connectivity issue?
+
+Cable short
+
+--------------------------------------------------------------------------------
+
+10GBase-SR - MMF; think of Shorter Range for SR
+10GBase-LR - AMF; think Long Range for LR
+
+--------------------------------------------------------------------------------
+
+VLAN hopping uses double tagging to send traffic from one VLAN to another.
+
+--------------------------------------------------------------------------------
+
+DB-9 connectors use RS-232 (serial) protocol over a rollover cable to transmit.
+
+--------------------------------------------------------------------------------
+
+Route poisoning is a method to prevent a router from sending packets through a
+route that has become invalid within computer networks to prevent routing loops.
+This is achieved by changing the routing metric to a value that exceeds the
+maximum allowable hop count so that the advertised router is unreachable.
+
+Split-horizon route advertisement is a method of preventing routing loops in
+distance-vector protocols by prohibiting a router from advertising back onto the
+interface from which it was learned.
+
+Hold down timers allow for the routers in a topology to have sufficient time to
+reach convergence and be updated when a route fails.
+
+
+Route poisoning gets rid of bad routes.
+Split horizon prevents the advertisement of already known routes.
+Hold down timers allow for updating and convergence
+
+--------------------------------------------------------------------------------
+
+Multi-protocol label switching (MPLS) is a mechanism used within computer network
+infrastructures to speed up the time it takes a data packet to flow from one node
+to another. The label-based switching mechanism enables the network packets to
+flow on any protocol.
+
+--------------------------------------------------------------------------------
+
+A company needs to implement stronger authentication by adding an authentication
+factor to its wireless system. The wireless system only supports WPA with
+pre-shared keys, but the back-end authentication system supports EAP and TTLS.
+What should the network administrator implement?
+
+802.1x using PAP.
+
+The admin can utilize 802.1x using EAP-TTLS with PAP since the backend system
+supports it. PAP is password based authentication protocol and is used by PPP to
+validate users.
+
+--------------------------------------------------------------------------------
+
+Redundant links offer more to business continuity than configuration backups. The
+redundant links would actually be more helpful in real-time because the link
+would never appear down during prroduction.
+
+--------------------------------------------------------------------------------
+
+Dirty fiber connections can cause significant dB loss using a light meter.
+
+--------------------------------------------------------------------------------
+
+
+
+################################################################################
+################################################################################
+
+ATTEMPT 4 - 92%
+
+################################################################################
+
+--------------------------------------------------------------------------------
+
+???DHCP snooping
+
+--------------------------------------------------------------------------------
+
+Remember that IDSes simply monitor and alert the admin, they don't actively
+prevent things from happening.
+
+--------------------------------------------------------------------------------
+
+MIBs are used for the management of all entities on a network using SNMP.
+
+--------------------------------------------------------------------------------
+
+Users connecting to an SSID appear to be unable to authenticate to the captive
+portal. Which of the following is the MOST likely cause of the issue?
+
+RADIUS
+
+Captive portals rely on 802.1xm and 802.1x uses RADIUS for authentication.
+
+Captive portals also use DNS, HTTP, and ICMP redirects.
+
+--------------------------------------------------------------------------------
+
+Kerberoos is designed to send data over insecure networks while using strong
+encryption to protect the information.
+
+--------------------------------------------------------------------------------
+
+After an employee connected one of the switchports on a SOHO router to the wall
+jack in their office, other employees in the building started to receive
+"duplicate IP address" errors and experiencing intermittent network
+connectivity. You check the configuration on one of the affected clients and see
+it has been assigned an IP address of 192.168.1.54. Which of the following could
+be enabled on the company’s network to prevent this from occurring?
+
+DHCP snooping
+
+DHCP snooping is a series of techniques applied to improve the security of a
+DHCP infrastructure. When DHCP servers are allocating IP addresses to the LAN
+clients, DHCP snooping can be configured on LAN switches to prevent malicious
+or malformed traffic or rougue DHCP servers.
+
+Split-horizon has to do with routing loops in dynamic routing protocol networks.
+
+--------------------------------------------------------------------------------
+
+Loopback adapters are used to test for bad NICs
+
+--------------------------------------------------------------------------------
+
+DWDM is a high-speed optical network type commonly used in MANs. It can be used
+to increase bandwidth over an existing fiber-optic network by combining
+multiple signals at different wavelengths.
+
+--------------------------------------------------------------------------------
+
+OTDRs are used to characterize an optical fiber.
+
+--------------------------------------------------------------------------------
+
+WAFs would detect the accessing of random ports and TLS encryption as suspect.
+Application aware firewalls can make decisions about what applications are
+allowed or blocked by a firewall. TLS connections are created and maintained by
+applications.
+
+Neither Stateful or stateless firewalls operate at layer 6 or 7, so they cannot
+inspect TLS sessions.
+
+--------------------------------------------------------------------------------
+
+If lights on multiple switches are rapidly blinking all at once, they are all
+going through the STP process.
+
+--------------------------------------------------------------------------------
+
+A network technician is asked to redesign an Ethernet network before some new
+monitoring software is added to each network's workstation. The new software
+will broadcast statistics from each host to a monitoring server for each of the
+company's five departments. The added network traffic is a concern of management
+that must be addressed. How should the technician design the new network?
+
+Place each department in a separate VLAN to increase broadcast domains.
+
+We need to increase the broadcast domains due to the increase of broadcast
+messages.
+
+--------------------------------------------------------------------------------
+
+Which document should the company incorporate the phrase “Company-owned IT
+assets are to be used to perform authorized company business only"?
+
+AUP - Acceptable Use Policy
+
+--------------------------------------------------------------------------------
+
+DHCP reservation works by matching a MAC address to an IP address within the
+DHCP scope.
+
+--------------------------------------------------------------------------------
+
+Dion Training is afraid that an attacker might try to send other types of 
+network traffic over port 80 to bypass their security policies. Which of the
+ following should they implement to prevent unauthorized traffic from entering
+ through the firewall?
+
+Application aware firewall.
+
+--------------------------------------------------------------------------------
+
+Workers in a company branch office must visit an initial web page and click the
+ "I agree" button before being able to surf the web. Which of the following is
+ this an example of?
+
+AUP
+
+--------------------------------------------------------------------------------
+
+A network technician is tasked with designing a firewall to improve security for
+ an existing FTP server on the company network. The FTP server must be 
+accessible from the Internet. The security team is concerned that the FTP server
+ could be compromised and used to attack the domain controller hosted within the
+ company's internal network. What is the BEST way to mitigate this risk?
+
+Migrate the FTP server from the internal network to a screened subnet (DMZ).
+
+--------------------------------------------------------------------------------
+
+Which of the following is likely to occur if twenty ethernet clients are
+ connected to a hub in a local area network?
+
+Collisions
+
+This will occur because all 20 devices are on the same nnetwork and will collide
+once trying to send data at the same time as the other clients.
+
+--------------------------------------------------------------------------------
+
+Deauthentication attacks occur when the attacker sends deauthentication frames 
+to the victim's machine, once the victim tries to authenticate again the attacker
+will attempt to capture the authentication packet and parse information from it.
+
+--------------------------------------------------------------------------------
+
+MOU - memorandum of understanding is a non-binding agreement to detail what
+common actions each party performs on something
+
+--------------------------------------------------------------------------------
+
+################################################################################
+################################################################################
+
+ATTEMPT 5 - 92% 83/90
+
+################################################################################
+
+--------------------------------------------------------------------------------
+
+MTD = longest period of time that a business function outage may occur without
+causing irrecoverable business failure.
+
+MTTR = (total repair time / number of incidents)
+
+MTBF = (devices * hrs) / (number of failures)
+
+MTTF = (devices * hrs) / (number of devices)
+
+RPO = the amount of data lost that a system can sustain, measured in time.
+
+--------------------------------------------------------------------------------
+
+T-1 connections are old school copper connections that terminates at a CSU/DSU.
+
+--------------------------------------------------------------------------------
+
+Crossover cables connect two like devices.
+
+Straight through cables connect two opposing devices.
+
+--------------------------------------------------------------------------------
+
+Duplicate MAC address occurs when two or more devices are responding to data 
+requests as if they are the only device on the network with that MAC address.
+
+An indication of this actually happening is when a switch continually changes the
+port assignments for that address as it updates its CAM table to reflect the 
+physical address and switchport bindings.
+
+This causes the switchports to continually flap by going up and down as entries
+are updated in the CAM table.
+
+--------------------------------------------------------------------------------
+
+ESSIDs utilize multiple WAPs to broadcast a single network name for access by the
+clients.
+
+BSSIDs can only utilize a single access point.
+
+--------------------------------------------------------------------------------
+
+TXT records let a admin enter text into the Domain Name Systems. TXT records are
+a key component to several email authentication methods that help the server 
+determine if the email is from a trusted source.
+
+--------------------------------------------------------------------------------
+
+The Control Layer determines how to route a data packet on the network.
+
+--------------------------------------------------------------------------------
+
+DOCSIS connects to coax cable TV to geive internet.
+
+--------------------------------------------------------------------------------
+
+################################################################################
+################################################################################
+
+ATTEMPT 6 - 92% 83/90
+
+################################################################################
+
+--------------------------------------------------------------------------------
+
+Asymmetric routing is when network packets leave via one path and return via
+a different path.
+
+Asymmetric routing doesn't cause routing issues alone.
+
+The issues occur with dropped packet flows by security devices while employing
+asymmetric routing.
+
+--------------------------------------------------------------------------------
+
+Channel bonding improves connection speed.
+
+--------------------------------------------------------------------------------
+
+Allow HTTP traffic through the 192.168.0.0/24 network:
+
+PERMIT SRCIP:192.168.0.0/24 SRCPORT:ANY DESTIP:ANY DESTPORT:80
+
+This permits traffic from the internal network from any port to access the
+external network (any IP) to port 80.
+
+Since we were configuring a stateless fiirewall, we must include SRCPORT ANY
+to allow the outbound connection through the firewall.
+
+--------------------------------------------------------------------------------
+
+DLP stands for Data Loss Prevention, which ensures that end-users don't send
+sensitive or critical information outside the corporate network.
+
+--------------------------------------------------------------------------------
+
+If STP pairs aren't completely twwisted at the connetor, they may be subject to
+crosstalk.
+
+The twisting is done to reduce crosstalk between neighboring pairs.
+
+--------------------------------------------------------------------------------
+
+T1 provides 23 simultaneous connections using VoIP.
+
+--------------------------------------------------------------------------------
+
+QoS operates at Layer 2 or Layer 3 of the OSI model depending on CoS or DSCP.
+
+--------------------------------------------------------------------------------
+
+MTD = longest period of time that a business function outage may occur without
+causing irrecoverable business failure.
+
+MTTR = (total repair time / number of incidents)
+
+MTBF = (devices * hrs) / (number of failures)
+
+MTTF = (devices * hrs) / (number of devices)
+
+RPO = the amount of data lost that a system can sustain, measured in time.
+
+################################################################################
+################################################################################
+
+Practice Test 1, Attempt 3 - 91% 82/90
+
+################################################################################
+
+--------------------------------------------------------------------------------
+
+A legal hold is a process that an organization uses to preserve all forms of 
+relevant information when litigation is reasonably anticipated.
+
+--------------------------------------------------------------------------------
+
+Secret key mismatches cancause login issues when installing new AAA devices onto
+a network.
+
+--------------------------------------------------------------------------------
+
+RPO is the maximum amount of data, measured in time, that an organization is
+willing to lose during an outage.
+
+--------------------------------------------------------------------------------
+
+These were mostly stupid mistakes. Review WiFi:
+
+
+--------------------------------------------------------------------------------
+
+5GHz - 802.11a/n/ac/ax
+2.4GHz - 802.11b/g/n/ax
+
+802.11g - 54Mbps
+802.11b - 11Mbps
+802.11n - 108Mbps
+802.11ax - 9.6Gbps
+
+802.11a - 54Mbps
+802.11n - 600Mbps
+802.11ac - 5.5Gbps
+802.11ax - 9.6Gbps
+
+################################################################################
+################################################################################
+
+Practice Test 2, Attempt 3 - 96% 87/90
+
+################################################################################
+
+--------------------------------------------------------------------------------
+
+Stateful firewalls enhance security through packet filtering.
+
+Stateful firewalls keep track of outbound requests and open the port for the 
+returning traffic to enter the network.
+
+--------------------------------------------------------------------------------
+
+High SNR is a good thing on wireless networks.
+
+If interference is occuring on the wireless network, more reTx will happen which
+equates to slower speeds.
+
+--------------------------------------------------------------------------------
+
+The two best things we can do to protect ICSes from a network-based compromise
+is through segmentation and by disabling unused services.
+
+--------------------------------------------------------------------------------
+
+################################################################################
+################################################################################
+
+Practice Test 3, Attempt 3 - 100% 90/90
+
+################################################################################
+
+--------------------------------------------------------------------------------
+
+################################################################################
+################################################################################
+
+Practice Test 4, Attempt 3 - 93% 84/90
+
+################################################################################
+
+--------------------------------------------------------------------------------
+
+The "I agree" button on captive portals is a AUP.
+
+--------------------------------------------------------------------------------
+
+POP3SSL - 995
+
+--------------------------------------------------------------------------------
+
+################################################################################
+################################################################################
+
+Practice Test 5, Attempt 3 - 98% 89/90
+
+################################################################################
+
+--------------------------------------------------------------------------------
+
+Stupid mistake. Read the questions and answers entirely. ENTIRELY.
+
+--------------------------------------------------------------------------------
+
+################################################################################
+################################################################################
+
+Practice Test 6, Attempt 3 - 
+
+################################################################################
+
+--------------------------------------------------------------------------------
+

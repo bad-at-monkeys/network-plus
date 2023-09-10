@@ -1,0 +1,144 @@
+LESSON 6 TEST - SUPPORTING IPV4 AND IPV6 NETWORKS
+
+---
+BOOK 6A
+
+1) How can you check the IP configuration of an interface on an end system
+host at the command line?
+
+> ipconfig /all
+$ ifconfig
+$ ip addr [interface]
+
+
+
+2) What output would you expect when running the command ip neigh?
+
+The local area network neighbors listed with their IP address, MAC address
+pairs.
+
+
+
+3) True or False? The arp utility will always show another hostʼs MAC
+address if that host is on the same subnet.
+
+False. Sometimes the MAC won't show because a broadcast hasn't been
+sent out for that device yet. We must ping the destination first to
+create an ARP entry.
+
+
+
+4) Output from a ping command reports some values in milliseconds. What
+does this measure?
+
+The round-trip request/reply process of the packet.
+
+
+
+5) True or False? Receiving an echo reply message indicates that the link
+between two hosts is operational.
+
+True. This means that there is a working route between the two hosts.
+
+
+
+
+
+---
+BOOK 6B
+
+1) Users on a floor served by a single switch cannot get a network
+connection. What is the best first step?
+
+Check that the switch is powered on, reset it.
+Check to see if the port module is fully seated.
+
+
+
+2) A workstation cannot connect to a server application on a remote
+network. What is the first test you could perform to establish whether
+the workstationʼs link is OK?
+
+Ping the default gateway.
+
+
+
+3) A technician is troubleshooting a network and has asked your advice. He
+is trying to ping 192.168.16.192. The network has been subnetted with
+the custom mask 255.255.255.224. Why might this return a “Destination
+host unreachable” message?
+
+The IP address resolves to the subnet network address, not a host address.
+
+
+
+4) Two client hosts have intermittent connectivity issues when accessing
+a server service on another subnet. No other client hosts exhibit this
+problem. What configuration problem might you suspect?
+
+Duplicate IP/MAC addresses.
+
+
+
+5) You have pinged the router for the local subnet and confirmed that there
+is a valid link. The local host cannot access remote hosts, however. No
+other users are experiencing problems. What do you think is the cause?
+
+The router isn't configured as the default gateway for the local host.
+We can ping it, but the host isn't using it for routing.
+
+
+
+6) A Windows client workstation cannot access a help desk application
+server by its name support.515support.com. The service can be accessed
+using its IP address. What two command line tools should you use to
+identify possible causes of this issue?
+
+$ cat /etc/resolv.conf
+ping and ipconfig /all
+we can also use nslookup and dig
+
+
+
+
+
+---
+BOOK 6C
+
+1) Which of the following IPv6 addresses is a valid unicast host address?
+
+fe80::218:8bff:fea7:bd37
+fe80::219:d2ff::7850
+ff02::219:d2ff:fea7:7850
+::/128
+
+fe80::218:8bff:fea7:bd37
+
+
+
+2) What is an EUI-64, and how might it be used by IPv6?
+
+It is MAC address and can be used as the IPv6 interface ID, though a
+randomly generated token better suits this purpose.
+
+
+
+3) In IPv6, how is the loopback address best expressed?
+
+::1
+
+
+
+4) In IPv6, how can a host obtain a routable IPv6 address without requiring
+manual configuration?
+
+SLAAC allows hosts to autoconfigure an interface by listening to router
+advertisements to obtain a network prefix.
+
+
+
+5) True or false? 6to4 is a dual stack method of transitioning from IPv4
+to IPv6.
+
+False. 6to4 is a tunneling method that encapsulates IPv6 packets in IPv4 UDP
+packets.

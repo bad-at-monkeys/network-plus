@@ -1,0 +1,533 @@
+DIONS NETWORK+ PRACTICE EXAM #1 - TOUGH QUESTIONS
+
+################################################################################
+################################################################################
+FIRST ATTEMPT - 60%
+--------------------------------------------------------------------------------
+
+Review WPA/WPA2/WPA3/WEP etc..
+
+WEP is the earliest version of WiFi encryption standards and is vulnerable.
+
+WPA is the newer WEP and adds TKIP. WPA is vulnerable.
+
+WPA2 uses AES and CCMP. WPA2 is vulnerable to brute force type attacks.
+
+WPA3 is the newest standard.
+
+WPA2/3-Enterprise implements 802.1x to use an EAP mechanism to authenticate
+against a network directory.
+
+--------------------------------------------------------------------------------
+
+LDAP port - udp/389
+
+--------------------------------------------------------------------------------
+
+Review 802.11 specifications
+
+802.11 uses CSMA/CA
+
+802.11a - 5GHz, OFDM, 54Mbps
+802.11h - 5GHz
+802.11b - 2.4GHz, 11Mbps
+802.11g - 2.4GHz, 54Mbps
+802.11n - MIMO, Channel Bonding (5GHz), 5GHz and 2.4GHz
+802.11ac - WiFi5, 5GHz, 1000Mbps
+802.11AX - WiFi6, 2.4GHz @ 1148Mbps, 5GHz @ 4804Mbps
+
+--------------------------------------------------------------------------------
+
+Split Horizon
+
+Prevents a routing update from being copied back to the source.
+
+--------------------------------------------------------------------------------
+
+Holddown Timer
+
+If a node declares a network unreachable, its neighbors start a holddown timer.
+Any routes received from other nodes are discarded for the duration of the timer.
+
+--------------------------------------------------------------------------------
+
+SYN, FIN, ACK, RST
+
+--------------------------------------------------------------------------------
+
+Connect an ISP to a POTS line ???
+
+--------------------------------------------------------------------------------
+
+Metered Services ???
+
+--------------------------------------------------------------------------------
+
+Question 38?
+
+--------------------------------------------------------------------------------
+
+Geo-IP???
+
+--------------------------------------------------------------------------------
+
+how to find the netwiork id of a ip ???
+
+--------------------------------------------------------------------------------
+
+SNMP - authPriv, authProtect, authEncrypt
+
+--------------------------------------------------------------------------------
+
+OFDM QAM QPSK
+
+--------------------------------------------------------------------------------
+
+Microsoft SQL port - 1433
+
+--------------------------------------------------------------------------------
+
+SMB Port - 139 and 445
+
+--------------------------------------------------------------------------------
+
+Error conditions 0-8
+
+--------------------------------------------------------------------------------
+
+Dion Worldwide has recently built a network to connect four offices around the
+world together. Each office contains a single centralized switch that all of the
+clients connect to within that office. These switches are then connected to two
+of the other locations using a direct fiber connection between each office. The
+office in New York connects to the London office, the London office connects to
+the Hong Kong office, the Hong Kong office connects to the California office, and
+the California office connects to the New York office. Which of the following
+network topologies best describes the Dion Worldwide network?
+
+Hybrid. This describes a combination of Star and Bus topologies.
+
+--------------------------------------------------------------------------------
+
+Port forwarding is an application of NAT that redirects a communication request
+from one address and port number combo to another while the packets are traversing
+a network gateway.
+
+--------------------------------------------------------------------------------
+
+A client has asked you to provide their local office with the BEST solution for a
+wireless network based on their requirements. The client has stated that their
+users will need a wireless network that provides a maximum of 54 Mbps of
+bandwidth and operates in the 2.4GHz frequency band. Which of the following
+wireless network types should you install to meet their needs?
+
+802.11g provides Tx of up to 54Mbps in the 2.4GHz band.
+
+--------------------------------------------------------------------------------
+
+The administrator would like to use the strongest encryption level possible using
+PSK without utilizing an additional authentication server. What encryption type
+should be implemented?
+
+WPA Personal. WPA2 Enterprise uses an authentication server.
+
+--------------------------------------------------------------------------------
+
+Port security (Persistent MAC or Sticky MAC) is a security feature that enables
+an interface to retain dynamically learned MAC addresses when the switch is
+restarted or if the interface goes down and is brough back online.
+
+--------------------------------------------------------------------------------
+
+802.1X defines the encapsulation of EAP over wired 802 and wireless 802.11
+networks.
+
+--------------------------------------------------------------------------------
+
+What is the lowest layer of a bare-metal virtualization environment?
+
+The physical hardware.
+
+--------------------------------------------------------------------------------
+
+802.11ac uses the 5GHz band. This would interfere with other systems using that
+band.
+
+--------------------------------------------------------------------------------
+
+MIMO allows an 802.11n or 802.11ac network to achieve speeds greater than 54Mbps.
+MIMO uses multiple antennas fro Tx and Rx.
+
+--------------------------------------------------------------------------------
+
+In Windows:
+nbstat -R purges and reloads the cached name table in the LMHOSTS file on each
+client.
+
+--------------------------------------------------------------------------------
+
+What is the flag used to terminate a connection between two hosts when the sender
+believes something has gone wrong with the TCP connection between them?
+
+RST
+
+RST flags are used to terminate a connection.
+
+FIN flags are used to request that a connection be terminated.
+
+SYN flags are set in the first packet sent by a sender to receiver and they
+initiate the three-way handshake.
+
+ACK flags are sent back with a SYN flag to acknowledge the sender and initiate a
+connection.
+
+--------------------------------------------------------------------------------
+
+Which of the following is MOST likely to use an RJ-11 connector to connect a
+computer to an ISP using a POTS line?
+
+Analog modem.
+
+Analog modems conver the computers digital pulses into tones that can be carried
+over analog tele lines and vice versa.
+
+DOCSIS modems require a coax cable with an f-type connection.
+
+--------------------------------------------------------------------------------
+
+802.11g is on 2.4GHz reaching speeds up to 54Mbps.
+
+--------------------------------------------------------------------------------
+
+RPO represents the maximum amount of data, as measured in time, that an
+organization is willing to lose during an outage.
+
+RTO is the duration of time and a service level within which a business process
+must be restored after a disaster to avoid unacceptable consequences associated
+with a break in continuity.
+
+--------------------------------------------------------------------------------
+
+What type of services can allow you to get more storage and more resources added
+to the cloud as fast as possible?
+
+Rapid elasticity allows users to automatically request additional space or
+services on-demand.
+
+--------------------------------------------------------------------------------
+
+When a criminal or government investigation is underway, what describes the
+identification, recovery, or exchange of electronic information relevant to that
+investigation?
+
+eDiscovery refers to the process of evidence collection through digital forensics.
+eDiscovery is conducted during ann incident response.
+
+--------------------------------------------------------------------------------
+
+A home user reports to a network technician that the Internet is slow when they
+attempt to use their smartphone or laptop with their Wi-Fi network. The network
+administrator logs into the admin area of the user's access point and discovers
+that multiple unknown devices are connected to it. What is MOST likely the cause
+of this issue?
+
+A successful WPS attack has occured.
+
+WPS allows users to configure a wireless network without typing a password, and
+instead uses a button or 4 digit pin. This is inherently insecure.
+
+--------------------------------------------------------------------------------
+
+NAC and GPS can help determine if users that are logging into a network are
+physically in the same building as the network they are authenticating on.
+
+Geo-IP can determine the country a host is in.
+
+Network Access Control (NAC) is used to identify an endpoint's characteristics
+when conducting network authentication.
+
+GPS location will provide lat/long of the user.
+
+Port security enables the admin to configure individual switch ports to allow only
+a specified number of source MAC addresses to communicate using a given
+switchport.
+
+--------------------------------------------------------------------------------
+
+You are conducting a wireless penetration test against a WPA2-PSK network. Which
+of the following types of password attacks should you conduct to verify if the
+network is using any of the Top 1000 commonly used passwords?
+
+Dictionary.
+
+Dictionary attacks are methods of breaking into a password protected system by
+entering every word in a dictionary or list file.
+
+--------------------------------------------------------------------------------
+
+An RSSI of -90 to -100dB represents an extremely weak connection and insufficient
+wireless coverage of the area.
+
+--------------------------------------------------------------------------------
+
+A network technician is diligent about maintaining all system servers at the most
+current service pack level available. After performing upgrades, users experience
+issues with server-based applications. Which of the following should be used to
+prevent issues in the future?
+
+Configure a test lab for updates.
+
+No patches should ever be deployed without running them through a testing
+environment first.
+
+--------------------------------------------------------------------------------
+
+What is the network ID associated with the host located at 192.168.0.123/29?
+
+192.168.0.120
+
+In a /29 subnet each subnet contains 8 IPs.
+
+123 / 8 = 15
+
+15 * 8 = 120
+
+There is our answer.
+
+--------------------------------------------------------------------------------
+
+Your company wants to create highly available datacenters. Which of the following
+will allow the company to continue maintaining an Internet presence at all sites
+if the WAN connection at their own site goes down?
+
+BGP
+
+If a WAN link goes down, BGP will route data through another WAN link if
+redundant WAN links are available.
+
+IT IS NOT VRRP because VRRP is used internally.
+
+--------------------------------------------------------------------------------
+
+Traveling from layer 1 to 7 of the OSI model consists of de-encapsulation.
+
+--------------------------------------------------------------------------------
+
+In SNMPv3 the authPriv opt ensures that the comms are sent with authentication
+and privacy.
+
+--------------------------------------------------------------------------------
+
+Janet is a system administrator who is troubleshooting an issue with a DNS server.
+She notices that the security logs have filled up and must be cleared from the
+event viewer. She recalls this being a daily occurrence. Which of the following
+would BEST resolve this issue?
+
+Install an event mannagement tool.
+
+Using an event management tool will allow the admin to clear the event logs and
+move them from the server to a cetralized database.
+
+--------------------------------------------------------------------------------
+
+Which type of wireless technology are OFDM, QAM, and QPSK examples of?
+
+Modulation
+
+Orthogonal frequency division multiplexing (OFDM) is a modulation technique.
+
+Quadrature Amplitude Modulation (QAF) is a modulation technique.
+
+Quadrature Phase-shift keying (QPSK) is a modulation technique.
+
+Modulation is the process of varying one or more properties of a periodic
+waveform, called the carrier signal, with a separate signal called the modulation
+signal that typically contains information to be Tx'd.
+
+--------------------------------------------------------------------------------
+
+Microsoft SQL is on port 1433
+
+--------------------------------------------------------------------------------
+
+What is true concerning jumbo frames?
+
+They are commonly used on SANs.
+
+--------------------------------------------------------------------------------
+
+An administrator has configured a new 250 Mbps WAN circuit, but a bandwidth speed
+test shows poor performance when downloading larger files. The download initially
+reaches close to 250 Mbps but begins to drop and show spikes in the download
+speeds over time. The administrator checks the interface on the router and sees
+the following: DIONRTR01# show interface eth 1/1 GigabitEthernet 1/1 is up, line
+is up Hardware is GigabitEthernet, address is 000F.33CC.F13A Configured speed
+auto, actual 1Gbit, configured duplex fdx, actual fdx Member of L2 VLAN 1, port
+is untagged, port state is forwarding Which of the following actions should be
+taken to improve the network performance for this WAN connection?
+
+Assign the interface a 802.1q tag to its own VLAN.
+
+By adding a 802.1q tag (VLAN tag) to its own interface, we can take it off of
+the default VLAN and assign it to its own individual VLAN and eliminate potential
+overloading and over-subscription issues.
+
+--------------------------------------------------------------------------------
+
+What is the network ID associated with 77.81.12.14/30?
+
+77.81.12.12
+
+In a /30 subnet, there are 4 hosts.
+
+14 / 4 = 3..
+4 * 3 = 12
+
+The Network ID starts at 12.
+
+--------------------------------------------------------------------------------
+
+A technician has finished configuring AAA on a new network device. However, the
+technician cannot log into the device with LDAP credentials but can with a local
+user account. What is the MOST likely reason for the problem?
+
+Shared secret key is mismatching.
+
+AAA through RADIUS uses a Server Secret Key (a shared secret key).
+
+Secret key mismatches could cause log in problems.
+
+--------------------------------------------------------------------------------
+
+A technician is configuring a computer lab for the students at Dion Training.
+The computers need to be able to communicate with each other on the internal
+network, but students using computers should not be able to access the Internet.
+The current network architecture is segmented using a triple-homed firewall to
+create the following zones: ZONE INTERFACE, IP address ------------------------
+--------------- PUBLIC, eth0, 66.13.24.16/30 INSTRUCTORS, eth1, 172.16.1.1/24
+STUDENTS, eth2, 192.168.1.1/24 What rule on the firewall should the technician
+configure to prevent students from accessing the Internet?
+
+Deny all traffic from eth2 to eth0.
+
+By denying traffic from eth2 to eth0, we block network traffic from the internal
+(STUDENT) network to the external (PUBLIC) network over the WAN connection.
+
+This prevents access to the internet by blocking all requests to the internet.
+
+We can increase the security by blocking eth0 to eth2, which wuld block requests
+from the internet.
+
+--------------------------------------------------------------------------------
+
+A system administrator wants to verify that external IP addresses cannot collect
+software versioning from servers on the network. Which of the following should
+the system administrator do to confirm the network is protected?
+
+Analyze packet captures.
+
+--------------------------------------------------------------------------------
+
+SMB is on 139 ad 445
+
+--------------------------------------------------------------------------------
+
+Which of the following technologies combines the functionality of a firewall,
+malware scanner, and other security appliances into one device?
+
+UTM (Unified Threat Management)
+
+UTMs encompass IPSes, IDSes, firewalls, malware scanners, and other security
+appliances.
+
+--------------------------------------------------------------------------------
+
+Which of the following levels would a debugging condition generate?
+
+7
+
+Severity ranges are from 0 to 7.
+
+Level 0 is an emergency and the most severe.
+Level 1 - alert
+Level 2 - critical
+Level 3 - error
+Level 4 - warning
+Level 5 - notice
+Level 6 - info
+Level 7 - Debugging
+
+--------------------------------------------------------------------------------
+
+What is a common technique used by malicious individuals to perform an on-path
+attack on a wireless network?
+
+An evil twin.
+
+Evil twin is the most common way to preform an on-path attack on a wireless
+network.
+
+--------------------------------------------------------------------------------
+
+Jason is a network manager leading a project to deploy a SAN. He is working with
+the vendor's support technician to set up and configure the SAN on the enterprise
+network to begin SAN I/O optimization. What should Jason provide to the vendor
+support technician?
+
+Network diagrams.
+
+Since SAN I/O optimization has yet to occur, the support tech should be provided
+with a network diagram to physically set the system up.
+
+--------------------------------------------------------------------------------
+
+Tamera just purchased a Wi-Fi-enabled Nest Thermostat for her home. She has hired
+you to install it, but she is worried about a hacker breaking into the thermostat
+since it is an IoT device. Which of the following is the BEST thing to do to
+mitigate Tamera's security concerns? (Select TWO)
+
+Configure the thermostat to use a segregated part of the network by installing it
+into a screened subnet.
+
+Configure the thermostat to connect to the wireless network using WPA2 encryption
+and a long, strong password.
+
+--------------------------------------------------------------------------------
+
+Level 3 - error condition
+
+--------------------------------------------------------------------------------
+
+Which of the following tools should you use to break the cable into shorter
+distances?
+
+Cable snip
+
+--------------------------------------------------------------------------------
+
+A technician just completed a new external website and set up an access control
+list on the firewall. After some testing, only users outside the internal network
+can access the site. The website responds to a ping from the internal network and
+resolves the proper public address. What can the technician do to fix this issue
+while causing internal users to route to the website using its internal IP
+address?
+
+Implement a split-horizon or split-view DNS.
+
+Split DNS is an implementation in which separate DNS servers are provided for
+security and privacy management for internal and external networks.
+
+--------------------------------------------------------------------------------
+
+1 - identify the problem
+2 - establish a theory of cause
+3 - test the theory to determine the cause
+4 - establish a plan of action
+5 - implement solution
+6 - verify system functionality
+7 - document findings
+
+--------------------------------------------------------------------------------
+
+################################################################################
+################################################################################
+SECOND ATTEMPT - 

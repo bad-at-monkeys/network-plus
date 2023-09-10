@@ -1,0 +1,49 @@
+LAB 06 - USE TOOLS TO TEST IP CONFIGURATION
+
+---
+WINDOWS
+
+In Powershell:
+> Get-NetAdapter | Format-List
+Display adapters link-layer (Ethernet) properties.
+
+
+> Get-NetIPConfiguration -Detailed
+View the current IP config.
+
+
+> ipconfig /all
+More informative than Get-NetIPConfiguration -Detailed
+
+
+> ipconfig /release
+> ipconfig
+> ipconfig /renew
+
+
+> New-NetIPAddress 'Ethernet' -IPAddress [ip-address] -PrefixLength 24
+Assign a new static IP to an interface.
+
+
+> New-NetRoute -InterfaceAlias 'Ethernet' -DestinationPrefix 0.0.0.0/0 -NextHop  10.1.24.254
+> Set-DNSClientServerAddress -InterfaceAlias 'Ethernet' –ServerAddresses 10.1.16.1
+Add a default gateway and DNS server params.
+
+
+
+
+
+---
+Linux
+
+A lot of inux distros use cockpit to graphically manage network interfaces.
+
+Network Manager's nmcli is used to administer from the command line.
+
+$ nmcli -o
+$ nmcli -f NAME,FILENAME connection
+$ ifconfig eth0
+$ ip addr show eth0
+$ resolvectl status
+$ dig soa corp.515support.com
+$ dig SRV _ldap._tcp.corp.515support.com

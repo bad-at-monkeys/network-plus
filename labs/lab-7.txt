@@ -1,0 +1,24 @@
+LAB 07 - CONFIGURE IPV6 STATIC ROUTING
+
+IPv6 Address    = fdf0:2413:6d1c:20::1
+Default gateway = fdf0:2413:6d1c:20::ffff
+DNS server      = fdf0:2413:6d1c:0020::1
+- There are 16-bits remaining within the network portion to use for a subnet
+  ID. Here the subnet ID is 20.
+
+- The remaining bits are the host ID. Here, the host ID is 1.
+
+- The default gateway is IDd with the host bits as :ffff.
+
+- The DNS server is the local interface.
+
+
+Show IPv6 info:
+> netsh interface ipv6 show address
+> get-netipaddress -addressfamily ipv6 | format-table
+
+
+Show IPv6 DNS servers:
+> netsh int ipv6 show dnsservers
+
+

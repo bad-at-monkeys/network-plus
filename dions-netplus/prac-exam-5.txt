@@ -1,0 +1,187 @@
+PRACTICE EXAM 5
+
+################################################################################
+################################################################################
+
+ATTEMPT 1 - 76%
+
+################################################################################
+
+--------------------------------------------------------------------------------
+
+WTF is teredo tunneling?
+
+This allows for full IPv6 connectivity for IPv6 capable hosts that are on the
+IPv4 internet but hhave no native connection to an IPv6 network.
+
+--------------------------------------------------------------------------------
+
+Susan, an executive at Dion Training, will be traveling to Italy for a conference
+next week. She is worried about remaining connected to the internet while overseas
+and plans to use the WiFi in her hotel room and the local coffee shop with her
+laptop. Which of the following should she purchase and configure before leaving
+for Italy to ensure her communications remain secure regardless of where she is
+connecting from?
+
+VPN. WiFi is everywhere these days and it isn't safe to connect to it without a
+VPN.
+
+A hotspot could be used, but in conjunction with a VPN.
+
+--------------------------------------------------------------------------------
+
+Thomas has a server that streams media to the local network, and the device is
+currently visible on the network. All of the workstations on the LAN can ping the
+device, and all the firewalls are currently turned off. The goal is for the
+streaming media server to allow different workstations to watch the stream if
+they choose to subscribe to it. The streaming device appears to be functioning
+properly, but the media won't stream when requested. Which of the following
+TCP/IP technologies is MOST likely not implemented properly?
+
+Multicast.
+
+Anycast is an IPv6 technology that sends communications to the nearest receiver
+in a group with the same IP.
+
+--------------------------------------------------------------------------------
+
+You are investigating a network connectivity issue that is affecting two of your
+network clients. When you check the switchports of these clients, you observe
+that the switchports' physical interfaces are continually going up and down.
+Which of the following is the most likely reason for the flapping of the
+switchports you are observing?
+
+Duplicate MAC addresses. If a switch is continuously changing port assignments
+for an address as it updates its CAM table, this could indicate duplicate MACs.
+
+--------------------------------------------------------------------------------
+
+OC-12 means Optical Carrier. This is Fiber, so we can use an OTDR.
+
+--------------------------------------------------------------------------------
+
+A company utilizes a patching server to update its PCs regularly. After the
+latest patch deployment, all of the older PCs with non-gigabit Ethernet cards
+become disconnected from the network and now require a technician to fix the
+issue locally at each PC. What could be done to prevent this problem next time?
+
+Disable automatic driver updates to PCs from the patching server. This allows
+each PC to be tested individually befor upgrading.
+
+--------------------------------------------------------------------------------
+
+In SDN, the control layer determines how to route a data packet on the network.
+
+--------------------------------------------------------------------------------
+
+In NAC environments, a non-persistent agent can perform one-time, temporary
+posture assessments.
+
+--------------------------------------------------------------------------------
+
+If we don't see any LED indicator lights on, this typically means a cable is
+disconnected.
+
+--------------------------------------------------------------------------------
+
+SAN environments use jumbo packets, so the MTU should be set at 9000.
+
+--------------------------------------------------------------------------------
+
+You are troubleshooting a network connectivity issue on a student's workstation
+at Dion Training. The wireless access point for the DionTraining network is set
+to not broadcast its network identifier. The student enters DIONTRAINING as the
+network name, then attempts to connect to this "Open" wireless access point. The
+student's classmates have all been able to connect successfully to the network,
+but this workstation fails to successfully connect. Which of the following issues
+is indicated by this failure to connect?
+
+Wrong SSID. In this situation the network was open.
+
+--------------------------------------------------------------------------------
+
+bandwidth is theorhetical total data.
+
+throughput is thhe measure of actual data successfully transferred from souurce
+to dest in a given amount of time.
+
+latency is the amount of time it takes for data to reachh its dest across a
+network.
+
+jitter is the variable time delay of sending data packets over a network
+connection.
+
+--------------------------------------------------------------------------------
+
+When configuring a firewall, the implicit deny (DENY ANY ANY) is added first,
+every subsequent rule is added above this one.
+
+--------------------------------------------------------------------------------
+
+Retina scans are biometric controls
+
+--------------------------------------------------------------------------------
+
+Statement of Work (SOW) is the document that outlines all work to be performed.
+
+--------------------------------------------------------------------------------
+
+WAFs are Web Application Firewalls
+
+--------------------------------------------------------------------------------
+
+If the duplex is set to auto, check the actual duplex.
+
+--------------------------------------------------------------------------------
+
+To allow one node to communicate with other nodes via VPN connection, we use
+mGRE.
+
+--------------------------------------------------------------------------------
+
+QoS operates at layer 3
+
+--------------------------------------------------------------------------------
+
+CSU/DSUs are used to terminate T-1 lines.
+
+--------------------------------------------------------------------------------
+
+If a device doesn't receive an IP automatically, it is a DHCP issue. Duh.
+
+--------------------------------------------------------------------------------
+
+RAS stands for Remote Access Server.
+
+--------------------------------------------------------------------------------
+
+Which protocol is used to establish a secure and encrypted VPN tunnel that can be
+initiated through a web browser?
+
+SSL. SSL and more commonly TLS are used to provide VPN capability in browsers.
+
+--------------------------------------------------------------------------------
+
+TXT record lets an admin enter text into the DNSes. It is widely used to store
+email authentication methods that help a server determine if a message is trusted.
+
+--------------------------------------------------------------------------------
+
+A smartjack serves as the demmarcation point between the service provider's local
+loop and the customer's premise wiring.
+
+--------------------------------------------------------------------------------
+
+DOCSIS Modems are cable modems.
+
+--------------------------------------------------------------------------------
+
+################################################################################
+################################################################################
+
+ATTEMPT 2 -
+
+################################################################################
+
+--------------------------------------------------------------------------------
+

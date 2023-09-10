@@ -1,0 +1,33 @@
+LAB 14 - LESSON 11 ANALYZE APPLICATION SECURITY CONFIGURATIONS
+
+We observe the hmailserver and will use it to facilitate mail between clients.
+
+We launch wireshark and start capture on:
+port 25 or port 143 or port 53    (SMTP IMAP DNS)
+
+You will not see SMTP traffic but you will see IMAP traffic for the email client.
+The client is not configured for POP3, so don't expect any of that traffic to
+appear.
+
+
+Filter for DNS packets, note that they are transported over UDP.
+
+
+Now filter  tcp.port == 143
+
+We can see that IMAP is TCP.
+
+Inspect the IMAP packets for Request: 3 login...
+We should see the sull email address and password unencrypted.
+
+
+Which of the following is a way to mitigate the threat of packet sniffing
+against email traffic?
+
+HTTPS web mail
+
+
+How are IMAP and POP3 different from SMTP?
+
+IMAP and POP3 are client email retrieval protocols, SMTP is primarily an
+email transfer protocol

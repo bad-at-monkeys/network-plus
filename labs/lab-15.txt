@@ -1,0 +1,44 @@
+LAB 15 - CONFIGURE SECURE ACCESS CHANNELS
+
+We are configuring SSH here. Let's pay extra close attention to how the key pairs
+are shared.
+
+We should start adopting the habit of backing up our configuration files before
+altering them in a destructive manner, for example:
+
+$ cp /etc/ssh/sshd_config ~/config-backups/ssh/sshd_config_old
+
+We save it to the user's directory in a special directory for old configs so that
+we can revert whenevs.
+
+
+
+Configure key-based authentication
+
+The client has a private and public key, we must copy the client's public key to
+the server:
+
+On the client, generate an SSH keypair:
+$ ssh-keygen
+
+Then copy the public key to the server:
+$ ssh-copy-id -i ~/.ssh/id_rsa.pub user01@10.1.16.9
+
+Confirm:
+$ ssh user01@10.1.16.9
+
+
+
+Prevent root from authenticating over ssh
+
+Edit the /etc/ssh/sshd_config:
+  -> disable root user access
+  -> disable passwords over ssh
+
+
+
+Review the ssh log file
+
+Generate an entry in the /var/log/messages file:
+$ sudo tail /var/log/auth.log.1 | grep -i ssh
+

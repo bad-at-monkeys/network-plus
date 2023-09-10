@@ -1,0 +1,154 @@
+LESSON 4 - TROUBLESHOOTING ETHERNET NETWORKS
+
+
+##########
+EXPLAIN NETWORK TROUBLESHOOTING METHODOLOGY
+
+
+---
+Network Troubleshooting Methodology
+
+*** MUST STUDY ***
+This is CompTIA's metodology.
+
+1) Identify the problem.
+     -> Gather information.
+     -> ID symptoms and duplicate.
+     -> Question users.
+     -> Determine changes occured.
+     -> Approach multiple problems individually.
+2) Establish a theory of probability.
+     -> Top-to-bottom, Bottom-to-top OSI Model approach.
+          + Decide whether hardware or software related.
+	  + Decide whether hardware or subsystem (NIC or cable)
+	  + Pinpoint the issue further
+	  + Test theory against working devices
+     -> Divide and Conquer.
+3) Test the theory.
+4) Establish a plan of action to resolvethe problem and identify
+   potential effects.
+5) Implement the solution or escalate as necessary.
+6) Verify system functionality, implement preventative measures.
+7) Document findings, actions, and outcomes.
+
+
+
+
+
+##########
+TROUBLESHOOT COMMON CABLE CONNECTIVITY ISSUES
+
+
+---
+Specification and Limitations
+
+
+Speed vs Throughput
+
+At the physical layer a signal transmitted over a comm channel consists of
+symbols. Symbols are any sort of events in series that transition the signal
+to the next state.
+
+The number of symbols that can be transmitted per second is the baud rate.
+Baud rate is measured in MHz or GHz.
+
+Baud rate = physical
+
+
+At the data-link layer, the bandwidth of a link is the amount of information
+that can be transmitted in bits per second. With the use of encoding methods,
+the bit rate will always exceed the baud rate.
+
+Bandwidth = data-link
+
+
+The speed at which packets are delivered in milliseconds as latency, which
+isn't typically an issue on local ethernet networks.
+
+Latency = speed
+
+
+
+Distance Limitations, Attenuation, and Noise
+
+Attenuation and noise are what set distance limitations.
+  -> Attenuation is the loss of signal strength in dB. dB represents the ratio
+     between two measurements; signal strength at origin and destination.
+  -> Noise is anything that gets transmitted within or close to the channel
+     that isn't the intended signal. This causes the signal to be difficult to
+     distinguish, generating errors and forcing retransmission. Noise is
+     expressed as signal-to-noise ratio(SNR).
+
+
+
+
+
+---
+Cable Issues
+
+Ethernet links typically consist of:
+  -> Network tranceiver (host/end system)
+  -> Patch cable from host to wall port
+  -> Structured cable between wall port and patch panel (permanent link)
+  -> Patch cable between the patch panel and the switch port
+  -> Network transceiver in the switch port (intermediate system)
+
+This entire cable path is the channel link.
+
+
+Patch cable should be checked first, then transceivers. We can use loopback
+tools for bad ports.
+
+If these steps fail, we must test the structured cabling(permanent link).
+
+
+
+
+
+---
+Loopback Plugs, Status Indicators, and Interference Configuration
+
+Looopback Adapter/Plug
+A loopback adapter is a RJ-45 plug with a 6" stub of cable. It has pin 1 (Tx)
+to pin 3 (Rx) and pin 2 (Tx) to pin 6 (Rx).
+
+With this connected to a NIC, the NIC sends a packet to itself. We can use this
+to test for bad ports.
+
+
+
+LED Status Indicators
+Typical LED states:
+  -> Solid green; connected, no traffic
+  -> Blinking green; connected, with traffic flow
+  -> No light; not working, disconnected
+  -> Blinking amber; fault detected
+  -> Solid amber; the port is disabled
+
+
+
+Interface Configuration
+If there are no other obvious hardware issuues with the NIC, the autonegotiation
+process may have failed, speeds may be mismatched, or the duplex settings aren't
+correct.
+
+This will be because either the adapter or the switchport has been manually
+configured. Configuring both as autonegotiate usually fixes the issue.
+
+
+
+
+
+---
+Cable Testers
+
+When troubleshooting a permanent link, we must determine that the cable type is
+appropriate for the application. Distance, bandwidth, shielded/unshielded, etc.
+are all considerations.
+
+Cable testers report detailed information on the physical and electrical
+properties of a cable. It can test condition, cross-talk, attenuation, noise,
+resistance, etc.
+
+Cable certifiers extensively test a cable run to see that it exceeds spec.
+

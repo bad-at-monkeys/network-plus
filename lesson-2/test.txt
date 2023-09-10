@@ -1,0 +1,329 @@
+LESSON 2 - DEPLOYING ETHERNET CABLING
+
+1) With CSMA/CD, what will happen if a host has data to transmit and there
+   is already data on the cable?
+
+A jam message is sent to all hosts on the network, the hosts then standoff
+transmission until the data is transmitted.
+
+
+
+2) Which Ethernet standard works at 100 Mbps over Cat 5 or better copper
+   cable?
+
+100BASE-TX
+
+
+
+3) Which copper Ethernet standard meets the bandwidth requirements for
+   clients in an office network while minimizing costs?
+
+1000BASE-T or Gigabit Ethernet
+
+
+
+4) A network designer wants to run a 10 gigabit backbone between two
+   switches in buildings that are 75 m (246 feet) apart. What is the main
+   consideration when selecting an appropriate copper cable?
+
+Distance. Some type of shielded or screened cat6A or better is required
+for the installation to be compliant with Ethernet standard 10GBASE-T.
+
+
+
+5) What is the measurement standard for wire thickness?
+
+AWG - American Wire Gauge
+
+
+
+6) What are the characteristics of S/FTP cable?
+
+S/FTP uses a braided outer-scree and has a foil shield for each pair.
+
+
+
+7) Which categories of U/UTP cable are certified to carry data transmission
+   faster than 100 Mbps?
+
+Cat5e, Cat6, Cat6A, Cat7(screened/shielded), Cat8(screened/shielded)
+
+
+
+8) T or F. Cat standards apply only to wiring.
+
+False. Cat standards also describe connectors and modules.
+
+
+
+9) 100BASE-T transmit pins are 1 and 2. What color code are the wires
+   terminated to these pins under T568A and T568B?
+
+T568A = Green/White and Green
+T568B = Oange/White and Orange
+
+
+
+10) Why is plenum-rated cable used when cable is run in an area where
+    building air is circulated?
+
+Plenum-rated cable is safe for areas prone to fire because it adheres
+to those safety standards.
+
+
+
+11) Which cable type consists of a single core made of solid copper
+    surrounded by insulation, a braided metal shielding, and an outer cover?
+
+Coaxial cable.
+
+
+
+12) What type of fiber optic cable is suited for long distance links?
+
+SMF
+
+
+
+13) Which grade or grades of fiber have a 62.5 micron core?
+
+OM1
+
+
+
+14) Which fiber Ethernet standard is best suited to implementing backbone
+    cabling that does not exceed 200 m (656 feet) and can achieve at least
+    4 Gbps throughput?
+
+10GBASE-SR
+
+
+
+15) What maximum distance is defined in standards documentation for
+    1000BASE-LX running over MMF?
+
+550m
+
+
+
+16) You need to provision a fiber patch panel to terminate incoming cabling
+    with green LC connectors. What type of ports should be provisioned on
+    the patch panel?
+
+SMF APC; the patch panel must be provisioned with Lucent Connector ports
+with APC finishing type.
+
+
+
+17) Which types of distribution frame are best suited to 100 MHz or better
+    operation?
+
+110-block, BIX, Krone.
+
+
+
+18) What type of distribution frame is best suited to cabling wall ports to
+    Ethernet switches in way that best supports futures changes?
+
+Patch panel
+
+
+
+19) What tool is used to terminate wiring at a 110 block?
+
+Punchdown tool
+
+
+
+20) At what layer of the OSI model does a fiber distribution panel work?
+
+All distribution frames operate at Layer1.
+
+
+
+21) You need to provision modular SFP+ transceivers to support a 10 gigabit
+    link between two switches using an existing fiber cable. What two
+    characteristics must you check when ordering the transceivers?
+
+The specific wavelength and Ethernet standard.
+The type of connecting interface.
+
+
+
+22) You have selected an SFP+ 1310 nm Tx and 1490 nm Rx transceiver to
+    implement a BiDi link between two switches. Should you provision a
+    second SFP+ 1310 nm Tx and 1490 nm Rx for the other switch?
+
+No, we need an SFP+ module with 1490nm Tx and 1310nm Rx.
+
+
+
+##########
+Online Practice Test
+
+
+1) A company is upgrading its current network infrastructure to Gigabit
+   Ethernet. Which of the following options concerning Gigabit Internet
+   is true? (Select all that apply.)
+
+Works over Cat 5e or newer.
+
+Max distance of 100 m for UTP cabling between node/switch port
+or between two ports.
+
+Supports rates up to 1000 Mbps.
+
+
+
+2) A network technician is researching standards for the physical and
+   data link layer. Which standard, developed to implement the
+   functions of the physical and data link layers of the OSI model,
+   is the most important?
+
+802.3 Ethernet Standards
+
+
+
+3) A technician who lays cabling is researching how the manufacturer
+   constructed fiber optic cabling. Which of the following reflects
+   signals back into the waveguide as efficiently as possible so that
+   the light signal travels along the waveguide by multiple internal
+   reflections?
+
+Cladding
+
+
+
+4) A project manager is ordering equipment to set up fiber cabling in
+   a new building. Which of the following tools will allow a more
+   permanent join with lower insertion loss?
+
+Fusion Splicer
+
+
+
+5) A network technician is laying out coax cables and needs to order
+   more termination connectors. What should the technician order?
+
+F-type
+
+
+
+6) A network administrator is setting up cabling between buildings
+   and needs to transmit the maximum distance possible. Which type
+   of cabling would be most suitable?
+
+SMF
+
+
+
+7) A network cabling engineer reviews different fiber optic connector
+   form factors. Which of the following features a duplex connector
+   that works in single or multimode?
+
+Subscriber Connector(SC)
+
+
+
+8) A new network engineer is deploying an architecture using Carrier
+   Sense Multiple Access with Collision Detection (CSMA/CD). How
+   does the CSMA/CD protocol work?
+
+Data -> Check Network -> Transmit Data -> Collision -> Wait -> Retransmit
+
+
+9) A project manager is preparing a team to set up cabling infrastructure
+   in a new building. Which of the following tools should they order to
+   be able to create patch cords?
+
+Crimper/Cable Stripper
+
+
+
+10) A network technician is looking over diagrams for special types of
+    equipment rooms that mark the point at which external cabling
+    (located outside the plant) joins to internal cabling
+    (located on the premises). What is this called?
+
+Demarc
+
+
+
+11) A network technician in Germany is setting up Cat 7 cabling in the
+    organization's environment. The technician should, to comply with
+    installation standards, terminate the cabling with what type
+    of connector? (Select all that apply.)
+
+TERA
+GG45
+
+
+
+12) A project manager is putting together supplies for a project using
+    fiber optic cabling. The manager is looking at the cabling core ferrule,
+    which has the tightest connection and best return loss performance.
+    Which of the following should the project manager use?
+
+Angled Physical Contacts (APC)
+
+
+
+13) A solutions architect is determining where to use fiber cabling and
+    wireless networks to efficiently and cost-effectively deploy an
+    infrastructure. Which of the following would most likely best suit
+    using wireless connectivity?
+
+IoT, because these devices do not require large bandwidth.
+
+
+
+14) A project manager is preparing for an upcoming work assignment and
+    is comparing available cable types for use within the project. What
+    is NOT a benefit of using fiber optic cabling?
+
+Cost
+
+
+
+15) A company calls a consultant to replace STP cabling and is looking at
+    the varying types. Which of the following is the most challenging
+    to install?
+
+Legacy Shielded Twisted Pair(STP)
+
+
+
+16) A cable operator is tasked with assessing the use of UTP cabling in
+    an office building. What is NOT a true statement regarding UTP?
+
+UTP is less susceptible to interference and crosstalk.
+
+
+
+17) A systems administrator is looking at technology in the organization's
+    environment and finds Fast Link Pulse. What does this technology do?
+
+Sends link integrity test signals.
+
+
+
+18) A network technician needs a cost-effective solution that can multiplex
+    up to 16 wavelengths on an SFP/SFP+ interface. Which multiplexing
+    technique should the network technician use?
+
+CWDM
+
+
+
+19) Which two termination schemes should a technician use to terminate
+    twisted pair cabling in accordance with the TIA/EIA-568 standard as
+    they set up a new office network for their company?
+
+T568A and T568B
+
+
+
+20) A solutions architect is designing a cable management solution.
+    Which of the following is the most common wiring distribution?
+
+Patch panel

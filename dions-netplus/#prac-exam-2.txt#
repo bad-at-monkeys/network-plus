@@ -1,0 +1,461 @@
+PRACTICE EXAM 2
+
+################################################################################
+################################################################################
+
+FIRST ATTEMPT - 83%
+
+################################################################################
+
+--------------------------------------------------------------------------------
+
+802.1d is for STP
+802.1q defines VLANs
+
+--------------------------------------------------------------------------------
+
+SQLnet port 1521
+Microsoft SQL port 1433
+MySQL port 3306
+
+--------------------------------------------------------------------------------
+
+LDAP UDP/389
+
+--------------------------------------------------------------------------------
+
+802.1x is EAP
+
+--------------------------------------------------------------------------------
+
+DHCP servers must provide an IP, subnet mask, default gateway, and DNS server to
+each client to eefectively access the internet.
+
+--------------------------------------------------------------------------------
+
+The control layer is used in SDNs.
+
+--------------------------------------------------------------------------------
+
+NAC will automatically test any wireless device that connects to the network
+before allowing full access to the corporate network and its resources.
+
+ACME uses NAC when checking compliance.
+
+--------------------------------------------------------------------------------
+
+In an ATM network, layer 2 frames are called ATM cells.
+
+--------------------------------------------------------------------------------
+
+1 - identify the prob
+2 - establish a theory of probable cause
+3 - test theory to determin
+4 - establish plan of sction
+5 - implement a solution or escalate
+6 - verify functionality
+7 - document, lessons learned
+
+--------------------------------------------------------------------------------
+
+For 802.11b and 802.11g networks, we use channels 1 6 11 with a 20MHz width
+
+--------------------------------------------------------------------------------
+
+A customer is trying to configure an 802.11b wireless card in an old laptop to
+connect to an 802.11g wireless router. When the customer scans for the wireless
+network's SSID (Dion-Corp), it is not displayed within Windows. What is the MOST
+likely reason that the SSID is not being displayed?
+
+The BC is disabled on the wireless router.
+
+802.11b and g use 2.4GHz.
+
+--------------------------------------------------------------------------------
+
+A network technician needs to monitor the network to find a user who is browsing
+websites that go against the company's acceptable use policy. What should the
+technician use to view the website and find the user browsing it?
+
+Packet sniffer. This is what we use to capture and analyze network traffic.
+
+--------------------------------------------------------------------------------
+
+A network administrator recently set up a network computer lab and discovered
+some connectivity issues. The administrator can ping the fiber uplink interface,
+but none of the new workstations plugged into the switch are responding to the
+technician's ICMP requests. Which of the following actions should the technician
+perform next?
+
+Determine if the link lights are lit for the ports. This is the simplest thing
+to check first on a new install, the other options would be checked later.
+
+--------------------------------------------------------------------------------
+
+Out-of-band (OOB) management is a method of remotely controlling and managing
+critical IT assets and network equipment using a secure connection through a
+secondary interface that is physically separate from the primary network
+connection.
+
+--------------------------------------------------------------------------------
+
+Which of the following components is used by an agent to send a complete set of
+key-pair values about a significant event or condition that is occurring in
+real-time by providing a full list of variables and values for a given device to
+a manager?
+
+Verbose trap. This gives ALL the info.
+
+A granular trap is different, it cintains the OID and the number value of the OID.
+
+--------------------------------------------------------------------------------
+
+ICMP is a connectionless protocol.
+
+--------------------------------------------------------------------------------
+
+802.3af describes PoE
+
+802.3ad describes LACP
+
+--------------------------------------------------------------------------------
+
+A user's smartphone is displaying text in other languages in their web browser
+when accessing the company's main website. Which of the following is the MOST
+likely cause of the issue?
+
+On-path attack.
+
+--------------------------------------------------------------------------------
+
+ You have installed and configured a new wireless router. The clients and hosts
+ can ping each other. The network uses a fiber optic WAN connection with 1 Gbps
+ throughput. The wired clients have fast connections, but the wireless clients
+ are displaying high latency when a ping is performed. The wireless clients are
+ also only receiving 300 Mbps when downloading files from the Internet. Which of
+ the following is MOST likely the cause of the slow speeds experienced by the
+ wireless clients?
+
+The WAP is experiencing RF interference.
+
+--------------------------------------------------------------------------------
+
+SIP uses ports 5060/5061
+
+--------------------------------------------------------------------------------
+
+What remediation strategies are the MOST effective in reducing the risk to an
+embedded ICS from a network-based compromise? (Select TWO)
+
+Segmentation and disabling usused services.
+
+--------------------------------------------------------------------------------
+
+A technician is troubleshooting a workstation connectivity issue. The technician
+believes a static ARP may be causing the problem. What should the technician do
+NEXT according to the network troubleshooting methodology?
+
+Remove the ARP entry from the end user's workstation.
+
+--------------------------------------------------------------------------------
+
+Which of the following layers within software-defined networking focuses on
+resource requests or information about the network?
+
+Application layer.
+
+--------------------------------------------------------------------------------
+
+A network administrator has determined that the ingress and egress traffic of a
+router’s interface are not correctly reported to the monitoring server. Which of
+the following can be used to determine if the router interface uses 64 bit versus
+32-bit counters?
+
+SNMP walk
+
+--------------------------------------------------------------------------------
+
+Split horizon is a method used by distance vector protocols to prevent network
+routing loops.
+
+If a router receives routing information from another router, the first router
+will not broadcast that information.
+
+--------------------------------------------------------------------------------
+
+Which of the following network performance metrics is used to represent variable
+delay experienced by a client when receiving packets from a sender?
+
+Jitter. Jitter is the measuure of time delay.
+
+Latency is the measure of time it takes to reach a destination.
+
+--------------------------------------------------------------------------------
+
+Today, your company's network started to experience network connectivity issues
+for various workstations around the company. As you begin troubleshooting, you
+identify that all the workstations receive their connectivity from a single
+switch on the 3rd floor of the office building. You start searching the 3rd floor
+for the cause of this issue and find a small wired router plugged into a network
+jack in the sales manager's office. From this small wired router, he has
+connected his workstation and a small Smart TV to watch Netflix while working.
+You question the sales manager about when he brought in the new router. He states
+that he just hooked it up this morning. What type of issue did the sales manager
+accidentally introduced into the network by installing the router?
+
+Rogue DHCP server. Introducing a new, unknown router directly to the network
+also introduces a new unknown DHCP server. Hence, rogue DHCP server.
+
+--------------------------------------------------------------------------------
+
+Which encryption type MOST likely is used for securing the key exchange during a
+client-to-server VPN connection?
+
+ISAKMP. This is used in IPsec, which is commonly used in securing the key exchange
+during the establishment of a client-to-server VPN connection.
+
+TKIP is for wireless networks, specified in the 802.11i standard.
+
+--------------------------------------------------------------------------------
+
+John is investigating a performance issue on a server and has begun by gathering
+its utilization statistics. John notices that the statistics are outside of the
+normal, acceptable ranges. What should John do next?
+
+Conduct a baseline review. If we do this, we can compare our results from a
+previous baseline review.
+
+--------------------------------------------------------------------------------
+
+Your physical security manager, Janice, wants to ensure she can detect any
+unauthorized access to the data center. Which technology should be used to meet
+her requirement?
+
+Video surveillance.
+
+--------------------------------------------------------------------------------
+
+IPv6 addresses:
+ff00::/8 - Multicast
+::0 - default
+::1 - loopback
+
+--------------------------------------------------------------------------------
+
+Jason wants to use his personal cell phone for work-related purposes. Because of
+his position, Jason has access to sensitive company data, which might be stored
+on his cell phone during its usage. The company is concerned about this but
+believes that it might be acceptable with the proper security controls in place.
+Which of the following should be done to protect both the company and Jason if
+they allow him to use his personal cell phone for work-related purposes?
+
+Conduct real-time monitoring of the phones activity and usage.
+
+--------------------------------------------------------------------------------
+
+Which of the following describes the ID of a specified native VLAN when traffic
+passes over a trunk?
+
+It becomes the default VLAN for untagged frames.
+
+--------------------------------------------------------------------------------
+
+Which of the following protocols must be implemented for two switches to share
+VLAN information?
+
+VTP. VLAN Trunking Protocol allows a VLAN created on one switch to be propogated
+to other switches on a group of switched within a VTP domain.
+
+--------------------------------------------------------------------------------
+
+A network administrator is tasked with building a wireless network in a new
+building located next door to your company's office building. The wireless
+clients should not be able to communicate with other wireless clients but should
+be able to communicate with any wired users on the network. The users must be
+able to seamlessly migrate between the buildings while maintaining a constant
+connection to the LAN. How should the administrator configure the new wireless
+network in this new building?
+
+Use the same SSIDs on different channels and AP isolation.
+
+--------------------------------------------------------------------------------
+
+A network technician has just installed a new point-to-point 200-meter
+single-mode fiber link between two local routers within the Dion Training
+offices. The fiber has been connected to each router, but the interface fails
+to come up. The network technician has double-checked the interface
+configuration on both routers, both SFPs have been hard looped to confirm they
+are functioning, connectors on both ends of the links have been cleaned, and
+there is sufficient power. What is the MOST likely cause of the problem?
+
+Wavelength mismatch. This occurs when two different tranceivers are used at each
+end of the cable.
+
+If it was a duplex mismatch the link would still show, only performance would be
+affected.
+
+--------------------------------------------------------------------------------
+
+You are working as part of a network installation team. Your team has been asked
+to install Cat 5e cabling to some new offices on the building's second floor.
+Currently, the office only has one network closet, which is located on the first
+floor. Your team spent the morning running 24 new CAT 5e cables from a patch
+panel in the networking closet on the first floor to a new networking closet you
+are outfitting on the second floor. Your team terminated these cables in a new
+patch panel in the 2nd-floor closet. You measured the distance from the switch in
+the 1st-floor closet to the new 2nd-floor patch panel and determined it was 80
+meters. The team then ran cables from this patch panel to each of the new
+offices. Some of the offices are working properly, but others are not. You
+suspect that some of the cable runs are exceeding the maximum length allowed by
+Cat 5e cabling. What is the BEST solution to this problem?
+
+Install a switch in the second-floor networking closet to increase the signal.
+
+--------------------------------------------------------------------------------
+
+Which of the following is a security concern with using a cloud service provider
+and could result in a data breach caused by data remnants?
+
+Rapid elasticity. When cloud resources are deprovisioned and reprovisioned for
+new uses or customers, data remnants can remain on the boards.
+
+--------------------------------------------------------------------------------
+
+Anycast can only be used with ipv6.
+
+--------------------------------------------------------------------------------
+
+LDAPS - 636
+LDAP - 389
+
+--------------------------------------------------------------------------------
+
+################################################################################
+################################################################################
+
+ATTEMPT 2 - 94%
+
+################################################################################
+
+--------------------------------------------------------------------------------
+
+What to use to connect  RJ-11 connector to connect a PC to an ISP using a POTS
+line?
+
+Analog modem.
+
+A DOCSIS modem uses an F-type connector.
+
+--------------------------------------------------------------------------------
+
+SMB - 139,445
+
+--------------------------------------------------------------------------------
+
+5GHz - 802.11a/n/ac/ax
+2.4GHz - 802.11b/g/n/ax
+
+802.11g - 54Mbps
+802.11b - 11Mbps
+802.11n - 108Mbps
+802.11ax - 9.6Gbps
+
+802.11a - 54Mbps
+802.11n - 600Mbps
+802.11ac - 5.5Gbps
+802.11ax - 9.6Gbps
+
+--------------------------------------------------------------------------------
+
+In SNMPv3, authPriv ensures that the comms are sent with authentication and
+privacy.
+
+--------------------------------------------------------------------------------
+
+Evil twin is the most common way to preform an on-path attack on a wireless
+network.
+
+--------------------------------------------------------------------------------
+
+Port security (persistent MAC learing or Sticky MAC) is a security feature that
+enables an interface to retain dynamically learned MAC addresses when the switch
+is restarted or if the interface goes down and is brought back online.
+
+--------------------------------------------------------------------------------
+
+Split DNS is an implementation in which separate DNS servers are provided for
+security and privacy management for internal and external networks.
+
+Split-horizon also prevents routing loops from occuring.
+
+--------------------------------------------------------------------------------
+
+NetID is always the first address.
+
+--------------------------------------------------------------------------------
+
+Which of the following policies or plans would describe the access requirements
+for connecting a user's laptop to the corporate network?
+
+BYOD policy. This question is vague, so we can only assume they meant the USER'S
+PERSONAL LAPTOP.
+
+--------------------------------------------------------------------------------
+
+If a switchport is configured for 802.1q trunking instead of as an access host
+port, the workstation will be unable to reach the DHCP server through the port
+and will fall back to using an APIPA address.
+
+--------------------------------------------------------------------------------
+
+In AAA using LDAP, we are using a RADIUS server. AAA through RADIUS uses a
+Server Secret Key. If the keys mismatch thhere could be login issues.
+
+--------------------------------------------------------------------------------
+
+OFDM QAM QPSK are all modulation implementations.
+
+--------------------------------------------------------------------------------
+
+To ensure that users logging into a network are physically in the same building
+as the network they are authenticating on we can use:
+
+GPS
+NAC
+
+################################################################################
+################################################################################
+
+ATTEMPT 3 - 93%
+
+################################################################################
+
+--------------------------------------------------------------------------------
+
+SIP - 5060,5061
+
+--------------------------------------------------------------------------------
+
+???Reflective DNS?
+
+--------------------------------------------------------------------------------
+
+???Router Advertisement Guard
+
+--------------------------------------------------------------------------------
+
+???Statefull vs Stateless firewall
+
+--------------------------------------------------------------------------------
+
+Barbara has connected her personal wireless router to a network jack inside her
+office. The router cannot get a DHCP address even though her corporate laptop can
+get a DHCP address when connected to the same jack. Barbara checked the router's
+configuration to ensure it is set up to obtain a DHCP address. Which of the
+following is the MOST likely reason that the router is not getting a DHCP
+address?
+
+Only allow listed MAC addresses can connect to the network.
+
+--------------------------------------------------------------------------------
+

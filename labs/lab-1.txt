@@ -1,0 +1,79 @@
+LAB 01 - CONFIGURE A SOHO ROUTER
+
+On Ubuntu 18.04 we are going to connect a SOHO router through SSH,
+establish an HTTP connection and manage it.
+
+1) Login and go to Network Manager in the toolbar,
+   -> eth1 -> wired settings -> eth1 gear icon -> ipv4
+
+   We can see that DHCP is being used.
+
+
+
+2) Open the terminal:
+   $ ip addr show eth1
+
+
+
+3) SSH into the OpenWRT router
+   $ ssh root@192.168.1.1
+
+   Show basic info about the router and find the LAN and WAN interfaces:
+   $ uci show network
+   $ uci show network | grep -i "network.wan.ifname"
+   $ uci show network | grep -i "network.lan.ifname"
+
+
+
+4) View network info again:
+   $ ifconfig
+
+
+
+5) Open firefox and enter the routers IP in the address bar:
+   http://192.168.1.1
+
+   We are just creating a stronger admin password for the router.
+
+
+
+6) Logout and log back into the router. We can see the sytems overview here,
+   this includes DHCP leases and system utilization as well.
+
+
+
+7) If we go to System -> Logging, we can input a server IP to send logs to.
+
+
+
+8) We need to configure SSH to listen only on the LAN interface on port 22
+   System -> Administration -> SSH Access -> Interface
+
+   Then save that.
+
+
+
+9) Open a terminal and attempt a connection to the router:
+   $ ssh root@192.168.1.1
+
+   The connection is successful.
+
+
+
+9) Change the interface from LAN to WAN in the SSH configuration,
+   then try an ssh connection in the terminal.
+
+   It should fail.
+
+
+
+10) We can create backups of the router config.
+
+
+
+NOTE: There are three private IP address ranges:
+    Reserved Class A 10.x.y.z
+    Reserved Class B 172.16.x.y - 172.31.x.y
+    Reserved Class C 192.168.x.y
+
+NOTE: 127.0.01 is typically used for the loopback address.

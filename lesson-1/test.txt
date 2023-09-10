@@ -1,0 +1,86 @@
+LESSON 1 - REVIEW
+
+1) At which OSI layer is the concept of a port number introduced?
+
+Layer 4 - Transport
+
+
+
+2) At which layer of the OSI model is no header encapsulation applied?
+
+Layer 1 - Physical
+
+
+
+3) What component performs signal amplification to extend the maximum
+   allowable distance for a media type?
+
+Repeater
+
+
+
+4) Which OSI layer packages bits of data from the Physical layer into
+   frames?
+
+Layer 2 - Data-link
+
+
+
+5) True or False? The Session layer is responsible for passing data to the
+   Network layer at the lower bound and the Presentation layer at the
+   upper bound.
+
+False, the Session Layer(5) has the Transport(4) as the lower-bound
+and the Presentation(6) as the upper-bound.
+
+
+
+6) True or false? The WAN port on a SOHO router is connected to the LAN
+   ports by an internal switch.
+
+False. The LAN ports and WAP are connected by a switch.
+
+The WAN port is seperate, packets must be routed between the LAN and
+WAN segments.
+
+
+
+7) What type of address is used by the switch to forward transmissions to
+   the appropriate host?
+
+Physical Address. Typically MAC addresses in modern networks.
+
+
+
+8) True or false? The DHCP server in the SOHO router assigns an IP address
+   to the WAN interface automatically.
+
+False. The ISP assigns the WAN IP, the router uses DHCP to assign addresses
+locally to the host within its LAN.
+
+
+
+9) What function or service prevents an Internet host from accessing
+   servers on the LAN without authorization?
+
+Firewall.
+
+
+
+10) How is the decimal value 12 expressed in hex?
+
+0xC
+
+11) How is the decimal value 171 expressed in hex?
+
+0xAB
+
+  -> Divide 171 by 16 until QUOTIENT is zero.
+     171 / 16 = 10%11
+     10 / 16 = 0%10
+  -> 10 = A
+     11 = B
+  -> 0xAB
+
+In binary - 10101011
+

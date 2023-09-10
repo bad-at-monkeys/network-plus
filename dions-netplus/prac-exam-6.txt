@@ -1,0 +1,118 @@
+PRACTICE EXAM 6
+
+################################################################################
+################################################################################
+
+ATTEMPT 1 - 76%
+
+################################################################################
+
+--------------------------------------------------------------------------------
+
+Asymmetrical routing refers to a topology where the return path is different to
+the forward path. This is common with load balancers and where routing takes place
+over multiple redundant paths across the internet.
+
+--------------------------------------------------------------------------------
+
+QoS operates on layer 2 or 3
+
+--------------------------------------------------------------------------------
+
+Fiber light meters are used to measure the POWER in an optical signal over a
+fiber optic cable.
+
+Optical time domain reflector (OTDR) tests PERFORMANCE over a fiber cable.
+
+--------------------------------------------------------------------------------
+
+VLAN hopping is an attack where the attacker is able to send traffic from one
+VLAN into another by either double tagging the traffic or conducting switch
+spoofing.
+
+--------------------------------------------------------------------------------
+
+Channel bonding improves connection speed.
+
+--------------------------------------------------------------------------------
+
+In Windows, the hostname command returnns the NetBIOS name of the server.
+
+--------------------------------------------------------------------------------
+
+Crosstalk can occur if twisted pairs aren't twisted sufficiently
+
+
+--------------------------------------------------------------------------------
+
+If we need 32 devices on a subnet we use a /26, not a /27 which is exactly 32.
+Remember that we still need two reserved addresses for BC and NetID.
+
+--------------------------------------------------------------------------------
+
+DLP means Data Loss Prevention. These systems are used to ensure that end-users
+do not send sensitive or critical information outside the network.
+
+This is the best way to mitigate data exfiltration from a corporate network.
+
+--------------------------------------------------------------------------------
+
+T1 can transmit 24 telephone calls at a time because it uses DS-1.
+
+--------------------------------------------------------------------------------
+
+When working on a patch panel and replacing a cable, a broadcast storm occurs.
+After removing the replacement cable, we should review labeling and logical
+network diagram documentation.
+
+--------------------------------------------------------------------------------
+
+Wireless networks that use a PIN to connect devices use WPS.
+Brute force attacks are useful against default credenntials.
+
+--------------------------------------------------------------------------------
+
+The switchport with the least desireable path in STP is in the BLOCKING state.
+
+--------------------------------------------------------------------------------
+
+10GBaseLR - SMF
+10GBaseSR - MMF
+
+--------------------------------------------------------------------------------
+
+3G - HSPA+, EV-DO
+4G - LTE, LTA
+
+--------------------------------------------------------------------------------
+
+We want to allow HTTP traffic through a stateless firewall.
+The company has IP 192.168.0.0/24.
+What ACLs to implement.
+
+PERMIT SRCIP:192.168.0.0/24 SPORT:ANY DSTIP:ANY DPORT 80
+
+We permit traffic from the internal network (192.168.0.0/24) from any port to
+access the external network (any IP) to port 80 (HTTP).
+
+Since this is a stateless firewall, we must include the SPORT ANY to allow the
+outbound connection through the firewall.
+
+--------------------------------------------------------------------------------
+
+Business Continuity Plans (BCPs) encompass disaster recovery plans, incident
+response plans, and risk management plans.
+
+--------------------------------------------------------------------------------
+
+ICS systems must be tested before deploying patchhes. DONT EVER APPLY PATCHES
+FIRST IN SCADA.
+
+--------------------------------------------------------------------------------
+
+What does this mean?
+
+"High utilization threshold exceeded on gi1/0/24: current value 88%"
+
+Port utiilization triggered the alarm.
+

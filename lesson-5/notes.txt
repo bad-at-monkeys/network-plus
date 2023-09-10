@@ -1,0 +1,372 @@
+LESSON 5 - EXPLAINIGN IPV4 ADDRESSING
+
+##########
+EXPLAIN IPV4 ADDRESSING SCHEMES
+
+---
+IPv4 Datagram Header
+
+The Internet Protocol Header contains fields to manage the logical
+addressing and forwarding function of a packet.
+
+
+------------------------------------------------
+Version | Hdr. Length | DiffServ | Total Length |
+-------------------------------------------------
+  Identification  |  Flags  |  Fragment Offset  |
+-------------------------------------------------
+    TTL    |    Protocol     |     Checksum     |
+-------------------------------------------------
+             Source Address                     |
+-------------------------------------------------
+	   Destination Address                  |
+-------------------------------------------------
+	         Options                        |
+-------------------------------------------------
+		  Data                          |
+-------------------------------------------------
+
+
+
+The protocol field determines whether TCP or UDP.
+
+Some protocol types run on top of IP at layer 3:
+  -> ICMP/1: used for status messages and connectivity testing.
+  -> IGMP/2: used with multicasting.
+  -> GRE/47: used to tunnel packets across an intermediate network (for VPNs)
+  -> ESP/50 & AH/51: used with an encrypted form of IPSec.
+  -> EIGRP/88 & OSPF/89: routing protocols.
+
+
+
+
+
+---
+IPv4 Address Format
+
+Network ID - number common to all hosts on a network
+Host ID - number that identifies a single host on an IP network
+
+IPv4 addresses are 32-bits long separated into four 8-bit octets.
+
+
+
+Binary Conversion
+To convert binary to decimal, write out the chart then match up the
+ones and zeroes, so to get binary 19:
+128 64 32 16 8 4 2 1
+  0  0  0  1 0 0 1 1
+
+19 = 00010011 = 0b10011
+
+
+
+Network Masks
+A 32-bit network mask is what distinguishes the Network ID from the Host ID.
+
+The mask conceals the host ID portion and leaves the network portion revealed.
+Wherever there is a binary one in the netmask, it corresponds with the net ID.
+
+This is a process called ANDing. We are ANDing the mask to the IP address,
+because when two 1s are ANDed together the result is 1. Any other combo
+returns a 0.
+
+Let's determine the network ID:
+
+1) First AND the two addresses to binary
+198.51.100.1    =    11000110 00110011 01100100 00000001
+                                  AND
+255.255.255.0   =    11111111 11111111 11111111 00000000
+                                   =
+198.51.100.0    =    11000110 00110011 01100100 00000000
+
+
+
+Subnet Mask
+
+Subnet addressing has three hierarchical levels - a network ID, subnet ID, and
+host ID.
+
+To create logical subnets, bits from the host portion of the IP address must be
+allocated as a subnetwork address, rather than part of the host ID.
+
+
+So if we had a network with the network mask 255.255.255.0, we could make 16
+/28s out of it and hosts within the subnets use the subnet mask of
+255.255.255.240.
+
+Only one mask is applied to the IP address on each interface. The mask
+containing the subnet information is only used within the IP network.
+
+External IP networks continue to address the whole network by its network ID,
+198.51.100.0 255.255.255.0. Hosts within the network use a longer subnet mask
+to differentiate the subnets:
+
+198.51.100.0 255.255.255.240
+198.51.100.16 255.255.255.240
+198.51.100.32 255.255.255.240
+198.51.100.48 255.255.255.240
+...
+198.51.100.240 255.255.255.240
+
+
+
+Host Address Ranges
+
+A /24 network allows for 254 possible hosts per subnet out of 32,769-65,536
+possible subnets.
+
+The reason why it isn't 256 is because 2 addresses are reserved,
+one for the network address (198.51.100.0) and one for the
+broadcast (198.51.100.255).
+
+
+Each bit added to a subnet mask approximately halves the number of available
+host addresses, but almost doubles the number of possible subnets.
+
+
+
+
+
+##########
+EXPLAIN IPV4 FORWARDING
+
+---
+Layer2 vs Layer3 Addressing and Forwarding
+
+Forwarding at layer3 is routing.
+Forwarding at layer2 is switching.
+
+Nodes within each subnet can access eachother directly (same broadcast domain),
+but need a router to communicate with subnets outside.
+
+Within each subnet(or broadcast domain), nodes use MAC addresses to forward
+frames to another, translating between layer3 IP addresses and layer2 MACs.
+
+
+
+
+
+---
+IPv4 Default Gateways
+
+If the masked portions of a source and destination IP address match, then the
+destination interface is assumed to be on the same IP network or subnet.
+
+------------------------------------------------
+src:   11000110 00110011 01100100 | 0001 | 0001|
+            198       51      100 |      |   17|
+dest:  11000110 00110011 01100100 | 0001 | 0011|
+            198       51      100 |      |   19|
+       11111111 11111111 11111111 | 1111 | 0000|
+            255      255      255 |      |  240|
+	                          |      |     |
+                                  |Subnet| Host|
+				  |  ID  |  ID |
+Network ID                        |      |     |
+------------------------------------------------
+
+See that the source and destination network IDs match up to the first 28-bits.
+IP will conclude the destination IPv4 address is on the same IP network and
+will attempt to deliver the packet locally.
+
+If these network IDs did not match, IP would know that the packet must be
+routed to another IP network through a default gateway.
+
+
+Routes to other networks can be manually configured or dynamically configured
+with some routing protocol.
+
+
+
+
+
+---
+Address Resolution Protocol
+
+ARP is the mechanism trannslating IPs to MACs and vice versa.
+It is included in the IP suite and operates on layer3 and 2.
+
+When sending and receiving hosts are within the same broadcast domain
+or subnet, local address resolution is carried out with ARP:
+  -> Host A wannts to send a packet to Host D. They are on the same local
+     network because because the network ID bits match. It has no ARP entry
+     for Host D though.
+  -> Host A sends out a broadcast to the network asking "Who is at [Host D IP]"
+  -> Host that do not identify with [Host D IP] ignore the broadcast.
+  -> Host D identifies with the broadcast and replies to Host A.
+  -> Host A caches the IP mapping of Host D and encapsulates the IP packet
+     in a frame with the destination address.
+
+
+
+
+
+---
+Unicast and Broadcast Addressing
+
+Unicast - sending packets to a single host
+Broadcast - sending packets to multiple hosts throuugh the network or subnet's
+            broadcast address.
+
+The broadcast address is the last address in any IP network.
+When all host bits are set to 1.
+
+Broadcast domains boundaries are established at the network layer by routers.
+
+At layer2, broadcasts are delivered using the group mac address
+(ff:ff:ff:ff:ff:ff).
+
+
+
+
+
+---
+Multicast and Anycast Addressing
+
+Multicasting - allows one host to send content to other hosts that have
+               subscribed to the sending host's content. Typically configured
+	       with IGMP.
+
+Anycast - means that a group of hosts are configured with the same IP address.
+          Routers use a prioritization algorithm while sending packets to an
+	  anyycast group. This allows for the services behind the IP to be
+	  provisioned more appropriately and allows for load balancing and
+	  failover between hosts within the anycast group.
+
+
+
+
+
+---
+Configure IP Networks and Subnets
+
+Virtal LANs and Subnets
+
+Modern Ethernet networks are built on switches.
+
+Switchhes put every port on the same broadcast domain.
+That means any host within the broadcast domain can contact any
+other host using the same IP subnet and MAC address entry.
+Switches can get crowded quickly.
+
+VLANs can reduce overcrowding of hosts on switches and logically
+compartmentalize a network.
+
+Each interface on a managed switch can be assigned a VLAN ID. This means that
+different groups of hosts on the same cabling and switches can appear to be in
+separate LAN segments.
+
+Each VLAN is a separate bc domain.
+
+This is the same idea as all virtual computing.
+
+
+
+VLAN at layer2 is what subnetting is at layer3.
+
+
+
+
+
+---
+Classful Addressing
+
+Old school way of doing things.
+
+1–126      Class A
+128–191    Class B
+192–223    Class C
+
+
+
+
+
+---
+Public vs Private Addressing
+
+Public IP Address - one that can establish connection with other public IP
+networks
+
+Private IP Address - non-routable over the internet
+
+
+Private IP Address Range:
+10.0.0.0 - 10.255.255.255    Class A private range.
+172.16.0.0 - 172.32.255.255    Class B private range.
+192.168.0.0 - 192.168.255.255    Class C private range.
+
+
+Internet acces is facilitated to these private IPs by:
+  -> A router that uses NAT.
+  -> A proxy server with a public facing interface/IP that serves
+     internet request on behalf of the private clients.
+     
+
+
+APIPA
+
+When you get a 169.254.x.x address.
+Meanns your DHCP server is messed up.
+
+
+
+
+
+---
+Other Reserved Ranges
+
+Class D    224.0.0.0 - 239.255.255.255    multicasting
+Class E    240.0.0.0 - 255.255.255.255    experimental/testinng
+
+
+
+Loopback Addresses
+Typically 127.0.0.1
+
+
+
+0.0.0.0/8          typically a client seeking a dhcp lease
+255.255.255.255    broadcasting to the local network
+
+
+
+
+
+----
+IPv4 Address Scheme Design
+
+When planning an IPv4 network addressing scheme we must consider:
+  -> The number of IP networks and subnetworks required.
+  -> Thhe number of hosts per subnet.
+  -> Netwrk ID must be from a valid public or private IP range.
+  -> The network or host IDs cannot be all 1s.
+  -> The nnetwork or host IDs cannot be all 0s, that meanns 'this' network.
+  -> Each host ID must be unique on the IP network or subnet.
+  -> The network ID must be unique on the internet or internal systems.
+
+
+Let's subnet 172.30.0.0/16:
+  -> Work out how many subnets are required. Round this number up to the
+     nearest power of 2:
+       If we need 12 subnets, the nearest power of 2 is 16.
+       The exponent is the number of bits we add to the default mask.
+         16 is 2^4, so we need to add 4bits to the network prefix.
+       In dotted decimal format, the subnet becomes 255.255.240.0.
+       Turning a /16 into a /20.
+  -> Work out how many hosts each subnet must support:
+       If the network address is in the /16 range, annd we are using 4bits
+       for subnetting (making /20), we subbtract 32 - 20 = 12bits for
+       hosts in each subnet. The number of hosts per subnet can be expressed
+       using the formula 2^n-2, wheere n is the number of bits we have
+       allocated for the host ID.
+  -> Work out the subnets:
+       The easiest way to find the first subnet ID is to deduct the least
+       significant octet in the mask from 256. So in 255.255.255.240, we
+       subtract 256-240 and we get 14 hosts per subnet.
+  -> Work out the host ranges for each subnet:
+       Take the subnet address and add a binary 1 to it for the first host.
+       For the last host, take the next subnet ID and deduct two binary
+       digits from it. 127.30.16.1 - 172.30.31.254, then repeat for each
+       subnet.
+

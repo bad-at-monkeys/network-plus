@@ -1,0 +1,47 @@
+LAB 16 - CONFIGURE SYSLOG
+
+We are going to configure a Linux VM as a syslog server. We then configure
+a Linux server and router to forward their log files to the syslog server.
+
+-----
+
+$ sudo gedit /etc/rsyslog.conf
+
+
+Uncomment the following two lines. These two lines enable the Ubuntu server's
+rsyslog service to accept inbound connections.
+
+module(load="imudp")
+input(type="imudp" port="514")
+
+
+The configuration is technically complete. However, all inbound log file entries
+from all remote servers would be combined into a single log file. Such a log file
+would be cumbersome to search. In the next section, you'll use a template to
+separate inbound log file entries by hostname.
+
+Go to the empty line after #### GLOBAL DIRECTIVES #### and enter the following
+three lines:
+
+$template DynamicFile,"/var/log/%HOSTNAME%.log"
+*.* ?DynamicFile
+& ~
+
+-> The line $template DynamicFile,"/var/log/%HOSTNAME%.log" defines a template
+format named DynamicFile that creates a log named for the server's hostname. In
+this scenario, it will generate a log file named kali.log that originates from the
+Kali Linux server.
+
+-> The line *.* ?DynamicFile states that all Rsyslog facilities (services and
+applications) of all severities (alert levels) will be sent via the template.
+
+-> The line & ~ stops any process matching after this point.
+
+
+:wq!
+
+$ sudo systemctl restart rsyslog
+
+
+
+Log in to the Kali vm:

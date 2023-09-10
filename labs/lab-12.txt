@@ -1,0 +1,33 @@
+LAB 12 - ANALYZE A DHCP SERVER CONFIGURATION
+
+This lab is a Windows Server one. If there are any commands that are useful,
+I will list them. It takes too long to list all steps for Windows Server.
+
+We create a DHCP scope in Windows Server Manager.
+
+To install the DHCP server on Windows:
+> Install-WindowsFeature DHCP -IncludeManagementTools
+
+
+We configured MS10 and DC10 as failovers. Each taking 50% of the workload.
+
+
+Questions:
+
+1) How are client computers recognized when assigned a reserved IP address?
+
+MAC address
+
+
+
+2) Which of the following is an advantage of using a Reserved IP address
+rather than a static IP address?
+
+Reserved IP address configurations still receive other options from
+the DHCP server, such as Router and DNS server
+
+
+
+3) In what kind of environment might you use short DHCP lease duration?
+
+Where clients enter and leave the network frequently

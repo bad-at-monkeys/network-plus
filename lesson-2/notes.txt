@@ -1,0 +1,673 @@
+LESSON 2 - DEPLOYING ETHERNET CABLING
+
+##########
+SUMMARIZE ETHERNET STANDARDS
+
+---
+Network Data Transmission
+
+All network signaling uses electromagnetic radiation (electric current, infrared,
+or radio waves).
+
+The electromagnetism creates a carrier wavelength with a given wavelength or
+range of frequencies and is propelled through space by modulation and
+encoding schemes.
+
+Signals can be encoded as bits(1s and 0s) by transitioning between low and
+high voltages (manipulating the amplitude of the signal).
+
+
+
+Copper Cable
+
+Copper cabling suffers from high attenuation (losing signal over distances).
+
+Two types of copper cabling:
+  -> Twisted pair
+  -> Coax
+
+
+
+Fiber Optic
+
+Carries very high freq radiation in the infrared light portion of the
+electromagnetic spectrum. Light signals are not affected by interference
+or noise from other sources. Attenuation is lower in fiber as well.
+
+Fiber optic supports more bandwidth over longer distances than copper.
+
+Fiber optic cabling come in two types:
+  -> Single-mode (SMF)
+  -> Multi-mode (MMF) (OM1 OM2 OM3 OM4)
+
+
+
+
+
+---
+Ethernet Standards
+
+IEEE 802.3 (ieee802.org/3) are the most important protocols, standards, and
+products describing ethernet standards.
+
+These standards specify the bit rate that should be achieved over different
+types of media up to the supported distance limitations.
+
+These ethernet media specs are named with a 3-part convention, xBASE-y.
+This describes:
+  -> The bit rate in Mbps or Gbps.
+  -> Signal mode (baseband/broadband). All mainstream types of internet use
+     baseband transmissions, so we will only see xBASE-y naming conventions.
+  -> A designator for the media type.
+
+10BASE-T = 10Mbps BASEband - twisted pair (-T)
+
+
+
+
+
+---
+Media Access Control and Collision Domains
+
+Multiple Access Area Network - the available communications capacity is shared
+                               between the nodes that are connected to the same
+			       media.
+
+Media Access Control (MAC) - the methods a network technology uses to determine
+                             when nodes can communicate on shared media and
+			     deal with possible problems.
+
+
+Ethernet uses a contention-based MAC system.
+
+Each network node connected to the same media is in the same collision domain.
+When two nodes transmit at the same time, the signals collide and the signal
+is dropped. This means they must be resent, reducing available bandwidth.
+
+These collisions increase as nodes and traffic do and the data rate is reduced.
+
+
+
+Carrier Sense Multiple Access with Collision Detection (CSMA/CD)
+
+The Ethernet protocol governing contention and media access.
+
+A collision is a state when a signal is present of the interface's
+transmit and receive lines simultaneously.
+
+On collision detection, the node broadcasts a jam signal. Each node that was
+attempting to use the media then waits for a random period(backoff) before
+attempting to retransmit.
+
+The collision detection mechanism means that only half-duplex transmission is
+possible (tx or rx, but not both).
+
+
+
+
+
+---
+100BASE-TX Fast Ethernet Standard
+
+Fe still uses CSMA/CD, but with higher frequency signaling and improved coding
+methods. 100BASE-TX refers to Fast Ethernet working over Cat5+ twisted-pair
+copper cable with a max suppoty link length of 100m(328ft).
+
+
+Typically 100BASE-TX is used with switches as the connection point for nodes.
+Unlike a hub, eacdh switch port is on its own collision domain eliminating
+contention between hosts.
+
+Switches allow for full-duplex transmissions, where a node can tx/rx
+at the same time. Therefore each node is on seperate media and has full access
+to the 100Mbps cable bandwitdth.
+
+Fe is backwards compatible with 10BASE-T hosts by using a autonegotiation
+protocol allowing a host to choose the highest supported connection rate
+(half or full/10 or 100Mbps). 10BASE-T specifies that a node should transmit
+regular electric pulses while not transmitting to confirm link integrity.
+
+Fe codes a 16-bit data packet called a Fast Link Pulseinto the 10BASE-T pulse
+to advertise its service capabilities.
+
+
+
+
+
+---
+Gigabit Ethernet Standards 1000BASE-T 40GBASE-T
+
+1000BASE-T  -  Cat5e+  -  Hubs not supported  -  100m(328ft)
+
+10GBASE-T  -  UTP(Cat6)     -  55m(180ft)
+              F/UTP(Cat6A)     100m(328ft)
+	      S/FTP(Cat7)      100m(328ft)
+
+40GBASE-T  - S/FTP (Cat8)  - 30m(100ft)
+
+
+
+
+
+##########
+SUMMARIZE COPPER CABLING TYPES
+
+
+---
+Unshielded Twisted Pair Cable Considerations
+
+A pair of twisted copper cables produce a balanced pair. The pair carries
+the same signal with different polarities, one wire positive, one negative.
+The receiver can distinguish a signal from any noise more strongly in this way.
+
+The pair is twisted at different rates to prevent crosstalk.
+Crosstalk is interference in signals due to proximity.
+
+Solid core cables run straight along structures.
+Standed core cables are flexible and can be manipulated and bent.
+
+Most networks use UTP.
+
+
+
+---
+Shielded and Screened Twisted Pair Cable Considerations
+
+Shielded cable is resiliant against interference like crosstalk.
+
+STP types:
+  -> Screened Cable: - thin outer foil shield around all pairs
+                     - designated ScTP, F/UTP, or FTP
+  -> Fully Shielded: - Braided outer screen and foil shielded pairs
+                     - designated S/FTP or F/FTP
+
+Using screened or shielded cables means using shielded connectors as well.
+
+
+
+
+
+---
+Cat Cable Standards
+
+See chart in the Lesson 2 directory.
+
+Details about the categories used for network media:
+  -> Cat5 cable isn't available anymore.
+  -> Cat6 can support 10Gbps over distances less than 55m.
+  -> Cat6A gets 10Gbps at 100m, but is recommeded for installations
+     in healthcare facilities, PoE 802.3bt applications, and for
+     horizontal connections to WAPs.
+  -> Cat7 terminates with GG45 or TERA connectors.
+  -> Cat8 is intended to be used in data centers for top-of-rack
+     connections between adjacent appliances.
+
+
+
+
+
+---
+Twisted Pair Connector Types
+
+Registered Jack(RJ) connectors are used for the physical interface
+on twisted pair cabling.
+
+
+RJ-45
+  -> Used with 4-pair(8wire) cables.
+  -> 8P8C; 8 position 8 contacts.
+  -> Used for Ethernet twisted pair cabling.
+
+
+RJ-11
+  -> 2-pair or 3-pair UTP.
+  -> Room for 6, but the 4 center wires are mostly used.
+  -> Inner pins(3,4) carry dial tone and voice circuit.
+  -> Other pair is typically unused, but can be.
+  -> 6P2C; 6 position 2 contacts.
+  -> Can be converted to RJ-14(6P4C) or RJ-25(6P6C)
+  -> Used for telephone systems.
+
+
+
+
+
+---
+Copper Termination Standards
+
+       Wire Color        Wire Color
+PIN     (T658A)           (T56B)           10/100Mbps    1/10/40 Gbps
+
+1      Green/White       Orange/White      Tx+           BixA+
+2      Green             Orange            Tx-           BixA-
+3      Orange/White      Green/White       Rx+           BixB+
+4      Blue              Blue                            BixB-
+5      Blue/White        Blue/White                      BixC+
+6      Orange            Green             Rx-           BixC-
+7      Brown/White       Brown/White                     BixD+
+8      Brown             Brown                           BixD-
+
+
+Each pair is assigned a color (Blue, Green, Orange, Brown).
+
+T568B is more widely deployed.
+T568A is mandated by the government and residential cabling standard.
+
+
+
+
+
+---
+Plenum and Riser-rated Cable
+
+Considerations inculde:
+  -> UTP vs STP
+  -> solid vs stranded core
+  -> building regulations
+
+
+A plenum space is a void in a building designed to carry heating, ventilation
+and air conditioning(HVAC).
+
+Plenum spaces are usually false ceilings or a raised floor.
+
+Plenum spaces are vulnerable to fires, so the cabling must meet regulations:
+  -> fire-retardant cabling
+  -> self-extinguishing
+  -> smokeless when burned
+  -> etc
+
+
+Plenum cable is typically marked as CMP/MMP.
+
+
+Non-plenum cables are treated and can be less flexible.
+This cables runs through PVC jackets.
+Non-plenum, general purpose cables are marked CMG/MMG or CM/MP.
+
+
+Cabling that passes between two floor is called riser cabling.
+The conduits must be fire-stopped.
+
+
+
+
+
+---
+Coaxial and Twinaxial Cable and Connectors
+
+Coax is made of two conductors that share the same axis("co" "ax").
+
+The core conductor is solid or stranded wire enclosed by plastic, foil,
+then wire-mesh the second conductor (shield/ground), and finally a plastic
+sheath layer protects everything.
+
+
+Coax is often usesd for cable TV and is terminated using F-type connectors.
+
+
+Twinaxial cable contains two inner connectors.
+
+Twinax is used in datacenter 10GbE(10BASE-CR) and 40GBASE-CR4 interconnects
+of up to about 5m for passive cable types and 10m for active cable types.
+
+Twinax for 10/40GbE is terminated using SFP+ DAC and QSFP+ DAC tranceivers.
+
+
+
+
+
+##########
+SUMMARIZE FIBER OPTIC CABLING TYPES
+
+
+---
+Fiber Optic Cabling Considertations
+
+Fiber uses infrared light, which make it resilient against interference,
+interception, and attenuation.
+
+As a result, fiber supports higher bandwidth and longer distances than copper.
+
+
+A single optical fiber is constructed with three elements:
+  -> Core; provides the transmission path(waveguide) for light signals.
+  -> Cladding; reflects signals into the waveguide, made from glass or
+     plastic. This is effectively a boundary for the waveguide.
+  -> Buffer; protective plastic coating.
+
+
+Basic operation allows a single fiber strand to transfer light in a single
+direction at a time. Therefore, multiple fibers are oftern bundled within a
+cable to allow for simultaneous transmission and reception.
+
+
+
+
+
+---
+SMF and MMF
+
+Fiber is classified by:
+  -> Mode
+  -> Composition(glass/plastic)
+  -> Core/cladding size
+
+i.e. 8.3 micron core/125 microcladding single-mode glass
+
+
+SMF:
+  -> Small core 8-10microns
+  -> Long wavelength, near infrared (1310nm or 1550nm)
+  -> Up to 100Gbps over many km
+  -> OS1 - indoor
+  -> OS2 - outdoor
+
+
+MMF:
+  -> Large core 62.5 or 50microns
+  -> Short wavelength, light (850nm or 1300nm) in multiple waves
+     varying in length
+  -> Less expensive optics, less expensive to deploy
+  -> More suited for LANs than WANs
+
+
+
+MMF is graded by Optical Multimode(OM) categories:
+  -> OM1/OM2; 62.5micron cable is OM1, early 50micron cable is OM2,
+     rated for applications up to 1Gbps using LED transmitters.
+  -> OM3/OM4; also 50micron but constructed differently. Designed
+     for use with Vertical-Cavity Surface-Emitting Lasers(VCSEL),
+     also known as Laser Optimized MMF(LOMMF). Not as powerful as
+     the solid-state lasers in SMF, but supports higher modulation.
+
+NOTE: Modulation means higher light pulse transmission.
+
+
+
+
+
+---
+Fiber Optic Connector Types
+
+Straight Tip(ST):
+  -> Early bayonet-type connector.
+  -> Uses push/twist locking connector.
+  -> Not used often for Ethernet deployment.
+
+
+Subscriber Connector(SC):
+  -> Push/pull locking connector.
+  -> Used for SMF and MMF.
+  -> Common for Gigabit Ethernet deployment.
+
+
+Local Connector(LC):
+  -> Small form-factor.
+  -> Tabbed push/pull locking mechanism.
+  -> Higher port density.
+  -> Widley adopted for Gigabit Ethernet and 10/40GbE
+
+
+Mechanical Transfer Registered Jack(MTRJ):
+  -> Small form-factor.
+  -> Duplex connector with snap-in locking mechanism.
+  -> Used for MMF.
+
+
+
+
+
+---
+Fiber Ethernet Standards
+
+                                         Maximum
+Specification    Optics      Cable       Distance       Connectors
+
+100BASE-FX       1300nm      MMF(OM1)    2km            ST,SC,MT-RJ
+                             MMF(OM2)
+100BASE-SX       850nm       MMF(OM1)    550m           ST,SC,LC
+                             MMF(OM2)
+1000BASE-SX      850nm       MMF(OM1)    275m           ST,SC,LC,MT-RJ
+                             MMF(OM2)    550m
+			     MMF(OM3)
+1000BASE-LX      1300nm      MMF(OM1/    550m           SC,LC
+                 1310nm      OM2/OM3)
+                             SMF(OS1/    5km
+			     OS2)
+10GBASE-SR       850nm       MMF(OM1)    33m            SC,LC
+                             MMF(OM2)    82m
+			     MMF(OM3)    300m
+			     MMF(OM4)    400m
+10GBASE-LR       1310nm      SMF(OS1/    10km           SC,LC
+                             OS2)
+
+
+Fiber is often used for backbone cabling in office networks and for
+workstations with high-bandwidth requirements, like video editing.
+
+The principal applications for 10GbE or better are:
+  -> Increased bandwidth between server connections in datacenters.
+  -> Storage Area Networks(SANs)
+  -> Replacing existing switched public data networks based on
+     legacy proprietary technologies with simpler Ethernet switches.
+
+
+
+
+
+---
+Fiber Optic Cable Installation
+
+Fiber can be installed in the same topology as copper using distribution
+frames and switches.
+
+Long distance cables are laid as trunks or rings with repeaters or amplifiers
+between cable segments.
+
+
+
+Fiber Optic Patch Cords:
+  -> Fiber patch cables come in same connecto(LC-LC) or mixed (LC-SC).
+  -> Duplex patch cords must have the Tx port on the transmitter linked
+     to the Rx port on the receiver.
+  -> TIA/EIA standard sets A to B patch cord to port orientations.
+  -> Each element in the link must preform a crossover, and there must be
+     an odd number of elements (2 patch cords and 1 permanent link).
+
+Roughly, a patched fiber cable looks like:
+
+             A   B _  _ A         B _  _ A
+        Rx<=|<====|_||_|<==========|_||_|<====|<=Tx
+TRANCEIVER  |      _  _             _  _      | TRANCEIVER
+        Tx->|---->|_||_|---------->|_||_|---->|-> Rx
+	     B   A     B           A     B
+	     PATCH       PERMANENT       PATCH
+	     CORD          LINK          CORD
+
+Most connectors are keyed, preventing incorrect insertion. But an optical
+power meter can be used to determine whether an optical signal is being
+received.
+
+
+
+Finishing Type
+The fiber optic core is a ceramic/plastic ferrule that holds the glass strand.
+The tip of the ferrule can be finished in one of three formats:
+  -> Physical Contact(PC); the faces of the connector and fiber tip are
+     polished so that they fit together better, reducing return loss.
+  -> Ultra Physical Contact(UPC); polished to a higher standard.
+  -> Angled Physical Contact(APC); faces are angled for the tightest
+     posible connection and better return loss performance. This is
+     typically used for cable carrying analog signalling and to
+     implement long distance transmissions on Passive Optical Networks.
+
+It is important to match the finishing type.
+
+APC finishing is often not supported by patch panels, tranceivers, and
+switchports designed for Ethernet.
+
+
+For multiple strands in a single cable they are color coded:
+
+TYPE          JACKET COLOR    CONNECTOR COLOR
+OM1           orange          beige
+OM2           orange          black
+OM3/OM4       aqua            aqua
+SMF PC/UPC    yellow          blue
+SMF APC       yellow          green
+
+
+
+
+
+##########
+DEPLOY ETHERNET CABLING
+
+---
+Structured Cabling System
+
+ANSI/TIA/EIA 568 identifies the following subsystems within a
+structured cabling system:
+  -> Work Area; typically a wall port where the users are.
+  -> Horizontal; connects work areas to the nearest cross-connect
+     or distribution frame.
+  -> Backbone; connects horizontal cross-connects(HCCs) to the main
+     vertical cross connect.
+  -> Telecommunications Room; houses horizontal cross-connects acting
+     as a termination point for horizontal cabling along with a
+     connection to the backbone cabling. Equipment rooms are an intermediary
+     for the telecom room.
+  -> Demarc; marking the point at which the external cabling is joined with
+     the internal cabling. This is where the providers network terminates
+     and the organizations network begins.
+
+
+
+
+
+---
+Cable Management
+
+Copper wiring is terminated using a distribution frame or a punchdown block.
+
+A punchdown block consists of a bunch of insulation-displacement
+connection(IDC) terminals.
+
+66 Block:
+  -> Terminates telephone cabling and legacy systems.
+  -> 50 rows of 4 IDC terminals.
+  -> The 25-pair provider cable is terminated on one side.
+  -> The other side terminates the PBX wiring.
+  -> A jumper is installed over the middle two terminals completing the
+     connection.
+
+
+110 Block:
+  -> Supports 100MHz(Cat5) and better.
+  -> Arranged horizontally.
+  -> Incoming wires are fed into channels on the block and terminated with
+     a connector block.
+  -> Outgoing wires are then punched into the terminals of
+     the connector blocks.
+
+
+Patch Panel:
+  -> Simplifies numerous moves, adds, and changes(MACs).
+  -> Has a patch panel with IDCs on one side and pre-terminated RJ-45
+     modular ports on the other.
+  -> The structured cabling is terminated on the back of a patch panel
+     on the IDCs.
+  -> RJ-45 patch cords are used to connect the port to another port.
+  -> The most common wiring distribution system.
+
+
+
+
+
+---
+Termination Tools
+
+Punchdown tool:
+  -> Terminates fixed cable
+  -> Requires different blades for different IDC formats.
+
+Block tool:
+  -> Terminates a group of connectors.
+  -> For a 110-block, there are four position blocks (terminates 4-pair data
+     cabling) and five position blocks (terminates 25-pair telephony cable).
+
+Cable crimper:
+  -> Creates patch cords.
+  -> Fixes a connector to a cable.
+
+
+For shielded and screened cable, termination must have shielded IDCs or modular
+plugs.
+
+
+
+
+
+---
+Fiber Distribution Panels and Fusion Splicing
+
+Permanent cables run through conduit to wall ports at the client access end.
+A fiber distribution panel at the switch end.
+
+Fiber patch cables complete the link from the wall to the NIC and from the
+patch panel to the switchport.
+
+Connectors "cost" a certain amount of insertion loss.
+
+An adhesive junction box can splice fiber, or a more permanent join can be
+done with a fusion splicer.
+
+
+
+
+
+---
+Tranceivers
+
+Modern enterprise switches and routers are available with modular, hot-
+swappable tranceivers/media converters to connect multiple types of cabling.
+
+This started with the GBIC form factor, but that's been replaced with SFP.
+
+
+SFP/SFP+
+  -> Uses LC connectors designed for GbE.
+  -> SFP+ supports 10GbE on the LC connector.
+  -> Tranceivers designed to support a specific wavelength,
+     and be installed as matching pairs.
+
+
+QSFP/QSFP+
+  -> Supports 4x1Gbps, aggregated into a 4Gbps channel.
+  -> QSFP+ supports 4x10Gbps links aggregated into a 40Gbps channel.
+  -> Can be used with Wavelength Division Multiplexing(WDM) Ethernet
+
+
+
+
+
+---
+Wavelength Division Multiplexing
+
+WDM is a means of using a strand to Tx/Rx more than one channel at a time.
+
+
+Bidirectional Wavelength Division Multiplexing(BiDi WDM)
+  -> Support Tx/Rx over the same strand of fiber.
+  -> Uses WDM to transmit Tx/Rx signals over slightly different wavelengths.
+  -> Must be installed in opposite pairs.
+
+
+Coarse and Dense Wavelength Division Multiplexing
+  -> CWDM supports 16 wavelengths, deploys 4 or 8 bidirectional channels
+     over a single fiber strand.
+  -> Dense Wavelength Division Multiplexing(DWDM) provisions larger
+     numbers of channels (10,40,80,160). Expensive.
+  -> Both support multi-channel 1G, 10G, 40G Ethernet links.
+  -> Transceivers must be installed in opposite pairs for each channel.

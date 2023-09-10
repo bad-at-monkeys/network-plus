@@ -1,0 +1,402 @@
+LESSON 3 - DEPLOYING ETHERNET SWITCHING
+
+##########
+DEPLOYING NETWORKING DEVICES
+
+
+---
+Repeaters, Media Converters, amd Hubs
+
+Repeaters amplify signals over copper or fiber cables of the same media type
+to overcome great distances. They are transparent to the network, always on,
+and represent a single point of failure on the network.
+
+
+Hubs are half-duplex repeaters with all ports on the same collision and
+broadcast domains. On hubs, the Tx wires on the host connect to the Rx wires
+on the hub. This is called Media Dependent Interface Croossover MDI-X.
+
+
+Media converters are layer1 devices that connect two cables of differing
+media types together and convert the signals to the respective media type.
+
+
+
+
+
+---
+Bridges and Layer2 Switches
+
+Bridges are Layer2 devices that separate hubs into their own collision domains,
+but are kept in the same broadcast domain. This isolates each hub network so that
+they don't slow down or contend with eachother but still allows each collision
+domain to communicate with another, creating a single logical network.
+
+Bridges build MAC address tables to track which addresses go to which ports.
+This table is flushed to stay up to date. If no record of a hardware address
+or the frame is a broadcast or multicast, then the bridge floods the all
+network segments except the sender.
+
+
+
+Layer2 switches have each port on a separate collision domain, so collisions
+can only occur if the port is operating in half-duplex mode for legacy
+applications.
+
+
+
+
+
+##########
+EXPLAIN NETWORK INTERFACES
+
+
+---
+Network Interface Cards
+
+NICs physically connect a node to a transmission media supporting all media
+type, although they must be specially provisioned for fiber. A NIC may
+provision multiple ports on the same card, aggregating two separate networks
+on the same card creating a high bandwidth channel.
+
+Each interface has its own MAC address or EUI.
+
+
+
+
+
+---
+Ethernet Frame Format
+
+| Preamble | SFD | Dest MAC | Source MAC | Ether Type | Payload | FCS |
+
+
+Preamble and Start Frame Delimiter(SFD)
+Used for clock synchronization and as a part of CSMA/CD to identify collisions.
+Not technically part of the frame.
+
+
+Error Checking(CRC or FCS)
+The Cyclic Redundancy check is a 32-bit(4-byte) checksum also known as the
+Frame Check Sequence(FCS). CRC is calculated based on frame contents, the
+sender and receiver use the same calculation and if it matches then the
+frame is accepted. CRC doesn't retransmit and isn't wholly error proof.
+
+
+
+
+
+---
+Media Access Control Format
+
+MAC addresses are 48-bit(6-byte) identifiers displayed as 6 groups of 2
+hexadecimal digits with colon or hyphen separators.
+
+
+Burned in Addresses
+MAC addresses are coded into the hardware with IDs distributed by the IEEE.
+  -> The first 3 octets are the Organizationally Unique ID(OUI)
+  -> The last 3 octets are a serial
+
+Organizations can decide to use locally administered MACs to make it easier
+to identify devices on the network and where they are in the topology.
+A locally administered MAC is defined by changing the U/L bit to 1.
+
+
+Broadcast Address
+The I/G bit of a MAC determines whether the frame is addressed to an individual
+node(0) or a group(1). Group frames are obviously used for broadcast and
+multicast transmissions. ff:ff:ff:ff:ff:ff (all 1's) is the broadcast address
+and is processed by all nodes within the same broadcast domain.
+
+
+
+
+
+---
+Frame Length and MTU
+
+A 2-byte field in a frame specifies the size of the payload. The payload can
+typically have 46-1500bytes, the upper limit of that being the MTU (whatever
+it is configured as on the device).
+
+Type II frames are most common and they actually use this field to describe
+the layer3 protocol caontained in the frame.
+
+To comply with CSMA/CD the minimum length of an Ethernet frame is 64-bytes,
+so the payload must be atleast 46-bytes, if not it is automatically padded
+with redundant data.
+
+1518-bytes is the maximum size of a frame excluding the preamble.
+
+
+
+
+
+---
+Packet Sniffers and Taps
+
+Protocol analyzers depend on packet sniffers because that is what captures
+the frames and packets moving through the network.
+
+There are three main options for connecting a sniffer to the appropriate
+point in the network:
+  -> SPAN(switched port analyser)/mirror port
+       The sensor is attached to a specially configured port on the switch
+       that receives copies of frames addressed to nominated ports.
+       This isn't reliable.
+  -> Passive Test access point(TAP)
+       Essentially a box with ports in and out and an inductor or optical
+       splitter that physically copies the signal from the cabling to a
+       monitor port. The monitor receives every frame (even corrupt) and
+       isn't affected by load.
+  -> Active TAP
+       Powered device that performs signal regeneration. Gigabit signalling
+       is too much for a passive TAP. Because it is a powered device, it is
+       a single point of failure given an outage.
+
+
+
+
+
+---
+tcpdump
+
+Packet capture utility for Linux providing the user interface for the libcap
+library:
+
+$ sudo tcpdump -i [interface]
+
+The -w and -r optiions write output to files and reads it respectively.
+
+The -v, -vv, -vvv is used for detail.
+
+The -e switch shows the Ethernet header.
+
+
+tcpdump is often used with filter expressions:
+  -> Type; filter by host, net, port, or port range
+  -> Direction; filter by src or dst host, network or port
+  -> Protocol; filter by a named protocol instead of port number
+
+Booleans are legal in a tcpdump statement:
+  -> and (&&)
+  -> or (||)
+  -> not (!)
+
+
+Pranthesis can be used to group expressions for precedence, complex expressions
+should be enclosed in double quotes:
+
+$ tcpdump -i eth0 "src host 10.1.0.100 and (dst port 53 or dst port 80)"
+
+This command filters frames with source ip 10.1.0.100 and destination port
+53 or 80.
+
+
+
+
+
+---
+Wireshark
+
+Wireshark is a graphical protocol analyzer and packet sniffer combining
+tcpdump and nmap.
+
+
+
+
+
+##########
+DEPLOY COMMON ETHERNET SWITCHING FEATURES
+
+
+---
+Ethernet Switch Types
+
+Ethernet switches can be differentiated by the following generalites:
+  -> Unmanaged vs Managed
+       On a SOHO network switches are more likely to be unmanaged and added to
+       the network without configuration. The switch may also be built into a
+       router or modem on the appliance.
+       On a corporate network, switches are going to be managed. This means
+       that the switches can be configured accordingly.
+  -> Stackable
+       Switches that cann be connected together and act as a group.
+       The stack can be managed as a single unit.
+  -> Desktop vs Rack Mounted
+       Small switches can be placed on a table.
+       Rack mounted switches are mounted into standardized cabinets.
+
+
+
+
+
+---
+Switch Interface Configuration
+
+Cisco IOS modes:
+  -> User EXEC mode; read-only, used to view output data and troubleshoot.
+  -> Privelaged EXEC mode/enable mode; allows reboot and shutdown and write
+     configuration updates.
+  -> Global config; can write configuration updates.
+
+Show commands:
+  -> sh config, sh startup-config, sh running-config
+  -> sh int
+
+In most cases, the port on the switch is set to autonegotiate speed
+(10/100/1000) and full- or half-duplex operation.
+
+Static configurations are applied manually if necessary.
+
+
+
+
+
+---
+Auto MDI/MDI-X
+
+    TO|
+FROM__|      MDI        MDI-X        Auto MDI-X
+
+MDI          crossover  straight     any
+MDI-X        straight   crossover    any
+Auto MDI-X   any        any          any
+
+
+End systems use MDI. MDI transmits on pins 1/2 and receives on 3/6.
+Switches use MDI-X. MDI-X transmits on pins 3/6 and receives on 1/2.
+The cable between these two systems must be a straight cable.
+
+When a like devices are connected to another, a crossover cable is used.
+
+Now days pretty much everything uses Auto MDI-X.
+
+
+
+
+
+---
+MAC Address Table and Port Security
+
+A switch learns MACs by reading the source portion of a frame when it is
+received on a port. The adress mappings are stored on a MAC table in the
+switches cache memory.
+
+The address table is implemented as content addressable memory(CAM). This
+type of memory is designed to search, not for random access.
+
+MAC table = CAM table
+
+Entries stay on the MAC table for a certain period and then are flushed,
+so that the switch can update the table.
+
+If a MAC cannot be found on the table, the switch floods the network by
+transmitting the frame out of all the ports except for the source.
+
+Viewing a MAC address table:
+# show mac address-table dynamic
+
+
+A port security configuration validates the MAC address of end systems that
+connect to a switchport. Unknown or frequently changing MACs on a hosts could
+indicate intrusion. There are two elements of a port security:
+  -> Specify a static MAC address or allow the port to learn and accept a
+     certain number of sticky addresses.
+  -> Specify an enforcement action when a policy violation is detected.
+
+
+
+
+
+---
+Port Aggregation
+
+Combining two or more separate cabled links into a single logical channel.
+On the host end, this is called NIC teaming.
+
+For example, a network adapter and cable segment may support 1Gbps;
+aggregating this with another adapter and cable pair yields a link of 2Gbps.
+
+Link Aggregation Control Protocol(LACP) implements port aggregation. LACP
+can be used to autonegotiate the aggregated link between the switch ports and
+the end system, detect configuration errors, and recover from the failure of
+one of the physical links.
+
+
+
+
+
+---
+Port Mirroring
+
+A switch forwards unicast traffic only to the specific port connected to the
+intended destination interface. This prevents sniffing of unicast traffic by
+hosts attached to the same switch.
+
+
+Capturing and analyzing network traffic is essential for engineers, so port
+mirroring provides the way to do this.
+
+Port mirroring copies all packets sent to one or more source ports to a
+mirror (destination) port. On Cisco, this is called a Switch Port Analyzer
+(SPAN).
+
+
+The mirror port will be managed by a packet sniffer, network analyzer, or IDS.
+
+
+
+
+
+---
+Jumbo Frames and Flow Control
+
+Hosts that push a lot of data can be configured for flow control
+and jumbo frames.
+
+
+Jumbo Frames
+Standard Ethernat frames max out at 1500-byte MTU. Jumbo frames support data
+payloads of up to around 9,000-bytes.
+
+Jumbo frames may help save on processing and bandwidth.
+
+To see the MTU value of an interface:
+# show interface
+
+
+
+Flow Control 802.3x
+
+Flow control allows a server to instruct the switch to pause traffic
+temporarily to avoid overwhelming its buffer and prevent dropped frames.
+Switchports can be configured to enable or disable PAUSE frames. The 802.3x
+global PAUSE mechanis, does not distinguish between traffic types, which may
+cause issues with voice/video infra.
+
+Class of Service(CoS) and Quality of Service(QoS) ensure reliable performance
+for time-sensitive applications by marking and policing traffic. The updated
+priority flow control(PFC) mechanism allows PAUSE frames to apply to certain
+traffic classes only.
+
+
+
+---
+PoE 802.3-2018
+
+This is a way to supply electrical power from a switch port over oridinary
+data cabling to a connected powered device(PD).
+
+PoE is described in 802.3-2018:
+  -> 802.3af: 13W, 350mA@48V
+  -> 802.3at(PoE+): 25W, max current 600mA.
+  -> 802.3bt(Ultra PoE): 51W(type3) or 73A(type4)
+
+
+If a device doesn't support PoE, a power injector can be used in its place.
+
+When connected to a PoE device, the switch will determine if PoE is enabled.
+
+

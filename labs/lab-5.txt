@@ -1,0 +1,40 @@
+LAB 05 - ANALYZE ARP TRAFFIC
+
+We are going to gather network configuration information using both Windows
+Server and a Linux router. We are going to use Wireshark and ARP to analyze
+network traffic.
+
+
+In Server Manager we examine the properties of a local server link.
+
+On the Windows Server, we also view the arp table.
+We hhave entries for the network broadcast address and multicast addresses
+used by thhe Windows network discovery protocol.
+
+
+We can filter traffic in wireshark using booleans and strings:
+arp or ip
+
+
+When we start the linux router, we can see the traffic being generated in
+Wireshark.
+
+
+We can see the arp requests and replies everytime we start a device.
+
+
+
+We login to the router and see that it has the IP 10.1.16.254:
+$ arp -e
+[get eth1]
+$ ifconfig eth1
+[display eth1 properties]
+
+
+Now run tcpdump to list the interfaces on the local host:
+$ tcpdump -D
+
+
+We can start a packet capture on an interface with a filter:
+$ tcpdump -i eth1 'ip'
+

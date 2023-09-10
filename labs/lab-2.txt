@@ -1,0 +1,131 @@
+LAB 02 - CAPTURE NETWORK TRAFFIC
+
+Scan a target server to determine a baseline of network traffic.
+
+Next, we use tcpdump to intercept three types of traffic and interperet
+the output.
+
+
+---
+CAPTURE HTTP TRAFFIC
+
+1) Login to Kali Linux.
+
+
+
+2) Open the terminal, query the IP for open ports and send
+   the output to a text file:
+   
+$ nmap 10.1.16.12 > nmap.txt
+
+
+The output of a standard nmap scan looks like:
+tylerbrw@u39190a389f8a59:~/Documents/network-plus$ nmap 10.160.252.116
+Starting Nmap 7.80 ( https://nmap.org ) at 2023-05-29 12:32 CDT
+Nmap scan report for 10.160.252.116
+Host is up (0.000054s latency).
+Not shown: 999 closed ports
+PORT   STATE SERVICE
+22/tcp open  ssh
+
+Nmap done: 1 IP address (1 host up) scanned in 0.09 seconds
+
+
+
+3) On the IP we scanned, we found open ports. We can intercept
+   traffic over the open ports, in this case ssh, http, rpcbind,
+   upnp.
+
+
+
+4) Go to the terminal:
+$ firefox 10.1.16.12
+
+Go back to the terminal and conduct a packet capture on port 80
+and send the output to a file:
+$ sudo tcpdump -i eth0 -vv dst 10.1.16.12 and port http -w http.txt
+
+Refresh firefox to generate some traffic.
+
+Establish an HTTP connection in a third terminal tab:
+$ wget 10.1.16.12/index.html
+
+Close firefox.
+
+Display the file contents:
+$ sudo tcpdump -r http.txt
+
+We can filter the output for whatever we like:
+$ sudo tcpdump -r http.txt | grep -i seq
+
+The seq and ack messages in the tcpdump output correspond with
+the TCP protocol.
+
+
+
+5) Go to wireshark.
+$ wireshark
+
+File -> Open -> Select the http.txt
+
+We are opening the tcpdump output in wireshark because
+it is much easier to read and navigate.
+
+Scroll through the output for a GET message indicating
+the download of a .png.
+
+We can clearly see that an image was downloaded over port 80.
+
+
+
+---
+CAPTURE SSH TRAFFIC
+
+1) terminal.
+$ sudo tcpdump -i eth0 -vv dst 10.1.16.12 and port ssh -w ssh.txt
+
+open another terminal tab:
+$ ssh lamp@10.1.16.12
+
+
+Once connected:
+$ whoami
+
+Then disconnect.
+
+
+
+2) Go to the tcpdump and ctrl-c, then display the output:
+$ tcpdump -r ssh.txt
+
+
+
+3) Open the file in wireshark and try to find some data.
+
+You cant, the traffic was encrypted through ssh.
+
+
+
+
+
+---
+CAPTURING PINGS
+
+$ sudo tcpdump -i eth0 -vv icmp -w ping.txt
+
+NEW TAB
+$ ping -c 5 10.1.16.12
+
+ctrl-c out of the tcpdump (we get 10 packets for 5 pings, request/reply)
+
+display the contents, open the file in wireshark.
+
+
+
+---
+NOTES
+
+Ping uses ICMP which operates at the network layer because it
+uses the IP protocol.
+
+

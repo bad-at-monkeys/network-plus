@@ -1,0 +1,261 @@
+PRACTICE EXAM 4
+
+################################################################################
+################################################################################
+
+ATTEMPT 1 - 83%
+
+--------------------------------------------------------------------------------
+
+T56A - GGOB
+T56B - OOGB
+
+--------------------------------------------------------------------------------
+
+You are installing a Small Office/Home Office (SOHO) network consisting of a
+router with 2 ports, a switch with 8 ports, and a hub with 4 ports. The router has
+one port connected to a cable modem and one port connected to switch port #1. The
+other 6 ports on the switch each have a desktop computer connected to them. The
+hub's first port is connected to switch port #2. Based on the description
+provided, how many collision domains exist in this network?
+
+9.
+
+Each port on a router is a collision domain = 2
+Each port on the switch is a collision domain = 8
+The hub is a single collision domain = 1
+One switch port is connected to router = -1
+The hub and switch also share a collision domain = -1
+
+8 + 1 + 2 = 11 - 2 = 9
+
+--------------------------------------------------------------------------------
+
+Your boss has asked you to select the technology for a new wireless network for
+the office. She stated that the new network must allow users to connect their
+laptops, smartphones, and tablets wirelessly. The technology selected should
+utilize the longest range possible without signal loss. Which of the following
+wireless technologies should be selected to meet these requirements?
+
+802.11ac.
+
+802.11ac provides faster speeds and longer coverage ranges than b/g/n.
+
+--------------------------------------------------------------------------------
+
+VoIP or SIP uses port 5060 to get it cracking.
+
+--------------------------------------------------------------------------------
+
+Evil twin focuses on access points.
+MAC spoofing may work, but would affect the entire network.
+
+ARP poisoning (ARP spoofing) is when an attacker sends falsified ARP messages
+over a LAN.
+
+--------------------------------------------------------------------------------
+
+Users connecting to an SSID appear to be unable to authenticate to the captive
+portal. Which of the following is the MOST likely cause of the issue?
+
+RADIUS. The keyword here is AUTHENTICATION. RADIUS is the only listed answer
+that authenticates.
+
+--------------------------------------------------------------------------------
+
+Which of the following technologies is not commonly used by a captive portal to
+perform user redirection?
+
+DHCP redirect.
+
+In practice, captive portals are implemeted using HTTP, ICMP, or DNS redirects.
+
+--------------------------------------------------------------------------------
+
+MOUs are non-lagally binding
+
+--------------------------------------------------------------------------------
+
+Bluejacking is an actual thing (good guess)
+
+--------------------------------------------------------------------------------
+
+You are using an 802.11ac wireless network at your office which uses WPA2-PSK for
+encryption. Every few minutes, your wireless connection appears to disconnect and
+then quickly reconnect to the network. What type of attack might you be the
+victim of?
+
+Deauthentication. This is a DoS attack that targets comms between a user and a
+WAP by sending a deauthentication frame to the victims machine. When the user
+re-authenticates, the attacker can capture the authentication packet and try to
+use that to gain access to something.
+
+--------------------------------------------------------------------------------
+
+t56A - ggob
+t56b - oogb
+
+--------------------------------------------------------------------------------
+
+Remember that FTP operates on ports 20 and 21.
+
+--------------------------------------------------------------------------------
+
+A new piece of malware attempts to exfiltrate user data by hiding the traffic and
+sending it over a TLS-encrypted outbound traffic over random ports. What
+technology would be able to detect and block this type of traffic?
+
+Application aware firewall. This would detect the random access of ports and
+suspicious TLS encryption.
+
+--------------------------------------------------------------------------------
+
+EULA is the license agreement at the end of software installs.
+
+AUP is acceptable use policy.
+
+--------------------------------------------------------------------------------
+
+Ethernet standard used with SMF - 10GBase-LR
+
+--------------------------------------------------------------------------------
+
+A technician installs three new switches to a company’s infrastructure. The
+network technician notices that all the switchport lights at the front of each
+switch flash rapidly when powered on and connected. After about a minute, the
+switches return to normal operation. Additionally, there are rapidly flashing
+amber lights on the switches when they started up the next day. What is happening
+to the switches?
+
+The switches are running throught the STP process. All lights flashing indicate
+that the switch is performing the STP process.
+
+--------------------------------------------------------------------------------
+
+SYN - sync flag, used to initialte 3-way handshake
+ACK - acknowledge, 2nd part of 3-way hshake
+RST - reset flag, terminates the connection
+FIN - finish flag, requests connection termination
+
+--------------------------------------------------------------------------------
+
+Which of the following occurs when an alert rule has been matched in Snort during
+your scan?
+
+The entire packet will be evaluated until all of the IDS alert rules have been
+checked and the packet is allowed to continue its journey.
+
+If Snort is operating as an IDS, it won't block the connection or drop the packet,
+that is what IPSes do. Snort will essentially evaluate the packet, log any
+matches, and let the packet continue.
+
+--------------------------------------------------------------------------------
+
+Which of the following types of network documentation would include labels to
+indicate which cables are connected to which switchports on an edge switch?
+
+Wiring diagram.
+
+Wiring diagrams are used to clearly label which cables are connected to which
+ports.
+
+--------------------------------------------------------------------------------
+
+Application aware firewalls can make decisions about what applications are allowed
+or blocked by a firewall, as opposed to simply using an IP and port numbers.
+
+Application aware firewalls can actually inspect data contained within the
+packets.
+
+--------------------------------------------------------------------------------
+
+Placing departments in separate VLANs increases broadcast domains, therefore
+reducing network congestion from broadcast messages.
+
+--------------------------------------------------------------------------------
+
+Cable goes over coax.
+Fiber is over leased line.
+
+--------------------------------------------------------------------------------
+
+Which of the following BEST describes how a DHCP reservation works?
+
+DHCP reservation works by matching a MAC address to an IP address within the DHCP
+scope.
+
+--------------------------------------------------------------------------------
+
+Logical network diagrams illustrate the flow of data across a network and is
+used to show how devices communicate with each other.
+
+--------------------------------------------------------------------------------
+
+802.11ac utilizes MU-MIMO
+802.11n utilizes MIMO
+
+--------------------------------------------------------------------------------
+
+Firewalls use ACLs.
+
+IDSes use signatures.
+
+--------------------------------------------------------------------------------
+
+IMAP uses port 143
+
+--------------------------------------------------------------------------------
+
+Dion Training wants to create a DNS record to specify a host and port to use for
+a new instant messaging service. Which type of DNS record should be created?
+
+SRV. A DNS service record specifies a host and port for specific services.
+
+--------------------------------------------------------------------------------
+
+POP3 over SSL uses port 995
+
+--------------------------------------------------------------------------------
+
+I we enable a discovery protocol on our devices, we can get detailed info directly
+from them.
+
+--------------------------------------------------------------------------------
+
+Frequency jamming is commonly used to exploit and compromise a wireless
+environment.
+
+--------------------------------------------------------------------------------
+
+DHCP snooping is a series of techniques applied to improve the security of a
+DHCP infrastructure. It can be used to prevent malicious or malformed DHCP traffic
+or rogue DHCP servers from appearing.
+
+--------------------------------------------------------------------------------
+
+Kerberos is designed to send data over insecure networks while using strong
+encryption to protect the information.
+
+--------------------------------------------------------------------------------
+
+WPA2-Enterprise requires a RADIUS authentication server.
+
+--------------------------------------------------------------------------------
+
+Network Access Control (NAC) is a security approach that attempts to unify
+endpoint security, user/system authentication, and network security enforcement.
+NAC can quarantine any devices out of compliance.
+
+UTM provides multiple security features in one appliance.
+
+--------------------------------------------------------------------------------
+
+RPO is the maximum amount of data, measured in time, that an organization is
+willing to lose during an outage.
+
+RTO is the duration of time and a service level within which a business process
+must be restored after a disaster to avoid unacceptable consequences associated
+with business continuity.
+
+--------------------------------------------------------------------------------
+

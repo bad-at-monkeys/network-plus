@@ -1,0 +1,188 @@
+PRACTICE EXAM 3
+
+################################################################################
+################################################################################
+
+ATTEMPT 1 - 78%
+
+--------------------------------------------------------------------------------
+
+Piggybacking is actually tricking an employee for access, tailgating is following
+an ignorant employee for access.
+
+--------------------------------------------------------------------------------
+
+alert conditions:
+0 - emergency
+1 - alert
+2 - critical
+3 - error
+4 - warning
+5 - notice
+6 - info
+7 - debugging
+
+--------------------------------------------------------------------------------
+
+For a connection between two buildings, a low-profile directional patchh antenna
+should be used.
+
+--------------------------------------------------------------------------------
+
+A company is setting up a brand new server room and would like to keep the cabling
+infrastructure out of sight but still accessible to the network administrators.
+Infrastructure cost is not an issue. Which of the following should be installed to
+meet the requirements?
+
+Raised floor. This is the most expensive, low-profile option that network admins
+still have access to.
+
+--------------------------------------------------------------------------------
+
+Session Initiation Protocol (SIP) is a signaling protocol on port 5060/5061 for
+initiating, maintainging, and terminating real-time sessions that include voice,
+video, and messaging applications.
+
+--------------------------------------------------------------------------------
+
+Jitter is a network condition that occurs when a time delay in the sending of
+data packets over a network connection occurs. Voice speeding up and slowing
+down is a sign of jitter.
+
+Latency is measured in round-trip time.
+
+--------------------------------------------------------------------------------
+
+Which type of wireless network utilizes the 2.4 GHz or 5 GHz frequency bands and
+reaches speeds of 108 Mbps to 600 Mbps?
+
+802.11n.
+
+This standard utilizes a 2.4GHz freq @ 108Mbps and a 5GHz freq @ 600Mbps.
+
+--------------------------------------------------------------------------------
+
+DB-9 connectors are used with RS-232 serial standards.
+
+Token rings use fiber optic cables.
+
+--------------------------------------------------------------------------------
+
+When using the 2.4GHz spectrum, we must use channels 1 6 11.
+
+--------------------------------------------------------------------------------
+
+A network architect is designing a highly redundant network with a distance
+vector routing protocol to prevent routing loops. The architect wants to
+configure the routers to advertise failed routes with the addition of an infinite
+metric. What should the architect configure to achieve this?
+
+Route poisoning is a method to prevent a router from sending packets through a
+route that has become invalid. The route is poisoned by changing the route's
+metric value to one that exceeds the maximum allowable hop count. This would
+result in a "Destination unreachable" type error.
+
+Split-horizon does prevent routing loops, but the question only mentions this. It
+doesn't specifically ask.
+
+--------------------------------------------------------------------------------
+
+What should we do to block employees from accessing a bad webpage from a spear-
+fishing attack?
+
+Add http://www.malware-site.com:8080/claim.php to the browser's group policy
+blocklist.
+
+--------------------------------------------------------------------------------
+
+POP3 uses port 110
+
+POP3+SSL uses port 993
+
+--------------------------------------------------------------------------------
+
+An attacker is using double tagging to conduct a network exploit against your
+enterprise network. Which of the following types of attacks is being conducted?
+
+VLAN hopping. This is where an attacker is able to send traffic from one VLAN
+into another by either double tagging the traffic or conducting switch spoofing.
+
+--------------------------------------------------------------------------------
+
+802.1q - VLAN tagging
+802.3af - PoE
+802.1x - wireless encryption/auth on RADIUS
+802.1d - STP
+
+--------------------------------------------------------------------------------
+
+IaC utilizes runbooks to generate consisten server builds across an enterprise.
+
+--------------------------------------------------------------------------------
+
+A technician needs to limit the amount of broadcast traffic on a network and
+allow different segments to communicate. Which of the following should the
+technician install to satisfy this requirement?
+
+Add a multilayer switch and create a VLAN. We knew this, but adding a MLS
+and a VLAN to the network would increase routing performance and reduce broadcast
+traffic.
+
+--------------------------------------------------------------------------------
+
+CIA Triad
+
+This is a security model.
+
+Confidentiality
+Integrity
+Availablity
+
+--------------------------------------------------------------------------------
+
+POTS is connected to almost every facility in the united states.
+
+--------------------------------------------------------------------------------
+
+LDAPS uses port 636.
+LDAP uses port 389.
+
+--------------------------------------------------------------------------------
+
+What happens when convergence on a routed network occurs?
+
+All routers learn the route to all connected networks.
+
+--------------------------------------------------------------------------------
+
+Which of the following security features should be enabled to configure a quality
+of service filter to manage the traffic flow of a Cisco router or switch and
+protect it against a denial-of-service attack?
+
+Control plane policing. This is a technology on Cisco IOS routers and switches
+that allow users to configure a QoS filter.
+
+If we see QoS and Cisco together, the answer will be control plane policing.
+
+--------------------------------------------------------------------------------
+
+10GBase-SR is a 10Gb Ethernet LAN standard for use with MMF cables using short-
+wavelengthh signaling.
+
+--------------------------------------------------------------------------------
+
+A company needs to implement stronger authentication by adding an authentication
+factor to its wireless system. The wireless system only supports WPA with
+pre-shared keys, but the back-end authentication system supports EAP and TTLS.
+What should the network administrator implement?
+
+802.1x using PAP
+
+--------------------------------------------------------------------------------
+
+In SDN, the management plane is used to monitor traffic conditions, the status of
+the network, and allows admins to oversee the network and gain insight into its
+operations.
+
+--------------------------------------------------------------------------------
+

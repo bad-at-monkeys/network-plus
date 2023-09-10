@@ -1,0 +1,232 @@
+LESSON 6 - SUPPORTING IPV4 AND IPV6 NETWORKS
+
+##########
+USE APPROPRIATE TOOLS TO TEST IP CONFIGURATION
+
+---
+IP Interface Configuration in Windows
+
+Setting the Ethernet interface for dhcp:
+>netsh interface ip set address "Ethernet" dhcp
+
+Setting it statically:
+netsh interface ip set address "Ethernet" static
+10.1.0.1 255.255.255.0 10.1.0.254
+
+
+>ipconfig
+>ipconfig /all
+>ipconfig /renew
+>ipconfig /release
+>ipconfig /displaydns
+>ipconfig /flushdns
+>ipconfig /registerdns
+
+
+
+
+
+---
+ifconfig and ip
+
+$ ip addr
+$ ifconfig
+
+$ ip link
+$ ip -s link
+
+Thhese aren't persistent:
+$ ip link set eth0 up|down
+$ ip addr add|delete
+
+
+
+
+
+---
+ARP Cache Utility
+
+ARP is used to determine what IP address a MAC address is associated with
+on the local network.
+
+$ arp -e
+$ ip -s neigh
+
+
+
+
+
+---
+Internet Control Message Protocol(ICMP)
+
+Used to report errors and send messages about the delivery of a packet.
+
+ICMP messages are generated under error conditions in most unicast types
+of traffic. Not for broadcast or multicast.
+
+The ping utility uses configurable ICMP packets.
+
+
+
+ping Error Message
+
+Destination host unreachable - There is no routing information. Could be caused
+by incorrect host configuration, loss of a router, or routing configuration.
+
+No reply (Requuest timed out) - The host is unavailable or cannot route a reply
+to our computer. Requests time out when the TTL reaches 0 because the packet is
+looping, congestion is causing delays, or when a host does not respond.
+
+
+
+
+
+##########
+TROUBLESHOOT IP NETWORKS
+
+---
+Hardware Failure and Network Interface Issues
+
+We must determine that layer1 and layer2 aren't the issues first in a network.
+
+
+
+
+
+---
+IP Configuration Issues
+
+Incorrect IP address or incorrect subnet.
+
+With incorrect subnet configuration, the host will be able to receive traffic,
+but will not be able to create a route for sending replies.
+
+
+
+
+
+---
+Duplicate IP and MAC Address Issues
+
+Detect duplicate replies, for duplicate IP/MAC:
+$ arping -D
+
+
+Duplicate MACs cannot really happen unless the network uses locally
+administered addressing.
+
+
+
+
+
+---
+Problem Isolation
+
+Even if configuration seems to check out and we still get errors,
+we can isolate problems using a series of ping tests:
+  -> Ping the loopback address (127.0.0.1) to verify TCP/IP is installed and
+     loaded correctly on the system. If this fails, the TCP/IP stack must
+     be reinstalled.
+  -> Ping the IP address of the local host to verify it was added correctly and
+     to verify that the network adapter is functioning properly. If we cannot
+     ping our own address, check the configuration. It could also be an issue
+     with the adapter or driver.
+  -> Ping the IP address of the default gateway to verify its status and that
+     we can communicate with another host on the local network.
+  -> Ping the IP of a host on the LAN within the same subnet, testing for local
+     configuration or link problems. This could be from an incorrect IP/netmask.
+     If these are correct, but it still times out then suspect security, data-
+     link, or physical issues.
+  -> Ping the IP of a remote host to verify that we can communicate through the
+     router to the outside internet. If remote IP addresses cannot be contacted
+     then we must check the router configuration. If the gateway is good and
+     errors are still occuring, the routing infrastructure must be investigated.
+
+
+
+
+
+---
+Incorrect DNS Issues
+
+If we can't ping by hostname, it's a dnns issue.
+
+
+
+
+
+---
+Multicast Flooding Issues
+
+Multicast groups are established at layer3 by protocols like IGMP.
+
+At layer2, if a switch is not multicast aware, it will treat multicast
+transmissions as broadcasts and flood them across all ports slowing down
+the network.
+
+IGMP snooping can be enabled on switches to deter the issue. The switch will
+read the IGMP message and be able to determine if the host(s) on an access
+port or broadcast group need the message.
+
+
+
+
+
+##########
+EXPLAIN IPV6 ADDRESSING SCHEMES
+
+---
+IPv4 vs IPv6
+
+IPv6 is the new IPv4.
+
+
+
+
+
+---
+IPv6 Address Format
+
+An IPv6 address contains eight 16-bit numbers (double-byte/double-octet), with
+each double-byte number expressed as 4 hex digits:
+
+fe80::421c:83ff:fe84:aa35/64
+fe80:0000:0000:421c:83ff:fe84:aa35/64
+
+
+
+
+
+---
+IPv6 Network Prefixes
+
+IPv6 addresses are divided into two 64-bit parts:
+  -> Network ID
+  -> Interface ID
+
+This represents a network address:
+2001:db8:3c4d::/48
+
+While this represents a subnet within that address:
+2001:db8:3c4d:0001::/64
+
+
+
+
+
+---
+IPv6 Unicast Addressing
+
+An IPv6 unicast address represents a single network interface.
+
+IPv6 unicast addressing is scoped, where a scope is a region of the network.
+
+Global scopes provide public addressing schemes, while link local schemes
+provide the private addressing.
+
+Parts of a global address:
+| 001 |   Network ID   |   Subnet   |   Interface ID   |
+   |          |              |                |
+   3-bit      45-bit         16-bit           64-bit
+
+

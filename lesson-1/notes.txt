@@ -1,0 +1,218 @@
+LESSON 1 - COMPARING OSI MODEL NETWORK FUNCTIONS
+
+##########
+COMPARE AND CONTRAST OSI MODEL LAYERS
+
+The OSI Model:
+7) Application
+6) Presentation
+5) Session
+4) Transport
+3) Network
+2) Data-link
+1) Physical
+
+
+
+
+
+---
+Data Encapsulation and Decapsulation
+
+
+A network protocol is a set of rules for exchanging data in a structured
+format with two methods of functionality:
+
+ADDRESSING - Deciding where data messages should go. Each layer has
+             differing addressing methods. Layer 2 uses MAC addressing,
+	     layer 3 uses IP addressing, etc.
+ENCAPSULATION - Describing how the data messages are packaged for
+                transmission. Each layer packages the data in its own
+		way. At each layer, the protocol addsfields in a header
+		for whatever payload it receives from a protocol or
+		application.
+
+
+Each layer uses information from the previous and provides a service
+to interface with the next layer. This is called adjacent layer inter-
+action.
+
+
+When a message is sent from one node to another, it goes down the osi
+stack on the sender. Each layer that passes the message adds a protocol
+data unit (PDU) as a header to the data payload. This is the process of
+encapsulation.
+
+The receiving node performs the reverse process. It receives the bit
+stream at the physical layer and unpacks the data according to the
+protocol up to the application layer. This is decapsulation.
+
+
+
+Layer 1 - Physical (infra)'
+
+Cabled, wireless, physical topology/interface, transceiver, repeater
+hub, modem, media converter
+
+
+Layer 2 - Data-link (physical addressing)
+
+This is where devices comminicate logically by being directly connected
+to another or to some central device like a sitch or WAP. The data
+transmitted at layer 2 is structured into frames. Frames have network
+packets as payloads. Header fields are added to the frame payload
+to control what the frame does next. Header fields include souce,
+destination, and cyclic redundancy check(CRC).
+
+NICs, bridges, switches, WAPs
+
+
+Layer 3 - Network
+Data is moved around networks of networks known as the internet.
+The network layer address or logical network address is used to
+forward the data packet to the next router until it reaches the
+target network. The hardware address is used from there to get to the
+target node.
+
+Firewalls operate at layer 3 to filter traffic.
+
+
+Layer 4 - Transport
+The content of the packet becomes significant at this layer. Any host
+on a network is communicating simultaneously with other hosts on a
+network at all times using different networking data. The transport
+layer identifies different networking data types and assigns them port
+numbers.
+
+On the sending host, data from the upper layers is packaged as a series
+of segments. Each segment is tagged with the application's port number,
+then passed to the network layer for delivery. Simultaneous transmissions
+using the same application protocols(HTTP,SSH, etc) on a network are
+multiplexed using the port numbers along with the source and destination
+network addresses onto the same link.
+
+The receiving host decapsulates each segment, identifies the port number,
+and passes payload to the relevant application layer handler.
+
+Reliability checks can be implemented, resending lost or damaged packets.
+
+Multi-layer switches, load-balancers, layer 4 firewalls, IDSes, security
+appliances
+
+
+Layer 5 - Session
+Opening and closing user sessions between the client/server relationship.
+
+
+Layer 6 - Presentation
+Generates the format required for use in an application from the payload.
+
+
+Layer 7 - Application
+Along with the 3 layers below it, the services here make a network useful.
+An application layer protocol doesn't encapsulate any protocols or provide
+services to other protocols. This layer provides an interface for software
+programs on network hosts that have established a communication channel
+through the lower level protocols.
+
+
+
+
+
+##########
+CONFIGURE SOHO NETWORKS
+
+---
+SOHO Routers
+
+LAN - a network in a single location
+SOHO - a category of LAN with a small number of hosts
+WAN - networks is different geographic regions with shared links
+
+
+
+Physical Layer Functions
+  -> RJ45 ports
+  -> Radio antennas
+  -> A modem to connect to the ISP (WAN port)
+
+
+Data-link Layer Functions
+  -> Internal ethernet switch
+  -> WAP wired to the internal ethernet switch via internal port
+  -> Hosts identified by MAC
+
+
+Network Layer Functions
+  -> Makes forwarding decisions between LAN and internet through IP addresses
+  -> The LAN uses a private address range for devices directly on its
+     network.
+  -> The router uses DHCP to assign addresses to each host on the LAN from
+     a pool of a pre-defined address space. The addresses assigned to clients
+     will use the same network bits, but unique hosts bits in the last octet.
+  -> The WAN link is assigned a public IP address by the ISP. When a local
+     host tries to access any valid IP outside of ther LAN, the router forwards
+     the packet over the WAN interface and directs replies back to the host on
+     the LAN.
+
+
+Transport Application and Security Functions
+  -> Filtering rules are applied on the WAN interface, implementing a firewall.
+     Traffic can be blocked by IP and port number.
+  -> Wireless network encryption.
+  -> Management interface login
+
+
+
+
+
+---
+The Internet
+
+What the WAN interface connects to.
+
+
+The Public Switched Telephone Network (PSTN)
+
+Most SOHO internet accessed is facilitated through the PSTN. The SOHO router is
+classified as customer premises equipment(CPE).
+
+The CPE is connected via the modem and WAN port to the local loop. The local loop
+is the cabling from the customer site to the local exchange.
+
+The point at which the telco's cabling enters the customer prem is the demarc.
+
+
+
+Internet Service Providers (ISPs)
+
+The infra of the internet consists of high-bandwidth trunks connecting internet
+exchange points(IXPs). Within an IXP datacenter, ISPs establish links between their
+networks using peering and transit arrangements to carry traffic to and from parts
+of the internet they don't physically own.
+
+There is a tiered hierarchy of ISPs that reflect what extent they depend on transit
+agreements with other ISPs.
+
+
+
+
+
+---
+Hexadecimal Notation
+
+Base-10
+Each digit can have one of ten possible values (0-9).
+A digit positioned to the left of another has 10x the value of the digit to the right:
+255 = (2x10x10) + (5x10) + 5
+
+
+Base-2
+A digit in any position can have one of two values (0 or 1), and each place position
+is the next power of two:
+2 = 0100    6 = 0110    255 = 11111111
+
+
+Hex Notation
+A convenient way of refferring to the long sequence of bytes in network addresses.
+Hex is base-16 with values (0-9) and chars (A-F).

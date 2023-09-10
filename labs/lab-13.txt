@@ -1,0 +1,58 @@
+LAB 13 - ANALYZE A DNS SERVER CONFIGURATION
+
+On Windows Server we configure a DNS server.
+
+> Resolve-DNSName -Name rlan10.corp.515support.com -Dnsonly
+
+> Resolve-DNSName -Name corp.515support.com -Type SOA
+
+> Resolve-DNSName -Name corp.515support.com -Type NS
+
+
+Display the DNS cache:
+> ipconfig /displaydns
+
+Applying a static address (this disables dhcp):
+> New-NetIPAddress -InterfaceAlias 'Ethernet' -IPAddress 10.1.24.200
+-PrefixLength 24
+> ipconfig /registerdns
+
+
+1) Which of the following best describes the purpose of a Start of Authority
+(SOA) record?
+
+Marks the DNS server as authoritative for the zone
+
+
+
+2) Which of the following best describes the purpose of a Name Server (NS)
+record?
+
+Exists for each name server in the zone
+
+
+
+3) What command allows a Windows client computer to register or create its
+host name record on a DNS server?
+
+ipconfig /registerdns
+
+
+
+4) Which of the following correctly identifies the two DNS resource record
+types?
+
+NS records contain the IP address of a DNS server that can resolve names
+and IP addresses
+
+SOA records contain domain contact and responsibility information
+
+
+
+5) Which of the following best describes the problem if a ping by IP address
+attempt succeeds but a ping by hostname attempt fails?
+
+Name resolution is failing.
+
+
+

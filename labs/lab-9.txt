@@ -1,0 +1,58 @@
+LAB 09 - CONFIGURE DYNAMIC ROUTING
+
+We configure RIP on some routers in gns3.
+
+---
+Router A
+# set protocols rip interface eth1
+# set protocols rip redistribute connected
+# commit && save && exit
+$ show ip rip
+
+
+
+---
+Router B
+# set protocols rip interface eth0
+# set protocols rip interface eth1
+# set protocols rip redistribute connected
+# commit && save && exit
+$ show ip rip
+$ show ip route
+
+Router B has learned the route to A using RIP
+
+
+
+---
+Router C
+# set protocols rip interface eth1
+# set protocols rip redistribute connected
+# commit && save && exit
+$ show ip rip
+
+
+
+---
+Configure Redundant Path
+
+Routers don't have a redundant path, if one link fails then half of the
+network is unreachable.
+
+Let's add a redundant link between A and C to avoid this.
+
+We need to configure this redundant link on eth2 into a new 10.0.5.252/30
+subnet:
+
+Router A
+# set interfaces ethernet eth2 address 10.0.5.254/30
+# set protocols rip interface eth2
+# commit && save && exit
+$ sh ip route
+
+Router C
+# set interfaces ethernet eth2 address 10.0.5.253/30
+# set protocols rip interface eth2
+# commit && save && exit
+
+We can see that our redundant link is preferred because it uses less hops.

@@ -1,0 +1,257 @@
+LESSON 3 TESTS
+
+
+##########
+BOOK TESTS
+
+---
+3A
+
+1) You need to run UTP cable between two switches at opposite ends of a
+warehouse that is 140 m (459 feet) long. What additional device (if any) is
+required for the installation to be compliant with 1000BASE-TX Ethernet
+standard?
+
+UTP cables can run a maximum of 100m so a repeater is necessary.
+
+
+
+2) T or F. All the nodes on a hub are on the same collision domain?
+
+True. All nodes on a hub are on the same bradcast and collision domains.
+
+
+
+3) True or False? A computer with a 10BASE-T Ethernet adapter cannot be
+joined to a 100BASE-T network.
+
+False. Fast Ethernet is backwards compatible with 10BASE-T.
+Gigabit internet is backwards compatible with Fast Ethernet.
+
+
+
+4) True or False? Devices can only transmit on an Ethernet network when
+the media is clear, and the opportunity to transmit becomes less
+frequent as more devices are added. Also, the probability of collisions
+increases. These problems can be overcome by installing a hub.
+
+False. We should implement a switch here.
+
+
+
+5) True or false? A bridge does not forward broadcast traffic.
+
+False. A bridge has separate collision domains for its segments, but
+has the same broadcst domains.
+
+
+
+
+
+---
+3B
+
+1) True or False? The CRC mechanism in Ethernet allows for the
+retransmission of damaged frames.
+
+False. CRC simply checks to see if the frame is corrupt.
+
+
+
+2) What is an I/G bit?
+
+The bit in a frame that determines whether the frame goes to an
+individual or group.
+
+
+3) What is an MTU?
+
+The Maximum Transmission unit is the maximum size of the frame payload
+that maxes out at 1500.
+
+
+
+4) On a switched network, what configuration changes must be made to
+allow a host to sniff unicast traffic from all hosts connected to a switch?
+
+The switch must be configured to mirror traffic on the sniffer's port.
+
+
+
+Write the command to use tcpdump to capture traffic from the IP address 172.16.16.254 on the
+interface eth0 and output the results to the file router.pcap.
+
+$ sudo tcpdump -i eth0 -w 'router.pcap' src host 172.16.16.254
+
+
+
+
+
+---
+3C
+
+1) You need to verify whether a switch port is misconfigured by checking
+the number of collisions being reported. What general command could
+you use at a CLI to report this information?
+
+# sh interface
+
+
+
+2) True or false? A managed switch should have auto MDI/MDI-X enabled by
+default.
+
+True.
+
+
+
+3) A technician configures a switch port with a list of approved MAC
+addresses. What type of feature has been enabled?
+
+Port security.
+
+
+
+4) A server has a four-port gigabit Ethernet card. If a switch supports port
+aggregation, what bandwidth link can be achieved?
+
+4x1 gigabit.
+
+
+
+5) What port configuration feature allows a server to smooth incoming
+traffic rates?
+
+IEEE 802.3x Flow control
+
+
+
+6) Can you safely connect a server to a PoE+ enabled port or should you
+disable PoE first?
+
+We can connect the server. PoE detects whether to supply power to the device.
+
+
+
+
+
+##########
+ONLINE
+
+1) A network technician wants to upgrade the company's hub to avoid collisions.
+Which solution would help the technician accomplish this to the fullest extent?
+
+Switch
+
+
+
+2) A help desk operator is trying to identify the vendor for a piece of
+equipment. What could the help desk operator check to determine the vendor?
+
+OUI
+
+
+
+3) A server administrator needs to allow a server to instruct the switch to
+pause traffic temporarily to avoid overwhelming its buffer and causing it to
+drop frames. What should the server administrator set up?
+
+Flow Control
+
+
+
+4) A network engineer is setting up MTU sizes to follow most Ether products.
+In normal conditions, what is the maximum size of a standard Ethernet frame,
+excluding the preamble?
+
+1518bytes
+
+
+
+5) Due to budgetary restraints, a systems administrator is setting up servers
+with standard network interface cards (NICs) using the most cost-effective
+methods. Which of the following do most standard NICs support?
+
+Fast Ethernet
+Gigabit Ethernet
+
+
+
+6) A network technician has set up a link where the cable length exceeds the
+distance limitation and may not achieve the required speed or be unreliable.
+What should the network technician use in this case?
+
+Repeater.
+
+
+
+7) A systems administrator is trying to troubleshoot frames moving over a 10
+gigabit network and wants to set up the most optimal solution. Which of the
+following should the sysadmin use?
+
+Active tap. This is most optimal, gigabit signaling is too complex for
+passive tap.
+
+
+
+8) A network architect is assessing network performance. Which of the following
+is part of the CSMA/CD protocol to identify collisions early?
+
+Preamble
+SFD
+
+
+
+9) A network technician wants to upgrade the company's hub to isolate collision
+domains from each other and allow for Gigabit Ethernet. Which solution would
+help the technician to accomplish this?
+
+Switch
+
+
+
+10) A networking administrator is trying to power off a Cisco switch, but it
+is not working. The administrator needs to be in which mode to perform this
+task?
+
+Privelaged EXEC Mode/Enable Mode. Both of these modes allow the user to
+power off the device.
+
+
+
+11) A network technician is setting up a connection between switches, but
+the switches cannot establish a connection. Which of the following would be
+the most likely cause of the switch's inability to establish a connection?
+
+Dual MDI-X ports
+
+
+
+12) A network administrator is setting up connection points for multiple
+devices to connect. Which of the following cannot be configured?
+
+Hub, they have no config options.
+
+
+
+13) A systems administrator needs to combine multiple 1 Gbps connections to
+be able to support 2 Gbps connections. What should the administrator set up?
+
+NIC Teaming
+
+
+
+14) A cable operator needs to transition from one cable type to another.
+Which of the following would best help?
+
+Media Converter
+
+
+
+15) A networking project manager needs switches that can connect together and
+operate as a group. Which of the following should the project manager use?
+
+Stackable
+
+
+

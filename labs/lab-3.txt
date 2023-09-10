@@ -1,0 +1,88 @@
+LAB 03 - CONFIGURE INTERFACE SETTINGS
+
+
+We are going to train at layer1 and layer2 and configure
+hubs and switches in gns3.
+
+The gns3 labs are in the lab-03 directory.
+
+
+---
+HUBS
+
+First we must configure the devices with IPs...
+
+-> Go to pc1 console and ping pc2. Success.
+
+
+-> ping pc3. It isn't conneted. Connect pc3.
+
+
+-> Try to configure the hub. You can't, hubs don't configure.
+
+
+-> Start a capture on pc3's link.
+
+
+-> on pc1 ping pc3
+
+
+-> go to wireshark to view the capture.
+Check the layer2 destination address of the arp reply.
+
+For a single ping on a hub, there are four packet exchanges.
+Two for the arp broadcast/reply.
+Two for the ICMP request/reply.
+
+
+-> on pc1, ping pc2.
+
+Remember, we are capturing from pc3. We can see the traffic between pc1 and pc2
+because we are on a hub.
+
+
+
+
+
+---
+SWITCH
+
+This is actually really time consuming because we have to re-configure every
+new lab...just takke notes of lessons learnned.
+
+
+Whenever we start a packet capture on pc3 with the managed switch, we see
+broadcast packets only between pc2 and pc1. On the hub we saw all traffic
+between the other nodes including the ICMPs.
+
+When we ping pc3 from pc1 we see all traffic between those two nodes.
+
+
+
+
+
+---
+MANAGED SWITCH
+
+Login to the switch then show all interfaces:
+$ net show interface all
+
+Then we can bring all the switch ports up at once:
+$ net add interface swp1-6 mtu 1500
+$ net pending
+$ net commit
+
+Confirm:
+$ net show interface all
+
+
+As of right now, there is no forwarding between ports so we must configure
+a bridge between them:
+$ net add bridge bridge ports swp1-4
+$ net pending
+$ net commit
+
+$ net show interface all
+
+Now these ports have been configured as access ports with the same logical
+bridge. These ports are all in the same broadcast domain now.

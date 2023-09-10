@@ -1,0 +1,280 @@
+LESSON 6 TEST - SUPPORTING IPV4 AND IPV6 NETWORKS
+
+---
+BOOK 6A
+
+1) How can you check the IP configuration of an interface on an end system
+host at the command line?
+
+> ipconfig /all
+$ ifconfig
+$ ip addr [interface]
+
+
+
+2) What output would you expect when running the command ip neigh?
+
+The local area network neighbors listed with their IP address, MAC address
+pairs.
+
+
+
+3) True or False? The arp utility will always show another hostʼs MAC
+address if that host is on the same subnet.
+
+False. Sometimes the MAC won't show because a broadcast hasn't been
+sent out for that device yet. We must ping the destination first to
+create an ARP entry.
+
+
+
+4) Output from a ping command reports some values in milliseconds. What
+does this measure?
+
+The round-trip request/reply process of the packet.
+
+
+
+5) True or False? Receiving an echo reply message indicates that the link
+between two hosts is operational.
+
+True. This means that there is a working route between the two hosts.
+
+
+
+
+
+---
+BOOK 6B
+
+1) Users on a floor served by a single switch cannot get a network
+connection. What is the best first step?
+
+Check that the switch is powered on, reset it.
+Check to see if the port module is fully seated.
+
+
+
+2) A workstation cannot connect to a server application on a remote
+network. What is the first test you could perform to establish whether
+the workstationʼs link is OK?
+
+Ping the default gateway.
+
+
+
+3) A technician is troubleshooting a network and has asked your advice. He
+is trying to ping 192.168.16.192. The network has been subnetted with
+the custom mask 255.255.255.224. Why might this return a “Destination
+host unreachable” message?
+
+The IP address resolves to the subnet network address, not a host address.
+
+
+
+4) Two client hosts have intermittent connectivity issues when accessing
+a server service on another subnet. No other client hosts exhibit this
+problem. What configuration problem might you suspect?
+
+Duplicate IP/MAC addresses.
+
+
+
+5) You have pinged the router for the local subnet and confirmed that there
+is a valid link. The local host cannot access remote hosts, however. No
+other users are experiencing problems. What do you think is the cause?
+
+The router isn't configured as the default gateway for the local host.
+We can ping it, but the host isn't using it for routing.
+
+
+
+6) A Windows client workstation cannot access a help desk application
+server by its name support.515support.com. The service can be accessed
+using its IP address. What two command line tools should you use to
+identify possible causes of this issue?
+
+$ cat /etc/resolv.conf
+ping and ipconfig /all
+we can also use nslookup and dig
+
+
+
+
+
+---
+BOOK 6C
+
+1) Which of the following IPv6 addresses is a valid unicast host address?
+
+fe80::218:8bff:fea7:bd37
+fe80::219:d2ff::7850
+ff02::219:d2ff:fea7:7850
+::/128
+
+fe80::218:8bff:fea7:bd37
+
+
+
+2) What is an EUI-64, and how might it be used by IPv6?
+
+It is MAC address and can be used as the IPv6 interface ID, though a
+randomly generated token better suits this purpose.
+
+
+
+3) In IPv6, how is the loopback address best expressed?
+
+::1
+
+
+
+4) In IPv6, how can a host obtain a routable IPv6 address without requiring
+manual configuration?
+
+SLAAC allows hosts to autoconfigure an interface by listening to router
+advertisements to obtain a network prefix.
+
+
+
+5) True or false? 6to4 is a dual stack method of transitioning from IPv4
+to IPv6.
+
+False. 6to4 is a tunneling method that encapsulates IPv6 packets in IPv4 UDP
+packets.
+
+
+
+
+
+---
+Online Test
+
+1) A security engineer is analyzing IPv6 packets. Which of the following
+header fields is for quality of service?
+
+Flow label. The flow label is for QoS management for real-time streams.
+The flow label is set to 0 for packets not part of any delivery sequence
+or structure.
+
+
+
+2) A network administrator is diagnosing a suspected problem with local
+addressing and packet delivery. Which of the following commands would
+the administrator use to add an entry to the ARP cache?
+
+$ arp -s [ip-add] [mac-add]
+This command adds an entry to the arp cache
+
+
+
+3) A consultant is visiting a new project and forgot to take the manual
+configurations off the computer from the last project. The client receives
+issues due to a disabled IP. What does the client most likely have?
+
+Duplicate IPs. Windows will disable the IP if it is a duplicate.
+Linux doesn't check for duplicate IPs by default.
+
+
+
+4) A helpdesk technician is troubleshooting issues on a Windows client.
+Which command does the technician use to clear the current IP address so
+that a new one may be obtained?
+
+>ipconfig /release
+
+
+
+5) A security technician is analyzing IPv6 traffic and looking at incomplete
+addresses. Which of the following is a correct IPv6 address?
+
+2001:db8:abc:def0::1234. Remember that the :: can only be used once.
+
+
+
+6) A network administrator is diagnosing a suspected problem with local
+addressing and packet delivery. Which of the following commands would
+the administrator use to flush the ARP cache?
+
+$ arp -d
+
+
+
+7) A network administrator is setting up router advertisements through
+Neighbor Discovery protocol on an IPv6 network. Which of the following is
+NOT one of the main functions?
+
+Error messaging. This is actually a feature of ICMPv6.
+
+
+
+8) A Linux systems administrator wants to interface correctly with modern
+network configuration manager packages. Which of the following would be best
+to accomplish this?
+
+iproute2. Net-tools was replaced with iproute2.
+
+
+
+9) A network technician is setting up IPv6 global addressing. Which of the
+following is NOT part of an IPv6 unicast address?
+
+Starts with fe80. This is for link local addresses.
+Global addresses start with 001.
+
+
+
+10) A security technician is analyzing packets on an IPv6 network. Which
+of the following headers would indicate a multicast packet?
+
+1111 1111 or ff
+The first 8-bits indicate that the address is within the multicast scope.
+
+
+
+11) A helpdesk technician is trying to troubleshoot a client who is having
+issues with its network adapter. What should the technician try first?
+
+Driver.
+
+
+
+12) A device is having issues communicating with the others. Which of the
+following will have issues?
+
+Host A: IP: 192.168.1.10, Mask: 255.255.255.0
+Host B: IP: 192.168.1.11, Mask: 255.255.255.0
+Host C: IP: 192.168.1.21, Mask: 255.255.0.0
+Host D: IP: 192.168.0.10, Mask: 255.255.255.0
+
+Host D will not be able to communicate with the others. Host C cannot contact
+Host D, as it thinks Host D is on the same local network. Host C needs to route
+messages for 192.168.0.0/24 via the default gateway.
+
+
+
+13) A helpdesk technician is setting up a new IP configuration for a new
+Ethernet adapter on a client using PowerShell. Which command should
+the technician use?
+
+New-NetIPAddress. Powershell uses cmdlets like these to carry out tasks.
+netsh is the way to do it on cmd.
+
+
+
+14) A network technician is trying to diagnose a network where something is
+consuming a lot of bandwidth and slowing down the network. Which of the
+following would point to this?
+
+Multicast transmissions. At layer2, if a switch isn't multicast aware it
+will treat multicast transmissions as broadcasts adnd flood all ports on
+the device.
+
+
+
+15) A project manager is visiting a new building and connects to the network.
+The manager performs all connectivity tests by IP address but cannot ping
+by host name. What is most likely the problem?
+
+DNS.
+

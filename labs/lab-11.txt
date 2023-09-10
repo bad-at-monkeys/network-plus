@@ -1,0 +1,26 @@
+LAB 11 - USE NETWORK SCANNNERS
+
+We are gonna use a couple network scanners, wireshark and Netdiscover,
+to investigate network hosts and discover hosts, services, and ports.
+
+
+Scan for systems on a network:
+$ sudo nmap 10.1.16.0/24
+$ sudo nmap -sn 10.1.16.0/24    # simple scan
+
+Get the OS:
+$ sudo nmap -O 10.1.16.2
+
+Extensive scan:
+$ sudo nmap -A 10.1.16.12
+
+Top 20 ports:
+$ nmap --top-ports 20 10.1.16.2
+
+
+Conduct a banner grab over ssh with netcat:
+$ sudo nc -vn 10.1.16.12 22    # we can find software versions like this
+
+Scan for web server info:
+$ sudo nc -vn 10.1.16.12 80
+
